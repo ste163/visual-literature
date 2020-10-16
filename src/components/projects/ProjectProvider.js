@@ -25,10 +25,10 @@ export const ProjectProvider = props => {
     }
 
     return (
-        <ProjectContext.Provder value={{
+        <ProjectContext.Provider value={{
             projects, getProjects, addProject
         }}>
             {props.children}
-        </ProjectContext.Provder>
+        </ProjectContext.Provider>
     )
 }
