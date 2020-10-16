@@ -7,8 +7,7 @@ export const ProjectProvider = props => {
     const [projects, setProject] = useState([])
 
     const getProjects = userId => {
-        const parsedUserId = +userId
-        return fetch(`http://localhost:8088/projects/?userId=${parsedUserId}`)
+        return fetch(`http://localhost:8088/projects/?userId=${userId}`)
         .then(response => response.json())
         .then(setProject)
     }
