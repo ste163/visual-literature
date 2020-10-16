@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useContext } from "react"
 import { ProjectContext } from "./ProjectProvider"
 
 export const ProjectList = () => {
@@ -8,6 +8,8 @@ export const ProjectList = () => {
     useEffect(() => {
         getProjects(activeUser)
     }, [])
+
+    console.log("PROJECT LIST LOADED")
 
     return (
         <section>
