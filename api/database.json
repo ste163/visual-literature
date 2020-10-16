@@ -9,6 +9,7 @@
         {
             "id": 1,
             "name": "Great American Novel",
+            "userId": 1,
             "typeId": 1,
             "goalId": 1,
             "completed": false
