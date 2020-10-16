@@ -2,6 +2,7 @@ import React from "react"
 import { Route, Redirect } from "react-router-dom"
 import { Login } from "./auth/Login"
 import { Register } from "./auth/Register"
+import { ApplicationViews } from "./ApplicationViews"
 import "./WriteLog.css"
 
 export const WriteLog = () => (
@@ -9,9 +10,7 @@ export const WriteLog = () => (
     <Route render={() => {
         if (sessionStorage.getItem("userId")) {
             return (
-                <>
-                <h1>LOGGED IN</h1>
-                </>
+                <ApplicationViews />
             )
         } else {
             return <Redirect to="/login" />
