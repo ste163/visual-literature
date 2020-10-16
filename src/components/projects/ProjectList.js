@@ -1,5 +1,6 @@
 import React, { useEffect, useContext } from "react"
 import { ProjectContext } from "./ProjectProvider"
+import { ProjectForm } from "./ProjectForm"
 
 export const ProjectList = () => {
     const { projects, getProjects } = useContext(ProjectContext)
@@ -14,7 +15,7 @@ export const ProjectList = () => {
     return (
         <section>
             <h2>Projects</h2>
-            <p>PROJECT FORM GOES HERE</p>
+            <ProjectForm />
             <p>LIST OF ALL CURRENT PROJECTS</p>
         </section>
     )

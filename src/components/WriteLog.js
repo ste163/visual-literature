@@ -9,9 +9,6 @@ export const WriteLog = () => (
     <>
     <Route render={() => {
         if (sessionStorage.getItem("userId")) {
-            // If user will be able to decide default view as either
-            // project or dashboard, then another if statement
-            // will need to go here.
             return (
                 <ApplicationViews />
             )
