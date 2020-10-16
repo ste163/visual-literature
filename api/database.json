@@ -1,36 +1,40 @@
 {
-    "users": [
-        {
-            "id": 1,
-            "username": "sam"
-        }
-    ],
-    "projects": [
-        {
-            "id": 1,
-            "name": "Great American Novel",
-            "userId": 1,
-            "typeId": 1,
-            "goalId": 1,
-            "completed": false
-        }
-    ],
-    "types": [
-        {
-            "id": 1,
-            "name": "Novel"
-        },
-        {
-            "id": 2,
-            "name": "Memoir"
-        },
-        {
-            "id": 3,
-            "name": "Poetry"
-        },
-        {
-            "id": 4,
-            "name": "Short Story"
-        }
-    ]
+  "users": [
+    {
+      "id": 1,
+      "username": "sam"
+    },
+    {
+      "username": "author123",
+      "id": 2
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "name": "Great American Novel",
+      "userId": 1,
+      "typeId": 1,
+      "goalId": 1,
+      "completed": false
+    }
+  ],
+  "types": [
+    {
+      "id": 1,
+      "name": "Novel"
+    },
+    {
+      "id": 2,
+      "name": "Memoir"
+    },
+    {
+      "id": 3,
+      "name": "Poetry"
+    },
+    {
+      "id": 4,
+      "name": "Short Story"
+    }
+  ]
 }

@@ -5,12 +5,12 @@ import "./Login.css"
 
 
 export const Login = props => {
-    const email = useRef()
+    const username = useRef()
     const existDialog = useRef()
     const history = useHistory()
 
     const existingUserCheck = () => {
-        return fetch(`http://localhost:8088/customers?email=${email.current.value}`)
+        return fetch(`http://localhost:8088/users?username=${username.current.value}`)
             .then(res => res.json())
             .then(user => user.length ? user[0] : false)
     }
@@ -21,7 +21,7 @@ export const Login = props => {
         existingUserCheck()
             .then(exists => {
                 if (exists) {
-                    localStorage.setItem("kennel_customer", exists.id)
+                    sessionStorage.setItem("userId", exists.id)
                     history.push("/")
                 } else {
                     existDialog.current.showModal()
@@ -30,22 +30,22 @@ export const Login = props => {
     }
 
     return (
-        <main className="container--login">
-            <dialog className="dialog dialog--auth" ref={existDialog}>
+        <main>
+            <dialog ref={existDialog}>
                 <div>User does not exist</div>
                 <button className="button--close" onClick={e => existDialog.current.close()}>Close</button>
             </dialog>
 
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>Nashville Kennels</h1>
+                    <h1>Write Log</h1>
                     <h2>Please sign in</h2>
                     <fieldset>
-                        <label htmlFor="inputEmail"> Email address </label>
-                        <input ref={email} type="email"
-                            id="email"
+                        <label htmlFor="inputUsername"> Username </label>
+                        <input ref={username} type="text"
+                            id="username"
                             className="form-control"
-                            placeholder="Email address"
+                            placeholder="username"
                             required autoFocus />
                     </fieldset>
                     <fieldset>
