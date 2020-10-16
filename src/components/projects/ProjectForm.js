@@ -20,7 +20,49 @@ export const ProjectForm = props => {
                 name="name"
                 placeholder="Project name"
                 required
-                autofocus/>
+                autoFocus/>
+            </fieldset>
+            <fieldset>
+                <label htmlFor="projectType">Project Type: </label>
+                <select 
+                id="projectType"
+                name="projectId"
+                required
+                autoFocus>
+                    <option value="0">Select a project type</option>
+                    {/* Map over project types */}
+                </select>
+            </fieldset>
+            <fieldset>
+                <label htmlFor="projectGoal">Word count goal: </label>
+                <input type="number"
+                 id="projectGoal"
+                 name="wordCountGoal"
+                 placeholder="500"
+                 required
+                 autoFocus
+                 />
+                 {/* Have a tooltip saying 500 words is about 1 single-spaced page */}
+            </fieldset>
+            <fieldset>
+                <label>Goal Frequency: </label>
+                <input type="radio" id="daily" name="goalFrequency" value="daily" />
+                <label for="daily">Daily</label>
+                <input type="radio" id="weekly" name="goalFrequency" value="weekly" />
+                <label for="weekly">Weekly</label>
+                <input type="radio" id="monthly" name="goalFrequency" value="monthly" />
+                <label for="monthly">Monthly</label>
+            </fieldset>
+            {/* BELOW IS GREYED OUT UNLESS WEEKLY OR MONTHLY */}
+            <fieldset>
+                <label htmlFor="daysPerFrequency">How many days per *WEEK*/*MONTH* do you plan on writing: </label>
+                <input type="number"
+                id="daysPerFrequency"
+                name="daysPerFrequency"
+                placeholder="5"
+                required
+                disabled={true}
+                />
             </fieldset>
         </form>
     )

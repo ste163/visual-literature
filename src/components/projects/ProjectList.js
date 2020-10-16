@@ -10,8 +10,6 @@ export const ProjectList = () => {
         getProjects(activeUser)
     }, [])
 
-    console.log("PROJECT LIST LOADED")
-
     return (
         <section>
             <h2>Projects</h2>
