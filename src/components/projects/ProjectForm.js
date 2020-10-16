@@ -47,11 +47,11 @@ export const ProjectForm = props => {
             <fieldset>
                 <label>Goal Frequency: </label>
                 <input type="radio" id="daily" name="goalFrequency" value="daily" />
-                <label for="daily">Daily</label>
+                <label htmlFor="daily">Daily</label>
                 <input type="radio" id="weekly" name="goalFrequency" value="weekly" />
-                <label for="weekly">Weekly</label>
+                <label htmlFor="weekly">Weekly</label>
                 <input type="radio" id="monthly" name="goalFrequency" value="monthly" />
-                <label for="monthly">Monthly</label>
+                <label htmlFor="monthly">Monthly</label>
             </fieldset>
             {/* BELOW IS GREYED OUT UNLESS WEEKLY OR MONTHLY */}
             <fieldset>
