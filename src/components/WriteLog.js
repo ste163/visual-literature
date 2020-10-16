@@ -8,11 +8,10 @@ export const WriteLog = () => (
     <>
     <Route render={() => {
         if (sessionStorage.getItem("userId")) {
-            return (
-                <>
-                <h1>LOGGED IN</h1>
-                </>
-            )
+            // If user will be able to decide default view as either
+            // project or dashboard, then another if statement
+            // will need to go here.
+            return <Redirect to="/projects" />
         } else {
             return <Redirect to="/login" />
         }
