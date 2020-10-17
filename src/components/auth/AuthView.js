@@ -1,16 +1,22 @@
 import React, { useRef } from "react"
-import { Link } from "react-router-dom";
-import { useHistory as history} from "react-router-dom"
+import { useHistory } from "react-router-dom";
 
-export const AuthView = () => {
+export const AuthView = props => {
 
-    const username = useRef()
+    const usernameLogin = useRef()
+    const usernameRegister = useRef()
     const existDialog = useRef()
     const conflictDialog = useRef()
-    
+    const history = useHistory()
 
-    const existingUserCheck = () => {
-        return fetch(`http://localhost:8088/users?username=${username.current.value}`)
+    const existingUserCheckLogin = () => {
+        return fetch(`http://localhost:8088/users?username=${usernameLogin.current.value}`)
+            .then(res => res.json())
+            .then(user => user.length ? user[0] : false)
+    }
+
+    const existingUserCheckRegister = () => {
+        return fetch(`http://localhost:8088/users?username=${usernameRegister.current.value}`)
             .then(res => res.json())
             .then(user => user.length ? user[0] : false)
     }
@@ -18,7 +24,7 @@ export const AuthView = () => {
     const handleLogin = (e) => {
         e.preventDefault()
 
-        existingUserCheck()
+        existingUserCheckLogin()
             .then(exists => {
                 if (exists) {
                     sessionStorage.setItem("userId", exists.id)
@@ -33,7 +39,7 @@ export const AuthView = () => {
     const handleRegister = (e) => {
         e.preventDefault()
 
-        existingUserCheck()
+        existingUserCheckRegister()
             .then((userExists) => {
                 if (!userExists) {
                     fetch("http://localhost:8088/users", {
@@ -42,7 +48,7 @@ export const AuthView = () => {
                             "Content-Type": "application/json"
                         },
                         body: JSON.stringify({
-                            username: username.current.value,
+                            username: usernameRegister.current.value,
                         })
                     })
                         .then(_ => _.json())
@@ -63,7 +69,7 @@ export const AuthView = () => {
         <main>
             <dialog ref={existDialog}>
                 <div>User does not exist</div>
-                <button className="button--close" onClick={e => existDialog.current.close()}>Close</button>
+                <button onClick={e => existDialog.current.close()}>Close</button>
             </dialog>
 
             <dialog ref={conflictDialog}>
@@ -76,17 +82,14 @@ export const AuthView = () => {
                     <h1>Write Log</h1>
                     <h2>Please sign in</h2>
                     <fieldset>
-                        <label htmlFor="inputUsername"> Username </label>
-                        <input ref={username} type="text"
-                            id="username"
-                            className="form-control"
+                        <label htmlFor="usernameLogin"> Username </label>
+                        <input ref={usernameLogin} type="text"
+                            id="usernameLogin"
                             placeholder="username"
                             required autoFocus />
                     </fieldset>
                     <fieldset>
-                        <button type="submit">
-                            Sign in
-                        </button>
+                        <button type="submit">Sign in</button>
                     </fieldset>
                 </form>
             </section>
@@ -94,11 +97,11 @@ export const AuthView = () => {
             <form onSubmit={handleRegister}>
                 <h1>Please Register for Write Log</h1>
                 <fieldset>
-                    <label htmlFor="inputUsername"> Username </label>
-                    <input ref={username} type="text" name="username" placeholder="username" required />
+                    <label htmlFor="usernameRegister"> Username </label>
+                    <input ref={usernameRegister} type="text" name="username" placeholder="username" required />
                 </fieldset>
                 <fieldset>
-                    <button type="submit"> Register </button>
+                    <button type="submit">Register</button>
                 </fieldset>
             </form>
 

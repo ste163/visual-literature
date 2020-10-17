@@ -5,12 +5,8 @@
       "username": "sam"
     },
     {
-      "username": "author123",
-      "id": 2
-    },
-    {
       "username": "author",
-      "id": 3
+      "id": 2
     }
   ],
   "projects": [
