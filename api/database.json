@@ -7,6 +7,10 @@
     {
       "username": "author123",
       "id": 2
+    },
+    {
+      "username": "author",
+      "id": 3
     }
   ],
   "projects": [

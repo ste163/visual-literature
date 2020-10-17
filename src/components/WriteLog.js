@@ -3,6 +3,7 @@ import { Route, Redirect } from "react-router-dom"
 import { Login } from "./auth/Login"
 import { Register } from "./auth/Register"
 import { ApplicationViews } from "./ApplicationViews"
+import { AuthView } from "./auth/AuthView"
 import "./WriteLog.css"
 
 export const WriteLog = () => (
@@ -18,7 +19,7 @@ export const WriteLog = () => (
     }} />
 
     <Route exact path="/login">
-        <Login />
+        <AuthView />
     </Route>
     <Route exact path="/register">
         <Register />
