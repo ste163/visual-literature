@@ -10,10 +10,17 @@ export const AuthView = props => {
     const conflictDialog = useRef()
     const history = useHistory()
 
+    // To allow for the nav underline to move,
+    // target it by useRef
+    const underline = useRef()
+
     // useEffect and state are used
     // to re-render the form, based on whether
     // it's Login or Register
     const [ activeBtn, setBtn] = useState(true)
+
+    // To handle button underline hover effect need to use state
+    const [ isHovering, setHovering ] = useState(false)
 
     useEffect(() => {
         activeBtn ? setBtn(true) : setBtn(false);
@@ -96,16 +103,20 @@ export const AuthView = props => {
                     <li className="btns__li">
                         <button
                         className={activeBtn ? "auth__btn auth__btn--active" : "auth__btn"}
-                        onClick={e => {setBtn(true)}}
+                        onClick={e => setBtn(true)}
+                        onMouseEnter={e => underline.current.className = "red"}
+                        onMouseLeave={e => console.log("STOPPED HOVERING")}
                         >Log in</button>
                     </li>
                     <li className="btns__li">
                         <button
                         className={activeBtn ? "auth__btn" : "auth__btn auth__btn--active"}
-                        onClick={e => {setBtn(false)}}
+                        onClick={e => setBtn(false)}
+                        onMouseEnter={e => console.log("HOVERING")}
+                        onMouseLeave={e => console.log("STOPPED HOVERING")}
                         >Register</button>
                     </li>
-                    <div className={activeBtn ? "auth__line line__login--active" : "auth__line line__register--active"}></div>
+                    <div ref={underline} className={activeBtn ? "auth__line line__login--active" : "auth__line line__register--active"}></div>
                 </ul>
                 <section>
                     <form className="form"
