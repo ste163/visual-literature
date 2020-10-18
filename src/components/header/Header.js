@@ -12,7 +12,7 @@ export const Header = () => {
                 LOGO
                 WRITE LOG
             </section>
-            <nav>
+            <nav className="header__nav">
                 <ul className="nav__list">
                     <div className="nav__centered">
                         <li className="nav__item">
@@ -25,7 +25,7 @@ export const Header = () => {
                     <li className="nav__item nav__rightAligned">
                         <button onClick={() => {
                            sessionStorage.clear("userId")
-                           history.push("/")
+                           history.push()
                         }}>Logout</button>
                     </li>
                 </ul>
