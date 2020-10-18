@@ -1,7 +1,10 @@
 import React from "react"
+import { useHistory } from "react-router-dom"
 import "./Header.css"
 
 export const Header = () => {
+
+    const history = useHistory()
 
     return (
         <header className="header">
@@ -13,14 +16,17 @@ export const Header = () => {
                 <ul className="nav__list">
                     <div className="nav__centered">
                         <li className="nav__item">
-                            PROJECTS
+                            <button onClick={() => history.push("/projects")}>Projects</button>
                         </li>
                         <li className="nav__item">
-                            DASHBOARD
+                        <button onClick={() => history.push("/dashboard")}>Dashboard</button>
                         </li>
                     </div>
                     <li className="nav__item nav__rightAligned">
-                        LOGOUT
+                        <button onClick={() => {
+                           sessionStorage.clear("userId")
+                           history.push("/")
+                        }}>Logout</button>
                     </li>
                 </ul>
             </nav>
