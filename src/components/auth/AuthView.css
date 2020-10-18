@@ -18,15 +18,27 @@
     padding: 0;
 }
 
-.card__form {
-    display: flex;
-    flex-flow: column nowrap;
+.card {
     background-color: var(--cardBackground);
     border-radius: var(--cardRadius);
     filter: var(--cardDropShadow);
 }
 
-.form__btns {
+.card__auth {
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 1em;
+}
+
+.form__active {
+    background-color: transparent;
+}
+
+.form__inactive {
+    display: none;
+}
+
+.auth__btns {
     display: flex;
     justify-content: center;
     margin: 0;
@@ -37,4 +49,14 @@
     margin: 0;
     padding: 0;
     list-style: none;
+}
+
+.auth__btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.auth__btn:hover {
+    background-color:red;
 }

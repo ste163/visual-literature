@@ -82,14 +82,17 @@ export const AuthView = props => {
             <h1 className="title">Write Log</h1>
             <h2 className="subtitle">Writing tracking, visualization, & analysis </h2>
 
-            <section className="card__form">
-                    <ul  className="form__btns">
-                        <li className="btns__li"><button>Log in</button></li>
-                        <li className="btns__li"><button>Register</button></li>
+            <section className="card card__auth">
+                    <ul  className="auth__btns">
+                        <li className="btns__li">
+                            <button className="auth__btn">Log in</button>
+                        </li>
+                        <li className="btns__li">
+                            <button className="auth__btn">Register</button>
+                        </li>
                     </ul>
                 <section>
-                    <form className="form" onSubmit={handleLogin}>
-                        <h2>Log in</h2>
+                    <form className="form form__active" onSubmit={handleLogin}>
                         <fieldset>
                             <label htmlFor="usernameLogin">Username </label>
                             <input ref={usernameLogin} type="text"
@@ -97,20 +100,19 @@ export const AuthView = props => {
                                 placeholder="username"
                                 required autoFocus />
                         </fieldset>
-                        <fieldset>
-                            <button type="submit">Log in</button>
+                        <fieldset className="fieldset__btn">
+                            <button className="btn" type="submit">Log in</button>
                         </fieldset>
                     </form>
                 </section>
 
-                <form className="form" onSubmit={handleRegister}>
-                    <h2>Register</h2>
+                <form className="form form__inactive" onSubmit={handleRegister}>
                     <fieldset>
                         <label htmlFor="usernameRegister">Username </label>
                         <input ref={usernameRegister} type="text" name="username" placeholder="username" required />
                     </fieldset>
-                    <fieldset>
-                        <button type="submit">Register</button>
+                    <fieldset className="fieldset__btn">
+                        <button className="btn" type="submit">Register</button>
                     </fieldset>
                 </form>
             </section>
