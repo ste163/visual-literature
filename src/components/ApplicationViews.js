@@ -1,5 +1,6 @@
 import React from "react"
 import { Redirect, Route } from "react-router-dom"
+import { Header } from "./header/Header"
 import { ProjectProvider } from "./projects/ProjectProvider"
 import { ProjectList } from "./projects/ProjectList"
 
@@ -9,7 +10,8 @@ export const ApplicationViews = () => {
     // will need to go on the route exact path "/"
     return (
     <> 
-        <Route exact path="/">
+        <Route path="/">
+            <Header />
             <Redirect to="/projects" />
         </Route>
 
