@@ -8,15 +8,16 @@ export const Header = () => {
     const location = useLocation()
 
     // We will set the nav with the current location.pathname
-    const [activeNav, setNav] = useState()
+    // const [activeNav, setNav] = useState()
 
-    useEffect(() => {
-        // Location doesn't show on load because it takes a couple seconds
-        // for it to run. This delay happens when clicking the buttons, too.
-        console.log(location.pathname)
-        setNav(location.pathname)
-        console.log("ACTIVE NAV IS", activeNav)
-    }, [])
+    let activeNavItem = location.pathname
+
+    // useEffect(() => {
+    //     Location doesn't show on load because it takes a couple seconds
+    //     for it to run. This delay happens when clicking the buttons, too.
+    //     console.log(location.pathname)
+    //     setNav(location.pathname)
+    // }, [])
 
     return (
         <header className="header">
@@ -30,19 +31,20 @@ export const Header = () => {
                         <li className="nav__item">
                             <button className="nav__btn" onClick={() => {
                                 history.push("/projects")
-                                setNav(location.pathname)
-                                console.log("CURRENT NAV", activeNav)
+                                activeNavItem = "/projects"
+                                console.log("CURRENT NAV", activeNavItem)
                             }}
                             >Projects</button>
                         </li>
                         <li className="nav__item">
-                        <button className="nav__btn"  onClick={() => {
-                            history.push("/dashboard")
-                            setNav(location.pathname)
-                            console.log("CURRENT NAV", activeNav)
-                        }}
+                            <button className="nav__btn"  onClick={() => {
+                                history.push("/dashboard")
+                                activeNavItem = "/dashboard"
+                                console.log("CURRENT NAV", activeNavItem)
+                            }}
                             >Dashboard</button>
                         </li>
+                        <div className="nav__line"></div>
                     </div>
                     <li className="nav__item nav__rightAligned">
                         <button
