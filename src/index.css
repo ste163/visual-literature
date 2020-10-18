@@ -1,13 +1,91 @@
+:root {
+  /* Colors */
+  --green: #02545B;
+  --greenActive: #01383d;
+  --cardBackground: #F6F6F6;
+  --formFieldGray: #E9E9E9;
+
+  /* Fonts */
+  --fontFamily: 'Heebo', sans-serif;
+  --weightThinnest: 100;
+  --weightThin: 300;
+  --weightNormal: 400;
+  --weightHeavy: 500;
+  --weightHeavier: 700;
+  --weightHeaviest: 900;
+
+  /* Border Radius */
+  --cardRadius: 15px;
+  --formFieldRadius: 0.5em;
+
+  /* Drop Shadow */
+  --cardDropShadow: drop-shadow(-5px 5px 3px #e9e9e9);
+
+  /* Transitions */
+  --btnHover: 0.2s
+}
+
+* {
+  color: #333333;
+  font-family: var(--fontFamily);
+}
+
 body {
+  font-size: 1.5em;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+h1 {
+  font-weight: var(--weightHeaviest)
+}
+
+.btn {
+  background-color: transparent;
+  border-style: solid;
+  border-radius: var(--formFieldRadius);
+  border-color: var(--green);
+  border-width: 0.2em;
+  width: max-content;
+  padding: .2em 1em;
+  cursor: pointer;
+  font-size: 0.7em;
+  justify-self: center;
+  transition: var(--btnHover);
+}
+
+.btn:hover {
+  background-color: var(--green);
+  color: white;
+}
+
+.btn:active {
+  background-color: var(--greenActive);
+  border-color: var(--greenActive)
+}
+
+/* Forms */
+fieldset {
+  display: flex;
+  flex-flow: column nowrap;
+  border: none;
+}
+
+.fieldset__btn {
+  display: grid;
+  justify-content: center;
+}
+
+label {
+  font-size: 0.75em;
+  font-weight: var(--weightThin);
+}
+
+input, select{
+  background-color: var(--formFieldGray);
+  border-style: none;
+  border-radius: var(--formFieldRadius);
+  padding: 0.5em;
 }
