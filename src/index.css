@@ -31,6 +31,7 @@
 }
 
 body {
+  font-size: 1.5em;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -44,11 +45,13 @@ h1 {
 .btn {
   background-color: transparent;
   border-style: solid;
-  border-radius: 5px;
+  border-radius: var(--formFieldRadius);
   border-color: var(--green);
+  border-width: 0.2em;
   width: max-content;
   padding: .2em 1em;
   cursor: pointer;
+  font-size: 0.7em;
   transition: var(--btnHover);
 }
 
@@ -74,6 +77,7 @@ fieldset {
 }
 
 label {
+  font-size: 0.75em;
   font-weight: var(--weightThin);
 }
 

@@ -94,11 +94,12 @@ export const AuthView = props => {
             <section className="card card__auth">
                 <ul  className="auth__btns">
                     <li className="btns__li">
-                        <button className="auth__btn" onClick={e => {setBtn(true); console.log("TRUE")}}>Log in</button>
+                        <button className="auth__btn" onClick={e => {setBtn(true)}}>Log in</button>
                     </li>
                     <li className="btns__li">
-                        <button className="auth__btn" onClick={e => {setBtn(false); console.log("FALSE")}}>Register</button>
+                        <button className="auth__btn" onClick={e => {setBtn(false)}}>Register</button>
                     </li>
+                    {/* <div>UNDERLINE GOES INTO A GRID BENEATH THESE. TRANSITION ON HOVER/CLICK</div> */}
                 </ul>
                 <section>
                     <form className="form"
@@ -111,7 +112,7 @@ export const AuthView = props => {
                                 required autoFocus />
                         </fieldset>
                         <fieldset className="fieldset__btn">
-                            <button className="btn" type="submit">{activeBtn ? "usernameLogin" : "usernameRegister"}</button>
+                            <button className="btn" type="submit">{activeBtn ? "Login" : "Register"}</button>
                         </fieldset>
                     </form>
                 </section>

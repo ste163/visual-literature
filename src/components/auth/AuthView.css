@@ -29,14 +29,7 @@
     display: flex;
     flex-flow: column nowrap;
     padding: 1em;
-}
-
-.form__active {
-    background-color: transparent;
-}
-
-.form__inactive {
-    display: none;
+    width: 30vmax;
 }
 
 .auth__btns {
@@ -56,8 +49,10 @@
     background-color: transparent;
     border: none;
     cursor: pointer;
+    font-size: 0.8em;
+    transition: var(--btnHover)
 }
 
-.auth__btn:hover {
+.auth__btn--active {
     background-color:red;
 }
