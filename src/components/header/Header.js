@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { useHistory, useLocation } from "react-router-dom"
 import { WriteLogLogo } from "../branding/WriteLogLogo"
+import { WriteLogTitle } from "../branding/WriteLogTitle"
 import "./Header.css"
 
 export const Header = () => {
@@ -24,7 +25,7 @@ export const Header = () => {
         <header className="header">
             <section className="header__branding">
                 <WriteLogLogo location="logo__header" color="logo__white"/>
-                WRITE LOG
+                <WriteLogTitle location="title__header" color="title__white" />
             </section>
             <nav className="header__nav">
                 <ul className="nav__list">
