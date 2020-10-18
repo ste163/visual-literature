@@ -81,32 +81,39 @@ export const AuthView = props => {
 
             <h1 className="title">Write Log</h1>
             <h2 className="subtitle">Writing tracking, visualization, & analysis </h2>
-            <section>
-                <form className="form" onSubmit={handleLogin}>
-                    <h2>Sign in</h2>
+
+            <section className="card__form">
+                    <ul  className="form__btns">
+                        <li className="btns__li"><button>Log in</button></li>
+                        <li className="btns__li"><button>Register</button></li>
+                    </ul>
+                <section>
+                    <form className="form" onSubmit={handleLogin}>
+                        <h2>Log in</h2>
+                        <fieldset>
+                            <label htmlFor="usernameLogin">Username </label>
+                            <input ref={usernameLogin} type="text"
+                                id="usernameLogin"
+                                placeholder="username"
+                                required autoFocus />
+                        </fieldset>
+                        <fieldset>
+                            <button type="submit">Log in</button>
+                        </fieldset>
+                    </form>
+                </section>
+
+                <form className="form" onSubmit={handleRegister}>
+                    <h2>Register</h2>
                     <fieldset>
-                        <label htmlFor="usernameLogin">Username </label>
-                        <input ref={usernameLogin} type="text"
-                            id="usernameLogin"
-                            placeholder="username"
-                            required autoFocus />
+                        <label htmlFor="usernameRegister">Username </label>
+                        <input ref={usernameRegister} type="text" name="username" placeholder="username" required />
                     </fieldset>
                     <fieldset>
-                        <button type="submit">Sign in</button>
+                        <button type="submit">Register</button>
                     </fieldset>
                 </form>
             </section>
-
-            <form className="form" onSubmit={handleRegister}>
-                <h2>Register</h2>
-                <fieldset>
-                    <label htmlFor="usernameRegister">Username </label>
-                    <input ref={usernameRegister} type="text" name="username" placeholder="username" required />
-                </fieldset>
-                <fieldset>
-                    <button type="submit">Register</button>
-                </fieldset>
-            </form>
 
         </main>
     )
