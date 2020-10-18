@@ -60,10 +60,6 @@
     font-weight: var(--weightHeaviest);
 }
 
-.auth__btn:hover, .auth__line {
-    grid-column-start: 2;
-}
-
 .auth__line {
     grid-row-start: 2;
     border-bottom-style: solid;
