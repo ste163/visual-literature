@@ -1,0 +1,9 @@
+.logo__header {
+    width: 1.7em;
+    height: 1.7em;
+    margin-left: 0.2em;
+}
+
+.logo__login {
+    fill: var(--green);
+}
