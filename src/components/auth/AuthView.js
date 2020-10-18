@@ -1,4 +1,4 @@
-import React, { useRef } from "react"
+import React, { useRef, useState, useEffect } from "react"
 import { useHistory } from "react-router-dom";
 import "./AuthView.css"
 
@@ -9,6 +9,15 @@ export const AuthView = props => {
     const existDialog = useRef()
     const conflictDialog = useRef()
     const history = useHistory()
+
+    // useEffect and state are used
+    // to re-render the form, based on whether
+    // it's Login or Register
+    const [ activeBtn, setBtn] = useState(true)
+
+    useEffect(() => {
+        activeBtn ? setBtn(true) : setBtn(false);
+    }, [])
 
     // Fetch for only login field
     const existingUserCheckLogin = () => {
@@ -80,41 +89,32 @@ export const AuthView = props => {
             </dialog>
 
             <h1 className="title">Write Log</h1>
-            <h2 className="subtitle">Writing tracking, visualization, & analysis </h2>
+            <h2 className="subtitle">Track, visualize, & analyze your writing projects</h2>
 
             <section className="card card__auth">
-                    <ul  className="auth__btns">
-                        <li className="btns__li">
-                            <button className="auth__btn">Log in</button>
-                        </li>
-                        <li className="btns__li">
-                            <button className="auth__btn">Register</button>
-                        </li>
-                    </ul>
+                <ul  className="auth__btns">
+                    <li className="btns__li">
+                        <button className="auth__btn" onClick={e => {setBtn(true); console.log("TRUE")}}>Log in</button>
+                    </li>
+                    <li className="btns__li">
+                        <button className="auth__btn" onClick={e => {setBtn(false); console.log("FALSE")}}>Register</button>
+                    </li>
+                </ul>
                 <section>
-                    <form className="form form__active" onSubmit={handleLogin}>
+                    <form className="form"
+                    onSubmit={activeBtn ? handleLogin : handleRegister}>
                         <fieldset>
-                            <label htmlFor="usernameLogin">Username</label>
-                            <input ref={usernameLogin} type="text"
-                                id="usernameLogin"
+                            <label htmlFor={activeBtn ? "usernameLogin" : "usernameRegister"}>Username</label>
+                            <input ref={activeBtn ? usernameLogin : usernameRegister} type="text"
+                                id={activeBtn ? "usernameLogin" : "usernameRegister"}
                                 placeholder="Author123"
                                 required autoFocus />
                         </fieldset>
                         <fieldset className="fieldset__btn">
-                            <button className="btn" type="submit">Log in</button>
+                            <button className="btn" type="submit">{activeBtn ? "usernameLogin" : "usernameRegister"}</button>
                         </fieldset>
                     </form>
                 </section>
-
-                <form className="form form__inactive" onSubmit={handleRegister}>
-                    <fieldset>
-                        <label htmlFor="usernameRegister">Username </label>
-                        <input ref={usernameRegister} type="text" name="username" placeholder="Author123" required />
-                    </fieldset>
-                    <fieldset className="fieldset__btn">
-                        <button className="btn" type="submit">Register</button>
-                    </fieldset>
-                </form>
             </section>
 
         </main>
