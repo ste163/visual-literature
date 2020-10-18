@@ -30,6 +30,7 @@
     flex-flow: column nowrap;
     padding: 1em;
     width: 30vmax;
+    max-width: 13em;
 }
 
 .auth__btns {
@@ -59,27 +60,22 @@
     font-weight: var(--weightHeaviest);
 }
 
+.auth__btn:hover, .auth__line {
+    grid-column-start: 2;
+}
+
 .auth__line {
     grid-row-start: 2;
     border-bottom-style: solid;
     border-bottom-width: 0.25em;
     border-radius: 5em;
     border-color: var(--green);
-    transition: 2s;
 }
 
 .line__login--active {
     grid-column-start: 1;
 }
 
-.line__login--inactive:hover {
-    grid-column-start: 1;
-}
-
 .line__register--active {
-    grid-column-start: 2;
-}
-
-.line__register--inactive:hover {
     grid-column-start: 2;
 }

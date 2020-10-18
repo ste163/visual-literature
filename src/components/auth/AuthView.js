@@ -19,11 +19,8 @@ export const AuthView = props => {
     // it's Login or Register
     const [ activeBtn, setBtn] = useState(true)
 
-    // To handle button underline hover effect need to use state
-    const [ isHovering, setHovering ] = useState(false)
-
     useEffect(() => {
-        activeBtn ? setBtn(true) : setBtn(false);
+       activeBtn ? setBtn(true) : setBtn(false)
     }, [])
 
     // Fetch for only login field
@@ -104,19 +101,19 @@ export const AuthView = props => {
                         <button
                         className={activeBtn ? "auth__btn auth__btn--active" : "auth__btn"}
                         onClick={e => setBtn(true)}
-                        onMouseEnter={e => underline.current.className = "red"}
-                        onMouseLeave={e => console.log("STOPPED HOVERING")}
+                        onMouseEnter={e => underline.current.className = "auth__line line__login--active"}
+                        onMouseLeave={e => underline.current.className = `auth__line ${activeBtn ? "line__login--active" : "line__register--active"}`}
                         >Log in</button>
                     </li>
                     <li className="btns__li">
                         <button
                         className={activeBtn ? "auth__btn" : "auth__btn auth__btn--active"}
                         onClick={e => setBtn(false)}
-                        onMouseEnter={e => console.log("HOVERING")}
-                        onMouseLeave={e => console.log("STOPPED HOVERING")}
+                        onMouseEnter={e => underline.current.className = "auth__line line__register--active"}
+                        onMouseLeave={e => underline.current.className = `auth__line ${activeBtn ? "line__login--active" : "line__register--active"}`}
                         >Register</button>
                     </li>
-                    <div ref={underline} className={activeBtn ? "auth__line line__login--active" : "auth__line line__register--active"}></div>
+                    <div ref={underline} className={`auth__line ${activeBtn ? "line__login--active" : "line__register--active"}`}></div>
                 </ul>
                 <section>
                     <form className="form"
