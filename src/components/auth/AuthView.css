@@ -75,3 +75,24 @@
 .line__register--active {
     grid-column-start: 2;
 }
+
+.btn__authSubmit {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.login__active {
+    opacity: 100%;
+}
+
+.login__inactive {
+    opacity: 0%;
+}
+
+.register__active {
+    opacity: 100%;
+}
+
+.register__inactive {
+    opacity: 0;
+}

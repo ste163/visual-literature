@@ -10,6 +10,9 @@ export const AuthView = props => {
     const conflictDialog = useRef()
     const history = useHistory()
 
+    const loginBtn = useRef()
+    const registerBtn = useRef()
+
     // To allow for the nav underline to move,
     // target it by useRef
     const underline = useRef()
@@ -126,7 +129,14 @@ export const AuthView = props => {
                                 required autoFocus />
                         </fieldset>
                         <fieldset className="fieldset__btn">
-                            <button className="btn" type="submit">{activeBtn ? "Login" : "Register"}</button>
+                            <button 
+                            ref={loginBtn}
+                            className={`btn btn__authSubmit ${activeBtn ? "login__active" : " login__inactive"}`}
+                            type="submit">Login</button>
+                            <button
+                            ref={registerBtn} 
+                            className={`btn btn__authSubmit ${activeBtn ? "register__inactive" : "register__active"}`}
+                            type="submit">Register</button>
                         </fieldset>
                     </form>
                 </section>

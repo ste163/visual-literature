@@ -52,6 +52,7 @@ h1 {
   padding: .2em 1em;
   cursor: pointer;
   font-size: 0.7em;
+  justify-self: center;
   transition: var(--btnHover);
 }
 
@@ -73,14 +74,14 @@ fieldset {
 }
 
 .fieldset__btn {
-  align-items: center;
+  display: grid;
+  justify-content: center;
 }
 
 label {
   font-size: 0.75em;
   font-weight: var(--weightThin);
 }
-
 
 input, select{
   background-color: var(--formFieldGray);
