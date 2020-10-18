@@ -33,13 +33,14 @@
 }
 
 .auth__btns {
-    display: flex;
+    display: grid;
     justify-content: center;
     margin: 0;
     padding: 0;
 }
 
 .btns__li {
+    grid-row-start: 1;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -54,5 +55,31 @@
 }
 
 .auth__btn--active {
-    background-color:red;
+    color: var(--green);
+    font-weight: var(--weightHeaviest);
+}
+
+.auth__line {
+    grid-row-start: 2;
+    border-bottom-style: solid;
+    border-bottom-width: 0.25em;
+    border-radius: 5em;
+    border-color: var(--green);
+    transition: 2s;
+}
+
+.line__login--active {
+    grid-column-start: 1;
+}
+
+.line__login--inactive:hover {
+    grid-column-start: 1;
+}
+
+.line__register--active {
+    grid-column-start: 2;
+}
+
+.line__register--inactive:hover {
+    grid-column-start: 2;
 }

@@ -94,12 +94,18 @@ export const AuthView = props => {
             <section className="card card__auth">
                 <ul  className="auth__btns">
                     <li className="btns__li">
-                        <button className="auth__btn" onClick={e => {setBtn(true)}}>Log in</button>
+                        <button
+                        className={activeBtn ? "auth__btn auth__btn--active" : "auth__btn"}
+                        onClick={e => {setBtn(true)}}
+                        >Log in</button>
                     </li>
                     <li className="btns__li">
-                        <button className="auth__btn" onClick={e => {setBtn(false)}}>Register</button>
+                        <button
+                        className={activeBtn ? "auth__btn" : "auth__btn auth__btn--active"}
+                        onClick={e => {setBtn(false)}}
+                        >Register</button>
                     </li>
-                    {/* <div>UNDERLINE GOES INTO A GRID BENEATH THESE. TRANSITION ON HOVER/CLICK</div> */}
+                    <div className={activeBtn ? "auth__line line__login--active" : "auth__line line__register--active"}></div>
                 </ul>
                 <section>
                     <form className="form"
