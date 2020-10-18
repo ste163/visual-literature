@@ -23,7 +23,7 @@ export const Header = () => {
     return (
         <header className="header">
             <section className="header__branding">
-                <WriteLogLogo props="logo__header"/>
+                <WriteLogLogo location="logo__header" color="logo__white"/>
                 WRITE LOG
             </section>
             <nav className="header__nav">

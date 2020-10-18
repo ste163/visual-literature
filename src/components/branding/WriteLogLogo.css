@@ -5,5 +5,14 @@
 }
 
 .logo__login {
+    width: 3em;
+    height: 3em;
+}
+
+.logo__white {
+    fill: white;
+}
+
+.logo__green {
     fill: var(--green);
 }
