@@ -20,6 +20,7 @@
 .nav__centered {
     display: flex;
     flex-flow: row nowrap;
+    margin-left: 1em;
 }
 
 .nav__item {

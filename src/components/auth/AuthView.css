@@ -83,16 +83,20 @@
 
 .login__active {
     opacity: 100%;
+    z-index: 1;
 }
 
 .login__inactive {
     opacity: 0%;
+    z-index: 0;
 }
 
 .register__active {
     opacity: 100%;
+    z-index: 1;
 }
 
 .register__inactive {
     opacity: 0;
+    z-index: 0;
 }
