@@ -1,5 +1,6 @@
 import React, { useRef } from "react"
 import { useHistory } from "react-router-dom";
+import "./AuthView.css"
 
 export const AuthView = props => {
 
@@ -9,12 +10,14 @@ export const AuthView = props => {
     const conflictDialog = useRef()
     const history = useHistory()
 
+    // Fetch for only login field
     const existingUserCheckLogin = () => {
         return fetch(`http://localhost:8088/users?username=${usernameLogin.current.value}`)
             .then(res => res.json())
             .then(user => user.length ? user[0] : false)
     }
 
+    // Fetch for only register field
     const existingUserCheckRegister = () => {
         return fetch(`http://localhost:8088/users?username=${usernameRegister.current.value}`)
             .then(res => res.json())
@@ -34,7 +37,6 @@ export const AuthView = props => {
                 }
             })
     }
-
 
     const handleRegister = (e) => {
         e.preventDefault()
@@ -66,7 +68,7 @@ export const AuthView = props => {
     }
 
     return (
-        <main>
+        <main className="auth__container">
             <dialog ref={existDialog}>
                 <div>User does not exist</div>
                 <button onClick={e => existDialog.current.close()}>Close</button>
@@ -77,12 +79,13 @@ export const AuthView = props => {
                 <button onClick={e => conflictDialog.current.close()}>Close</button>
             </dialog>
 
+            <h1 className="title">Write Log</h1>
+            <h2 className="subtitle">Writing tracking, visualization, & analysis </h2>
             <section>
-                <form className="form--login" onSubmit={handleLogin}>
-                    <h1>Write Log</h1>
-                    <h2>Please sign in</h2>
+                <form className="form" onSubmit={handleLogin}>
+                    <h2>Sign in</h2>
                     <fieldset>
-                        <label htmlFor="usernameLogin"> Username </label>
+                        <label htmlFor="usernameLogin">Username </label>
                         <input ref={usernameLogin} type="text"
                             id="usernameLogin"
                             placeholder="username"
@@ -94,10 +97,10 @@ export const AuthView = props => {
                 </form>
             </section>
 
-            <form onSubmit={handleRegister}>
-                <h1>Please Register for Write Log</h1>
+            <form className="form" onSubmit={handleRegister}>
+                <h2>Register</h2>
                 <fieldset>
-                    <label htmlFor="usernameRegister"> Username </label>
+                    <label htmlFor="usernameRegister">Username </label>
                     <input ref={usernameRegister} type="text" name="username" placeholder="username" required />
                 </fieldset>
                 <fieldset>
