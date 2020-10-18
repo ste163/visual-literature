@@ -94,10 +94,10 @@ export const AuthView = props => {
                 <section>
                     <form className="form form__active" onSubmit={handleLogin}>
                         <fieldset>
-                            <label htmlFor="usernameLogin">Username </label>
+                            <label htmlFor="usernameLogin">Username</label>
                             <input ref={usernameLogin} type="text"
                                 id="usernameLogin"
-                                placeholder="username"
+                                placeholder="Author123"
                                 required autoFocus />
                         </fieldset>
                         <fieldset className="fieldset__btn">
@@ -109,7 +109,7 @@ export const AuthView = props => {
                 <form className="form form__inactive" onSubmit={handleRegister}>
                     <fieldset>
                         <label htmlFor="usernameRegister">Username </label>
-                        <input ref={usernameRegister} type="text" name="username" placeholder="username" required />
+                        <input ref={usernameRegister} type="text" name="username" placeholder="Author123" required />
                     </fieldset>
                     <fieldset className="fieldset__btn">
                         <button className="btn" type="submit">Register</button>

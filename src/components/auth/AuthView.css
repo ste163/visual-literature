@@ -16,6 +16,7 @@
 .subtitle {
     margin: 0;
     padding: 0;
+    font-weight: var(--weightThinnest);
 }
 
 .card {
