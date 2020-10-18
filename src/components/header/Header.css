@@ -29,3 +29,17 @@
     margin: 0;
     padding: 0;
 }
+
+.nav__btn {
+    background-color: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: var(--weightThin);
+    font-size: 0.7em;
+    transition: var(--btnHover);
+}
+
+.nav__btn--active {
+    font-weight: var(--weightHeavier)
+}

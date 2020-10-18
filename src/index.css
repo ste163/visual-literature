@@ -86,4 +86,5 @@ input, select{
   border-style: none;
   border-radius: var(--formFieldRadius);
   padding: 0.5em;
+  font-size: 0.7em;
 }
