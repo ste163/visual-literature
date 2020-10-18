@@ -20,7 +20,7 @@ export const AuthView = props => {
     // useEffect and state are used
     // to re-render the form, based on whether
     // it's Login or Register
-    const [ activeBtn, setBtn] = useState(true)
+    const [activeBtn, setBtn] = useState(true)
 
     useEffect(() => {
        activeBtn ? setBtn(true) : setBtn(false)
