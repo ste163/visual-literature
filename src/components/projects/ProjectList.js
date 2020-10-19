@@ -20,7 +20,7 @@ export const ProjectList = () => {
 
         <section className="view__header">
             <button className="project__btn"
-            onClick={e => {console.log(modal)}}
+            onClick={e => {modal.current.className = "background__modal modal__active"}}
             
             >Create new project</button>
         </section>

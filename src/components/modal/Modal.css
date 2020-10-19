@@ -11,6 +11,7 @@
     pointer-events: none;
     opacity: 0;
     z-index: 3;
+    transition: 0.2s;
 }
 
 .modal__content {
@@ -25,4 +26,5 @@
 
 .modal__active {
     opacity: 100;
+    pointer-events: auto;
 }
