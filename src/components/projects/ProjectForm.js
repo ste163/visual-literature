@@ -2,6 +2,7 @@ import React, { useContext, useRef, useEffect} from "react"
 // import { useHistory as history } from "react-router-dom"
 import { ProjectContext } from "./ProjectProvider"
 // need to import project types
+import "./ProjectForm.css"
 
 export const ProjectForm = props => {
     // NOT using these scripts. Only creating form HTML
@@ -11,8 +12,8 @@ export const ProjectForm = props => {
     // const userId = +sessionStorage.getItem("userId")
 
     return (
-        <form>
-            <h3>Create New Project</h3>
+        <form className="form__project">
+            <h3 className="project__h3">Create New Project</h3>
             <fieldset>
                 <label htmlFor="projectName">Project name: </label>
                 <input type="text"

@@ -5,6 +5,8 @@
     justify-content: space-between;
     height: 2em;
     background-color: var(--green);
+    filter: var(--headingDropShadow);
+    z-index: 2;
 }
 
 .header__branding {

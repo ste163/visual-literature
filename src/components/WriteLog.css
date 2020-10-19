@@ -1,0 +1,10 @@
+.view__header {
+    display: flex;
+    flex-flow: row nowrap;
+    background-color: var(--offWhite);
+    filter: var(--headingDropShadow)
+}
+
+.view__container {
+
+}

@@ -8,7 +8,6 @@ footer {
 .footer__row1 {
     display: flex;
     flex-flow: row nowrap;
-    /* justify-content: space-between; */
 }
 
 .footer__branding, .footer__summary, .footer__about, .footer__tech {
