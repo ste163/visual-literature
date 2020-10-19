@@ -1,6 +1,7 @@
 import React, { useEffect, useContext } from "react"
 import { ProjectContext } from "./ProjectProvider"
 import { ProjectForm } from "./ProjectForm"
+import { Modal } from "../modal/Modal"
 import "./Project.css"
 
 export const ProjectList = () => {
@@ -19,7 +20,8 @@ export const ProjectList = () => {
         </section>
 
         <section className="view__container">
-            <ProjectForm />
+            <Modal contentFunction={<ProjectForm />} />
+            {/* <ProjectForm /> */}
             <p>LIST OF ALL CURRENT PROJECTS</p>
         </section>
         
