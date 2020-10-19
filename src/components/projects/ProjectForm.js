@@ -1,15 +1,23 @@
-import React, { useContext, useRef, useEffect} from "react"
-// import { useHistory as history } from "react-router-dom"
+import React, { useContext, useState, useRef, useEffect} from "react"
 import { ProjectContext } from "./ProjectProvider"
-// need to import project types
+import { TypeContext } from "../type/TypeProvider"
 import "./ProjectForm.css"
 
 export const ProjectForm = props => {
-    // NOT using these scripts. Only creating form HTML
-    // const { addProject } = useContext(ProjectContext)
+
+    const { addProject } = useContext(ProjectContext)
+    const { types, getTypes } = useContext(TypeContext)
+
+    const [isLoading, setIsLoading ] = useState(true)
 
     // const name = useRef(null)
     // const userId = +sessionStorage.getItem("userId")
+
+    useEffect(() => {
+        getTypes().then(() => {
+            setIsLoading(false);
+        })
+    }, [])
 
     return (
         <form className="form__project">
@@ -31,7 +39,11 @@ export const ProjectForm = props => {
                 required
                 autoFocus>
                     <option value="0">Select a project type</option>
-                    {/* Map over project types */}
+                    {types.map(type => (
+                        <option key={type.id} value={type.id}>
+                            {type.name}
+                        </option>
+                    ))}
                 </select>
             </fieldset>
             <fieldset>
@@ -62,7 +74,7 @@ export const ProjectForm = props => {
                 name="daysPerFrequency"
                 placeholder="5"
                 required
-                disabled={true}
+                disabled={isLoading}
                 />
             </fieldset>
             <button>SUBMIT</button>
