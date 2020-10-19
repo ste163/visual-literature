@@ -21,10 +21,11 @@
     width: 600px;
     max-width: 100%;
     filter: --var(cardDropShadow);
-    overflow:scroll;
+    overflow-y: auto;
+    z-index: 4;
 }
 
 .modal__active {
     opacity: 100;
-    pointer-events: auto;
+    pointer-events: all;
 }

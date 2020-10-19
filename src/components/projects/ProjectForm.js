@@ -65,6 +65,7 @@ export const ProjectForm = props => {
                 disabled={true}
                 />
             </fieldset>
+            <button>SUBMIT</button>
         </form>
     )
 }
