@@ -9,3 +9,32 @@ footer {
     display: flex;
     flex-flow: row nowrap;
 }
+
+.footer__branding, .footer__about, .footer__tech {
+    width: 33.33%;
+}
+
+.branding__row1 {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    margin: 1em 0 0 0;
+}
+
+.branding__summary, .about__p {
+    font-size: 0.9em;
+    margin: 0.5em 1em;
+    font-weight: var(--weightThin);
+}
+
+.footer__row2 {
+    font-weight: var(--weightThin);
+    text-align: center;
+    font-size: 0.9em;
+}
+
+.tech__item {
+    font-size: 0.9em;
+    margin: 0.5em 1em;
+    font-weight: var(--weightThin);
+}
