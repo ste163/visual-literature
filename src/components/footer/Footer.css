@@ -3,7 +3,7 @@ footer {
     flex-flow: column nowrap;
     font-size: 0.75em;
     background-color: var(--offWhite);
-    filter: var(--footerDropShadow);
+    box-shadow: var(--footerDropShadow);
     z-index: 2;
 }
 

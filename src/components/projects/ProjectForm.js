@@ -10,8 +10,7 @@ export const ProjectForm = props => {
 
     const [isLoading, setIsLoading ] = useState(true)
 
-    // const name = useRef(null)
-    // const userId = +sessionStorage.getItem("userId")
+    const userId = +sessionStorage.getItem("userId")
 
     useEffect(() => {
         getTypes().then(() => {
@@ -19,8 +18,17 @@ export const ProjectForm = props => {
         })
     }, [])
 
+    const constructNewProject = () => {
+
+    }
+
+    const createProject = (e) => {
+        e.preventDefault()
+        constructNewProject()
+    }
+
     return (
-        <form className="form__project">
+        <form className="form__project" onSubmit={createProject}>
             <h3 className="project__h3">Create New Project</h3>
             <fieldset>
                 <label htmlFor="projectName">Project name: </label>
@@ -59,12 +67,14 @@ export const ProjectForm = props => {
             </fieldset>
             <fieldset>
                 <label>Goal Frequency: </label>
-                <input type="radio" id="daily" name="goalFrequency" value="daily" />
-                <label htmlFor="daily">Daily</label>
-                <input type="radio" id="weekly" name="goalFrequency" value="weekly" />
-                <label htmlFor="weekly">Weekly</label>
-                <input type="radio" id="monthly" name="goalFrequency" value="monthly" />
-                <label htmlFor="monthly">Monthly</label>
+                <div className="freq__container">
+                    <input className="input__radio" type="radio" id="daily" name="goalFrequency" value="daily" />
+                    <label htmlFor="daily">Daily</label>
+                    <input className="input__radio" type="radio" id="weekly" name="goalFrequency" value="weekly" />
+                    <label htmlFor="weekly">Weekly</label>
+                    <input className="input__radio" type="radio" id="monthly" name="goalFrequency" value="monthly" />
+                    <label htmlFor="monthly">Monthly</label>
+                </div>
             </fieldset>
             {/* BELOW IS GREYED OUT UNLESS WEEKLY OR MONTHLY */}
             <fieldset>
@@ -74,10 +84,12 @@ export const ProjectForm = props => {
                 name="daysPerFrequency"
                 placeholder="5"
                 required
-                disabled={isLoading}
+                disabled={true}
                 />
             </fieldset>
-            <button>SUBMIT</button>
+            <button type="submit"
+            disabled={isLoading}
+            >Create</button>
         </form>
     )
 }

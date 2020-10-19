@@ -1,3 +1,7 @@
 .project__h3 {
     font-size: 0.8em;
 }
+
+.freq__container {
+    display: flex;
+}

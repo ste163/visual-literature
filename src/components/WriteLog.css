@@ -2,5 +2,5 @@
     display: flex;
     flex-flow: row nowrap;
     background-color: var(--offWhite);
-    filter: var(--headingDropShadow)
+    box-shadow: var(--headingDropShadow)
 }
