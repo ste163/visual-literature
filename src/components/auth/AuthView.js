@@ -87,7 +87,7 @@ export const AuthView = props => {
 
     return (
         <main className="auth__container">
-            <WriteLogLogo location="logo_login" color="logo__green" />
+
             <dialog ref={existDialog}>
                 <div>User does not exist</div>
                 <button onClick={e => existDialog.current.close()}>Close</button>
@@ -98,6 +98,7 @@ export const AuthView = props => {
                 <button onClick={e => conflictDialog.current.close()}>Close</button>
             </dialog>
 
+            <WriteLogLogo location="logo__login" color="logo__green" line="logo__line--green" />
             <WriteLogTitle location="title__login" color="title__green" />
             <h2 className="subtitle">Track, visualize, & analyze your writing projects</h2>
 

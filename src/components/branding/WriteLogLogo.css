@@ -5,8 +5,8 @@
 }
 
 .logo__login {
-    width: 3em;
-    height: 3em;
+    width: 10em;
+    height: 8em;
 }
 
 .logo__white {
@@ -15,4 +15,12 @@
 
 .logo__green {
     fill: var(--green);
+}
+
+.logo__line--invisible {
+    fill: transparent
+}
+
+.logo__line--green {
+    fill: var(--green)
 }

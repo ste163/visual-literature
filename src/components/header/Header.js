@@ -24,7 +24,7 @@ export const Header = () => {
     return (
         <header className="header">
             <section className="header__branding">
-                <WriteLogLogo location="logo__header" color="logo__white"/>
+                <WriteLogLogo location="logo__header" color="logo__white" line="logo__line--invisible"/>
                 <WriteLogTitle location="title__header" color="title__white" />
             </section>
             <nav className="header__nav">
