@@ -11,17 +11,19 @@ export const ApplicationViews = () => {
     // will need to go on the route exact path "/"
     return (
     <> 
+        <Header />
+        
         <Route path="/">
-            <Header />
             <Redirect to="/projects" />
         </Route>
 
         <Route exact path="/projects">
             <ProjectProvider>
                 <ProjectList />
-                <Footer />
             </ProjectProvider>
         </Route>
+        
+        <Footer />
     </>
     )
 }
