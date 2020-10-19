@@ -24,6 +24,21 @@
     padding: 0;
 }
 
+.label__days {
+    color: lightgray;
+    margin-bottom: 0.3em;
+}
+
+.days--active {
+    color: var(--fontColor)
+}
+
+.freq__selected {
+    background-color: var(--formFieldGray);
+    border-radius: var(--formFieldRadius);
+    padding: 0 0.3em;
+}
+
 .project__submit {
     display: flex;
     justify-content: center;

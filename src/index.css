@@ -1,5 +1,6 @@
 :root {
   /* Colors */
+  --fontColor: #333333;
   --grey: #F6F6F6;
   --offWhite: #FCFCFC;
   --green: #02545B;
@@ -41,7 +42,7 @@
 }
 
 * {
-  color: #333333;
+  color: var(--fontColor);
   font-family: var(--fontFamily);
 }
 

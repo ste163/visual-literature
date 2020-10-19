@@ -1,4 +1,4 @@
-import React, { useContext, useState, useRef, useEffect} from "react"
+import React, { useContext, useState, useEffect} from "react"
 import { ProjectContext } from "./ProjectProvider"
 import { TypeContext } from "../type/TypeProvider"
 import "./ProjectForm.css"
@@ -7,8 +7,11 @@ export const ProjectForm = props => {
 
     const { addProject } = useContext(ProjectContext)
     const { types, getTypes } = useContext(TypeContext)
-
+    
+    // Sets state for creating the project
     const [ project, setProject ] = useState({})
+    const [ selectedFreq, setSelectedFreq ] = useState()
+    const [ isFreqActive, setIsFreqActive ] = useState(false)
     const [isLoading, setIsLoading ] = useState(true)
 
     const userId = +sessionStorage.getItem("userId")
@@ -16,17 +19,21 @@ export const ProjectForm = props => {
     const currentDate = new Date()
     const convertedDate = currentDate.toISOString().slice(0,10)
 
+    // Takes the selected radio button
+    // and generates correct label string.
+    const freqGenerator = () => {
+        if (selectedFreq === "weekly") {
+            return "week"
+        } else if (selectedFreq === "monthly") {
+            return "month"
+        }
+    }
+
     const handleControlledInputChange = e => {
         const newProject = { ...project }
         newProject[e.target.name] = e.target.value
         setProject(newProject)
     }
-
-    useEffect(() => {
-        getTypes().then(() => {
-            setIsLoading(false);
-        })
-    }, [])
 
     const constructNewProject = () => {
         console.log("SUBMITTED")
@@ -36,6 +43,12 @@ export const ProjectForm = props => {
         e.preventDefault()
         constructNewProject()
     }
+
+    useEffect(() => {
+        getTypes().then(() => {
+            setIsLoading(false);
+        })
+    }, [])
 
     return (
         <form className="form__project" onSubmit={createProject}>
@@ -100,25 +113,43 @@ export const ProjectForm = props => {
             <fieldset className="freq__radios">
                 <label>Goal Frequency: </label>
                 <div className="radios">
-                    <input onChange={handleControlledInputChange} className="input__radio" type="radio" id="daily" name="goalFrequency" value="daily" />
+                    <input className="input__radio" type="radio" id="daily" name="goalFrequency" value="daily"
+                    onChange={handleControlledInputChange}
+                    onClick={e => {
+                        setIsFreqActive(false)
+                        setSelectedFreq(e.target.value)
+                    }}
+                    />
                     <label htmlFor="daily">Daily</label>
-                    <input onChange={handleControlledInputChange} className="input__radio" type="radio" id="weekly" name="goalFrequency" value="weekly" />
+                    <input className="input__radio" type="radio" id="weekly" name="goalFrequency" value="weekly"
+                    onChange={handleControlledInputChange}
+                    onClick={e => {
+                        setIsFreqActive(true)
+                        setSelectedFreq(e.target.value)
+                    }}
+                    />
                     <label htmlFor="weekly">Weekly</label>
-                    <input onChange={handleControlledInputChange} className="input__radio" type="radio" id="monthly" name="goalFrequency" value="monthly" />
+                    <input className="input__radio" type="radio" id="monthly" name="goalFrequency" value="monthly"
+                    onChange={handleControlledInputChange}
+                    onClick={e => {
+                        setIsFreqActive(true)
+                        setSelectedFreq(e.target.value)
+                    }}
+                    />
                     <label htmlFor="monthly">Monthly</label>
                 </div>
             </fieldset>
             
             {/* BELOW IS GREYED OUT UNLESS WEEKLY OR MONTHLY */}
             <fieldset className="freq__days">
-                <label htmlFor="daysPerFrequency">How many days per *WEEK*/*MONTH* do you plan on writing: </label>
+                <label className={isFreqActive ? "label__days days--active" : "label__days"} htmlFor="daysPerFrequency">How many days per <span className="freq__selected">{freqGenerator()}</span> do you plan on writing: </label>
                 <input type="number"
                 onChange={handleControlledInputChange}
                 id="daysPerFrequency"
                 name="daysPerFrequency"
-                placeholder="5"
+                placeholder="3"
+                disabled={!isFreqActive}
                 required
-                disabled={true}
                 />
             </fieldset>
             
