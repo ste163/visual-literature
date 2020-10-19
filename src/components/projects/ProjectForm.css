@@ -1,5 +1,6 @@
 .project__h3 {
     font-size: 0.8em;
+    margin: 0;
 }
 
 .project__h4 {
@@ -7,6 +8,23 @@
     margin: 1.5em 0 0.1em;
 }
 
-.freq__container {
+.freq__radios {
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.radios {
     display: flex;
+    align-items: center;
+}
+
+.freq__days {
+    margin-top: 0.2em;
+    margin-left: 2em;
+    padding: 0;
+}
+
+.project__submit {
+    display: flex;
+    justify-content: center;
 }

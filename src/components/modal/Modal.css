@@ -14,18 +14,23 @@
     transition: 0.2s;
 }
 
+.modal__active {
+    opacity: 100;
+    pointer-events: all;
+}
+
 .modal__content {
     background-color: var(--offWhite);
     padding: 1em;
     border-radius: var(--cardRadius);
-    width: 600px;
+    width: 20em;
     max-width: 100%;
     filter: --var(cardDropShadow);
     overflow-y: auto;
     z-index: 4;
 }
 
-.modal__active {
-    opacity: 100;
-    pointer-events: all;
+.modal__heading {
+    display: flex;
+    justify-content: flex-end; 
 }

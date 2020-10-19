@@ -11,6 +11,9 @@ export const ProjectForm = props => {
     const [isLoading, setIsLoading ] = useState(true)
 
     const userId = +sessionStorage.getItem("userId")
+    // Populates date picker with current date
+    const currentDate = new Date()
+    const convertedDate = currentDate.toISOString().slice(0,10)
 
     useEffect(() => {
         getTypes().then(() => {
@@ -45,7 +48,7 @@ export const ProjectForm = props => {
             </fieldset>
             
             <fieldset>
-                <label htmlFor="projectType">Project Type: </label>
+                <label htmlFor="projectType">Project Type:</label>
                 <select 
                 id="projectType"
                 name="projectId"
@@ -60,7 +63,14 @@ export const ProjectForm = props => {
                 </select>
             </fieldset>
             
-            
+            <fieldset>
+                <label htmlFor="projectDate">Project Start Date:</label>
+                <input type="date"
+                id="projectDate"
+                name="projectDate"
+                defaultValue={convertedDate}
+                />
+            </fieldset>
 
             <h4 className="project__h4">Goal Setup</h4>
 
@@ -76,9 +86,9 @@ export const ProjectForm = props => {
                  {/* Have a tooltip saying 500 words is about 1 single-spaced page */}
             </fieldset>
             
-            <fieldset>
+            <fieldset className="freq__radios">
                 <label>Goal Frequency: </label>
-                <div className="freq__container">
+                <div className="radios">
                     <input className="input__radio" type="radio" id="daily" name="goalFrequency" value="daily" />
                     <label htmlFor="daily">Daily</label>
                     <input className="input__radio" type="radio" id="weekly" name="goalFrequency" value="weekly" />
@@ -89,7 +99,7 @@ export const ProjectForm = props => {
             </fieldset>
             
             {/* BELOW IS GREYED OUT UNLESS WEEKLY OR MONTHLY */}
-            <fieldset>
+            <fieldset className="freq__days">
                 <label htmlFor="daysPerFrequency">How many days per *WEEK*/*MONTH* do you plan on writing: </label>
                 <input type="number"
                 id="daysPerFrequency"
@@ -100,9 +110,11 @@ export const ProjectForm = props => {
                 />
             </fieldset>
             
-            <button type="submit"
-            disabled={isLoading}
-            >Create</button>
+            <div className="project__submit">
+                <button type="submit"
+                disabled={isLoading}
+                >Create</button>
+            </div>
 
         </form>
     )
