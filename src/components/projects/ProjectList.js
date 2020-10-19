@@ -7,21 +7,26 @@ import "./Project.css"
 export const ProjectList = () => {
     const { projects, getProjects } = useContext(ProjectContext)
     const activeUser = +sessionStorage.getItem("userId")
+    
+    const modal = useRef() 
 
     useEffect(() => {
         getProjects(activeUser)
     }, [])
 
+
     return (
         <>
 
         <section className="view__header">
-            <button className="project__btn">Create new project</button>
+            <button className="project__btn"
+            onClick={e => {console.log(modal)}}
+            
+            >Create new project</button>
         </section>
 
         <section className="view__container">
-            <Modal contentFunction={<ProjectForm />} />
-            {/* <ProjectForm /> */}
+            <Modal ref={modal} contentFunction={<ProjectForm />} />
             <p>LIST OF ALL CURRENT PROJECTS</p>
         </section>
         
