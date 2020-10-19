@@ -1,8 +1,14 @@
 :root {
   /* Colors */
+  --grey: #F6F6F6;
+  --offWhite: #FCFCFC;
   --green: #02545B;
+  --lightGreen: #0058600f;
   --greenActive: #01383d;
-  --cardBackground: #F6F6F6;
+  --purple: #62496F;
+  --lightPurple: #786384;
+  --orange: #F0CB72;
+  --lightOrange: #F0CB72;
   --formFieldGray: #E9E9E9;
 
   /* Fonts */
@@ -20,9 +26,17 @@
 
   /* Drop Shadow */
   --cardDropShadow: drop-shadow(-5px 5px 3px #e9e9e9);
+  --headingDropShadow: drop-shadow(-5px 5px 3px #e9e9e9);
 
   /* Transitions */
   --btnHover: 0.2s
+}
+
+#root {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  height: 100vh;
 }
 
 * {
@@ -33,11 +47,22 @@
 body {
   font-size: 1.3em;
   margin: 0;
+  background-color: var(--grey);
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 h1 {
   font-weight: var(--weightHeaviest)
+}
+
+h2 {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin: 0;
+  padding: 0;
 }
 
 .btn {

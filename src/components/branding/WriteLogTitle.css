@@ -1,16 +1,21 @@
+.title__login {
+    width: 14em;
+    height: 3em;
+}
+
 .title__header {
     width: 5em;
     height: 1em;
     margin: 0 1em;
 }
 
-.title__white {
-    fill: white;
+.title__footer {
+    width: 5em;
+    height: 1em;
 }
 
-.title__login {
-    width: 14em;
-    height: 3em;
+.title__white {
+    fill: white;
 }
 
 .title__green {
