@@ -35,9 +35,8 @@
 }
 
 #root {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: space-between;
+  display: grid;
+  grid-template-rows: min-content min-content auto min-content;
   height: 100vh;
 }
 
