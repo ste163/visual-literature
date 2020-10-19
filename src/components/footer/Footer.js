@@ -7,13 +7,15 @@ export const Footer = () => {
     return (
         <footer>
             <div className="footer__row1">
+
                 <section className="footer__branding">
-                    <div className="branding__row1">
-                        <WriteLogLogo location="logo__footer" color="logo__green" line="logo__line--invisible"/>
-                        <WriteLogTitle location="title__footer" color="title__green" />
-                    </div>
+                    <WriteLogLogo location="logo__footer" color="logo__green" line="logo__line--invisible"/>
+                    <WriteLogTitle location="title__footer" color="title__green" />
+                </section>
+
+                <section className="footer__summary">
                     <h2 className="footer__heading">Summary</h2>
-                    <p className="branding__summary">
+                    <p className="summary__p">
                         Assisting  writers with tracking, visualizing, and analyzing their writing projects.
                     </p>
                 </section>
@@ -29,10 +31,10 @@ export const Footer = () => {
                     <h2 className="footer__heading">Technologies Used</h2>
                     <ul className="tech__list">
                         <li className="tech__item">React</li>
-                        <li className="tech__item">Inkscape</li>
-                        <li className="tech__item">Colour Contrast Analyser</li>
                         <li className="tech__item">VS Code</li>
                         <li className="tech__item">Ubuntu Linux</li>
+                        <li className="tech__item">Inkscape</li>
+                        <li className="tech__item">Colour Contrast Analyser</li>
                     </ul>
                 </section>
             </div>
