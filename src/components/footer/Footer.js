@@ -29,13 +29,23 @@ export const Footer = () => {
 
                 <section className="footer__tech">
                     <h2 className="footer__heading">Technologies Used</h2>
-                    <ul className="tech__list">
-                        <li className="tech__item">React</li>
-                        <li className="tech__item">VS Code</li>
-                        <li className="tech__item">Ubuntu Linux</li>
-                        <li className="tech__item">Inkscape</li>
-                        <li className="tech__item">Colour Contrast Analyser</li>
-                    </ul>
+                    <div className="footer__lists">
+                        <div>
+                            <h3 className="footer__subHeading">Development</h3>
+                            <ul className="tech__list">
+                                <li className="tech__item">React</li>
+                                <li className="tech__item">VS Code</li>
+                                <li className="tech__item">Ubuntu Linux</li>
+                            </ul>
+                        </div>
+                        <div className="footer__list">
+                            <h3 className="footer__subHeading">Design</h3>
+                            <ul className="tech__list">
+                                <li className="tech__item">Inkscape</li>
+                                <li className="tech__item">Colour Contrast Analyser</li>
+                            </ul>
+                        </div>
+                    </div>
                 </section>
             </div>
 
