@@ -2,7 +2,6 @@ import React from "react"
 import "./WriteLogLogo.css"
 
 export const WriteLogLogo = props => {
-    console.log(props)
     return (
         <svg className={props.location} width="200" height="175" version="1.1" viewBox="0 0 52.917 46.302" xmlns="http://www.w3.org/2000/svg">
             <title>Write Log Logo</title>
