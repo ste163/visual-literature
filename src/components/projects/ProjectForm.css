@@ -2,6 +2,11 @@
     font-size: 0.8em;
 }
 
+.project__h4 {
+    font-size: 0.7em;
+    margin: 1.5em 0 0.1em;
+}
+
 .freq__container {
     display: flex;
 }

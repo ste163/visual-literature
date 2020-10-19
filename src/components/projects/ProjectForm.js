@@ -29,7 +29,11 @@ export const ProjectForm = props => {
 
     return (
         <form className="form__project" onSubmit={createProject}>
+
             <h3 className="project__h3">Create New Project</h3>
+            
+            <h4 className="project__h4">Project Setup</h4>
+
             <fieldset>
                 <label htmlFor="projectName">Project name: </label>
                 <input type="text"
@@ -39,6 +43,7 @@ export const ProjectForm = props => {
                 required
                 autoFocus/>
             </fieldset>
+            
             <fieldset>
                 <label htmlFor="projectType">Project Type: </label>
                 <select 
@@ -54,6 +59,11 @@ export const ProjectForm = props => {
                     ))}
                 </select>
             </fieldset>
+            
+            
+
+            <h4 className="project__h4">Goal Setup</h4>
+
             <fieldset>
                 <label htmlFor="projectGoal">Word count goal: </label>
                 <input type="number"
@@ -65,6 +75,7 @@ export const ProjectForm = props => {
                  />
                  {/* Have a tooltip saying 500 words is about 1 single-spaced page */}
             </fieldset>
+            
             <fieldset>
                 <label>Goal Frequency: </label>
                 <div className="freq__container">
@@ -76,6 +87,7 @@ export const ProjectForm = props => {
                     <label htmlFor="monthly">Monthly</label>
                 </div>
             </fieldset>
+            
             {/* BELOW IS GREYED OUT UNLESS WEEKLY OR MONTHLY */}
             <fieldset>
                 <label htmlFor="daysPerFrequency">How many days per *WEEK*/*MONTH* do you plan on writing: </label>
@@ -87,9 +99,11 @@ export const ProjectForm = props => {
                 disabled={true}
                 />
             </fieldset>
+            
             <button type="submit"
             disabled={isLoading}
             >Create</button>
+
         </form>
     )
 }
