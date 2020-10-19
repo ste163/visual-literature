@@ -12,16 +12,21 @@ export const Footer = () => {
                         <WriteLogLogo location="logo__footer" color="logo__green" line="logo__line--invisible"/>
                         <WriteLogTitle location="title__footer" color="title__green" />
                     </div>
+                    <h2 className="footer__heading">Summary</h2>
                     <p className="branding__summary">
                         Assisting  writers with tracking, visualizing, and analyzing their writing projects.
                     </p>
                 </section>
+
                 <section className="footer__about">
+                    <h2 className="footer__heading">About</h2>
                     <p className="about__p">
                         Then new column with created by Sam Edwards in TN, w/ linkedIn and github links
                     </p>
                 </section>
+
                 <section className="footer__tech">
+                    <h2 className="footer__heading">Technologies Used</h2>
                     <ul className="tech__list">
                         <li className="tech__item">React</li>
                         <li className="tech__item">Inkscape</li>
@@ -31,6 +36,7 @@ export const Footer = () => {
                     </ul>
                 </section>
             </div>
+
             <div className="footer__row2">
                 &#169; 2020 Sam Edwards
             </div>
