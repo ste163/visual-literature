@@ -144,6 +144,7 @@ export const ProjectForm = props => {
             <fieldset className="freq__days">
                 <label className={isFreqActive ? "label__days days--active" : "label__days"} htmlFor="daysPerFrequency">How many days per <span className="freq__selected">{freqGenerator()}</span> do you plan on writing: </label>
                 <input type="number"
+                className={isFreqActive ? "day__placeholder--active" : "day__placeholder--inactive"}
                 onChange={handleControlledInputChange}
                 id="daysPerFrequency"
                 name="daysPerFrequency"

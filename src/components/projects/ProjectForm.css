@@ -43,3 +43,11 @@
     display: flex;
     justify-content: center;
 }
+
+.day__placeholder--active::-webkit-input-placeholder, .day__placeholder--active:-moz-placeholder, .day__placeholder--active::-moz-placeholder {
+    color:var(--fontColor);
+}
+
+.day__placeholder--inactive::-webkit-input-placeholder, .day__placeholder--inactive:-moz-placeholder, .day__placeholder--inactive::-moz-placeholder {
+    color:lightgrey;
+}
