@@ -1,10 +1,9 @@
-import React from "react"
+import React, { forwardRef } from "react"
 import "./Modal.css"
 
-export const Modal = (props) => {
-
-    return (
-        <section ref={props.ref} className="background__modal">
+export const Modal = (React.forwardRef((props, ref) => (
+     (
+        <section ref={ref} className="background__modal">
             <article className="modal__content">
                 <div className="modal__heading">
                     <button>CLOSE</button>
@@ -13,4 +12,4 @@ export const Modal = (props) => {
             </article>
         </section>
     )
-}
+)))

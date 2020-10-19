@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react"
+import React, { useRef, useEffect, useContext } from "react"
 import { ProjectContext } from "./ProjectProvider"
 import { ProjectForm } from "./ProjectForm"
 import { Modal } from "../modal/Modal"
@@ -8,7 +8,7 @@ export const ProjectList = () => {
     const { projects, getProjects } = useContext(ProjectContext)
     const activeUser = +sessionStorage.getItem("userId")
     
-    const modal = useRef() 
+    const modal = useRef()
 
     useEffect(() => {
         getProjects(activeUser)
