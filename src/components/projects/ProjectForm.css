@@ -54,6 +54,7 @@
 
 .day__placeholder--active {
     background-color: var(--formFieldGray);
+    color: var(--fontColor)
 }
 
 .day__placeholder--inactive::-webkit-input-placeholder {
@@ -62,9 +63,9 @@
 
 .day__placeholder--inactive::-moz-placeholder {
     color:lightgrey;
-
 }
 
 .day__placeholder--inactive {
     background-color: whitesmoke;
+    color:lightgrey;
 }
