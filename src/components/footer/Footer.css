@@ -2,13 +2,14 @@ footer {
     display: flex;
     flex-flow: column nowrap;
     font-size: 0.75em;
-    background-color: var(--lightGreen)
+    background-color: var(--offWhite);
+    filter: var(--footerDropShadow);
+    z-index: 2;
 }
 
 .footer__row1 {
     display: flex;
     flex-flow: row nowrap;
-    /* justify-content: space-between; */
 }
 
 .footer__branding, .footer__summary, .footer__about, .footer__tech {
@@ -29,15 +30,25 @@ footer {
     font-weight: var(--weightHeavier);
 }
 
+.footer__subHeading {
+    font-size: 0.8em;
+    font-weight: var(--weightHeavy);
+}
+
 .summary__p, .about__p {
     font-size: 0.9em;
     font-weight: var(--weightThin);
 }
 
+.footer__lists {
+    display: flex;
+}
+
+.footer__list {
+    margin: 0 0 0 1em;
+}
+
 .tech__list {
-    display: grid;
-    grid-auto-flow: dense;
-    grid-template-columns: auto auto auto;
     margin: 0;
     padding: 0;
 }
