@@ -1,7 +1,12 @@
 :root {
   /* Colors */
   --green: #02545B;
+  --lightGreen: #0058600f;
   --greenActive: #01383d;
+  --purple: #62496F;
+  --lightPurple: #786384;
+  --orange: #F0CB72;
+  --lightOrange: #F0CB72;
   --cardBackground: #F6F6F6;
   --formFieldGray: #E9E9E9;
 
@@ -23,6 +28,13 @@
 
   /* Transitions */
   --btnHover: 0.2s
+}
+
+#root {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  height: 100vh;
 }
 
 * {

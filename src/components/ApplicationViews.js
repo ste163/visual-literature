@@ -1,6 +1,7 @@
 import React from "react"
 import { Redirect, Route } from "react-router-dom"
 import { Header } from "./header/Header"
+import { Footer } from "./footer/Footer"
 import { ProjectProvider } from "./projects/ProjectProvider"
 import { ProjectList } from "./projects/ProjectList"
 
@@ -18,6 +19,7 @@ export const ApplicationViews = () => {
         <Route exact path="/projects">
             <ProjectProvider>
                 <ProjectList />
+                <Footer />
             </ProjectProvider>
         </Route>
     </>
