@@ -8,12 +8,19 @@ export const ProjectForm = props => {
     const { addProject } = useContext(ProjectContext)
     const { types, getTypes } = useContext(TypeContext)
 
+    const [ project, setProject ] = useState({})
     const [isLoading, setIsLoading ] = useState(true)
 
     const userId = +sessionStorage.getItem("userId")
     // Populates date picker with current date
     const currentDate = new Date()
     const convertedDate = currentDate.toISOString().slice(0,10)
+
+    const handleControlledInputChange = e => {
+        const newProject = { ...project }
+        newProject[e.target.name] = e.target.value
+        setProject(newProject)
+    }
 
     useEffect(() => {
         getTypes().then(() => {
@@ -22,7 +29,7 @@ export const ProjectForm = props => {
     }, [])
 
     const constructNewProject = () => {
-
+        console.log("SUBMITTED")
     }
 
     const createProject = (e) => {
@@ -40,6 +47,7 @@ export const ProjectForm = props => {
             <fieldset>
                 <label htmlFor="projectName">Project name: </label>
                 <input type="text"
+                onChange={handleControlledInputChange}
                 id="projectName"
                 name="name"
                 placeholder="Project name"
@@ -49,7 +57,8 @@ export const ProjectForm = props => {
             
             <fieldset>
                 <label htmlFor="projectType">Project Type:</label>
-                <select 
+                <select
+                onChange={handleControlledInputChange}
                 id="projectType"
                 name="projectId"
                 required
@@ -66,6 +75,7 @@ export const ProjectForm = props => {
             <fieldset>
                 <label htmlFor="projectDate">Project Start Date:</label>
                 <input type="date"
+                onChange={handleControlledInputChange}
                 id="projectDate"
                 name="projectDate"
                 defaultValue={convertedDate}
@@ -77,6 +87,7 @@ export const ProjectForm = props => {
             <fieldset>
                 <label htmlFor="projectGoal">Word count goal: </label>
                 <input type="number"
+                 onChange={handleControlledInputChange}
                  id="projectGoal"
                  name="wordCountGoal"
                  placeholder="500"
@@ -89,11 +100,11 @@ export const ProjectForm = props => {
             <fieldset className="freq__radios">
                 <label>Goal Frequency: </label>
                 <div className="radios">
-                    <input className="input__radio" type="radio" id="daily" name="goalFrequency" value="daily" />
+                    <input onChange={handleControlledInputChange} className="input__radio" type="radio" id="daily" name="goalFrequency" value="daily" />
                     <label htmlFor="daily">Daily</label>
-                    <input className="input__radio" type="radio" id="weekly" name="goalFrequency" value="weekly" />
+                    <input onChange={handleControlledInputChange} className="input__radio" type="radio" id="weekly" name="goalFrequency" value="weekly" />
                     <label htmlFor="weekly">Weekly</label>
-                    <input className="input__radio" type="radio" id="monthly" name="goalFrequency" value="monthly" />
+                    <input onChange={handleControlledInputChange} className="input__radio" type="radio" id="monthly" name="goalFrequency" value="monthly" />
                     <label htmlFor="monthly">Monthly</label>
                 </div>
             </fieldset>
@@ -102,6 +113,7 @@ export const ProjectForm = props => {
             <fieldset className="freq__days">
                 <label htmlFor="daysPerFrequency">How many days per *WEEK*/*MONTH* do you plan on writing: </label>
                 <input type="number"
+                onChange={handleControlledInputChange}
                 id="daysPerFrequency"
                 name="daysPerFrequency"
                 placeholder="5"
