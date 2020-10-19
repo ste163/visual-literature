@@ -74,7 +74,7 @@ export const ProjectForm = props => {
                 name="daysPerFrequency"
                 placeholder="5"
                 required
-                disabled={true}
+                disabled={isLoading}
                 />
             </fieldset>
             <button>SUBMIT</button>
