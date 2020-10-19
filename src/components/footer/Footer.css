@@ -2,7 +2,8 @@ footer {
     display: flex;
     flex-flow: column nowrap;
     font-size: 0.75em;
-    background-color: var(--lightGreen)
+    background-color: var(--offWhite);
+    filter: var(--footerDropShadow);
 }
 
 .footer__row1 {
