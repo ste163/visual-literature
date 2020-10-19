@@ -1,5 +1,7 @@
 import React, { useRef, useState, useEffect } from "react"
 import { useHistory } from "react-router-dom";
+import { WriteLogLogo } from "../branding/WriteLogLogo"
+import { WriteLogTitle } from "../branding/WriteLogTitle"
 import "./AuthView.css"
 
 export const AuthView = props => {
@@ -85,6 +87,7 @@ export const AuthView = props => {
 
     return (
         <main className="auth__container">
+
             <dialog ref={existDialog}>
                 <div>User does not exist</div>
                 <button onClick={e => existDialog.current.close()}>Close</button>
@@ -95,8 +98,9 @@ export const AuthView = props => {
                 <button onClick={e => conflictDialog.current.close()}>Close</button>
             </dialog>
 
-            <h1 className="title">Write Log</h1>
-            <h2 className="subtitle">Track, visualize, & analyze your writing projects</h2>
+            <WriteLogLogo location="logo__login" color="logo__green" line="logo__line--green" />
+            <WriteLogTitle location="title__login" color="title__green" />
+            <h2 className="subtitle">Track, visualize, & analyze writing projects</h2>
 
             <section className="card card__auth">
                 <ul  className="auth__btns">
