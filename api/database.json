@@ -30,15 +30,27 @@
     },
     {
       "id": 2,
-      "name": "Memoir"
+      "name": "Novella"
     },
     {
       "id": 3,
-      "name": "Poetry"
+      "name": "Memoir"
     },
     {
       "id": 4,
+      "name": "Poetry"
+    },
+    {
+      "id": 5,
+      "name": "Poetry Collection"
+    },
+    {
+      "id": 6,
       "name": "Short Story"
+    },
+    {
+      "id": 7,
+      "name": "Short Story Collection"
     }
   ]
 }
