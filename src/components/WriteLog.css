@@ -1,6 +1,7 @@
 .view__header {
     display: flex;
     flex-flow: row nowrap;
+    align-items: center;
     background-color: var(--offWhite);
     box-shadow: var(--headingDropShadow);
     height: 3em;

@@ -25,8 +25,11 @@ export const ProjectList = () => {
             onClick={e => {modal.current.className = "background__modal modal__active"}}>
                 <IconPlus color="icon__gray" />
                 Create new project
-                <IconDivider color="icon__lightGray" />
             </button>
+            <IconDivider color="icon__lightGray" />
+            Sort view
+            <IconDivider color="icon__lightGray" />
+            Cool Info About All Your Projects
         </section>
 
         <section className="view__container">
