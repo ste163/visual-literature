@@ -2,5 +2,6 @@
     display: flex;
     flex-flow: row nowrap;
     background-color: var(--offWhite);
-    box-shadow: var(--headingDropShadow)
+    box-shadow: var(--headingDropShadow);
+    height: 3em;
 }

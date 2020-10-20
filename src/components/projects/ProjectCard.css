@@ -1,5 +1,6 @@
 .project__cards {
     display: flex;
+    flex-flow: row wrap;
 }
 
 .card__project {
@@ -21,7 +22,7 @@
 .project__h2--card {
     font-size: 1em;
     grid-column: 2;
-    grid-row: 1;
+    grid-row: 2;
 }
 
 .project__subtitle {
@@ -31,17 +32,17 @@
 
 .project__subtitle--type {
     grid-column: 2;
-    grid-row: 2;
+    grid-row: 3;
 }
 
 .project__subtitle--date {
     grid-column: 2;
-    grid-row: 3;
+    grid-row: 4;
 }
 
 .project__arrow {
     grid-column: 1;
-    grid-row: 2 / span 2;
+    grid-row: 3 / 4;
     margin-right: 1em;
     align-self: center;
 }
@@ -50,11 +51,12 @@
     grid-column: 3;
     grid-row: 1;
     margin-left: 2em;
+    margin-right: 0.5em;
     align-items: center;
 }
 
 .project__dash {
     grid-column: 2;
-    grid-row: 4;
+    grid-row: 5;
     margin-top: 1em;
 }
