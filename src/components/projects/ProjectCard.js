@@ -4,6 +4,10 @@ import { IconDots } from "../icons/IconDots"
 import { IconGraph } from "../icons/IconGraph"
 import "./ProjectCard.css"
 
+// To get the colors to change on icon hover,
+// will need an on mouseEnter and on mouseLeave event
+// That changes the color class.
+
 export const ProjectCard = ({project}) => (
     <article className="card card__project">
         <button className="card__btn project__arrow"><IconArrow color="icon__gray" /></button>
