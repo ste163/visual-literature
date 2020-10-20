@@ -24,6 +24,28 @@
       "daysPerFrequency": 1,
       "completed": false,
       "id": 1
+    },
+    {
+      "name": "Horror Story",
+      "userId": 1,
+      "typeId": 6,
+      "dateStarted": "2020-10-21",
+      "wordCountGoal": 300,
+      "goalFrequency": "daily",
+      "daysPerFrequency": 1,
+      "completed": false,
+      "id": 2
+    },
+    {
+      "name": "October",
+      "userId": 1,
+      "typeId": 4,
+      "dateStarted": "2020-10-15",
+      "wordCountGoal": 20,
+      "goalFrequency": "daily",
+      "daysPerFrequency": 1,
+      "completed": false,
+      "id": 3
     }
   ],
   "types": [
