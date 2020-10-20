@@ -5,19 +5,31 @@ import "./ProjectForm.css"
 
 export const ProjectForm = props => {
 
-    const { addProject } = useContext(ProjectContext)
-    const { types, getTypes } = useContext(TypeContext)
-    
-    // Sets state for creating the project
-    const [ project, setProject ] = useState({})
-    const [ selectedFreq, setSelectedFreq ] = useState("")
-    const [ isFreqActive, setIsFreqActive ] = useState(false)
-    const [ isLoading, setIsLoading ] = useState(true)
-
     const userId = +sessionStorage.getItem("userId")
     // Populates date picker with current date
     const currentDate = new Date()
     const convertedDate = currentDate.toISOString().slice(0,10)
+
+    const defaultProject = {
+    name: "",
+    typeId: "",
+    dateStarted: convertedDate,
+    wordCountGoal: "",
+    goalFrequency: "",
+    daysPerFrequency: ""
+}
+
+    const { addProject } = useContext(ProjectContext)
+    const { types, getTypes } = useContext(TypeContext)
+    
+    // Sets state for creating the project
+    const [ project, setProject ] = useState(defaultProject)
+    const [ selectedFreq, setSelectedFreq ] = useState("")
+    const [ isFreqActive, setIsFreqActive ] = useState(false)
+    const [ isLoading, setIsLoading ] = useState(true)
+
+
+
 
     // Takes the selected radio button
     // and generates correct label string.
@@ -37,7 +49,7 @@ export const ProjectForm = props => {
 
     const constructNewProject = () => {
         if (!parseInt(project.typeId)) {
-            console.log("NO TYPE SELECTED")
+            console.log("NO TYPE SELECTED -- ADD WARNING MODAL")
         } else {
             setIsLoading(true)
             // Prepare not entered inputs for saving
@@ -48,11 +60,9 @@ export const ProjectForm = props => {
                 project.dateStarted = convertedDate
             }
             
-                // if (projectId) {
-                //     // FOR EDITING A CURRENT PROJECT
-                //     console.log("UPDATED CURRENT PROJECT")
+            // FOR EDITING, added if state on if there is a current projectId
+                // if not, create a new project 
 
-                console.log("ADDING NEW PROJECT", project)
                 addProject({
                     name: project.name,
                     userId,
@@ -70,8 +80,8 @@ export const ProjectForm = props => {
     const createProject = (e) => {
         e.preventDefault()
         constructNewProject()
-        setProject({})
-        console.log("PROJECT ADDED AND RESET TO", project)
+        setProject(defaultProject)
+        setIsFreqActive(false)
     }
 
     useEffect(() => {
@@ -93,7 +103,7 @@ export const ProjectForm = props => {
                 onChange={handleControlledInputChange}
                 id="projectName"
                 name="name"
-                defaultValue={project.name}
+                value={project.name}
                 placeholder="Project name"
                 required
                 autoFocus/>
@@ -105,7 +115,7 @@ export const ProjectForm = props => {
                 onChange={handleControlledInputChange}
                 id="projectType"
                 name="typeId"
-                defaultValue={project.typeId}
+                value={project.typeId}
                 required
                 autoFocus>
                     <option value="0">Select a project type</option>
@@ -123,7 +133,7 @@ export const ProjectForm = props => {
                 onChange={handleControlledInputChange}
                 id="projectDate"
                 name="dateStarted"
-                defaultValue={convertedDate}
+                value={project.dateStarted}
                 />
             </fieldset>
 
@@ -135,7 +145,7 @@ export const ProjectForm = props => {
                  onChange={handleControlledInputChange}
                  id="projectGoal"
                  name="wordCountGoal"
-                 defaultValue={project.wordCountGoal}
+                 value={project.wordCountGoal}
                  placeholder="500"
                  required
                  autoFocus
@@ -147,6 +157,7 @@ export const ProjectForm = props => {
                 <label>Goal Frequency: </label>
                 <div className="radios">
                     <input className="input__radio" type="radio" id="daily" name="goalFrequency" value="daily" required
+                    checked={project.goalFrequency === "daily"}
                     onChange={handleControlledInputChange}
                     onClick={e => {
                         setIsFreqActive(false)
@@ -155,6 +166,7 @@ export const ProjectForm = props => {
                     />
                     <label htmlFor="daily">Daily</label>
                     <input className="input__radio" type="radio" id="weekly" name="goalFrequency" value="weekly" required
+                    checked={project.goalFrequency === "weekly"}
                     onChange={handleControlledInputChange}
                     onClick={e => {
                         setIsFreqActive(true)
@@ -163,6 +175,7 @@ export const ProjectForm = props => {
                     />
                     <label htmlFor="weekly">Weekly</label>
                     <input className="input__radio" type="radio" id="monthly" name="goalFrequency" value="monthly" required
+                    checked={project.goalFrequency === "monthly"}
                     onChange={handleControlledInputChange}
                     onClick={e => {
                         setIsFreqActive(true)
@@ -184,7 +197,7 @@ export const ProjectForm = props => {
                 onChange={handleControlledInputChange}
                 id="daysPerFrequency"
                 name="daysPerFrequency"
-                defaultValue={project.daysPerFrequency}
+                value={project.daysPerFrequency}
                 placeholder="3"
                 disabled={!isFreqActive}
                 required
