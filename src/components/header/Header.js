@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import { useHistory, useLocation } from "react-router-dom"
 import { WriteLogLogo } from "../branding/WriteLogLogo"
 import { WriteLogTitle } from "../branding/WriteLogTitle"
+import { IconLogout } from "../icons/IconLogout"
 import "./Header.css"
 
 export const Header = () => {
@@ -35,26 +36,31 @@ export const Header = () => {
                                 history.push("/projects")
                                 activeNavItem = "/projects"
                                 console.log("CURRENT NAV", activeNavItem)
-                            }}
-                            >Projects</button>
+                            }}>
+                                Projects
+                            </button>
                         </li>
                         <li className="nav__item">
                             <button className="nav__btn"  onClick={() => {
                                 history.push("/dashboard")
                                 activeNavItem = "/dashboard"
                                 console.log("CURRENT NAV", activeNavItem)
-                            }}
-                            >Dashboard</button>
+                            }}>
+                                Dashboard
+                            </button>
                         </li>
                         <div className="nav__line"></div>
                     </div>
                     <li className="nav__item nav__rightAligned">
                         <button
-                        className="nav__btn" 
+                        className="nav__btn btn__logout" 
                         onClick={() => {
                            sessionStorage.clear("userId")
                            history.push()
-                        }}>Logout</button>
+                        }}>
+                            <IconLogout />
+                            Logout
+                        </button>
                     </li>
                 </ul>
             </nav>

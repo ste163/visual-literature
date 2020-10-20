@@ -203,7 +203,9 @@ export const ProjectForm = props => {
             </fieldset>
             
             <div className="project__submit">
-                <button type="submit"
+                <button 
+                className="btn"
+                type="submit"
                 disabled={isLoading}
                 >Create</button>
             </div>
