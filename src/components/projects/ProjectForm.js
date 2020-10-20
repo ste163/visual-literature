@@ -12,7 +12,7 @@ export const ProjectForm = props => {
     const [ project, setProject ] = useState({})
     const [ selectedFreq, setSelectedFreq ] = useState("")
     const [ isFreqActive, setIsFreqActive ] = useState(false)
-    const [isLoading, setIsLoading ] = useState(true)
+    const [ isLoading, setIsLoading ] = useState(true)
 
     const userId = +sessionStorage.getItem("userId")
     // Populates date picker with current date
@@ -30,21 +30,48 @@ export const ProjectForm = props => {
     }
 
     const handleControlledInputChange = e => {
-        const newProject = { ...project }
-        newProject[e.target.name] = e.target.value
-        setProject(newProject)
+            const newProject = { ...project }
+            newProject[e.target.name] = e.target.value
+            setProject(newProject)
     }
 
     const constructNewProject = () => {
-        if (+project.typeId) {
-            console.log("SUBMITTED")
-            console.log(project)
-        }
+        if (!parseInt(project.typeId)) {
+            console.log("NO TYPE SELECTED")
+        } else {
+            setIsLoading(true)
+            // Prepare not entered inputs for saving
+            if (project.goalFrequency === "daily") {
+                project.daysPerFrequency = 1
+            }
+            if (!project.dateStarted) {
+                project.dateStarted = convertedDate
+            }
+            
+                // if (projectId) {
+                //     // FOR EDITING A CURRENT PROJECT
+                //     console.log("UPDATED CURRENT PROJECT")
+
+                console.log("ADDING NEW PROJECT", project)
+                addProject({
+                    name: project.name,
+                    userId,
+                    typeId: +project.typeId,
+                    dateStarted: project.dateStarted,
+                    wordCountGoal: +project.wordCountGoal,
+                    goalFrequency: project.goalFrequency,
+                    daysPerFrequency: +project.daysPerFrequency,
+                    completed: false
+                })
+                setIsLoading(false)
+            }
     }
 
     const createProject = (e) => {
         e.preventDefault()
         constructNewProject()
+        setProject({})
+        console.log("PROJECT ADDED AND RESET TO", project)
     }
 
     useEffect(() => {
@@ -66,6 +93,7 @@ export const ProjectForm = props => {
                 onChange={handleControlledInputChange}
                 id="projectName"
                 name="name"
+                defaultValue={project.name}
                 placeholder="Project name"
                 required
                 autoFocus/>
@@ -77,8 +105,8 @@ export const ProjectForm = props => {
                 onChange={handleControlledInputChange}
                 id="projectType"
                 name="typeId"
+                defaultValue={project.typeId}
                 required
-                value={project.typeId}
                 autoFocus>
                     <option value="0">Select a project type</option>
                     {types.map(type => (
@@ -107,6 +135,7 @@ export const ProjectForm = props => {
                  onChange={handleControlledInputChange}
                  id="projectGoal"
                  name="wordCountGoal"
+                 defaultValue={project.wordCountGoal}
                  placeholder="500"
                  required
                  autoFocus
@@ -155,6 +184,7 @@ export const ProjectForm = props => {
                 onChange={handleControlledInputChange}
                 id="daysPerFrequency"
                 name="daysPerFrequency"
+                defaultValue={project.daysPerFrequency}
                 placeholder="3"
                 disabled={!isFreqActive}
                 required
