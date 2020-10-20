@@ -19,7 +19,10 @@
       "name": "Great American Novel",
       "userId": 1,
       "typeId": 1,
-      "goalId": 1,
+      "dateStarted": "2020-10-20",
+      "WordCountGoal": 500,
+      "goalFrequency": "daily",
+      "daysPerFrequency": 1,
       "completed": false
     }
   ],

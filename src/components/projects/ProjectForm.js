@@ -36,7 +36,10 @@ export const ProjectForm = props => {
     }
 
     const constructNewProject = () => {
-        console.log("SUBMITTED")
+        if (+project.typeId) {
+            console.log("SUBMITTED")
+            console.log(project)
+        }
     }
 
     const createProject = (e) => {
@@ -73,8 +76,9 @@ export const ProjectForm = props => {
                 <select
                 onChange={handleControlledInputChange}
                 id="projectType"
-                name="projectId"
+                name="typeId"
                 required
+                value={project.typeId}
                 autoFocus>
                     <option value="0">Select a project type</option>
                     {types.map(type => (
@@ -90,7 +94,7 @@ export const ProjectForm = props => {
                 <input type="date"
                 onChange={handleControlledInputChange}
                 id="projectDate"
-                name="projectDate"
+                name="dateStarted"
                 defaultValue={convertedDate}
                 />
             </fieldset>
@@ -113,7 +117,7 @@ export const ProjectForm = props => {
             <fieldset className="freq__radios">
                 <label>Goal Frequency: </label>
                 <div className="radios">
-                    <input className="input__radio" type="radio" id="daily" name="goalFrequency" value="daily"
+                    <input className="input__radio" type="radio" id="daily" name="goalFrequency" value="daily" required
                     onChange={handleControlledInputChange}
                     onClick={e => {
                         setIsFreqActive(false)
@@ -121,7 +125,7 @@ export const ProjectForm = props => {
                     }}
                     />
                     <label htmlFor="daily">Daily</label>
-                    <input className="input__radio" type="radio" id="weekly" name="goalFrequency" value="weekly"
+                    <input className="input__radio" type="radio" id="weekly" name="goalFrequency" value="weekly" required
                     onChange={handleControlledInputChange}
                     onClick={e => {
                         setIsFreqActive(true)
@@ -129,7 +133,7 @@ export const ProjectForm = props => {
                     }}
                     />
                     <label htmlFor="weekly">Weekly</label>
-                    <input className="input__radio" type="radio" id="monthly" name="goalFrequency" value="monthly"
+                    <input className="input__radio" type="radio" id="monthly" name="goalFrequency" value="monthly" required
                     onChange={handleControlledInputChange}
                     onClick={e => {
                         setIsFreqActive(true)
@@ -140,7 +144,6 @@ export const ProjectForm = props => {
                 </div>
             </fieldset>
             
-            {/* BELOW IS GREYED OUT UNLESS WEEKLY OR MONTHLY */}
             <fieldset className="freq__days">
                 <label
                 className={isFreqActive ? "label__days days--active" : "label__days"}
