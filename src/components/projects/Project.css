@@ -7,3 +7,7 @@
     padding: 0;
     cursor: pointer;
 }
+
+.project__cards {
+    display: flex;
+}

@@ -1,0 +1,12 @@
+.card__project {
+    margin: 1em;
+}
+
+.project__h2--card {
+    font-size: 1em;
+}
+
+.project__subtitle {
+    font-size: 0.6em;
+    font-weight: var(--weightHeavy);
+}
