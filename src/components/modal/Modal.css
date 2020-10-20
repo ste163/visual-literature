@@ -34,3 +34,9 @@
     display: flex;
     justify-content: flex-end; 
 }
+
+.modal__close {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
