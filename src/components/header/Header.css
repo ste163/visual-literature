@@ -70,4 +70,6 @@
 .btn__logout {
     display: flex;
     align-items: center;
+    padding-bottom: 0.4em;
+    margin-right: 0.2em;
 }
