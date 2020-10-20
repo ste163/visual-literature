@@ -10,14 +10,15 @@ export const ProjectForm = props => {
     const currentDate = new Date()
     const convertedDate = currentDate.toISOString().slice(0,10)
 
+    // Set the default project so the form can reset.
     const defaultProject = {
-    name: "",
-    typeId: "",
-    dateStarted: convertedDate,
-    wordCountGoal: "",
-    goalFrequency: "",
-    daysPerFrequency: ""
-}
+        name: "",
+        typeId: "",
+        dateStarted: convertedDate,
+        wordCountGoal: "",
+        goalFrequency: "",
+        daysPerFrequency: ""
+    } 
 
     const { addProject } = useContext(ProjectContext)
     const { types, getTypes } = useContext(TypeContext)
@@ -27,9 +28,6 @@ export const ProjectForm = props => {
     const [ selectedFreq, setSelectedFreq ] = useState("")
     const [ isFreqActive, setIsFreqActive ] = useState(false)
     const [ isLoading, setIsLoading ] = useState(true)
-
-
-
 
     // Takes the selected radio button
     // and generates correct label string.
@@ -190,7 +188,7 @@ export const ProjectForm = props => {
                 <label
                 className={isFreqActive ? "label__days days--active" : "label__days"}
                 htmlFor="daysPerFrequency">
-                    How many days per <span className="freq__selected">{freqGenerator()}</span> do you plan on writing:
+                    How many days per <span className={isFreqActive ? "freq__selected" : "label__days"} >{isFreqActive ? freqGenerator() : ""}</span> do you plan on writing:
                 </label>
                 <input type="number"
                 className={isFreqActive ? "day__placeholder--active" : "day__placeholder--inactive"}
