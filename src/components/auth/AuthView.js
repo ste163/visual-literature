@@ -127,7 +127,7 @@ export const AuthView = props => {
                     onSubmit={activeBtn ? handleLogin : handleRegister}>
                         <fieldset>
                             <label htmlFor={activeBtn ? "usernameLogin" : "usernameRegister"}>Username</label>
-                            <input ref={activeBtn ? usernameLogin : usernameRegister} type="text"
+                            <input className="input--auth" ref={activeBtn ? usernameLogin : usernameRegister} type="text"
                                 id={activeBtn ? "usernameLogin" : "usernameRegister"}
                                 placeholder="Author123"
                                 required autoFocus />

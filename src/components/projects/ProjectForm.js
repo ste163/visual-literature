@@ -10,7 +10,7 @@ export const ProjectForm = props => {
     
     // Sets state for creating the project
     const [ project, setProject ] = useState({})
-    const [ selectedFreq, setSelectedFreq ] = useState()
+    const [ selectedFreq, setSelectedFreq ] = useState("")
     const [ isFreqActive, setIsFreqActive ] = useState(false)
     const [isLoading, setIsLoading ] = useState(true)
 
