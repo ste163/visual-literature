@@ -24,50 +24,6 @@
       "daysPerFrequency": 1,
       "completed": false,
       "id": 1
-    },
-    {
-      "name": "Book",
-      "userId": 1,
-      "typeId": 7,
-      "dateStarted": "2020-10-20",
-      "wordCountGoal": 300,
-      "goalFrequency": "weekly",
-      "daysPerFrequency": 5,
-      "completed": false,
-      "id": 2
-    },
-    {
-      "name": "hfgghfhg",
-      "userId": 1,
-      "typeId": 5,
-      "dateStarted": "2020-10-20",
-      "wordCountGoal": 5345345,
-      "goalFrequency": "weekly",
-      "daysPerFrequency": 5,
-      "completed": false,
-      "id": 3
-    },
-    {
-      "name": "hgfhfg",
-      "userId": 1,
-      "typeId": 6,
-      "dateStarted": "2020-10-20",
-      "wordCountGoal": 645645,
-      "goalFrequency": "monthly",
-      "daysPerFrequency": 432,
-      "completed": false,
-      "id": 4
-    },
-    {
-      "name": "hgfhfgh",
-      "userId": 1,
-      "typeId": 4,
-      "dateStarted": "2020-10-20",
-      "wordCountGoal": 54354,
-      "goalFrequency": "monthly",
-      "daysPerFrequency": 4545,
-      "completed": false,
-      "id": 5
     }
   ],
   "types": [
