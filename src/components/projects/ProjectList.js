@@ -5,6 +5,7 @@ import { ProjectCard } from "./ProjectCard"
 import { Modal } from "../modal/Modal"
 import "./Project.css"
 import { IconPlus } from "../icons/IconPlus"
+import { IconDivider } from "../icons/IconDivider"
 
 export const ProjectList = () => {
     const { projects, getProjects } = useContext(ProjectContext)
@@ -24,6 +25,7 @@ export const ProjectList = () => {
             onClick={e => {modal.current.className = "background__modal modal__active"}}>
                 <IconPlus color="icon__gray" />
                 Create new project
+                <IconDivider color="icon__lightGray" />
             </button>
         </section>
 
