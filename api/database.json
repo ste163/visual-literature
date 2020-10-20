@@ -15,12 +15,15 @@
   ],
   "projects": [
     {
-      "id": 1,
       "name": "Great American Novel",
       "userId": 1,
       "typeId": 1,
-      "goalId": 1,
-      "completed": false
+      "dateStarted": "2020-10-20",
+      "wordCountGoal": 500,
+      "goalFrequency": "daily",
+      "daysPerFrequency": 1,
+      "completed": false,
+      "id": 1
     }
   ],
   "types": [
@@ -38,7 +41,7 @@
     },
     {
       "id": 4,
-      "name": "Poetry"
+      "name": "Poem"
     },
     {
       "id": 5,

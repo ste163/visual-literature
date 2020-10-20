@@ -22,7 +22,7 @@
 .card {
     background-color: var(--offWhite);
     border-radius: var(--cardRadius);
-    filter: var(--cardDropShadow);
+    box-shadow: var(--cardDropShadow);
 }
 
 .card__auth {
@@ -99,4 +99,8 @@
 .register__inactive {
     opacity: 0;
     z-index: 0;
+}
+
+.input--auth {
+    width: auto;
 }
