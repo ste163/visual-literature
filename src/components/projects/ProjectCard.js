@@ -1,10 +1,11 @@
 import React from "react"
+import { IconArrow } from "../icons/IconArrow"
 import { IconGraph } from "../icons/IconGraph"
 import "./ProjectCard.css"
 
 export const ProjectCard = ({project}) => (
     <article className="card card__project">
-        <button className="card__btn project__arrow">MORE</button>
+        <button className="card__btn project__arrow"><IconArrow color="icon__gray" /></button>
         <button className="card__btn project__dots">&#8226; &#8226; &#8226;</button>
         <h2 className="project__h2--card">{project.name}</h2>
         <div className="project__subtitle project__subtitle--type">{project.type.name}</div>
