@@ -8,6 +8,11 @@
     margin: 0.3em 0.4em;
 }
 
+.icon__dots {
+    width: 2em;
+    height: 1em;
+}
+
 .icon__arrow {
     height: 1em;
 }

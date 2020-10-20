@@ -1,3 +1,7 @@
+.project__cards {
+    display: flex;
+}
+
 .card__project {
     display: grid;
     margin: 1em;
@@ -45,7 +49,8 @@
 .project__dots {
     grid-column: 3;
     grid-row: 1;
-    margin-left: 0.5em;
+    margin-left: 2em;
+    align-items: center;
 }
 
 .project__dash {
