@@ -1,4 +1,6 @@
 .project__btn {
+    display: flex;
+    align-items: center;
     font-size: 1em;
     font-weight: var(--weightHeavy);
     background-color: transparent;
