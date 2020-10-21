@@ -2,7 +2,6 @@ import React from "react"
 import { Route, Redirect } from "react-router-dom"
 import { ApplicationViews } from "./ApplicationViews"
 import { AuthView } from "./auth/AuthView"
-import "./WriteLog.css"
 
 export const WriteLog = () => (
     <div className="root__container"

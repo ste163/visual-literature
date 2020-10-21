@@ -3,6 +3,7 @@ import { IconDots } from "../icons/IconDots"
 import { Modal } from "../modal/Modal"
 import { ProjectForm } from "./ProjectForm"
 import { ProjectContext } from "./ProjectProvider"
+import "./ProjectDotMenu.css"
 
 export const DotMenu = (React.forwardRef((props, ref) => {
 

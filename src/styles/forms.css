@@ -1,0 +1,31 @@
+fieldset {
+    display: flex;
+    flex-flow: column nowrap;
+    border: none;
+    margin: 0.7em;
+    padding: 0;
+  }
+  
+  .fieldset__btn {
+    display: grid;
+    justify-content: center;
+  }
+  
+  label {
+    font-size: 0.75em;
+    font-weight: var(--weightThin);
+  }
+  
+  input, select{
+    background-color: var(--formFieldGray);
+    border-style: none;
+    border-radius: var(--formFieldRadius);
+    padding: 0.5em;
+    font-size: 0.7em;
+    width: min-content;
+  }
+  
+  .input__radio {
+    margin: 0 0.2em 0 0.7em;
+    padding: 0;
+  }
