@@ -15,17 +15,6 @@
   ],
   "projects": [
     {
-      "name": "Great American Novel",
-      "userId": 1,
-      "typeId": 1,
-      "dateStarted": "2020-10-20",
-      "wordCountGoal": 500,
-      "goalFrequency": "daily",
-      "daysPerFrequency": 1,
-      "completed": false,
-      "id": 1
-    },
-    {
       "name": "Poems for Good Days",
       "userId": 2,
       "typeId": 5,
@@ -35,6 +24,17 @@
       "daysPerFrequency": 5,
       "completed": false,
       "id": 4
+    },
+    {
+      "name": "Poetry",
+      "userId": 1,
+      "typeId": 3,
+      "dateStarted": "2020-10-21",
+      "wordCountGoal": 42,
+      "goalFrequency": "daily",
+      "daysPerFrequency": 1,
+      "completed": false,
+      "id": 5
     }
   ],
   "types": [

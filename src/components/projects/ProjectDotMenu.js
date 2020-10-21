@@ -45,15 +45,17 @@ export const DotMenu = (React.forwardRef((props, ref) => {
             onClick={e => {
                 console.log("EDIT", props.project)
                 editModal.current.className = "background__modal modal__active"
-            }}>
-                Edit</button>
-                <Modal ref={editModal} contentFunction={<ProjectForm props={props.project}/>} width={"modal__width--wide"}/> 
+            }}>Edit</button>
+            
+            <Modal ref={editModal} contentFunction={<ProjectForm props={props.project}/>} width={"modal__width--wide"}/> 
+            
             <button className="dot__btn"
             onClick={e => {
                 deleteModal.current.className = "background__modal modal__active"
-            }}>
-                Delete</button>
-                <Modal ref={deleteModal} contentFunction={<DeleteWarning/>} width={"modal__width--small"}/>
+            }}>Delete</button>
+            
+            <Modal ref={deleteModal} contentFunction={<DeleteWarning/>} width={"modal__width--small"}/>
+        
         </div>
     </section>
 )}))
