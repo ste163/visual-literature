@@ -47,12 +47,32 @@
     align-self: center;
 }
 
-.project__dots {
+/* .project__dots {
     grid-column: 3;
     grid-row: 1;
     margin-left: 2em;
     margin-right: 0.5em;
     align-items: center;
+} */
+
+.dot__menu {
+    display: inline-block;
+    position: relative;
+    grid-column: 3;
+    grid-row: 1;
+    margin-left: 2em;
+    margin-right: 0.5em;
+    align-items: center;
+}
+
+.dot__btns {
+    position: absolute
+}
+
+.dot__btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
 }
 
 .project__dash {

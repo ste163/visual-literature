@@ -13,6 +13,10 @@ export const ProjectList = () => {
     
     const modal = useRef()
 
+    // POSSIBLE FIX?
+    // check if projects is an array, if it is, set it to itself
+    // if it's not, push into an empty array
+
     useEffect(() => {
         getProjects(activeUser)
     }, [])
