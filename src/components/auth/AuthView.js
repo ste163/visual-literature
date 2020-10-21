@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from "react"
 import { useHistory } from "react-router-dom";
 import { WriteLogLogo } from "../branding/WriteLogLogo"
 import { WriteLogTitle } from "../branding/WriteLogTitle"
+import { Modal } from "../modal/Modal";
 import "./AuthView.css"
 
 export const AuthView = props => {
@@ -51,7 +52,7 @@ export const AuthView = props => {
                     sessionStorage.setItem("userId", exists.id)
                     history.push("/")
                 } else {
-                    existDialog.current.showModal()
+                    existDialog.current.className = "background__modal modal__active"
                 }
             })
     }
@@ -80,23 +81,31 @@ export const AuthView = props => {
                         })
                 }
                 else {
-                    conflictDialog.current.showModal()
+                    conflictDialog.current.className = "background__modal modal__active"
                 }
             })
     }
 
+    const ExistDialog = () => (
+        <>
+        <h2 className="modal__warning">Warning</h2>
+        <p className="auth__warning">User does not exist.</p>
+        </>
+    )
+
+    const ConflictDialog = () => (
+        <>
+        <h2 className="modal__warning">Warning</h2>
+        <p className="auth__warning">Username already taken.</p>
+        </>
+    )
+
     return (
         <main className="auth__container">
 
-            <dialog ref={existDialog}>
-                <div>User does not exist</div>
-                <button onClick={e => existDialog.current.close()}>Close</button>
-            </dialog>
+            <Modal ref={existDialog} contentFunction={<ExistDialog/>} width={"modal__width--small"}/>
 
-            <dialog ref={conflictDialog}>
-                <div>Account with that username already exists</div>
-                <button onClick={e => conflictDialog.current.close()}>Close</button>
-            </dialog>
+            <Modal ref={conflictDialog} contentFunction={<ConflictDialog/>} width={"modal__width--wide"} />
 
             <WriteLogLogo location="logo__login" color="logo__green" line="logo__line--green" />
             <WriteLogTitle location="title__login" color="title__green" />
@@ -135,11 +144,11 @@ export const AuthView = props => {
                         <fieldset className="fieldset__btn">
                             <button 
                             ref={loginBtn}
-                            className={`btn btn__authSubmit ${activeBtn ? "login__active" : " login__inactive"}`}
+                            className={`btn btn--green btn__authSubmit ${activeBtn ? "login__active" : " login__inactive"}`}
                             type="submit">Login</button>
                             <button
                             ref={registerBtn} 
-                            className={`btn btn__authSubmit ${activeBtn ? "register__inactive" : "register__active"}`}
+                            className={`btn btn--green btn__authSubmit ${activeBtn ? "register__inactive" : "register__active"}`}
                             type="submit">Register</button>
                         </fieldset>
                     </form>

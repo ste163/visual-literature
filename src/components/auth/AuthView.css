@@ -104,3 +104,7 @@
 .input--auth {
     width: auto;
 }
+
+.auth__warning {
+    margin-bottom: 0.8em;
+}

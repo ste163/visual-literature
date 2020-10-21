@@ -47,12 +47,44 @@
     align-self: center;
 }
 
-.project__dots {
+.dot__menu {
+    display: inline-block;
+    position: relative;
     grid-column: 3;
     grid-row: 1;
-    margin-left: 2em;
+    margin-left: 1em;
     margin-right: 0.5em;
     align-items: center;
+}
+
+.dot__btns--inactive {
+    display: none;
+}
+
+.dot__btns--active {
+    display: inline-block;
+    position: absolute;
+    background-color: var(--formFieldGray);
+    border-radius: var(--formFieldRadius);
+    box-shadow: var(--cardDropShadow);
+}
+
+.dot__btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-weight: var(--weightThin);
+    transition: var(--btnHover);
+}
+
+.dot__btn:hover {
+    border-radius: 2em;
+    background-color: var(--lightGreen);
+    box-shadow: var(--cardDropShadow);
+}
+
+.dot__btn:active {
+    background-color: var(--lightGreen);
 }
 
 .project__dash {

@@ -1,11 +1,11 @@
-import React, { useRef, useEffect, useContext } from "react"
+import React, { useRef, useEffect, useState, useContext } from "react"
 import { ProjectContext } from "./ProjectProvider"
 import { ProjectForm } from "./ProjectForm"
 import { ProjectCard } from "./ProjectCard"
 import { Modal } from "../modal/Modal"
-import "./Project.css"
 import { IconPlus } from "../icons/IconPlus"
 import { IconDivider } from "../icons/IconDivider"
+import "./Project.css"
 
 export const ProjectList = () => {
     const { projects, getProjects } = useContext(ProjectContext)
@@ -13,10 +13,20 @@ export const ProjectList = () => {
     
     const modal = useRef()
 
+    // POSSIBLE FIX?
+    // check if projects is an array, if it is, set it to itself
+    // if it's not, push into an empty array
+
     useEffect(() => {
         getProjects(activeUser)
     }, [])
 
+    // I know the issue is:
+    // When we add a new project, it comes back as an object
+    // instead of an array. You can not map over an object.
+    // Therefore, we need to either convert the object to an array
+    // or handle rendering the object different than the map
+    
     return (
         <>
 
@@ -33,12 +43,14 @@ export const ProjectList = () => {
         </section>
 
         <section className="view__container">
-            <Modal ref={modal} contentFunction={<ProjectForm />} />
+            <Modal ref={modal} contentFunction={<ProjectForm />} width={"modal__width--wide"}/>
             <div className="project__cards">
                 {
+                    
                     projects.map(project => {
                         return <ProjectCard key={project.id} project={project} />
                     })
+                
                 }
             </div>
         </section>
@@ -46,3 +58,13 @@ export const ProjectList = () => {
         </>
     )
 }
+
+// TESTS TO FIX CRASH ON ADD
+
+// projects.map(project => {
+//     return <ProjectCard key={project.id} project={project} />
+// })
+
+// Array.isArray(projects) ? 
+// projects.map(project => <ProjectCard key={project.id} project={project} /> ) : 
+// <ProjectCard key={projects.id} project={projects} />

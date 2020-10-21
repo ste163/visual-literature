@@ -10,7 +10,7 @@
     background-color: rgba(0, 0, 0, 0.1);
     pointer-events: none;
     opacity: 0;
-    z-index: 3;
+    z-index: 5;
     transition: 0.2s;
 }
 
@@ -19,15 +19,21 @@
     pointer-events: all;
 }
 
-.modal__content {
+.modal__container {
     background-color: var(--offWhite);
     padding: 1em;
     border-radius: var(--cardRadius);
-    width: 20em;
     max-width: 100%;
-    filter: --var(cardDropShadow);
     overflow-y: auto;
-    z-index: 4;
+    z-index: 6;
+}
+
+.modal__width--wide {
+    width: 20em;
+}
+
+.modal__width--small {
+    width: 10em;
 }
 
 .modal__heading {
@@ -39,4 +45,15 @@
     background-color: transparent;
     border: none;
     cursor: pointer;
+}
+
+.modal__content {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items:center;
+}
+
+.modal__warning {
+    color: var(--red);
 }

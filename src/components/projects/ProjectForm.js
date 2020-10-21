@@ -5,6 +5,8 @@ import "./ProjectForm.css"
 
 export const ProjectForm = props => {
 
+    const projectId = props.id
+
     const userId = +sessionStorage.getItem("userId")
     // Populates date picker with current date
     const currentDate = new Date()
@@ -28,6 +30,12 @@ export const ProjectForm = props => {
     const [ selectedFreq, setSelectedFreq ] = useState("")
     const [ isFreqActive, setIsFreqActive ] = useState(false)
     const [ isLoading, setIsLoading ] = useState(true)
+
+    useEffect(() => {
+        getTypes().then(() => {
+            setIsLoading(false);
+        })
+    }, [])
 
     // Takes the selected radio button
     // and generates correct label string.
@@ -81,12 +89,6 @@ export const ProjectForm = props => {
         setProject(defaultProject)
         setIsFreqActive(false)
     }
-
-    useEffect(() => {
-        getTypes().then(() => {
-            setIsLoading(false);
-        })
-    }, [])
 
     return (
         <form className="form__project" onSubmit={createProject}>
@@ -204,10 +206,10 @@ export const ProjectForm = props => {
             
             <div className="project__submit">
                 <button 
-                className="btn"
+                className="btn btn--green"
                 type="submit"
-                disabled={isLoading}
-                >Create</button>
+                disabled={isLoading}>
+                    Create</button>
             </div>
 
         </form>

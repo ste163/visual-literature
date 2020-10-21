@@ -7,9 +7,11 @@
   --green: #02545B;
   --lightGreen: #0058600f;
   --greenActive: #01383d;
+  --red: #d85656;
   --purple: #62496F;
   --lightPurple: #786384;
   --orange: #F0CB72;
+  --orangeActive: #c7a961;
   --lightOrange: #F0CB72;
   --formFieldGray: #E9E9E9;
   --shadowGrey: #00000008;
@@ -71,7 +73,6 @@ p {
   background-color: transparent;
   border-style: solid;
   border-radius: var(--formFieldRadius);
-  border-color: var(--green);
   border-width: 0.2em;
   width: max-content;
   padding: .2em 1em;
@@ -81,14 +82,33 @@ p {
   transition: .1s;
 }
 
-.btn:hover {
+.btn--green {
+  border-color: var(--green);
+}
+
+.btn--green:hover {
   background-color: var(--green);
+  font-weight:var(--weightHeavy);
   color: white;
 }
 
-.btn:active {
+.btn--green:active {
   background-color: var(--greenActive);
-  border-color: var(--greenActive)
+  border-color: var(--greenActive);
+}
+
+.btn--orange {
+  border-color: var(--orange);
+}
+
+.btn--orange:hover {
+  background-color: var(--orange);
+  font-weight:var(--weightHeaviest);
+}
+
+.btn--orange:active {
+  background-color: var(--orangeActive);
+  border-color: var(--orangeActive)
 }
 
 /* Forms */
