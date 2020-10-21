@@ -47,20 +47,12 @@
     align-self: center;
 }
 
-/* .project__dots {
-    grid-column: 3;
-    grid-row: 1;
-    margin-left: 2em;
-    margin-right: 0.5em;
-    align-items: center;
-} */
-
 .dot__menu {
     display: inline-block;
     position: relative;
     grid-column: 3;
     grid-row: 1;
-    margin-left: 2em;
+    margin-left: 1em;
     margin-right: 0.5em;
     align-items: center;
     z-index: 1;

@@ -14,7 +14,7 @@ export const ProjectCard = ({project}) => {
 
     return (
         <article className="card card__project">
-            <DotMenu ref={dotMenu}/>
+            <DotMenu ref={dotMenu} project={project}/>
             <button className="card__btn project__arrow"><IconArrow color="icon__gray" /></button>
             <h2 className="project__h2--card">{project.name}</h2>
             <div className="project__subtitle project__subtitle--type">{project.type.name}</div>
