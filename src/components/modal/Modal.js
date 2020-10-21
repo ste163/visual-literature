@@ -4,7 +4,13 @@ import "./Modal.css"
 
 export const Modal = (React.forwardRef((props, ref) => (
      (
-        <section ref={ref} className="background__modal">
+        <section ref={ref} className="background__modal"
+        onClick={e => {
+            // If you click off the background, close modal
+           if (e.target.className === "background__modal modal__active") {
+            ref.current.className = "background__modal"
+           }
+        }}>
             <article className={`modal__container ${props.width}`}>
                 <section className="modal__heading">
                     <button className="modal__close"
