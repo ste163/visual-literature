@@ -9,27 +9,35 @@ export const Footer = () => {
             <div className="footer__row1">
 
                 <section className="footer__branding">
+                    
                     <WriteLogLogo location="logo__footer" color="logo__green" line="logo__line--invisible"/>
                     <WriteLogTitle location="title__footer" color="title__green" />
+
                 </section>
 
                 <section className="footer__summary">
+
                     <h2 className="footer__heading">Summary</h2>
                     <p className="summary__p">
                         Assisting  writers with tracking, visualizing, and analyzing their writing projects.
                     </p>
+
                 </section>
 
                 <section className="footer__about">
+
                     <h2 className="footer__heading">About</h2>
                     <p className="about__p">
                         Then new column with created by Sam Edwards in TN, w/ linkedIn and github links
                     </p>
+                    
                 </section>
 
                 <section className="footer__tech">
+                    
                     <h2 className="footer__heading">Technologies Used</h2>
                     <div className="footer__lists">
+                        
                         <div>
                             <h3 className="footer__subHeading">Development</h3>
                             <ul className="tech__list">
@@ -38,6 +46,7 @@ export const Footer = () => {
                                 <li className="tech__item">Ubuntu Linux</li>
                             </ul>
                         </div>
+                        
                         <div className="footer__list">
                             <h3 className="footer__subHeading">Design</h3>
                             <ul className="tech__list">
@@ -45,13 +54,16 @@ export const Footer = () => {
                                 <li className="tech__item">Colour Contrast Analyser</li>
                             </ul>
                         </div>
+                    
                     </div>
+                
                 </section>
             </div>
 
             <div className="footer__row2">
                 &#169; 2020 Sam Edwards
             </div>
+
         </footer>
     )
 }

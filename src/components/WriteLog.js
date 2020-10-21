@@ -6,7 +6,7 @@ import "./WriteLog.css"
 
 export const WriteLog = () => (
     <div className="root__container"
-    // LOOK INTO REFACTORING THIS LATER
+    // MUST REFACTOR LATER
     // onClick handles if user opens a 3-dot menu,
     // this script will close it when you click on the screen. 
     onClick={e => {

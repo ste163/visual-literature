@@ -108,11 +108,15 @@ export const AuthView = props => {
             <Modal ref={conflictDialog} contentFunction={<ConflictDialog/>} width={"modal__width--wide"} />
 
             <WriteLogLogo location="logo__login" color="logo__green" line="logo__line--green" />
+            
             <WriteLogTitle location="title__login" color="title__green" />
+            
             <h2 className="subtitle">Track, visualize, & analyze writing projects</h2>
 
             <section className="card card__auth">
+                
                 <ul  className="auth__btns">
+                    
                     <li className="btns__li">
                         <button
                         className={activeBtn ? "auth__btn auth__btn--active" : "auth__btn"}
@@ -121,6 +125,7 @@ export const AuthView = props => {
                         onMouseLeave={e => underline.current.className = `auth__line ${activeBtn ? "line__login--active" : "line__register--active"}`}
                         >Log in</button>
                     </li>
+                    
                     <li className="btns__li">
                         <button
                         className={activeBtn ? "auth__btn" : "auth__btn auth__btn--active"}
@@ -129,11 +134,16 @@ export const AuthView = props => {
                         onMouseLeave={e => underline.current.className = `auth__line ${activeBtn ? "line__login--active" : "line__register--active"}`}
                         >Register</button>
                     </li>
+                    
                     <div ref={underline} className={`auth__line ${activeBtn ? "line__login--active" : "line__register--active"}`}></div>
+                
                 </ul>
+
                 <section>
+
                     <form className="form"
                     onSubmit={activeBtn ? handleLogin : handleRegister}>
+
                         <fieldset>
                             <label htmlFor={activeBtn ? "usernameLogin" : "usernameRegister"}>Username</label>
                             <input className="input--auth" ref={activeBtn ? usernameLogin : usernameRegister} type="text"
@@ -141,6 +151,7 @@ export const AuthView = props => {
                                 placeholder="Author123"
                                 required autoFocus />
                         </fieldset>
+
                         <fieldset className="fieldset__btn">
                             <button 
                             ref={loginBtn}
@@ -151,8 +162,11 @@ export const AuthView = props => {
                             className={`btn btn--green btn__authSubmit ${activeBtn ? "register__inactive" : "register__active"}`}
                             type="submit">Register</button>
                         </fieldset>
+
                     </form>
+
                 </section>
+
             </section>
 
         </main>

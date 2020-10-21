@@ -8,8 +8,9 @@ import { TypeProvider } from "./type/TypeProvider"
 
 export const ApplicationViews = () => {
     // If user will be able to decide default view as either
-    // project or dashboard, then another if statement
+    // project or dashboard, then an if statement
     // will need to go on the route exact path "/"
+    // checking what the user has selected as the default view
     return (
     <> 
         <Header />

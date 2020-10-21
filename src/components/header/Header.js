@@ -22,15 +22,22 @@ export const Header = () => {
     //     setNav(location.pathname)
     // }, [])
 
+    // Refactor header so each item is it's own element on the grid
+    // for perfect, aligned placement
     return (
         <header className="header">
+
             <section className="header__branding">
                 <WriteLogLogo location="logo__header" color="logo__white" line="logo__line--invisible"/>
                 <WriteLogTitle location="title__header" color="title__white" />
             </section>
+
             <nav className="header__nav">
+                
                 <ul className="nav__list">
+
                     <div className="nav__centered">
+
                         <li className="nav__item">
                             <button className="nav__btn" onClick={() => {
                                 history.push("/projects")
@@ -40,6 +47,7 @@ export const Header = () => {
                                 Projects
                             </button>
                         </li>
+
                         <li className="nav__item">
                             <button className="nav__btn"  onClick={() => {
                                 history.push("/dashboard")
@@ -48,12 +56,15 @@ export const Header = () => {
                             }}>
                                 Dashboard
                             </button>
-                        </li>
+                        </li>      
+
                         <div className="nav__line"></div>
+                    
                     </div>
+
                     <li className="nav__item nav__rightAligned">
-                        <button
-                        className="nav__btn btn__logout" 
+
+                        <button className="nav__btn btn__logout" 
                         onClick={() => {
                            sessionStorage.clear("userId")
                            history.push()
@@ -61,9 +72,13 @@ export const Header = () => {
                             <IconLogout />
                             Logout
                         </button>
+                        
                     </li>
+
                 </ul>
+
             </nav>
+
         </header>
     )
 }
