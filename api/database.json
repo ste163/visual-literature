@@ -46,6 +46,17 @@
       "daysPerFrequency": 1,
       "completed": false,
       "id": 6
+    },
+    {
+      "name": "Spooky Stories",
+      "userId": 1,
+      "typeId": 7,
+      "dateStarted": "2020-10-21",
+      "wordCountGoal": 544,
+      "goalFrequency": "monthly",
+      "daysPerFrequency": 8,
+      "completed": false,
+      "id": 7
     }
   ],
   "types": [

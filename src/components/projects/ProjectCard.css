@@ -62,7 +62,7 @@
 }
 
 .dot__btns--active {
-    display: inline-block;
+    display: auto;
     position: absolute;
     background-color: var(--formFieldGray);
     border-radius: var(--formFieldRadius);
