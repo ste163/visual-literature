@@ -19,7 +19,7 @@
     pointer-events: all;
 }
 
-.modal__content {
+.modal__container {
     background-color: var(--offWhite);
     padding: 1em;
     border-radius: var(--cardRadius);
@@ -39,4 +39,9 @@
     background-color: transparent;
     border: none;
     cursor: pointer;
+}
+
+.modal__content {
+    display: flex;
+    justify-content: center;
 }
