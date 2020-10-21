@@ -1,11 +1,14 @@
-import React, { useRef, forwardRef } from "react"
+import React, { useRef, forwardRef, useContext } from "react"
 import { IconDots } from "../icons/IconDots"
 import { Modal } from "../modal/Modal"
 import { ProjectForm } from "./ProjectForm"
+import { ProjectContext } from "./ProjectProvider"
 
 
 
 export const DotMenu = (React.forwardRef((props, ref) => {
+
+    const { deleteProject } = useContext(ProjectContext);
 
     const deleteModal = useRef()
     const editModal = useRef()  
@@ -13,10 +16,10 @@ export const DotMenu = (React.forwardRef((props, ref) => {
     const DeleteWarning = () => (
         <>
             <h2 className="modal__warning">Warning</h2>
-            <p>Deleting a project is permanent. Confirm deletion.</p>
+            <p>Deleting a project is permanent.</p>
             <button className="btn btn--orange"
             onClick={e => {
-                console.log("DELETE", props.project)
+                deleteProject(props.project.userId, props.project.id)
             }}>
                 Confirm</button>
         </>

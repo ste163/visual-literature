@@ -11,10 +11,6 @@
     {
       "username": "author123",
       "id": 3
-    },
-    {
-      "username": "gdfaagdf",
-      "id": 4
     }
   ],
   "projects": [
@@ -30,26 +26,15 @@
       "id": 1
     },
     {
-      "name": "Horror Story",
-      "userId": 1,
-      "typeId": 6,
+      "name": "Poems for Good Days",
+      "userId": 2,
+      "typeId": 5,
       "dateStarted": "2020-10-21",
-      "wordCountGoal": 300,
-      "goalFrequency": "daily",
-      "daysPerFrequency": 1,
+      "wordCountGoal": 100,
+      "goalFrequency": "weekly",
+      "daysPerFrequency": 5,
       "completed": false,
-      "id": 2
-    },
-    {
-      "name": "October",
-      "userId": 1,
-      "typeId": 4,
-      "dateStarted": "2020-10-15",
-      "wordCountGoal": 20,
-      "goalFrequency": "daily",
-      "daysPerFrequency": 1,
-      "completed": false,
-      "id": 3
+      "id": 4
     }
   ],
   "types": [
