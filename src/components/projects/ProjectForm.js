@@ -204,7 +204,7 @@ export const ProjectForm = props => {
             
             <div className="project__submit">
                 <button 
-                className="btn"
+                className="btn btn--green"
                 type="submit"
                 disabled={isLoading}
                 >Create</button>

@@ -144,11 +144,11 @@ export const AuthView = props => {
                         <fieldset className="fieldset__btn">
                             <button 
                             ref={loginBtn}
-                            className={`btn btn__authSubmit ${activeBtn ? "login__active" : " login__inactive"}`}
+                            className={`btn btn--green btn__authSubmit ${activeBtn ? "login__active" : " login__inactive"}`}
                             type="submit">Login</button>
                             <button
                             ref={registerBtn} 
-                            className={`btn btn__authSubmit ${activeBtn ? "register__inactive" : "register__active"}`}
+                            className={`btn btn--green btn__authSubmit ${activeBtn ? "register__inactive" : "register__active"}`}
                             type="submit">Register</button>
                         </fieldset>
                     </form>
