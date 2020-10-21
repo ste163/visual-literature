@@ -66,13 +66,17 @@
 }
 
 .dot__btns {
-    position: absolute
+    position: absolute;
+    background-color: var(--formFieldGray);
+    border-radius: var(--formFieldRadius);
+    box-shadow: var(--cardDropShadow);
 }
 
 .dot__btn {
     background-color: transparent;
     border: none;
     cursor: pointer;
+    font-weight: var(--weightThin);
 }
 
 .project__dash {
