@@ -25,9 +25,18 @@ export const ProjectProvider = props => {
         })
     }
 
+    const deleteProject = (userId, projectId) => {
+        fetch(`http://localhost:8088/projects/${projectId}`, {
+            method: "DELETE"
+        })
+        .then(() => {
+            getProjects(userId)
+        })
+    }
+
     return (
         <ProjectContext.Provider value={{
-            projects, getProjects, addProject
+            projects, getProjects, addProject, deleteProject
         }}>
             {props.children}
         </ProjectContext.Provider>
