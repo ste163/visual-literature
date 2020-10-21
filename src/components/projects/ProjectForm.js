@@ -6,7 +6,6 @@ import "./ProjectForm.css"
 export const ProjectForm = props => {
 
     const projectId = props.id
-    console.log(props)
 
     const userId = +sessionStorage.getItem("userId")
     // Populates date picker with current date
@@ -209,8 +208,8 @@ export const ProjectForm = props => {
                 <button 
                 className="btn btn--green"
                 type="submit"
-                disabled={isLoading}
-                >Create</button>
+                disabled={isLoading}>
+                    Create</button>
             </div>
 
         </form>
