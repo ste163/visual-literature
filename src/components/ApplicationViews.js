@@ -14,17 +14,19 @@ export const ApplicationViews = () => {
     <> 
         <Header />
         
-        <Route exact path="/">
-            <Redirect to="/projects" />
-        </Route>
+        <ProjectProvider>
+            <TypeProvider>
 
-        <Route exact path="/projects">
-            <ProjectProvider>
-                <TypeProvider>
-                    <ProjectList />
-                </TypeProvider>
-            </ProjectProvider>
-        </Route>
+                <Route exact path="/">
+                    <Redirect to="/projects" />
+                </Route>
+
+                <Route exact path="/projects">                    
+                    <ProjectList />  
+                </Route>
+                
+            </TypeProvider>
+        </ProjectProvider>
         
         <Footer />
     </>

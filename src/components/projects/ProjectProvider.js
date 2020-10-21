@@ -20,7 +20,9 @@ export const ProjectProvider = props => {
             },
             body: JSON.stringify(projectObj)
         })
-        .then(setProject)
+        .then(() => {
+            getProjects(projectObj.userId)
+        })
     }
 
     return (
