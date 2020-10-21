@@ -25,7 +25,6 @@
     border-radius: var(--cardRadius);
     width: 20em;
     max-width: 100%;
-    filter: --var(cardDropShadow);
     overflow-y: auto;
     z-index: 4;
 }

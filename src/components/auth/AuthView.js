@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from "react"
 import { useHistory } from "react-router-dom";
 import { WriteLogLogo } from "../branding/WriteLogLogo"
 import { WriteLogTitle } from "../branding/WriteLogTitle"
+import { Modal } from "../modal/Modal";
 import "./AuthView.css"
 
 export const AuthView = props => {
@@ -51,7 +52,7 @@ export const AuthView = props => {
                     sessionStorage.setItem("userId", exists.id)
                     history.push("/")
                 } else {
-                    existDialog.current.showModal()
+                    existDialog.current.className = "background__modal modal__active"
                 }
             })
     }
@@ -80,15 +81,27 @@ export const AuthView = props => {
                         })
                 }
                 else {
-                    conflictDialog.current.showModal()
+                    conflictDialog.current.className = "background__modal modal__active"
                 }
             })
     }
 
+    const ExistDialog = () => (
+        <p className="auth__warning">User does not exist</p>
+    )
+
+    const ConflictDialog = () => (
+        <p className="auth__warning">Account with that username already exists</p>
+    )
+
     return (
         <main className="auth__container">
 
-            <dialog ref={existDialog}>
+            <Modal ref={existDialog} contentFunction={<ExistDialog />} />
+
+            <Modal ref={conflictDialog} contentFunction={<ConflictDialog />} />
+
+            {/* <dialog ref={existDialog}>
                 <div>User does not exist</div>
                 <button onClick={e => existDialog.current.close()}>Close</button>
             </dialog>
@@ -96,7 +109,7 @@ export const AuthView = props => {
             <dialog ref={conflictDialog}>
                 <div>Account with that username already exists</div>
                 <button onClick={e => conflictDialog.current.close()}>Close</button>
-            </dialog>
+            </dialog> */}
 
             <WriteLogLogo location="logo__login" color="logo__green" line="logo__line--green" />
             <WriteLogTitle location="title__login" color="title__green" />
