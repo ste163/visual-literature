@@ -87,11 +87,17 @@ export const AuthView = props => {
     }
 
     const ExistDialog = () => (
-        <p className="auth__warning">User does not exist</p>
+        <>
+        <h2 className="modal__warning">Warning</h2>
+        <p className="auth__warning">User does not exist.</p>
+        </>
     )
 
     const ConflictDialog = () => (
-        <p className="auth__warning">Account with that username already exists</p>
+        <>
+        <h2 className="modal__warning">Warning</h2>
+        <p className="auth__warning">Username already taken.</p>
+        </>
     )
 
     return (
@@ -99,7 +105,7 @@ export const AuthView = props => {
 
             <Modal ref={existDialog} contentFunction={<ExistDialog/>} width={"modal__width--small"}/>
 
-            <Modal ref={conflictDialog} contentFunction={<ConflictDialog/>} width={"modal__width--small"} />
+            <Modal ref={conflictDialog} contentFunction={<ConflictDialog/>} width={"modal__width--wide"} />
 
             <WriteLogLogo location="logo__login" color="logo__green" line="logo__line--green" />
             <WriteLogTitle location="title__login" color="title__green" />

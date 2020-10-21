@@ -10,7 +10,9 @@ export const DotMenu = (React.forwardRef((props, ref) => {
 
     const DeleteWarning = () => (
         <>
-        <p>WARNING DELETE?</p>
+            <h2 className="modal__warning">Warning</h2>
+            <p>Deleting a project is permanent. Confirm deletion.</p>
+            <button className="btn">Confirm</button>
         </>
     )
         
