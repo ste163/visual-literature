@@ -38,7 +38,7 @@
   --btnHover: 0.2s
 }
 
-#root {
+.root__container {
   display: grid;
   grid-template-rows: min-content min-content auto min-content;
   height: 100vh;
