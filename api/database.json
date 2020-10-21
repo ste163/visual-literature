@@ -35,6 +35,17 @@
       "daysPerFrequency": 1,
       "completed": false,
       "id": 5
+    },
+    {
+      "name": "Test",
+      "userId": 1,
+      "typeId": 4,
+      "dateStarted": "2020-10-21",
+      "wordCountGoal": 432,
+      "goalFrequency": "daily",
+      "daysPerFrequency": 1,
+      "completed": false,
+      "id": 6
     }
   ],
   "types": [
