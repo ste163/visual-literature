@@ -11,6 +11,7 @@
   --purple: #62496F;
   --lightPurple: #786384;
   --orange: #F0CB72;
+  --orangeActive: #c7a961;
   --lightOrange: #F0CB72;
   --formFieldGray: #E9E9E9;
   --shadowGrey: #00000008;
@@ -103,6 +104,11 @@ p {
 .btn--orange:hover {
   background-color: var(--orange);
   font-weight:var(--weightHeaviest);
+}
+
+.btn--orange:active {
+  background-color: var(--orangeActive);
+  border-color: var(--orangeActive)
 }
 
 /* Forms */

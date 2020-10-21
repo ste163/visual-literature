@@ -12,7 +12,11 @@ export const DotMenu = (React.forwardRef((props, ref) => {
         <>
             <h2 className="modal__warning">Warning</h2>
             <p>Deleting a project is permanent. Confirm deletion.</p>
-            <button className="btn btn--orange">Confirm</button>
+            <button className="btn btn--orange"
+            onClick={e => {
+                console.log("DELETE", props.project)
+            }}>
+                Confirm</button>
         </>
     )
         
@@ -39,7 +43,6 @@ export const DotMenu = (React.forwardRef((props, ref) => {
             <button className="dot__btn"
             onClick={e => {
                 modal.current.className = "background__modal modal__active"
-                console.log("DELETE", props.project)
             }}>
                 Delete</button>
                 <Modal ref={modal} contentFunction={<DeleteWarning/>} width={"modal__width--small"}/>
