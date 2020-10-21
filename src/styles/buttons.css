@@ -1,0 +1,41 @@
+.btn {
+    background-color: transparent;
+    border-style: solid;
+    border-radius: var(--formFieldRadius);
+    border-width: 0.2em;
+    width: max-content;
+    padding: .2em 1em;
+    cursor: pointer;
+    font-size: 0.7em;
+    justify-self: center;
+    transition: .1s;
+  }
+  
+  .btn--green {
+    border-color: var(--green);
+  }
+  
+  .btn--green:hover {
+    background-color: var(--green);
+    font-weight:var(--weightHeavy);
+    color: white;
+  }
+  
+  .btn--green:active {
+    background-color: var(--greenActive);
+    border-color: var(--greenActive);
+  }
+  
+  .btn--orange {
+    border-color: var(--orange);
+  }
+  
+  .btn--orange:hover {
+    background-color: var(--orange);
+    font-weight:var(--weightHeaviest);
+  }
+  
+  .btn--orange:active {
+    background-color: var(--orangeActive);
+    border-color: var(--orangeActive)
+  }

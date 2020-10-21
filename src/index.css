@@ -1,3 +1,7 @@
+@import "./styles/buttons.css";
+@import "./styles/forms.css";
+@import "./styles/viewHeader.css";
+
 :root {
   /* Colors */
   --fontColor: #333333;
@@ -38,11 +42,15 @@
   --btnHover: 0.2s
 }
 
+/* Setup page layout */
+
 .root__container {
   display: grid;
   grid-template-rows: min-content min-content auto min-content;
   height: 100vh;
 }
+
+/* Set Defaults */
 
 * {
   color: var(--fontColor);
@@ -66,80 +74,5 @@ h2 {
 
 p {
   margin: 0;
-  padding: 0;
-}
-
-.btn {
-  background-color: transparent;
-  border-style: solid;
-  border-radius: var(--formFieldRadius);
-  border-width: 0.2em;
-  width: max-content;
-  padding: .2em 1em;
-  cursor: pointer;
-  font-size: 0.7em;
-  justify-self: center;
-  transition: .1s;
-}
-
-.btn--green {
-  border-color: var(--green);
-}
-
-.btn--green:hover {
-  background-color: var(--green);
-  font-weight:var(--weightHeavy);
-  color: white;
-}
-
-.btn--green:active {
-  background-color: var(--greenActive);
-  border-color: var(--greenActive);
-}
-
-.btn--orange {
-  border-color: var(--orange);
-}
-
-.btn--orange:hover {
-  background-color: var(--orange);
-  font-weight:var(--weightHeaviest);
-}
-
-.btn--orange:active {
-  background-color: var(--orangeActive);
-  border-color: var(--orangeActive)
-}
-
-/* Forms */
-fieldset {
-  display: flex;
-  flex-flow: column nowrap;
-  border: none;
-  margin: 0.7em;
-  padding: 0;
-}
-
-.fieldset__btn {
-  display: grid;
-  justify-content: center;
-}
-
-label {
-  font-size: 0.75em;
-  font-weight: var(--weightThin);
-}
-
-input, select{
-  background-color: var(--formFieldGray);
-  border-style: none;
-  border-radius: var(--formFieldRadius);
-  padding: 0.5em;
-  font-size: 0.7em;
-  width: min-content;
-}
-
-.input__radio {
-  margin: 0 0.2em 0 0.7em;
   padding: 0;
 }
