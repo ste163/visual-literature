@@ -1,12 +1,14 @@
 import React, { useRef, forwardRef } from "react"
 import { IconDots } from "../icons/IconDots"
 import { Modal } from "../modal/Modal"
+import { ProjectForm } from "./ProjectForm"
 
 
 
 export const DotMenu = (React.forwardRef((props, ref) => {
 
-    const modal = useRef()  
+    const deleteModal = useRef()
+    const editModal = useRef()  
 
     const DeleteWarning = () => (
         <>
@@ -30,22 +32,25 @@ export const DotMenu = (React.forwardRef((props, ref) => {
             } else {
                 ref.current.className = "dot__btns--inactive"
             }
-        }}
-        >
-            <IconDots color="icon__gray"
-        /></button>
+        }}>
+            <IconDots color="icon__gray"/>
+        </button>
+        
         <div ref={ref} className="dot__btns--inactive">
+            
             <button className="dot__btn"
             onClick={e => {
                 console.log("EDIT", props.project)
+                editModal.current.className = "background__modal modal__active"
             }}>
                 Edit</button>
+                <Modal ref={editModal} contentFunction={<ProjectForm props={props.project}/>} width={"modal__width--wide"}/> 
             <button className="dot__btn"
             onClick={e => {
-                modal.current.className = "background__modal modal__active"
+                deleteModal.current.className = "background__modal modal__active"
             }}>
                 Delete</button>
-                <Modal ref={modal} contentFunction={<DeleteWarning/>} width={"modal__width--small"}/>
+                <Modal ref={deleteModal} contentFunction={<DeleteWarning/>} width={"modal__width--small"}/>
         </div>
     </section>
 )}))
