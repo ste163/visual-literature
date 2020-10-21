@@ -40,7 +40,7 @@ export const DotMenu = (React.forwardRef((props, ref) => {
                 console.log("DELETE", props.project)
             }}>
                 Delete</button>
-                <Modal ref={modal} contentFunction={<DeleteWarning/>}/>
+                <Modal ref={modal} contentFunction={<DeleteWarning/>} width={"modal__width--small"}/>
         </div>
     </section>
 )}))

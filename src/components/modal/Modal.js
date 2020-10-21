@@ -5,7 +5,7 @@ import "./Modal.css"
 export const Modal = (React.forwardRef((props, ref) => (
      (
         <section ref={ref} className="background__modal">
-            <article className="modal__container">
+            <article className={`modal__container ${props.width}`}>
                 <section className="modal__heading">
                     <button className="modal__close"
                     onClick={e => {ref.current.className = "background__modal"}}>

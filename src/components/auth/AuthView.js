@@ -97,9 +97,9 @@ export const AuthView = props => {
     return (
         <main className="auth__container">
 
-            <Modal ref={existDialog} contentFunction={<ExistDialog />} />
+            <Modal ref={existDialog} contentFunction={<ExistDialog/>} width={"modal__width--small"}/>
 
-            <Modal ref={conflictDialog} contentFunction={<ConflictDialog />} />
+            <Modal ref={conflictDialog} contentFunction={<ConflictDialog/>} width={"modal__width--small"} />
 
             <WriteLogLogo location="logo__login" color="logo__green" line="logo__line--green" />
             <WriteLogTitle location="title__login" color="title__green" />
