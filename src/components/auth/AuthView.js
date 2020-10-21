@@ -101,16 +101,6 @@ export const AuthView = props => {
 
             <Modal ref={conflictDialog} contentFunction={<ConflictDialog />} />
 
-            {/* <dialog ref={existDialog}>
-                <div>User does not exist</div>
-                <button onClick={e => existDialog.current.close()}>Close</button>
-            </dialog>
-
-            <dialog ref={conflictDialog}>
-                <div>Account with that username already exists</div>
-                <button onClick={e => conflictDialog.current.close()}>Close</button>
-            </dialog> */}
-
             <WriteLogLogo location="logo__login" color="logo__green" line="logo__line--green" />
             <WriteLogTitle location="title__login" color="title__green" />
             <h2 className="subtitle">Track, visualize, & analyze writing projects</h2>
