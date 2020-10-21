@@ -75,6 +75,9 @@
     cursor: pointer;
     font-weight: var(--weightThin);
     transition: var(--btnHover);
+    margin: 0.5em;
+    width: 5em;
+    text-align: left;
 }
 
 .dot__btn:hover {
