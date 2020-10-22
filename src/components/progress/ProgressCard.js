@@ -23,7 +23,7 @@ export const ProgressCard = (props) => {
         <button className="btn btn--purple"
         onClick={e => progressModal.current.className = "background__modal modal__active"}>Add Progress</button>
         
-        <Modal ref={progressModal} contentFunction={"NONE"} width="modal__width--wide" />
+        <Modal ref={progressModal} contentFunction={"PROGRESS FORM"} width="modal__width--wide" />
 
     </section>
     )
