@@ -99,7 +99,9 @@ export const ProjectForm = props => {
     return (
         <form className="form__project" onSubmit={createProject}>
 
-            <h3 className="project__h3">Create New Project</h3>
+            <h3 className="project__h3">
+                {editableProject ? "Update Project ": "Create New Project"}
+            </h3>
             
             <h4 className="project__h4">Project Setup</h4>
 
@@ -215,7 +217,8 @@ export const ProjectForm = props => {
                 className="btn btn--green"
                 type="submit"
                 disabled={isLoading}>
-                    Create</button>
+                    {editableProject ? "Update" : "Create"}
+                </button>
             </div>
 
         </form>
