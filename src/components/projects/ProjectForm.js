@@ -5,7 +5,7 @@ import "./ProjectForm.css"
 
 export const ProjectForm = props => {
 
-    const projectId = props.id
+    const projectEditingId = props.props
 
     const userId = +sessionStorage.getItem("userId")
     // Populates date picker with current date
@@ -27,13 +27,21 @@ export const ProjectForm = props => {
     
     // Sets state for creating the project
     const [ project, setProject ] = useState(defaultProject)
+
     const [ selectedFreq, setSelectedFreq ] = useState("")
     const [ isFreqActive, setIsFreqActive ] = useState(false)
     const [ isLoading, setIsLoading ] = useState(true)
 
     useEffect(() => {
         getTypes().then(() => {
-            setIsLoading(false);
+            if (projectEditingId) {
+                console.log("CURRENT PROJECT COMING IN", projectEditingId)
+                // setProject(editableProject)
+                // console.log("CURRENT EDITABLE", project)
+                setIsLoading(false);
+            } else {
+                setIsLoading(false)
+            }
         })
     }, [])
 
