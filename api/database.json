@@ -26,6 +26,7 @@
       "id": 4
     },
     {
+      "id": 5,
       "name": "Poetry",
       "userId": 1,
       "typeId": 3,
@@ -33,30 +34,18 @@
       "wordCountGoal": 42,
       "goalFrequency": "daily",
       "daysPerFrequency": 1,
-      "completed": false,
-      "id": 5
+      "completed": false
     },
     {
-      "name": "Test",
-      "userId": 1,
-      "typeId": 4,
-      "dateStarted": "2020-10-21",
-      "wordCountGoal": 432,
-      "goalFrequency": "daily",
-      "daysPerFrequency": 1,
-      "completed": false,
-      "id": 6
-    },
-    {
-      "name": "Spooky Stories",
+      "id": 7,
+      "name": "Spooky Stories2",
       "userId": 1,
       "typeId": 7,
       "dateStarted": "2020-10-21",
       "wordCountGoal": 544,
       "goalFrequency": "monthly",
       "daysPerFrequency": 8,
-      "completed": false,
-      "id": 7
+      "completed": false
     }
   ],
   "types": [

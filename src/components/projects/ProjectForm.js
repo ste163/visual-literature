@@ -22,7 +22,7 @@ export const ProjectForm = props => {
         daysPerFrequency: ""
     } 
 
-    const { addProject } = useContext(ProjectContext)
+    const { addProject, updateProject } = useContext(ProjectContext)
     const { types, getTypes } = useContext(TypeContext)
     
     // Sets state for creating the project
@@ -63,7 +63,6 @@ export const ProjectForm = props => {
         if (!parseInt(project.typeId)) {
             console.log("NO TYPE SELECTED -- ADD WARNING MODAL")
         } else {
-            setIsLoading(true)
             // Prepare not entered inputs for saving
             if (project.goalFrequency === "daily") {
                 project.daysPerFrequency = 1
@@ -72,9 +71,19 @@ export const ProjectForm = props => {
                 project.dateStarted = convertedDate
             }
             
-            // FOR EDITING, added if state on if there is a current projectId
-                // if not, create a new project 
-
+            if (editableProject) {
+                updateProject({
+                    id: editableProject.id,
+                    name: project.name,
+                    userId,
+                    typeId: +project.typeId,
+                    dateStarted: project.dateStarted,
+                    wordCountGoal: +project.wordCountGoal,
+                    goalFrequency: project.goalFrequency,
+                    daysPerFrequency: +project.daysPerFrequency,
+                    completed: false
+                })
+            } else {
                 addProject({
                     name: project.name,
                     userId,
@@ -85,14 +94,14 @@ export const ProjectForm = props => {
                     daysPerFrequency: +project.daysPerFrequency,
                     completed: false
                 })
-                setIsLoading(false)
-            }
+                setProject(defaultProject)
+            }  
+        }
     }
 
     const createProject = (e) => {
         e.preventDefault()
         constructNewProject()
-        setProject(defaultProject)
         setIsFreqActive(false)
     }
 
@@ -207,7 +216,7 @@ export const ProjectForm = props => {
                 htmlFor="daysPerFrequency">
                     How many days per <span className={isFreqActive ? "freq__selected" : "label__days"} >{isFreqActive ? freqGenerator() : ""}</span> do you plan on writing:
                 </label>
-                
+
                 <input type="number"
                 className={isFreqActive ? "day__placeholder--active" : "day__placeholder--inactive"}
                 onChange={handleControlledInputChange}

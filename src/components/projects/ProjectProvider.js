@@ -42,6 +42,9 @@ export const ProjectProvider = props => {
             },
             body: JSON.stringify(projectObj)
         })
+        .then(() => {
+            getProjects(projectObj.userId)
+        })
     }
 
     return (
