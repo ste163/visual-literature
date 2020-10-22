@@ -109,11 +109,11 @@ export const ProjectForm = props => {
     return (
         <form className="form__project" onSubmit={createProject}>
 
-            <h3 className="project__h3">
+            <h3 className="form__h3">
                 {editableProject ? "Update Project ": "Create New Project"}
             </h3>
             
-            <h4 className="project__h4">Project Setup</h4>
+            <h4 className="form__h4">Project Setup</h4>
 
             <fieldset>
                 <label htmlFor="projectName">Project name: </label>
@@ -155,7 +155,7 @@ export const ProjectForm = props => {
                 />
             </fieldset>
 
-            <h4 className="project__h4">Goal Setup</h4>
+            <h4 className="form__h4">Goal Setup</h4>
 
             <fieldset>
                 <label htmlFor="projectGoal">Word count goal: </label>

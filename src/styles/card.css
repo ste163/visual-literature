@@ -1,0 +1,12 @@
+.card {
+    border-radius: var(--cardRadius);
+    box-shadow: var(--cardDropShadow);
+}
+
+.card__color--white {
+    background-color: var(--offWhite);
+}
+
+.card__color--orange {
+    background-color: var(--orange);
+}
