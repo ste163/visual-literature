@@ -38,13 +38,13 @@
     },
     {
       "id": 7,
-      "name": "Spooky Stories2",
+      "name": "Spooky Stories",
       "userId": 1,
       "typeId": 7,
-      "dateStarted": "2020-10-21",
-      "wordCountGoal": 544,
-      "goalFrequency": "monthly",
-      "daysPerFrequency": 8,
+      "dateStarted": "2020-10-15",
+      "wordCountGoal": 500,
+      "goalFrequency": "weekly",
+      "daysPerFrequency": 5,
       "completed": false
     }
   ],
