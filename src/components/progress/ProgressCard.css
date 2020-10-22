@@ -1,0 +1,4 @@
+.card__progress {
+    grid-row: 6;
+    grid-column: 1 / span 3;
+}

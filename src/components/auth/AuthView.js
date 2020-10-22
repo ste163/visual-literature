@@ -113,7 +113,7 @@ export const AuthView = props => {
             
             <h2 className="subtitle">Track, visualize, & analyze writing projects</h2>
 
-            <section className="card card__auth">
+            <section className="card card__color--white card__auth">
                 
                 <ul  className="auth__btns">
                     

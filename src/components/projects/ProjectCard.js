@@ -2,6 +2,7 @@ import React, {useRef} from "react"
 import { IconArrow } from "../icons/IconArrow"
 import { IconGraph } from "../icons/IconGraph"
 import { DotMenu } from "./ProjectDotMenu"
+import { ProgressCard } from "../progress/ProgressCard"
 import "./ProjectCard.css"
 
 // To get the colors to change on icon hover,
@@ -13,7 +14,7 @@ export const ProjectCard = ({project}) => {
     const dotMenu = useRef()
 
     return (
-        <article className="card card__project">
+        <article className="card card__color--white card__project">
 
             <DotMenu ref={dotMenu} project={project}/>
             
@@ -27,6 +28,8 @@ export const ProjectCard = ({project}) => {
                     Display on Dashboard
                 </span>
             </button>
+
+            <ProgressCard />
 
         </article>
     )

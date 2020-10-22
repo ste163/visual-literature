@@ -19,12 +19,6 @@
     font-weight: var(--weightThinnest);
 }
 
-.card {
-    background-color: var(--offWhite);
-    border-radius: var(--cardRadius);
-    box-shadow: var(--cardDropShadow);
-}
-
 .card__auth {
     display: flex;
     flex-flow: column nowrap;
