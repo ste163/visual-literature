@@ -162,8 +162,11 @@ export const ProjectForm = props => {
             </fieldset>
             
             <fieldset className="freq__radios">
+
                 <label>Goal Frequency: </label>
+
                 <div className="radios">
+                    
                     <input className="input__radio" type="radio" id="daily" name="goalFrequency" value="daily" required
                     checked={project.goalFrequency === "daily"}
                     onChange={handleControlledInputChange}
@@ -173,6 +176,7 @@ export const ProjectForm = props => {
                     }}
                     />
                     <label htmlFor="daily">Daily</label>
+                    
                     <input className="input__radio" type="radio" id="weekly" name="goalFrequency" value="weekly" required
                     checked={project.goalFrequency === "weekly"}
                     onChange={handleControlledInputChange}
@@ -182,6 +186,7 @@ export const ProjectForm = props => {
                     }}
                     />
                     <label htmlFor="weekly">Weekly</label>
+
                     <input className="input__radio" type="radio" id="monthly" name="goalFrequency" value="monthly" required
                     checked={project.goalFrequency === "monthly"}
                     onChange={handleControlledInputChange}
@@ -191,15 +196,18 @@ export const ProjectForm = props => {
                     }}
                     />
                     <label htmlFor="monthly">Monthly</label>
+                    
                 </div>
             </fieldset>
             
             <fieldset className="freq__days">
+
                 <label
                 className={isFreqActive ? "label__days days--active" : "label__days"}
                 htmlFor="daysPerFrequency">
                     How many days per <span className={isFreqActive ? "freq__selected" : "label__days"} >{isFreqActive ? freqGenerator() : ""}</span> do you plan on writing:
                 </label>
+                
                 <input type="number"
                 className={isFreqActive ? "day__placeholder--active" : "day__placeholder--inactive"}
                 onChange={handleControlledInputChange}
