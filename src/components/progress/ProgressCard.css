@@ -1,4 +1,19 @@
 .card__progress {
     grid-row: 6;
     grid-column: 1 / span 3;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+.progress__content {
+    width: 100%;
+}
+
+.progress_h3 {
+    font-size: 0.8em;
+}
+
+.progress_p {
+    font-size: 0.6em;
 }

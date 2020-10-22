@@ -15,6 +15,7 @@
   --greenActive: #01383d;
   --red: #d85656;
   --purple: #62496F;
+  --purpleActive: #45334f;
   --lightPurple: #786384;
   --orange: #F0CB72;
   --orangeActive: #c7a961;
@@ -74,7 +75,13 @@ h2 {
   padding: 0;
 }
 
+h3 {
+  margin: 0;
+  padding: 0;
+}
+
 p {
+  font-size: 0.8em;
   margin: 0;
   padding: 0;
 }

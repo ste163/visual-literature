@@ -10,6 +10,11 @@
     justify-self: center;
     transition: .1s;
   }
+
+  .btn:hover {
+    cursor: pointer;
+    font-weight:var(--weightHeavy);
+  }
   
   .btn--green {
     border-color: var(--green);
@@ -17,7 +22,6 @@
   
   .btn--green:hover {
     background-color: var(--green);
-    font-weight:var(--weightHeavy);
     color: white;
   }
   
@@ -38,4 +42,18 @@
   .btn--orange:active {
     background-color: var(--orangeActive);
     border-color: var(--orangeActive)
+  }
+
+  .btn--purple {
+    border-color: var(--purple)
+  }
+
+  .btn--purple:hover {
+    background-color: var(--purple);
+    color: white;
+  }
+
+  .btn--purple:active {
+    background-color: var(--purpleActive);
+    border-color: var(--purpleActive);
   }
