@@ -6,8 +6,8 @@ import "./ProjectForm.css"
 export const ProjectForm = props => {
 
     const editableProject = props.props
-
     const userId = +sessionStorage.getItem("userId")
+
     // Populates date picker with current date
     const currentDate = new Date()
     const convertedDate = currentDate.toISOString().slice(0,10)
@@ -83,6 +83,7 @@ export const ProjectForm = props => {
                     daysPerFrequency: +project.daysPerFrequency,
                     completed: false
                 })
+
             } else {
                 addProject({
                     name: project.name,

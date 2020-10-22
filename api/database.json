@@ -27,11 +27,11 @@
     },
     {
       "id": 5,
-      "name": "Poetry",
+      "name": "Poems for Sunny Days",
       "userId": 1,
-      "typeId": 3,
+      "typeId": 5,
       "dateStarted": "2020-10-21",
-      "wordCountGoal": 42,
+      "wordCountGoal": 50,
       "goalFrequency": "daily",
       "daysPerFrequency": 1,
       "completed": false
