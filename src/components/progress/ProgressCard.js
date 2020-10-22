@@ -5,7 +5,7 @@ import "./ProgressCard.css"
 
 // To populate progress, will need ProgressProvider
 
-export const ProgressCard = (props) => {
+export const ProgressCard = (project) => {
     
     const progressModal = useRef()
 
@@ -24,7 +24,7 @@ export const ProgressCard = (props) => {
         <button className="btn btn--purple"
         onClick={e => progressModal.current.className = "background__modal modal__active"}>Add Progress</button>
         
-        <Modal ref={progressModal} contentFunction={<ProgressForm projectId={props.projectId}/>} width="modal__width--wide" />
+        <Modal ref={progressModal} key={project.id} contentFunction={<ProgressForm project={project}/>} width="modal__width--wide" />
 
     </section>
     )

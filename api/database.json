@@ -84,6 +84,16 @@
       "edited": false,
       "proofread": false,
       "completed": true
+    },
+    {
+      "id": 2,
+      "projectId": 4,
+      "dateEntered": "2020-10-22",
+      "wordsWritten": 40,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "completed": false
     }
   ]
 }

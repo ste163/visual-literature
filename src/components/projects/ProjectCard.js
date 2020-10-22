@@ -29,7 +29,7 @@ export const ProjectCard = ({project}) => {
                 </span>
             </button>
 
-            <ProgressCard projectId={project.id} />
+            <ProgressCard project={project} />
 
         </article>
     )
