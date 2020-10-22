@@ -5,9 +5,9 @@ import "./ProjectForm.css"
 
 export const ProjectForm = props => {
 
-    const projectId = props.id
-
+    const editableProject = props.props
     const userId = +sessionStorage.getItem("userId")
+
     // Populates date picker with current date
     const currentDate = new Date()
     const convertedDate = currentDate.toISOString().slice(0,10)
@@ -22,18 +22,24 @@ export const ProjectForm = props => {
         daysPerFrequency: ""
     } 
 
-    const { addProject } = useContext(ProjectContext)
+    const { addProject, updateProject } = useContext(ProjectContext)
     const { types, getTypes } = useContext(TypeContext)
     
     // Sets state for creating the project
     const [ project, setProject ] = useState(defaultProject)
+
     const [ selectedFreq, setSelectedFreq ] = useState("")
     const [ isFreqActive, setIsFreqActive ] = useState(false)
     const [ isLoading, setIsLoading ] = useState(true)
 
     useEffect(() => {
         getTypes().then(() => {
-            setIsLoading(false);
+            if (editableProject) {
+                setProject(editableProject)
+                setIsLoading(false);
+            } else {
+                setIsLoading(false)
+            }
         })
     }, [])
 
@@ -57,7 +63,6 @@ export const ProjectForm = props => {
         if (!parseInt(project.typeId)) {
             console.log("NO TYPE SELECTED -- ADD WARNING MODAL")
         } else {
-            setIsLoading(true)
             // Prepare not entered inputs for saving
             if (project.goalFrequency === "daily") {
                 project.daysPerFrequency = 1
@@ -66,9 +71,20 @@ export const ProjectForm = props => {
                 project.dateStarted = convertedDate
             }
             
-            // FOR EDITING, added if state on if there is a current projectId
-                // if not, create a new project 
+            if (editableProject) {
+                updateProject({
+                    id: editableProject.id,
+                    name: project.name,
+                    userId,
+                    typeId: +project.typeId,
+                    dateStarted: project.dateStarted,
+                    wordCountGoal: +project.wordCountGoal,
+                    goalFrequency: project.goalFrequency,
+                    daysPerFrequency: +project.daysPerFrequency,
+                    completed: false
+                })
 
+            } else {
                 addProject({
                     name: project.name,
                     userId,
@@ -79,21 +95,23 @@ export const ProjectForm = props => {
                     daysPerFrequency: +project.daysPerFrequency,
                     completed: false
                 })
-                setIsLoading(false)
-            }
+                setProject(defaultProject)
+            }  
+        }
     }
 
     const createProject = (e) => {
         e.preventDefault()
         constructNewProject()
-        setProject(defaultProject)
         setIsFreqActive(false)
     }
 
     return (
         <form className="form__project" onSubmit={createProject}>
 
-            <h3 className="project__h3">Create New Project</h3>
+            <h3 className="project__h3">
+                {editableProject ? "Update Project ": "Create New Project"}
+            </h3>
             
             <h4 className="project__h4">Project Setup</h4>
 
@@ -154,8 +172,11 @@ export const ProjectForm = props => {
             </fieldset>
             
             <fieldset className="freq__radios">
+
                 <label>Goal Frequency: </label>
+
                 <div className="radios">
+                    
                     <input className="input__radio" type="radio" id="daily" name="goalFrequency" value="daily" required
                     checked={project.goalFrequency === "daily"}
                     onChange={handleControlledInputChange}
@@ -165,6 +186,7 @@ export const ProjectForm = props => {
                     }}
                     />
                     <label htmlFor="daily">Daily</label>
+                    
                     <input className="input__radio" type="radio" id="weekly" name="goalFrequency" value="weekly" required
                     checked={project.goalFrequency === "weekly"}
                     onChange={handleControlledInputChange}
@@ -174,6 +196,7 @@ export const ProjectForm = props => {
                     }}
                     />
                     <label htmlFor="weekly">Weekly</label>
+
                     <input className="input__radio" type="radio" id="monthly" name="goalFrequency" value="monthly" required
                     checked={project.goalFrequency === "monthly"}
                     onChange={handleControlledInputChange}
@@ -183,15 +206,18 @@ export const ProjectForm = props => {
                     }}
                     />
                     <label htmlFor="monthly">Monthly</label>
+                    
                 </div>
             </fieldset>
             
             <fieldset className="freq__days">
+
                 <label
                 className={isFreqActive ? "label__days days--active" : "label__days"}
                 htmlFor="daysPerFrequency">
                     How many days per <span className={isFreqActive ? "freq__selected" : "label__days"} >{isFreqActive ? freqGenerator() : ""}</span> do you plan on writing:
                 </label>
+
                 <input type="number"
                 className={isFreqActive ? "day__placeholder--active" : "day__placeholder--inactive"}
                 onChange={handleControlledInputChange}
@@ -209,7 +235,8 @@ export const ProjectForm = props => {
                 className="btn btn--green"
                 type="submit"
                 disabled={isLoading}>
-                    Create</button>
+                    {editableProject ? "Update" : "Create"}
+                </button>
             </div>
 
         </form>

@@ -13,7 +13,7 @@ export const ProjectProvider = props => {
     }
 
     const addProject = projectObj => {
-        fetch("http://localhost:8088/projects/", {
+        return fetch("http://localhost:8088/projects/", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -26,7 +26,7 @@ export const ProjectProvider = props => {
     }
 
     const deleteProject = (userId, projectId) => {
-        fetch(`http://localhost:8088/projects/${projectId}`, {
+        return fetch(`http://localhost:8088/projects/${projectId}`, {
             method: "DELETE"
         })
         .then(() => {
@@ -34,9 +34,22 @@ export const ProjectProvider = props => {
         })
     }
 
+    const updateProject = projectObj => {
+        return fetch(`http://localhost:8088/projects/${projectObj.id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(projectObj)
+        })
+        .then(() => {
+            getProjects(projectObj.userId)
+        })
+    }
+
     return (
         <ProjectContext.Provider value={{
-            projects, getProjects, addProject, deleteProject
+            projects, getProjects, addProject, deleteProject, updateProject
         }}>
             {props.children}
         </ProjectContext.Provider>

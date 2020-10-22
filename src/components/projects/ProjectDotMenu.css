@@ -15,7 +15,7 @@
 .dot__btns--active {
     display: auto;
     position: absolute;
-    background-color: var(--formFieldGray);
+    background-color: white;
     border-radius: var(--formFieldRadius);
     box-shadow: var(--cardDropShadow);
 }
@@ -24,16 +24,17 @@
     background-color: transparent;
     border: none;
     cursor: pointer;
-    font-weight: var(--weightThin);
+    font-weight: var(--weightNormal);
     transition: var(--btnHover);
     margin: 0.5em;
     width: 5em;
     text-align: left;
+    padding: .5em 0 0.5em 1em;
 }
 
 .dot__btn:hover {
     border-radius: 2em;
-    background-color: var(--lightGreen);
+    background-color: var(--lightGrey);
     box-shadow: var(--cardDropShadow);
 }
 

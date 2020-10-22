@@ -7,6 +7,7 @@
   --fontColor: #333333;
   --grey: #F6F6F6;
   --darkGrey: #ACACAC;
+  --lightGrey: #f1f1f1; 
   --offWhite: #FCFCFC;
   --green: #02545B;
   --lightGreen: #0058600f;
@@ -44,7 +45,7 @@
 
 /* Setup page layout */
 
-.root__container {
+#root {
   display: grid;
   grid-template-rows: min-content min-content auto min-content;
   height: 100vh;

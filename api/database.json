@@ -26,37 +26,26 @@
       "id": 4
     },
     {
-      "name": "Poetry",
+      "id": 5,
+      "name": "Poems for Sunny Days",
       "userId": 1,
-      "typeId": 3,
+      "typeId": 5,
       "dateStarted": "2020-10-21",
-      "wordCountGoal": 42,
+      "wordCountGoal": 50,
       "goalFrequency": "daily",
       "daysPerFrequency": 1,
-      "completed": false,
-      "id": 5
+      "completed": false
     },
     {
-      "name": "Test",
-      "userId": 1,
-      "typeId": 4,
-      "dateStarted": "2020-10-21",
-      "wordCountGoal": 432,
-      "goalFrequency": "daily",
-      "daysPerFrequency": 1,
-      "completed": false,
-      "id": 6
-    },
-    {
+      "id": 7,
       "name": "Spooky Stories",
       "userId": 1,
       "typeId": 7,
-      "dateStarted": "2020-10-21",
-      "wordCountGoal": 544,
-      "goalFrequency": "monthly",
-      "daysPerFrequency": 8,
-      "completed": false,
-      "id": 7
+      "dateStarted": "2020-10-15",
+      "wordCountGoal": 500,
+      "goalFrequency": "weekly",
+      "daysPerFrequency": 5,
+      "completed": false
     }
   ],
   "types": [
