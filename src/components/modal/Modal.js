@@ -2,6 +2,13 @@ import React, { forwardRef } from "react"
 import { IconClose } from "../icons/IconClose"
 import "./Modal.css"
 
+// To use Modal
+    // Add props for width:
+        // modal__width--small
+        // modal__width--wide
+    // Add content with
+        // contentFunction
+
 export const Modal = (React.forwardRef((props, ref) => (
      (
         <section ref={ref} className="background__modal"
