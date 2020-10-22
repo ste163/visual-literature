@@ -7,10 +7,6 @@
     {
       "username": "author",
       "id": 2
-    },
-    {
-      "username": "author123",
-      "id": 3
     }
   ],
   "projects": [
@@ -76,6 +72,18 @@
     {
       "id": 7,
       "name": "Short Story Collection"
+    }
+  ],
+  "progress": [
+    {
+      "id": 1,
+      "projectId": 4,
+      "dateEntered": "2020-10-21",
+      "wordsWritten": 200,
+      "revised": true,
+      "edited": false,
+      "proofread": false,
+      "completed": true
     }
   ]
 }
