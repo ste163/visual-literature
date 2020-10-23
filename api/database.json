@@ -11,15 +11,15 @@
   ],
   "projects": [
     {
+      "id": 4,
       "name": "Poems for Good Days",
       "userId": 2,
       "typeId": 5,
       "dateStarted": "2020-10-21",
       "wordCountGoal": 100,
       "goalFrequency": "weekly",
-      "daysPerFrequency": 5,
-      "completed": false,
-      "id": 4
+      "daysPerFrequency": 3,
+      "completed": false
     },
     {
       "id": 5,
@@ -49,9 +49,9 @@
       "userId": 2,
       "typeId": 2,
       "dateStarted": "2020-10-23",
-      "wordCountGoal": 150,
-      "goalFrequency": "daily",
-      "daysPerFrequency": 1,
+      "wordCountGoal": 250,
+      "goalFrequency": "monthly",
+      "daysPerFrequency": 3,
       "completed": false
     }
   ],

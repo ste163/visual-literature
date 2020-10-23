@@ -12,15 +12,6 @@ export const ProgressCard = (project) => {
     
     const progressModal = useRef()
 
-    // When user changes progress, update.
-    // DO NOT getProgress again, just use the current
-    // state of the progress. The get happens in the form
-    // after the submit occurs
-
-    // console.log(progress)
-
-    console.log("Project FREQ", project.project.goalFrequency)
-
     const wordCountGoal = project.project.wordCountGoal
     const goalFrequency = project.project.goalFrequency
     const daysPerFrequency = project.project.daysPerFrequency
@@ -30,7 +21,11 @@ export const ProgressCard = (project) => {
         
         <div className="progress__content">
             <h3 className="progress_h3">Goal</h3>
-            <p className="progress_p">{wordCountGoal} words {goalFrequency === "daily" ? goalFrequency : `${daysPerFrequency} days a ${goalFrequency}` }</p>
+            <p className="progress_p">{wordCountGoal} words
+                {goalFrequency === "daily" ? ` ${goalFrequency}` : 
+                    `${goalFrequency === "weekly" ? ` ${daysPerFrequency} days per week` : ` ${daysPerFrequency} days per month`}`
+                }
+            </p>
             <h3 className="progress_h3">Progress</h3>
             <p className="progress_p">PROGRESS BAR</p>
             <p className="progress_p">XX / XX words written</p>
