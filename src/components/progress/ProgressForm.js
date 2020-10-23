@@ -20,19 +20,30 @@ import "./ProgressForm.css"
 
 
 export const ProgressForm = project => {
+    
+    // Populates date picker with current date.
+    const currentDate = new Date()
+    const convertedDate = currentDate.toISOString().slice(0,10)
+
+    // Get the current project being passed in.
+    const passedInProject = project.project.project
+    const projectId = passedInProject.id
+
+    // Set default progress so form can reset when needed.
+    const defaultProgress = {
+        id: 1,
+        projectId: 4,
+        dateEntered: convertedDate,
+        wordsWritten: 0,
+        revised: false,
+        edited: false,
+        proofread: false
+    }
 
     const { getProgress, addProgress } = useContext(ProgressContext)
 
-    const [ progress, setProgress ] = useState()
+    const [ progress, setProgress ] = useState(defaultProgress)
     const [ isLoading, setIsLoading ] = useState(true)
-
-    const incomingProject = project.project.project
-
-    const projectId = incomingProject.id
-
-    // Populates date picker with current date
-    const currentDate = new Date()
-    const convertedDate = currentDate.toISOString().slice(0,10)
 
     // If any progress changes, re-render the progress form
     useEffect(() => {
@@ -42,6 +53,7 @@ export const ProgressForm = project => {
 
     const constructNewProgress = () => {
         console.log("SUBMITTED PROGRESS")
+        // CHECK FOR IF GOAL COMPLETED FOR TODAY
     }
 
     const handleControlledInputChange = e => {
@@ -50,18 +62,27 @@ export const ProgressForm = project => {
         setProgress(newProgress)
 }
 
-    const createProject = (e) => {
+    const createProgress = (e) => {
         e.preventDefault()
         constructNewProgress()
     }
 
     return (
-        <form className="form__progress" onSubmit={createProject}>
+        <form className="form__progress" onSubmit={createProgress}>
 
             <h3 className="form__h3">
                 Add Progress    
             </h3>        
-            TODAY'S DATE
+            
+            <fieldset>
+                <label htmlFor="progressDate">Progress date:</label>
+                <input type="date"
+                onChange={handleControlledInputChange}
+                id="progressDate"
+                name="dateEntered"
+                value={project.dateEntered}
+                />
+            </fieldset>
 
             WORDS WRITTEN
 
@@ -69,8 +90,6 @@ export const ProgressForm = project => {
             REVISED
             EDITED
             PROOFREAD
-
-            BEFORE WE SUBMIT, we do the check if goal met for today
 
             <div className="progress__submit">
                 <button 
