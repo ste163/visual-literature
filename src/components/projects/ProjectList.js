@@ -14,13 +14,14 @@ export const ProjectList = () => {
 
     const { getProgressByUserId } = useContext(ProgressContext)
     
-    // We getTypes for the forms on ProjectList load instead of calling it for each form
-    // If types ever change, the project list will reload anyway, so forms will known.
+    // We getTypes for the forms on ProjectList load.
+    // Types currently WILL NEVER change, so forms don't need the fetch.
     const { getTypes } = useContext(TypeContext)
     const activeUser = +sessionStorage.getItem("userId")
     
     const modal = useRef()
 
+    // TO DO
     // On initial load, get projects and current progress
     // When the user clicks edit, need to get Projects again
     // So it's always the latest data from database and doesn't save
@@ -60,11 +61,9 @@ export const ProjectList = () => {
             
             <div className="project__cards">
                 {
-                    
                     projects.map(project => {
                         return <ProjectCard key={project.id} project={project} />
-                    })
-                
+                    })               
                 }
             </div>
             
@@ -73,13 +72,3 @@ export const ProjectList = () => {
         </>
     )
 }
-
-// TESTS TO FIX CRASH ON ADD
-
-// projects.map(project => {
-//     return <ProjectCard key={project.id} project={project} />
-// })
-
-// Array.isArray(projects) ? 
-// projects.map(project => <ProjectCard key={project.id} project={project} /> ) : 
-// <ProjectCard key={projects.id} project={projects} />

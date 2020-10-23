@@ -8,7 +8,9 @@ import "./ProgressCard.css"
 
 export const ProgressCard = (project) => {
 
-    const { progress } = useContext(ProgressContext)
+    const { progress, getProgressByProject } = useContext(ProgressContext)
+
+    console.log("CURRENT PROGRESS", progress)
     
     const progressModal = useRef()
 
@@ -33,7 +35,11 @@ export const ProgressCard = (project) => {
         </div>
 
         <button className="btn btn--purple"
-        onClick={e => progressModal.current.className = "background__modal modal__active"}>Add Progress</button>
+        onClick={e => {
+            progressModal.current.className = "background__modal modal__active"
+            getProgressByProject(project.project.id)
+            }}>
+            Add Progress</button>
         
         <Modal ref={progressModal} key={project.id} contentFunction={<ProgressForm project={project}/>} width="modal__width--wide" />
 

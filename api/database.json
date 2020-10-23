@@ -51,7 +51,7 @@
       "dateStarted": "2020-10-23",
       "wordCountGoal": 250,
       "goalFrequency": "monthly",
-      "daysPerFrequency": 3,
+      "daysPerFrequency": 25,
       "completed": false
     }
   ],
@@ -109,7 +109,7 @@
       "completed": false
     },
     {
-      "id": 2,
+      "id": 3,
       "projectId": 4,
       "userId": 2,
       "dateEntered": "2020-10-23",

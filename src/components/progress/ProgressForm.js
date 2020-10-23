@@ -47,14 +47,11 @@ export const ProgressForm = project => {
     const [ isLoading, setIsLoading ] = useState(true)
 
     // If any progress changes, re-render the progress form
-    useEffect(() => {
-        // CHECK for if there is any PROGRESS on this PROJECT'S
-        // current date ? show edit : show add
-        if (projectId) {
-            // getProgress(projectId)
-        }
-        setIsLoading(false)
-    }, [])
+    // useEffect(() => {
+    //     // CHECK for if there is any PROGRESS on this PROJECT'S
+    //     // current date ? show edit : show add
+    //     // setIsLoading(false)
+    // }, [])
 
     const constructNewProgress = () => {
         console.log("SUBMITTED PROGRESS")
