@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect} from "react"
+import React, { useContext, useState, useEffect, useRef} from "react"
 import { ProgressContext } from "./ProgressProvider"
 import "./ProgressForm.css"
 
@@ -21,6 +21,8 @@ import "./ProgressForm.css"
 
 export const ProgressForm = project => {
     
+    const dateInput = useRef();
+
     // Populates date picker with current date.
     const currentDate = new Date()
     const convertedDate = currentDate.toISOString().slice(0,10)
@@ -44,6 +46,7 @@ export const ProgressForm = project => {
     const { progress, getProgressByProject, addProgress } = useContext(ProgressContext)
 
     const [ currentProgress, setCurrentProgress ] = useState(defaultProgress)
+    const [ dateState, setDateState ] = useState()
     const [ isLoading, setIsLoading ] = useState(true)
 
     // If any progress changes, re-render the progress form
@@ -52,11 +55,12 @@ export const ProgressForm = project => {
         // current date ? show edit : show add
         // setIsLoading(false)
         const foundProgress = progress.filter(progress => {
-            return progress.dateEntered === convertedDate
+            return progress.dateEntered === dateInput.current.value
         })
         console.log("FOUND", foundProgress)
+        console.log(dateInput.current.value)
 
-    }, [progress])
+    }, [progress, dateState])
 
     // console.log("PROGRESS", progress)
     // console.log("CURRENT PROGRESS", currentProgress)
@@ -67,6 +71,7 @@ export const ProgressForm = project => {
     }
 
     const handleControlledInputChange = e => {
+        setDateState(dateInput.current.value)
         const newProgress = { ...currentProgress }
         newProgress[e.target.name] = e.target.value
         setCurrentProgress(newProgress)
@@ -86,7 +91,7 @@ export const ProgressForm = project => {
             
             <fieldset>
                 <label htmlFor="progressDate">Progress date:</label>
-                <input type="date"
+                <input  ref={dateInput} type="date"
                 onChange={handleControlledInputChange}
                 id="progressDate"
                 name="dateEntered"
