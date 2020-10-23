@@ -6,8 +6,9 @@ export const ProgressProvider = props => {
     
     const [ progress, setProgress ] = useState([])
 
-    const getProgress = projectId => {
-        return fetch(`http://localhost:8088/progress/?projectId=${projectId}`)
+    // getProgress fetches all of a user's progress
+    const getProgress = userId => {
+        return fetch(`http://localhost:8088/progress?userId=${userId}`)
         .then(response => response.json())
         .then(setProgress)
     }

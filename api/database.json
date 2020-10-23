@@ -42,17 +42,6 @@
       "goalFrequency": "weekly",
       "daysPerFrequency": 5,
       "completed": false
-    },
-    {
-      "name": "A Book for Programming",
-      "userId": 1,
-      "typeId": 3,
-      "dateStarted": "2020-10-23",
-      "wordCountGoal": 300,
-      "goalFrequency": "weekly",
-      "daysPerFrequency": 4,
-      "completed": false,
-      "id": 8
     }
   ],
   "types": [
@@ -89,6 +78,7 @@
     {
       "id": 1,
       "projectId": 4,
+      "userId": 2,
       "dateEntered": "2020-10-21",
       "wordsWritten": 200,
       "revised": true,
@@ -99,12 +89,24 @@
     {
       "id": 2,
       "projectId": 4,
+      "userId": 2,
       "dateEntered": "2020-10-22",
       "wordsWritten": 40,
       "revised": false,
       "edited": false,
       "proofread": false,
       "completed": false
+    },
+    {
+      "id": 2,
+      "projectId": 4,
+      "userId": 2,
+      "dateEntered": "2020-10-23",
+      "wordsWritten": 55,
+      "revised": true,
+      "edited": false,
+      "proofread": true,
+      "completed": true
     }
   ]
 }

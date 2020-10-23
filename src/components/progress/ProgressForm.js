@@ -27,6 +27,7 @@ export const ProgressForm = project => {
 
     // Get the current project being passed in.
     const passedInProject = project.project.project
+    // console.log(passedInProject)
     const projectId = passedInProject.id
 
     // Set default progress so form can reset when needed.
@@ -47,7 +48,11 @@ export const ProgressForm = project => {
 
     // If any progress changes, re-render the progress form
     useEffect(() => {
-        getProgress(projectId)
+        // CHECK for if there is any PROGRESS on this PROJECT'S
+        // current date ? show edit : show add
+        if (projectId) {
+            // getProgress(projectId)
+        }
         setIsLoading(false)
     }, [])
 
