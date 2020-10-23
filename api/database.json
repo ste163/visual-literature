@@ -16,7 +16,7 @@
       "userId": 2,
       "typeId": 5,
       "dateStarted": "2020-10-21",
-      "wordCountGoal": 100,
+      "wordCountGoal": 200,
       "goalFrequency": "weekly",
       "daysPerFrequency": 3,
       "completed": false

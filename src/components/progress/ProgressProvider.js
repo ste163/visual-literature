@@ -12,10 +12,10 @@ export const ProgressProvider = props => {
         .then(setProgress)
     }
 
-    const getProgressByProject = projectId => {
-        return fetch(`http://localhost:8088/progress?projectId=${projectId}&_expand=project`)
+    const getProgressByProjectId = projectObj => {
+        return fetch(`http://localhost:8088/progress?projectId=${projectObj.id}&_expand=project`)
         .then(response => response.json())
-        .then(setProgress)
+        .then(getProgressByUserId(projectObj.userId))
     }
 
     const addProgress = progressObj => {
@@ -27,13 +27,13 @@ export const ProgressProvider = props => {
             body: JSON.stringify(progressObj)
         })
         .then(() => {
-            getProgressByProject(progressObj.projectId)
+            getProgressByProjectId(progressObj.projectId)
         })
     }
 
     return (
         <ProgressContext.Provider value={{
-            progress, getProgressByUserId, getProgressByProject, addProgress
+            progress, getProgressByUserId, getProgressByProjectId, addProgress
         }}>
             {props.children}
         </ProgressContext.Provider>

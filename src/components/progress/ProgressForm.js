@@ -33,7 +33,7 @@ export const ProgressForm = project => {
     // Set default progress so form can reset when needed.
     const defaultProgress = {
         id: 1,
-        projectId: 4,
+        projectId: projectId,
         dateEntered: convertedDate,
         wordsWritten: 0,
         revised: false,
@@ -41,17 +41,17 @@ export const ProgressForm = project => {
         proofread: false
     }
 
-    const { getProgressByProject, addProgress } = useContext(ProgressContext)
+    const { progress, getProgressByProject, addProgress } = useContext(ProgressContext)
 
-    const [ progress, setProgress ] = useState(defaultProgress)
+    const [ currentProgress, setCurrentProgress ] = useState(defaultProgress)
     const [ isLoading, setIsLoading ] = useState(true)
 
     // If any progress changes, re-render the progress form
-    // useEffect(() => {
-    //     // CHECK for if there is any PROGRESS on this PROJECT'S
-    //     // current date ? show edit : show add
-    //     // setIsLoading(false)
-    // }, [])
+    useEffect(() => {
+        // CHECK for if there is any PROGRESS on this PROJECT'S
+        // current date ? show edit : show add
+        // setIsLoading(false)
+    }, [progress])
 
     const constructNewProgress = () => {
         console.log("SUBMITTED PROGRESS")
@@ -59,9 +59,9 @@ export const ProgressForm = project => {
     }
 
     const handleControlledInputChange = e => {
-        const newProgress = { ...progress }
+        const newProgress = { ...currentProgress }
         newProgress[e.target.name] = e.target.value
-        setProgress(newProgress)
+        setCurrentProgress(newProgress)
 }
 
     const createProgress = (e) => {
@@ -69,12 +69,15 @@ export const ProgressForm = project => {
         constructNewProgress()
     }
 
+    console.log("PROGRESS STATE", progress)
+    console.log("CURRENT P STATE", currentProgress)
+
     return (
         <form className="form__progress" onSubmit={createProgress}>
 
-            <h3 className="form__h3">
-                Add Progress    
-            </h3>        
+            <h3 className="form__h3">Add Progress to</h3>
+
+            <h4 className="form__h4"><em>{passedInProject.name}</em></h4>
             
             <fieldset>
                 <label htmlFor="progressDate">Progress date:</label>
@@ -82,7 +85,7 @@ export const ProgressForm = project => {
                 onChange={handleControlledInputChange}
                 id="progressDate"
                 name="dateEntered"
-                value={progress.dateEntered}
+                value={currentProgress.dateEntered}
                 />
             </fieldset>
 
@@ -92,7 +95,7 @@ export const ProgressForm = project => {
                  onChange={handleControlledInputChange}
                  id="progressGoal"
                  name="wordsWritten"
-                 value={progress.wordCountGoal}
+                 value={currentProgress.wordCountGoal}
                  required
                  autoFocus
                  />
@@ -102,18 +105,18 @@ export const ProgressForm = project => {
                 <label>Writing Processes Completed</label>
 
                 <input type="checkbox" id="revised" name="revised" value="revised"
-                defaultChecked={progress.revised}
+                defaultChecked={currentProgress.revised}
                 onChange={handleControlledInputChange}
                 />
                 <label htmlFor="revised">Revised</label>
 
                 <input type="checkbox" id="edited" name="edited" value="edited"
-                defaultChecked={progress.edited}
+                defaultChecked={currentProgress.edited}
                 onChange={handleControlledInputChange}/>
                 <label htmlFor="edited">Edited</label>
 
                 <input type="checkbox" id="proofread" name="proofread" value="proofread"
-                defaultChecked={progress.proofread}
+                defaultChecked={currentProgress.proofread}
                 onChange={handleControlledInputChange}/>
                 <label htmlFor="proofread">Proofread</label>
 

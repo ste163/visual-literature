@@ -8,9 +8,7 @@ import "./ProgressCard.css"
 
 export const ProgressCard = (project) => {
 
-    const { progress, getProgressByProject } = useContext(ProgressContext)
-
-    console.log("CURRENT PROGRESS", progress)
+    const { progress, getProgressByProjectId } = useContext(ProgressContext)
     
     const progressModal = useRef()
 
@@ -28,6 +26,7 @@ export const ProgressCard = (project) => {
                     `${goalFrequency === "weekly" ? ` ${daysPerFrequency} days per week` : ` ${daysPerFrequency} days per month`}`
                 }
             </p>
+
             <h3 className="progress_h3">Progress</h3>
             <p className="progress_p">PROGRESS BAR</p>
             <p className="progress_p">XX / XX words written</p>
@@ -37,7 +36,7 @@ export const ProgressCard = (project) => {
         <button className="btn btn--purple"
         onClick={e => {
             progressModal.current.className = "background__modal modal__active"
-            getProgressByProject(project.project.id)
+            getProgressByProjectId(project.project)
             }}>
             Add Progress</button>
         
