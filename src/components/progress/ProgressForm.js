@@ -21,6 +21,7 @@ import "./ProgressForm.css"
 
 export const ProgressForm = project => {
     
+    // Get reference to date input to hold it's value in state
     const dateInput = useRef();
 
     // Populates date picker with current date.
@@ -34,16 +35,15 @@ export const ProgressForm = project => {
 
     // Set default progress so form can reset when needed.
     const defaultProgress = {
-        id: 1,
         projectId: projectId,
         dateEntered: convertedDate,
-        wordsWritten: 0,
+        wordsWritten: "",
         revised: false,
         edited: false,
         proofread: false
     }
 
-    const { progress, getProgressByProject, addProgress } = useContext(ProgressContext)
+    const { progress, addProgress } = useContext(ProgressContext)
 
     const [ currentProgress, setCurrentProgress ] = useState(defaultProgress)
     const [ dateState, setDateState ] = useState()
@@ -67,10 +67,11 @@ export const ProgressForm = project => {
         })
 
         if (foundProgress.length !== 0) {
-            console.log("FOUND", projectId, foundProgress)
-
+            console.log("FOUND", projectId, foundProgress[0])
+            setCurrentProgress(foundProgress[0])
         } else {
             console.log("NOT FOUND")
+            setCurrentProgress(defaultProgress)
         }
 
     }, [progress, dateState])
@@ -118,7 +119,7 @@ export const ProgressForm = project => {
                  onChange={handleControlledInputChange}
                  id="progressGoal"
                  name="wordsWritten"
-                 value={currentProgress.wordCountGoal}
+                 value={currentProgress.wordsWritten}
                  required
                  autoFocus
                  />
