@@ -12,9 +12,22 @@ export const ProgressProvider = props => {
         .then(setProgress)
     }
 
+    const addProgress = progressObj => {
+        return fetch(`http://localhost:8088/progress/`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(progressObj)
+        })
+        .then(() => {
+            getProgress(progressObj.projectId)
+        })
+    }
+
     return (
         <ProgressContext.Provider value={{
-            progress, getProgress
+            progress, getProgress, addProgress
         }}>
             {props.children}
         </ProgressContext.Provider>

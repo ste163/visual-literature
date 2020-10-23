@@ -10,6 +10,7 @@ import "./Project.css"
 
 export const ProjectList = () => {
     const { projects, getProjects } = useContext(ProjectContext)
+    
     // We getTypes for the forms on ProjectList load instead of calling it for each form
     // If types ever change, the project list will reload anyway, so forms will known.
     const { getTypes } = useContext(TypeContext)
