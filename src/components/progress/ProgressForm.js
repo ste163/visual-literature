@@ -51,7 +51,15 @@ export const ProgressForm = project => {
         // CHECK for if there is any PROGRESS on this PROJECT'S
         // current date ? show edit : show add
         // setIsLoading(false)
+        const foundProgress = progress.filter(progress => {
+            return progress.dateEntered === convertedDate
+        })
+        console.log("FOUND", foundProgress)
+
     }, [progress])
+
+    // console.log("PROGRESS", progress)
+    // console.log("CURRENT PROGRESS", currentProgress)
 
     const constructNewProgress = () => {
         console.log("SUBMITTED PROGRESS")
@@ -68,9 +76,6 @@ export const ProgressForm = project => {
         e.preventDefault()
         constructNewProgress()
     }
-
-    console.log("PROGRESS STATE", progress)
-    console.log("CURRENT P STATE", currentProgress)
 
     return (
         <form className="form__progress" onSubmit={createProgress}>
