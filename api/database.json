@@ -42,6 +42,17 @@
       "goalFrequency": "weekly",
       "daysPerFrequency": 5,
       "completed": false
+    },
+    {
+      "name": "No Progress",
+      "userId": 2,
+      "typeId": 2,
+      "dateStarted": "2020-10-23",
+      "wordCountGoal": 100,
+      "goalFrequency": "daily",
+      "daysPerFrequency": 1,
+      "completed": false,
+      "id": 8
     }
   ],
   "types": [

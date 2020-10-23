@@ -12,7 +12,7 @@ import "./Project.css"
 export const ProjectList = () => {
     const { projects, getProjects } = useContext(ProjectContext)
 
-    const { getProgress } = useContext(ProgressContext)
+    const { getProgressByUserId } = useContext(ProgressContext)
     
     // We getTypes for the forms on ProjectList load instead of calling it for each form
     // If types ever change, the project list will reload anyway, so forms will known.
@@ -32,7 +32,7 @@ export const ProjectList = () => {
     useEffect(() => {
         getTypes()
         .then(getProjects(activeUser))
-        .then(getProgress(activeUser))
+        .then(getProgressByUserId(activeUser))
     }, [])
 
     return (

@@ -41,7 +41,7 @@ export const ProgressForm = project => {
         proofread: false
     }
 
-    const { getProgress, addProgress } = useContext(ProgressContext)
+    const { getProgressByProject, addProgress } = useContext(ProgressContext)
 
     const [ progress, setProgress ] = useState(defaultProgress)
     const [ isLoading, setIsLoading ] = useState(true)

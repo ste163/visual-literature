@@ -7,8 +7,14 @@ export const ProgressProvider = props => {
     const [ progress, setProgress ] = useState([])
 
     // getProgress fetches all of a user's progress
-    const getProgress = userId => {
-        return fetch(`http://localhost:8088/progress?userId=${userId}`)
+    const getProgressByUserId = userId => {
+        return fetch(`http://localhost:8088/progress?userId=${userId}&_expand=project`)
+        .then(response => response.json())
+        .then(setProgress)
+    }
+
+    const getProgressByProject = projectId => {
+        return fetch(`http://localhost:8088/progress?projectId=${projectId}&_expand=project`)
         .then(response => response.json())
         .then(setProgress)
     }
@@ -22,13 +28,13 @@ export const ProgressProvider = props => {
             body: JSON.stringify(progressObj)
         })
         .then(() => {
-            getProgress(progressObj.projectId)
+            getProgressByProject(progressObj.projectId)
         })
     }
 
     return (
         <ProgressContext.Provider value={{
-            progress, getProgress, addProgress
+            progress, getProgressByUserId, getProgressByProject, addProgress
         }}>
             {props.children}
         </ProgressContext.Provider>
