@@ -1,11 +1,11 @@
 import React, { useContext, useState, useEffect} from "react"
-// IMPORT PROGRESS PROVIDER
+import { ProgressContext } from "./ProgressProvider"
 import "./ProgressForm.css"
 
-    // Storing projectId to pass into the provider for getting
-    // progress for current project, on current date
-    // IF there is progress in the database for this date,
-    // then you edit
+// Storing projectId to pass into the provider for getting
+// progress for current project, on current date
+// IF there is progress in the database for this date,
+// then you edit
 
 // WRONG, the check needs to happen the second the progress section renders
 // THAT WAY, the progress button will say edit/add based on the current date
@@ -21,7 +21,7 @@ import "./ProgressForm.css"
 
 export const ProgressForm = project => {
 
-    // const [ progress, setProgress ] = useContext(ProgressContext)
+    // const { addProgress } = useContext(ProgressContext)
 
     const projectId = project.id
     console.log(project)
@@ -29,10 +29,6 @@ export const ProgressForm = project => {
     // Populates date picker with current date
     const currentDate = new Date()
     const convertedDate = currentDate.toISOString().slice(0,10)
-
-    // useEffect(() => {
-    //     // getProgress(projectId)
-    // })
 
 //     const handleControlledInputChange = e => {
 //         const newProgress = { ...progress }

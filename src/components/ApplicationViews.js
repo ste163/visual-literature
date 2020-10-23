@@ -5,6 +5,7 @@ import { Footer } from "./footer/Footer"
 import { ProjectProvider } from "./projects/ProjectProvider"
 import { ProjectList } from "./projects/ProjectList"
 import { TypeProvider } from "./type/TypeProvider"
+import { ProgressProvider } from "./progress/ProgressProvider"
 
 export const ApplicationViews = () => {
     // If user will be able to decide default view as either
@@ -14,20 +15,23 @@ export const ApplicationViews = () => {
     return (
     <> 
         <Header />
-        
+        <ProgressProvider>
+
+
         <ProjectProvider>
-            <TypeProvider>
+                <TypeProvider>
 
-                <Route exact path="/">
-                    <Redirect to="/projects" />
-                </Route>
+                    <Route exact path="/">
+                        <Redirect to="/projects" />
+                    </Route>
 
-                <Route exact path="/projects">                    
-                    <ProjectList />  
-                </Route>
-                
-            </TypeProvider>
-        </ProjectProvider>
+                    <Route exact path="/projects">                    
+                        <ProjectList />  
+                    </Route>
+                    
+                </TypeProvider>
+            </ProjectProvider>
+        </ProgressProvider>
         
         <Footer />
     </>

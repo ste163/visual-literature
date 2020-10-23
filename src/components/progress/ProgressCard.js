@@ -1,4 +1,5 @@
-import React, { useRef } from "react"
+import React, { useContext, useEffect, useRef } from "react"
+import { ProgressContext } from "./ProgressProvider"
 import { Modal } from "../modal/Modal"
 import { ProgressForm } from "./ProgressForm"
 import "./ProgressCard.css"
@@ -6,8 +7,14 @@ import "./ProgressCard.css"
 // To populate progress, will need ProgressProvider
 
 export const ProgressCard = (project) => {
+
+    const { getProgress } = useContext(ProgressContext)
     
     const progressModal = useRef()
+
+    useEffect(() => {
+        // getProgress(project.id)
+    },[])
 
     return (
     <section className="card card__color--orange card__progress">
