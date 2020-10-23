@@ -22,7 +22,7 @@ export const ProjectForm = props => {
         daysPerFrequency: ""
     } 
 
-    const { addProject, updateProject } = useContext(ProjectContext)
+    const { projects, addProject, updateProject } = useContext(ProjectContext)
     const { types } = useContext(TypeContext)
     
     // Sets state for creating the project
@@ -39,7 +39,7 @@ export const ProjectForm = props => {
             } else {
                 setIsLoading(false)
             }
-    }, [])
+    }, [projects])
 
     // Takes the selected radio button
     // and generates correct label string.
