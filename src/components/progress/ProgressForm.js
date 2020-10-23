@@ -21,24 +21,38 @@ import "./ProgressForm.css"
 
 export const ProgressForm = project => {
 
-    // const { addProgress } = useContext(ProgressContext)
+    const { getProgress, addProgress } = useContext(ProgressContext)
 
-    const projectId = project.id
-    console.log(project)
+    const [ progress, setProgress ] = useState()
+    const [ isLoading, setIsLoading ] = useState(true)
+
+    const incomingProject = project.project.project
+
+    const projectId = incomingProject.id
 
     // Populates date picker with current date
     const currentDate = new Date()
     const convertedDate = currentDate.toISOString().slice(0,10)
 
-//     const handleControlledInputChange = e => {
-//         const newProgress = { ...progress }
-//         newProgress[e.target.name] = e.target.value
-//         setProgress(newProgress)
-// }
+    // If any progress changes, re-render the progress form
+    useEffect(() => {
+        getProgress(projectId)
+        setIsLoading(false)
+    }, [])
+
+    const constructNewProgress = () => {
+        console.log("SUBMITTED PROGRESS")
+    }
+
+    const handleControlledInputChange = e => {
+        const newProgress = { ...progress }
+        newProgress[e.target.name] = e.target.value
+        setProgress(newProgress)
+}
 
     const createProject = (e) => {
         e.preventDefault()
-        // constructNewProgress()
+        constructNewProgress()
     }
 
     return (
@@ -57,6 +71,15 @@ export const ProgressForm = project => {
             PROOFREAD
 
             BEFORE WE SUBMIT, we do the check if goal met for today
+
+            <div className="progress__submit">
+                <button 
+                className="btn btn--green"
+                type="submit"
+                disabled={isLoading}>
+                    Add Progress
+                </button>
+            </div>
 
         </form>
     )

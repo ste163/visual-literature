@@ -33,7 +33,6 @@ export const ProjectForm = props => {
     const [ isLoading, setIsLoading ] = useState(true)
 
     useEffect(() => {
- 
             if (editableProject) {
                 setProject(editableProject)
                 setIsLoading(false);

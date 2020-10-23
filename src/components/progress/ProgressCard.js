@@ -12,6 +12,10 @@ export const ProgressCard = (project) => {
     
     const progressModal = useRef()
 
+    // When user changes progress, update.
+    // DO NOT getProgress again, just use the current
+    // state of the progress. The get happens in the form
+    // after the submit occurs
     useEffect(() => {
         // getProgress(project.id)
     },[])
