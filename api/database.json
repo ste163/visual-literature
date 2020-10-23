@@ -44,15 +44,15 @@
       "completed": false
     },
     {
+      "id": 8,
       "name": "No Progress",
       "userId": 2,
       "typeId": 2,
       "dateStarted": "2020-10-23",
-      "wordCountGoal": 100,
+      "wordCountGoal": 150,
       "goalFrequency": "daily",
       "daysPerFrequency": 1,
-      "completed": false,
-      "id": 8
+      "completed": false
     }
   ],
   "types": [

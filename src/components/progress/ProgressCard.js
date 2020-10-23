@@ -8,7 +8,7 @@ import "./ProgressCard.css"
 
 export const ProgressCard = (project) => {
 
-    const { getProgress } = useContext(ProgressContext)
+    const { progress } = useContext(ProgressContext)
     
     const progressModal = useRef()
 
@@ -16,16 +16,20 @@ export const ProgressCard = (project) => {
     // DO NOT getProgress again, just use the current
     // state of the progress. The get happens in the form
     // after the submit occurs
-    useEffect(() => {
-        // getProgress(project.id)
-    },[])
+
+    // console.log(progress)
+
+    console.log("Project Goal - Words", project.project.wordCountGoal)
+    console.log("Project FREQ", project.project)
+
+    const wordCountGoal = project.project.wordCountGoal
 
     return (
     <section className="card card__color--orange card__progress">
         
         <div className="progress__content">
             <h3 className="progress_h3">Goal</h3>
-            <p className="progress_p">XX words, XX days a XX OR daily</p>
+            <p className="progress_p">{wordCountGoal} words, XX days a XX OR daily</p>
             <h3 className="progress_h3">Progress</h3>
             <p className="progress_p">PROGRESS BAR</p>
             <p className="progress_p">XX / XX words written</p>
