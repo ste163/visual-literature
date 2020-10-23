@@ -53,6 +53,17 @@
       "goalFrequency": "monthly",
       "daysPerFrequency": 25,
       "completed": false
+    },
+    {
+      "name": "gfds",
+      "userId": 2,
+      "typeId": 4,
+      "dateStarted": "2020-10-25",
+      "wordCountGoal": 123,
+      "goalFrequency": "daily",
+      "daysPerFrequency": 1,
+      "completed": false,
+      "id": 9
     }
   ],
   "types": [

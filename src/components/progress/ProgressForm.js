@@ -2,23 +2,6 @@ import React, { useContext, useState, useEffect, useRef} from "react"
 import { ProgressContext } from "./ProgressProvider"
 import "./ProgressForm.css"
 
-// Storing projectId to pass into the provider for getting
-// progress for current project, on current date
-// IF there is progress in the database for this date,
-// then you edit
-
-// WRONG, the check needs to happen the second the progress section renders
-// THAT WAY, the progress button will say edit/add based on the current date
-// It can say Edit Today's Progress
-// Or Add Today's Progress
-// But that might be too restrictive sounding, so we'll have to see
-
-// OR SAY GOAL COMPLETED FOR TODAY when you click show more.
-
-// IF you've already added progress for today, could pop up modal saying,
-// You've entered progress for today. Would you like to edit progress?
-
-
 export const ProgressForm = project => {
     
     // Get reference to date input to hold it's value in state
@@ -26,7 +9,7 @@ export const ProgressForm = project => {
 
     // Populates date picker with current date.
     const currentDate = new Date()
-    const convertedDate = currentDate.toISOString().slice(0,10)
+    const todaysDate = currentDate.toISOString().slice(0,10)
 
     // Get the current project being passed in.
     const passedInProject = project.project.project
@@ -36,7 +19,7 @@ export const ProgressForm = project => {
     // Set default progress so form can reset when needed.
     const defaultProgress = {
         projectId: projectId,
-        dateEntered: convertedDate,
+        dateEntered: todaysDate,
         wordsWritten: "",
         revised: null,
         edited: null,
@@ -47,52 +30,57 @@ export const ProgressForm = project => {
 
     const [ currentProgress, setCurrentProgress ] = useState(defaultProgress)
     const [ dateState, setDateState ] = useState()
+    const [ progressFound, setProgressFound ] = useState(false)
     const [ isLoading, setIsLoading ] = useState(true)
 
-    // If any progress changes, re-render the progress form
+// Use effect is only for the fetch, which isn't needed here.
+// DO NOT USE USE EFFECT
     useEffect(() => {
-        // CHECK for if there is any PROGRESS on this PROJECT'S
-        // current date ? show edit : show add
-        // setIsLoading(false)
-
         // Loop through all progress, find matching projectId to one being passed in
-        const passedInProjectProgress = progress.filter(progress => {
-            return progress.projectId === projectId
-        })
+        const passedInProjectProgress = progress.filter(progress =>  progress.projectId === projectId)
 
         // Check if the entered date is in the passed in progress
         const foundProgress = passedInProjectProgress.filter(progress => {
-            setDateState(dateInput.current.value)
+            setDateState(currentProgress.dateEntered)
             return progress.dateEntered === dateState
         })
 
         if (foundProgress.length !== 0) {
-            console.log("FOUND", projectId, foundProgress[0])
+            console.log("FOUND", dateState)
             setCurrentProgress(foundProgress[0])
+            setProgressFound(true);
+            setIsLoading(false)
         } else {
             console.log("NOT FOUND")
             setCurrentProgress(defaultProgress)
+            setProgressFound(false);
+            setIsLoading(false)
         }
     }, [progress, dateState])
 
 
 
     const constructNewProgress = () => {
-        console.log("SUBMITTED PROGRESS")
+        console.log("SUBMITTED", currentProgress)
         // CHECK FOR IF GOAL COMPLETED FOR TODAY
     }
 
     const handleControlledInputChange = e => {
         setDateState(dateInput.current.value)
+        // Was this the date field? Perform filters
+    
         const newProgress = { ...currentProgress }
         newProgress[e.target.name] = e.target.value
         setCurrentProgress(newProgress)
+        console.log("NEW PROGRESS", newProgress)
 }
 
     const createProgress = (e) => {
         e.preventDefault()
         constructNewProgress()
     }
+
+    // Template for what's in state
 
     return (
         <form className="form__progress" onSubmit={createProgress}>
@@ -107,7 +95,7 @@ export const ProgressForm = project => {
                 onChange={handleControlledInputChange}
                 id="progressDate"
                 name="dateEntered"
-                defaultValue={convertedDate}
+                value={currentProgress.dateEntered}
                 />
             </fieldset>
 
@@ -149,7 +137,7 @@ export const ProgressForm = project => {
                 className="btn btn--green"
                 type="submit"
                 disabled={isLoading}>
-                    Add
+                    {progressFound ? "Update" : "Add"}
                 </button>
             </div>
 
