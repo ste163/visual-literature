@@ -170,9 +170,7 @@ export const ProjectForm = props => {
             </fieldset>
             
             <fieldset className="freq__radios">
-
                 <label>Goal Frequency: </label>
-
                 <div className="radios">
                     
                     <input className="input__radio" type="radio" id="daily" name="goalFrequency" value="daily" required
@@ -209,7 +207,6 @@ export const ProjectForm = props => {
             </fieldset>
             
             <fieldset className="freq__days">
-
                 <label
                 className={isFreqActive ? "label__days days--active" : "label__days"}
                 htmlFor="daysPerFrequency">

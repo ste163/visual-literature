@@ -80,23 +80,49 @@ export const ProgressForm = project => {
                 onChange={handleControlledInputChange}
                 id="progressDate"
                 name="dateEntered"
-                value={project.dateEntered}
+                value={progress.dateEntered}
                 />
             </fieldset>
 
-            WORDS WRITTEN
+            <fieldset>
+                <label htmlFor="progressGoal">Words written: </label>
+                <input type="number"
+                 onChange={handleControlledInputChange}
+                 id="progressGoal"
+                 name="wordsWritten"
+                 value={progress.wordCountGoal}
+                 required
+                 autoFocus
+                 />
+            </fieldset>
 
-            Checkboxes
-            REVISED
-            EDITED
-            PROOFREAD
+            <fieldset>
+                <label>Writing Processes Completed</label>
+
+                <input type="checkbox" id="revised" name="revised" value="revised"
+                defaultChecked={progress.revised}
+                onChange={handleControlledInputChange}
+                />
+                <label htmlFor="revised">Revised</label>
+
+                <input type="checkbox" id="edited" name="edited" value="edited"
+                defaultChecked={progress.edited}
+                onChange={handleControlledInputChange}/>
+                <label htmlFor="edited">Edited</label>
+
+                <input type="checkbox" id="proofread" name="proofread" value="proofread"
+                defaultChecked={progress.proofread}
+                onChange={handleControlledInputChange}/>
+                <label htmlFor="proofread">Proofread</label>
+
+            </fieldset>
 
             <div className="progress__submit">
                 <button 
                 className="btn btn--green"
                 type="submit"
                 disabled={isLoading}>
-                    Add Progress
+                    Add
                 </button>
             </div>
 
