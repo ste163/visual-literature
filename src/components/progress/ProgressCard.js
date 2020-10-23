@@ -19,17 +19,18 @@ export const ProgressCard = (project) => {
 
     // console.log(progress)
 
-    console.log("Project Goal - Words", project.project.wordCountGoal)
-    console.log("Project FREQ", project.project)
+    console.log("Project FREQ", project.project.goalFrequency)
 
     const wordCountGoal = project.project.wordCountGoal
+    const goalFrequency = project.project.goalFrequency
+    const daysPerFrequency = project.project.daysPerFrequency
 
     return (
     <section className="card card__color--orange card__progress">
         
         <div className="progress__content">
             <h3 className="progress_h3">Goal</h3>
-            <p className="progress_p">{wordCountGoal} words, XX days a XX OR daily</p>
+            <p className="progress_p">{wordCountGoal} words {goalFrequency === "daily" ? goalFrequency : `${daysPerFrequency} days a ${goalFrequency}` }</p>
             <h3 className="progress_h3">Progress</h3>
             <p className="progress_p">PROGRESS BAR</p>
             <p className="progress_p">XX / XX words written</p>
