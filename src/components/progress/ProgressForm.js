@@ -54,13 +54,21 @@ export const ProgressForm = project => {
         // CHECK for if there is any PROGRESS on this PROJECT'S
         // current date ? show edit : show add
         // setIsLoading(false)
-        const foundProgress = progress.filter(progress => {
+
+        // Loop through all progress, find matching projectId to one being passed in
+        const passedInProjectProgress = progress.filter(progress => {
+            return progress.projectId === projectId
+        })
+
+        // Check if the entered date is in the passed in progress
+        const foundProgress = passedInProjectProgress.filter(progress => {
             setDateState(dateInput.current.value)
             return progress.dateEntered === dateState
         })
-        
+
         if (foundProgress.length !== 0) {
-            console.log("FOUND", foundProgress)
+            console.log("FOUND", projectId, foundProgress)
+
         } else {
             console.log("NOT FOUND")
         }
