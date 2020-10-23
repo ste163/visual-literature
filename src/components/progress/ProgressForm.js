@@ -38,9 +38,9 @@ export const ProgressForm = project => {
         projectId: projectId,
         dateEntered: convertedDate,
         wordsWritten: "",
-        revised: false,
-        edited: false,
-        proofread: false
+        revised: null,
+        edited: null,
+        proofread: null
     }
 
     const { progress, addProgress } = useContext(ProgressContext)
@@ -73,11 +73,9 @@ export const ProgressForm = project => {
             console.log("NOT FOUND")
             setCurrentProgress(defaultProgress)
         }
-
     }, [progress, dateState])
 
-    // console.log("PROGRESS", progress)
-    // console.log("CURRENT PROGRESS", currentProgress)
+
 
     const constructNewProgress = () => {
         console.log("SUBMITTED PROGRESS")
@@ -109,7 +107,7 @@ export const ProgressForm = project => {
                 onChange={handleControlledInputChange}
                 id="progressDate"
                 name="dateEntered"
-                value={currentProgress.dateEntered}
+                defaultValue={convertedDate}
                 />
             </fieldset>
 
