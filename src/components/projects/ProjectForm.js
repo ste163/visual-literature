@@ -23,7 +23,7 @@ export const ProjectForm = props => {
     } 
 
     const { addProject, updateProject } = useContext(ProjectContext)
-    const { types, getTypes } = useContext(TypeContext)
+    const { types } = useContext(TypeContext)
     
     // Sets state for creating the project
     const [ project, setProject ] = useState(defaultProject)
@@ -33,14 +33,13 @@ export const ProjectForm = props => {
     const [ isLoading, setIsLoading ] = useState(true)
 
     useEffect(() => {
-        getTypes().then(() => {
+ 
             if (editableProject) {
                 setProject(editableProject)
                 setIsLoading(false);
             } else {
                 setIsLoading(false)
             }
-        })
     }, [])
 
     // Takes the selected radio button

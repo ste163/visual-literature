@@ -15,10 +15,9 @@ export const ApplicationViews = () => {
     return (
     <> 
         <Header />
+
         <ProgressProvider>
-
-
-        <ProjectProvider>
+            <ProjectProvider>
                 <TypeProvider>
 
                     <Route exact path="/">

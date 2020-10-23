@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState, useContext } from "react"
 import { ProjectContext } from "./ProjectProvider"
+import { TypeContext } from "../type/TypeProvider"
 import { ProjectForm } from "./ProjectForm"
 import { ProjectCard } from "./ProjectCard"
 import { Modal } from "../modal/Modal"
@@ -9,12 +10,16 @@ import "./Project.css"
 
 export const ProjectList = () => {
     const { projects, getProjects } = useContext(ProjectContext)
+    // We getTypes for the forms on ProjectList load instead of calling it for each form
+    // If types ever change, the project list will reload anyway, so forms will known.
+    const { getTypes } = useContext(TypeContext)
     const activeUser = +sessionStorage.getItem("userId")
     
     const modal = useRef()
 
     useEffect(() => {
-        getProjects(activeUser)
+        getTypes()
+        .then(getProjects(activeUser))
     }, [])
 
     return (

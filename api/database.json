@@ -42,6 +42,17 @@
       "goalFrequency": "weekly",
       "daysPerFrequency": 5,
       "completed": false
+    },
+    {
+      "name": "A Book for Programming",
+      "userId": 1,
+      "typeId": 3,
+      "dateStarted": "2020-10-23",
+      "wordCountGoal": 300,
+      "goalFrequency": "weekly",
+      "daysPerFrequency": 4,
+      "completed": false,
+      "id": 8
     }
   ],
   "types": [
