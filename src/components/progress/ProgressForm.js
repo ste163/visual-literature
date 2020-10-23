@@ -55,10 +55,15 @@ export const ProgressForm = project => {
         // current date ? show edit : show add
         // setIsLoading(false)
         const foundProgress = progress.filter(progress => {
-            return progress.dateEntered === dateInput.current.value
+            setDateState(dateInput.current.value)
+            return progress.dateEntered === dateState
         })
-        console.log("FOUND", foundProgress)
-        console.log(dateInput.current.value)
+        
+        if (foundProgress.length !== 0) {
+            console.log("FOUND", foundProgress)
+        } else {
+            console.log("NOT FOUND")
+        }
 
     }, [progress, dateState])
 
