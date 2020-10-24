@@ -10,25 +10,24 @@ export const ProgressForm = project => {
 
     // Get the current project being passed in.
     const passedInProject = project.project.project
-    // console.log(passedInProject)
     const projectId = passedInProject.id
+    const userId = +sessionStorage.getItem("userId")
 
     // Set default progress so form can reset when needed.
     const defaultProgress = {
-        projectId: projectId,
+        projectId,
         dateEntered: "",
-        wordsWritten: "",
+        wordsWritten: 0,
         revised: false,
         edited: false,
-        proofread: false
+        proofread: false,
     }
 
     const { progress, addProgress } = useContext(ProgressContext)
 
     const [ currentProgress, setCurrentProgress ] = useState(defaultProgress)
-    const [ progressFound, setProgressFound ] = useState(false)
-    const [ isLoading, setIsLoading ] = useState(true)
 
+    const [ progressFound, setProgressFound ] = useState(false)
 
     const constructNewProgress = () => {
         console.log("SUBMITTED", currentProgress)
@@ -36,6 +35,7 @@ export const ProgressForm = project => {
     }
 
     const filterCurrentDate = (dateValue) => {
+
         // Loop through all progress, find matching projectId to one being passed in
         const passedInProjectProgress = progress.filter(progress =>  progress.projectId === projectId)
         // Check if the entered date is in the passed in progress
@@ -44,15 +44,21 @@ export const ProgressForm = project => {
         })
 
         if (foundProgress.length !== 0) {
-            setCurrentProgress(foundProgress[0])
-            console.log("CURRENT SET TO", currentProgress)
+            delete foundProgress[0].project
+            const foundObject = foundProgress[0]
+            console.log("FOUND", foundObject)
+            setCurrentProgress(currentProgress.wordsWritten = foundObject.wordsWritten)
+            setCurrentProgress(currentProgress.revised = foundObject.revised)
+            setCurrentProgress(currentProgress.edited = foundObject.edited)
+            setCurrentProgress(currentProgress.proofread = foundObject.proofread)
             setProgressFound(true);
-            setIsLoading(false)
         } else {
             console.log("NOT FOUND")
-            setCurrentProgress(defaultProgress)
+            setCurrentProgress(currentProgress.wordsWritten = defaultProgress.wordsWritten)
+            setCurrentProgress(currentProgress.revised = defaultProgress.revised)
+            setCurrentProgress(currentProgress.edited = defaultProgress.edited)
+            setCurrentProgress(currentProgress.proofread = defaultProgress.proofread)
             setProgressFound(false);
-            setIsLoading(false)
         }
     }
 
@@ -64,11 +70,13 @@ export const ProgressForm = project => {
                 // store value as a boolean
                 newProgress[e.target.name] = e.target.checked
             }
+        } else if (e.target.name === "wordsWritten") {
+            newProgress[e.target.name] = +e.target.value
         } else {
             newProgress[e.target.name] = e.target.value
         }
 
-        // setCurrentProgress(newProgress)
+        setCurrentProgress(newProgress)
         console.log("NEW PROGRESS SET", newProgress)
 }
 
@@ -135,8 +143,7 @@ export const ProgressForm = project => {
             <div className="progress__submit">
                 <button 
                 className="btn btn--green"
-                type="submit"
-                disabled={isLoading}>
+                type="submit">
                     {progressFound ? "Update" : "Add"}
                 </button>
             </div>
