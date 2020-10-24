@@ -30,11 +30,46 @@ export const ProgressForm = project => {
     const [ progressFound, setProgressFound ] = useState(false)
 
     const constructNewProgress = () => {
-        // CHECK FOR IF GOAL COMPLETED FOR TODAY
-        if (progressFound) {
-            console.log("UPDATE PROGRESS")
+
+        // Add today's date if selected
+        if (currentProgress.dateEntered === "") {
+            currentProgress.dateEntered = todaysDate
+        }
+
+        // Check for goal completion
+        if (passedInProject.wordCountGoal <= currentProgress.wordsWritten) {
+            console.log("GOAL MET")
         } else {
-            console.log("ADD NEW PROGRESS")
+            console.log("GOAL NOT MET")
+        }
+
+        if (currentProgress.proofread) {
+            console.log("PROOFREAD, GOAL MET")
+        }
+
+        if (currentProgress.revised) {
+            console.log("REVISED, GOAL MET")
+        }
+
+        if (currentProgress.edited) {
+            console.log("EDITED, GOAL MET")
+        }
+
+
+        if (progressFound) {
+            console.log("UPDATE PROGRESS", currentProgress)
+        } else {
+            addProgress({
+                projectId,
+                userId,
+                dateEntered: currentProgress.dateEntered,
+                wordsWritten: currentProgress.wordsWritten,
+                revised: currentProgress.revised,
+                edited: currentProgress.edited,
+                proofread: currentProgress.proofread,
+                completed: currentProgress.completed
+            })
+            console.log("ADD NEW PROGRESS", currentProgress)
         }
     }
 
@@ -83,7 +118,7 @@ export const ProgressForm = project => {
         constructNewProgress()
     }
 
-    // Template for what's in state
+    // Template for what's in state that we pass in
     return (
         <form className="form__progress" onSubmit={createProgress}>
 
@@ -148,5 +183,4 @@ export const ProgressForm = project => {
 
         </form>
     )
-
 }
