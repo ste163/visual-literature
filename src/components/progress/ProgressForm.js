@@ -17,7 +17,7 @@ export const ProgressForm = project => {
     const defaultProgress = {
         projectId,
         dateEntered: "",
-        wordsWritten: 0,
+        wordsWritten: "",
         revised: false,
         edited: false,
         proofread: false,
@@ -30,8 +30,12 @@ export const ProgressForm = project => {
     const [ progressFound, setProgressFound ] = useState(false)
 
     const constructNewProgress = () => {
-        console.log("SUBMITTED", currentProgress)
         // CHECK FOR IF GOAL COMPLETED FOR TODAY
+        if (progressFound) {
+            console.log("UPDATE PROGRESS")
+        } else {
+            console.log("ADD NEW PROGRESS")
+        }
     }
 
     const filterCurrentDate = (dateValue) => {
@@ -39,9 +43,7 @@ export const ProgressForm = project => {
         // Loop through all progress, find matching projectId to one being passed in
         const passedInProjectProgress = progress.filter(progress =>  progress.projectId === projectId)
         // Check if the entered date is in the passed in progress
-        const foundProgress = passedInProjectProgress.filter(progress => {
-            return progress.dateEntered === dateValue
-        })
+        const foundProgress = passedInProjectProgress.filter(progress => progress.dateEntered === dateValue)
 
         if (foundProgress.length !== 0) {
             delete foundProgress[0].project
@@ -73,7 +75,6 @@ export const ProgressForm = project => {
         } else {
             newProgress[e.target.name] = e.target.value
         }
-
         setCurrentProgress(newProgress)
 }
 
