@@ -46,14 +46,12 @@ export const ProgressForm = project => {
         if (foundProgress.length !== 0) {
             delete foundProgress[0].project
             const foundObject = foundProgress[0]
-            console.log("FOUND", foundObject)
             setCurrentProgress(currentProgress.wordsWritten = foundObject.wordsWritten)
             setCurrentProgress(currentProgress.revised = foundObject.revised)
             setCurrentProgress(currentProgress.edited = foundObject.edited)
             setCurrentProgress(currentProgress.proofread = foundObject.proofread)
             setProgressFound(true);
         } else {
-            console.log("NOT FOUND")
             setCurrentProgress(currentProgress.wordsWritten = defaultProgress.wordsWritten)
             setCurrentProgress(currentProgress.revised = defaultProgress.revised)
             setCurrentProgress(currentProgress.edited = defaultProgress.edited)
@@ -77,7 +75,6 @@ export const ProgressForm = project => {
         }
 
         setCurrentProgress(newProgress)
-        console.log("NEW PROGRESS SET", newProgress)
 }
 
     const createProgress = (e) => {
@@ -123,18 +120,18 @@ export const ProgressForm = project => {
                 <label>Writing Processes Completed</label>
 
                 <input type="checkbox" id="revised" name="revised" value="revised"
-                defaultChecked={currentProgress.revised === false ? false : true}
+                checked={currentProgress.revised}
                 onChange={handleControlledInputChange}
                 />
                 <label htmlFor="revised">Revised</label>
 
                 <input type="checkbox" id="edited" name="edited" value="edited"
-                defaultChecked={currentProgress.edited === false ? false : true}
+                checked={currentProgress.edited}
                 onChange={handleControlledInputChange}/>
                 <label htmlFor="edited">Edited</label>
 
                 <input type="checkbox" id="proofread" name="proofread" value="proofread"
-                defaultChecked={currentProgress.proofread === false ? false : true}
+                checked={currentProgress.proofread}
                 onChange={handleControlledInputChange}/>
                 <label htmlFor="proofread">Proofread</label>
 
