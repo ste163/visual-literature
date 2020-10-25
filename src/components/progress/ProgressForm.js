@@ -36,25 +36,18 @@ export const ProgressForm = project => {
             currentProgress.dateEntered = todaysDate
         }
 
-        // Check for goal completion
+        // Check for goal completion on word count
         if (passedInProject.wordCountGoal <= currentProgress.wordsWritten) {
-            console.log("GOAL MET")
+            currentProgress.completed = true;
         } else {
-            console.log("GOAL NOT MET")
+            currentProgress.completed = false;
         }
 
-        if (currentProgress.proofread) {
-            console.log("PROOFREAD, GOAL MET")
+        // if any process completed, progress completed is true
+        // MAY WANT TO SEPARATE OUT
+        if (currentProgress.proofread || currentProgress.revised || currentProgress.edited) {
+            currentProgress.completed = true;
         }
-
-        if (currentProgress.revised) {
-            console.log("REVISED, GOAL MET")
-        }
-
-        if (currentProgress.edited) {
-            console.log("EDITED, GOAL MET")
-        }
-
 
         if (progressFound) {
             console.log("UPDATE PROGRESS", currentProgress)
@@ -69,7 +62,6 @@ export const ProgressForm = project => {
                 proofread: currentProgress.proofread,
                 completed: currentProgress.completed
             })
-            console.log("ADD NEW PROGRESS", currentProgress)
         }
     }
 

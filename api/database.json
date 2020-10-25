@@ -111,112 +111,13 @@
     {
       "projectId": 4,
       "userId": 2,
-      "dateEntered": "2020-10-24",
-      "wordsWritten": 300,
+      "dateEntered": "2020-10-23",
+      "wordsWritten": 250,
       "revised": false,
-      "edited": false,
+      "edited": true,
       "proofread": false,
       "completed": true,
       "id": 5
-    },
-    {
-      "projectId": 4,
-      "userId": 2,
-      "dateEntered": "2020-10-24",
-      "wordsWritten": 123,
-      "revised": true,
-      "edited": false,
-      "proofread": false,
-      "completed": true,
-      "id": 6
-    },
-    {
-      "projectId": 4,
-      "userId": 2,
-      "dateEntered": "2020-10-24",
-      "wordsWritten": 399,
-      "revised": false,
-      "edited": false,
-      "proofread": false,
-      "completed": true,
-      "id": 7
-    },
-    {
-      "projectId": 4,
-      "userId": 2,
-      "dateEntered": "2020-10-24",
-      "wordsWritten": 200,
-      "revised": false,
-      "edited": false,
-      "proofread": false,
-      "completed": true,
-      "id": 8
-    },
-    {
-      "projectId": 4,
-      "userId": 2,
-      "dateEntered": "2020-10-24",
-      "wordsWritten": 150,
-      "revised": false,
-      "edited": false,
-      "proofread": false,
-      "completed": true,
-      "id": 9
-    },
-    {
-      "projectId": 4,
-      "userId": 2,
-      "dateEntered": "2020-10-24",
-      "wordsWritten": 200,
-      "revised": false,
-      "edited": false,
-      "proofread": false,
-      "completed": true,
-      "id": 10
-    },
-    {
-      "projectId": 4,
-      "userId": 2,
-      "dateEntered": "2020-10-24",
-      "wordsWritten": 200,
-      "revised": true,
-      "edited": false,
-      "proofread": false,
-      "completed": true,
-      "id": 11
-    },
-    {
-      "projectId": 4,
-      "userId": 2,
-      "dateEntered": "2020-10-24",
-      "wordsWritten": 200,
-      "revised": true,
-      "edited": true,
-      "proofread": false,
-      "completed": true,
-      "id": 12
-    },
-    {
-      "projectId": 4,
-      "userId": 2,
-      "dateEntered": "2020-10-24",
-      "wordsWritten": 200,
-      "revised": true,
-      "edited": true,
-      "proofread": true,
-      "completed": true,
-      "id": 13
-    },
-    {
-      "projectId": 4,
-      "userId": 2,
-      "dateEntered": "2020-10-24",
-      "wordsWritten": 200,
-      "revised": true,
-      "edited": false,
-      "proofread": true,
-      "completed": true,
-      "id": 14
     }
   ]
 }
