@@ -34,7 +34,7 @@ export const ProgressCard = (project) => {
         <button className="btn btn--purple"
         onClick={e => {
             progressModal.current.className = "background__modal modal__active"
-            getProgressByProjectId(project.project)
+            getProgressByProjectId(project.project.id)
             }}>
             Add Progress</button>
         
