@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from "react"
 import { useHistory } from "react-router-dom";
 import { VisLitLogo } from "../branding/VisLitLogo"
 import { VisLitTitle } from "../branding/VisLitTitle"
+import { VisLitSubtitle } from "../branding/VisLitSubtitle"
 import { Modal } from "../modal/Modal";
 import "./AuthView.css"
 
@@ -116,9 +117,9 @@ export const AuthView = props => {
             animationLineL="animation__lineL"
             animationDotV="animation__dotV"
             animationDotL="animation__dotL"/>
-
             <VisLitTitle location="title__login" color="title__lightBlack" />
-            
+            <VisLitSubtitle />
+
             <h2 className="subtitle">Visualize, track, and analyze writing projects</h2>
 
             <section className="card card__color--white card__auth">

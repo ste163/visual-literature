@@ -9,5 +9,3 @@ export const VisLitTitle = props => {
         </svg>
     )
 }
-
-
