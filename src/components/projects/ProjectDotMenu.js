@@ -7,7 +7,7 @@ import "./ProjectDotMenu.css"
 
 export const DotMenu = (React.forwardRef((props, ref) => {
 
-    const { deleteProject } = useContext(ProjectContext);
+    const { getProjectById, deleteProject } = useContext(ProjectContext);
 
     const deleteModal = useRef()
     const editModal = useRef()  
@@ -45,7 +45,11 @@ export const DotMenu = (React.forwardRef((props, ref) => {
         onMouseLeave={e => ref.current.className = "dot__btns--inactive"}>
             
             <button className="dot__btn"
-            onClick={e =>  editModal.current.className = "background__modal modal__active"}>Edit</button>
+            onClick={e =>  {
+                editModal.current.className = "background__modal modal__active"
+                getProjectById(props.project)
+                }
+            }>Edit</button>
             
             <button className="dot__btn"
             onClick={e => deleteModal.current.className = "background__modal modal__active"}>Delete</button>

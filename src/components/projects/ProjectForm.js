@@ -8,22 +8,22 @@ export const ProjectForm = props => {
     const editableProject = props.props
     const userId = +sessionStorage.getItem("userId")
 
-    // Populates date picker with current date
+    // Populates date picker with current date.
     const currentDate = new Date()
-    const convertedDate = currentDate.toISOString().slice(0,10)
+    const todaysDate = currentDate.toISOString().slice(0,10)
 
     // Set the default project so the form can reset.
     const defaultProject = {
         name: "",
         typeId: "",
-        dateStarted: convertedDate,
+        dateStarted: todaysDate,
         wordCountGoal: "",
         goalFrequency: "",
         daysPerFrequency: ""
     } 
 
-    const { addProject, updateProject } = useContext(ProjectContext)
-    const { types, getTypes } = useContext(TypeContext)
+    const { projects, addProject, updateProject } = useContext(ProjectContext)
+    const { types } = useContext(TypeContext)
     
     // Sets state for creating the project
     const [ project, setProject ] = useState(defaultProject)
@@ -33,15 +33,13 @@ export const ProjectForm = props => {
     const [ isLoading, setIsLoading ] = useState(true)
 
     useEffect(() => {
-        getTypes().then(() => {
             if (editableProject) {
                 setProject(editableProject)
                 setIsLoading(false);
             } else {
                 setIsLoading(false)
             }
-        })
-    }, [])
+    }, [projects])
 
     // Takes the selected radio button
     // and generates correct label string.
@@ -68,7 +66,7 @@ export const ProjectForm = props => {
                 project.daysPerFrequency = 1
             }
             if (!project.dateStarted) {
-                project.dateStarted = convertedDate
+                project.dateStarted = todaysDate
             }
             
             if (editableProject) {
@@ -172,9 +170,7 @@ export const ProjectForm = props => {
             </fieldset>
             
             <fieldset className="freq__radios">
-
                 <label>Goal Frequency: </label>
-
                 <div className="radios">
                     
                     <input className="input__radio" type="radio" id="daily" name="goalFrequency" value="daily" required
@@ -211,7 +207,6 @@ export const ProjectForm = props => {
             </fieldset>
             
             <fieldset className="freq__days">
-
                 <label
                 className={isFreqActive ? "label__days days--active" : "label__days"}
                 htmlFor="daysPerFrequency">

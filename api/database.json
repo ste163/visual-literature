@@ -11,15 +11,15 @@
   ],
   "projects": [
     {
+      "id": 4,
       "name": "Poems for Good Days",
       "userId": 2,
       "typeId": 5,
       "dateStarted": "2020-10-21",
-      "wordCountGoal": 100,
+      "wordCountGoal": 200,
       "goalFrequency": "weekly",
-      "daysPerFrequency": 5,
-      "completed": false,
-      "id": 4
+      "daysPerFrequency": 3,
+      "completed": false
     },
     {
       "id": 5,
@@ -41,6 +41,17 @@
       "wordCountGoal": 500,
       "goalFrequency": "weekly",
       "daysPerFrequency": 5,
+      "completed": false
+    },
+    {
+      "id": 8,
+      "name": "Newest",
+      "userId": 2,
+      "typeId": 3,
+      "dateStarted": "2020-10-25",
+      "wordCountGoal": 500,
+      "goalFrequency": "daily",
+      "daysPerFrequency": 1,
       "completed": false
     }
   ],
@@ -78,9 +89,87 @@
     {
       "id": 1,
       "projectId": 4,
+      "userId": 2,
       "dateEntered": "2020-10-21",
       "wordsWritten": 200,
       "revised": true,
+      "edited": false,
+      "proofread": false,
+      "completed": true
+    },
+    {
+      "id": 2,
+      "projectId": 4,
+      "userId": 2,
+      "dateEntered": "2020-10-22",
+      "wordsWritten": 40,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "completed": false
+    },
+    {
+      "id": 4,
+      "projectId": 4,
+      "userId": 2,
+      "dateEntered": "2020-10-24",
+      "wordsWritten": 230,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "completed": true
+    },
+    {
+      "projectId": 4,
+      "userId": 2,
+      "dateEntered": "2020-10-23",
+      "wordsWritten": 250,
+      "revised": false,
+      "edited": true,
+      "proofread": false,
+      "completed": true,
+      "id": 5
+    },
+    {
+      "id": 6,
+      "projectId": 4,
+      "userId": 2,
+      "dateEntered": "2020-10-25",
+      "wordsWritten": 150,
+      "revised": false,
+      "edited": false,
+      "proofread": true,
+      "completed": true
+    },
+    {
+      "projectId": 8,
+      "userId": 2,
+      "dateEntered": "2020-10-25",
+      "wordsWritten": 100,
+      "revised": true,
+      "edited": false,
+      "proofread": false,
+      "completed": true,
+      "id": 7
+    },
+    {
+      "id": 8,
+      "projectId": 8,
+      "userId": 2,
+      "dateEntered": "2020-10-24",
+      "wordsWritten": 150,
+      "revised": false,
+      "edited": false,
+      "proofread": true,
+      "completed": true
+    },
+    {
+      "id": 9,
+      "projectId": 8,
+      "userId": 2,
+      "dateEntered": "2020-10-26",
+      "wordsWritten": 500,
+      "revised": false,
       "edited": false,
       "proofread": false,
       "completed": true
