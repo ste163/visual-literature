@@ -111,7 +111,7 @@ export const AuthView = props => {
             
             <WriteLogTitle location="title__login" color="title__green" />
             
-            <h2 className="subtitle">Track, visualize, & analyze writing projects</h2>
+            <h2 className="subtitle">Visualize, track, and analyze writing projects</h2>
 
             <section className="card card__color--white card__auth">
                 
