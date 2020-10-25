@@ -6,7 +6,18 @@ import "./ProgressCard.css"
 
 export const ProgressCard = (project) => {
 
-    const { getProgressByProjectId } = useContext(ProgressContext)
+    const { progress, getProgressByProjectId } = useContext(ProgressContext)
+
+    console.log(project.project.name, progress)
+// To handle the checking of progress, we're going to need to
+// do comparisons based on:
+    // What's their goal freq: daily, weekly, monthly
+    // How much per freq needs to happen
+        // THEN
+    // find the progress that matches those freqs
+    // find how many of those are called as "completed"
+    // then use number of completed for that freq to populate the charts
+
     
     const progressModal = useRef()
 
