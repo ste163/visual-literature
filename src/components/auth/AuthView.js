@@ -111,7 +111,11 @@ export const AuthView = props => {
             colorVis="logo__color--darkMintBlue"
             colorLit="logo__color--lightBlack"
             colorVisDot="logo__color--darkMintBlue"
-            colorLitDot="logo__color--lightBlack"/>
+            colorLitDot="logo__color--lightBlack"
+            animationLineV="animation__lineV"
+            animationLineL="animation__lineL"
+            animationDotV="animation__dotV"
+            animationDotL="animation__dotL"/>
             <WriteLogTitle location="title__login" color="title__green" />
             
             <h2 className="subtitle">Visualize, track, and analyze writing projects</h2>

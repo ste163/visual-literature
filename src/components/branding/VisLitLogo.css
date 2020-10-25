@@ -30,24 +30,24 @@
     fill: black;
 }
 
-#line__v {
+.animation__lineV {
     stroke-dasharray: 70;
     stroke-dashoffset: 75;
     animation: line__v 1s forwards;
 }
 
-#line__l {
+.animation__lineL {
     stroke-dasharray: 60;
     stroke-dashoffset: -50;
     animation: line__l 1s 0.5s forwards;
 }
 
-#dot__v {
+.animation__dotV {
     stroke-opacity: 0%;
     animation: dot__v  0.1s 0.5s forwards
 }
 
-#dot__l {
+.animation__dotL {
     stroke-opacity: 0%;
     animation: dot__l 0.1s 1.1s forwards
 }

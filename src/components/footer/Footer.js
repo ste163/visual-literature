@@ -1,5 +1,5 @@
 import React from "react"
-import { WriteLogLogo } from "../branding/WriteLogLogo"
+import { VisLitLogo } from "../branding/VisLitLogo"
 import { WriteLogTitle } from "../branding/WriteLogTitle"
 import "./Footer.css"
 
@@ -10,7 +10,12 @@ export const Footer = () => {
 
                 <section className="footer__branding">
                     
-                    <WriteLogLogo location="logo__footer" color="logo__green" line="logo__line--invisible"/>
+                    <VisLitLogo
+                    location="logo__footer"
+                    colorVis="logo__color--lightBlack"
+                    colorLit="logo__color--lightBlack"
+                    colorVisDot="logo__color--lightBlack"
+                    colorLitDot="logo__color--lightBlack"/>
                     <WriteLogTitle location="title__footer" color="title__green" />
 
                 </section>
