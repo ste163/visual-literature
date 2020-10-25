@@ -73,6 +73,15 @@ export const Header = () => {
                         onClick={() => {
                            sessionStorage.clear("userId")
                            history.push()
+                        }}
+                        onMouseOver={e => {
+                            // Currently getting the SVGs, need to loop through childNodes and classList.add the darkened color w/ transition time
+                            // SEE SPIRAL for how i did it there
+                            // Then on mouseOut, classList.remove
+                           e.currentTarget.firstElementChild.children[1].childNodes.forEach(svg => {
+                                svg.classList.add("icon__hovered")
+                                console.log(svg)
+                            })
                         }}>
                             <IconLogout />
                             Logout
