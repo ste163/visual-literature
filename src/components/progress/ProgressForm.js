@@ -128,7 +128,7 @@ export const ProgressForm = project => {
             <button className="btn btn--orange"
             onClick={e => {
                 console.log(passedInProject)
-                deleteProgress(passedInProject.userId, passedInProject.id)
+                deleteProgress(passedInProject.userId, currentProgress.id)
                 deleteModal.current.className = "background__modal"
                 setCurrentProgress(defaultProgress)
                 }
