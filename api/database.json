@@ -31,6 +31,28 @@
       "goalFrequency": "daily",
       "daysPerFrequency": 1,
       "completed": false
+    },
+    {
+      "name": "Scary Stories",
+      "userId": 1,
+      "typeId": 7,
+      "dateStarted": "2020-10-25",
+      "wordCountGoal": 300,
+      "goalFrequency": "weekly",
+      "daysPerFrequency": 5,
+      "completed": false,
+      "id": 6
+    },
+    {
+      "name": "Big Book",
+      "userId": 1,
+      "typeId": 1,
+      "dateStarted": "2020-10-31",
+      "wordCountGoal": 100,
+      "goalFrequency": "monthly",
+      "daysPerFrequency": 10,
+      "completed": false,
+      "id": 7
     }
   ],
   "types": [
@@ -109,15 +131,37 @@
       "completed": true
     },
     {
+      "id": 7,
       "projectId": 5,
       "userId": 1,
       "dateEntered": "2020-10-25",
-      "wordsWritten": 25,
+      "wordsWritten": 50,
       "revised": false,
       "edited": false,
       "proofread": false,
-      "completed": false,
-      "id": 7
+      "completed": true
+    },
+    {
+      "projectId": 5,
+      "userId": 1,
+      "dateEntered": "2020-10-24",
+      "wordsWritten": 100,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "completed": true,
+      "id": 8
+    },
+    {
+      "projectId": 5,
+      "userId": 1,
+      "dateEntered": "2020-10-23",
+      "wordsWritten": 20,
+      "revised": true,
+      "edited": false,
+      "proofread": false,
+      "completed": true,
+      "id": 9
     }
   ]
 }
