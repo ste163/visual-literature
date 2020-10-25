@@ -10,13 +10,13 @@ export const ProjectForm = props => {
 
     // Populates date picker with current date.
     const currentDate = new Date()
-    const convertedDate = currentDate.toISOString().slice(0,10)
+    const todaysDate = currentDate.toISOString().slice(0,10)
 
     // Set the default project so the form can reset.
     const defaultProject = {
         name: "",
         typeId: "",
-        dateStarted: convertedDate,
+        dateStarted: todaysDate,
         wordCountGoal: "",
         goalFrequency: "",
         daysPerFrequency: ""
@@ -66,7 +66,7 @@ export const ProjectForm = props => {
                 project.daysPerFrequency = 1
             }
             if (!project.dateStarted) {
-                project.dateStarted = convertedDate
+                project.dateStarted = todaysDate
             }
             
             if (editableProject) {

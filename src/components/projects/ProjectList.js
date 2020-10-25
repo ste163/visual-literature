@@ -12,7 +12,7 @@ import "./Project.css"
 export const ProjectList = () => {
     const { projects, getProjects } = useContext(ProjectContext)
 
-    const { getProgressByUserId } = useContext(ProgressContext)
+    const { progress, getProgressByUserId } = useContext(ProgressContext)
     
     // We getTypes for the forms on ProjectList load.
     // Types currently WILL NEVER change, so forms don't need the fetch.
@@ -38,7 +38,6 @@ export const ProjectList = () => {
 
     return (
         <>
-
         <section className="view__header">
 
             <button className="project__btn"
@@ -68,7 +67,6 @@ export const ProjectList = () => {
             </div>
             
         </section>
-        
         </>
     )
 }

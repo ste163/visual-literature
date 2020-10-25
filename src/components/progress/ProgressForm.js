@@ -16,21 +16,18 @@ export const ProgressForm = project => {
     // Set default progress so form can reset when needed.
     const defaultProgress = {
         projectId,
-        dateEntered: "",
+        dateEntered: todaysDate,
         wordsWritten: "",
         revised: false,
         edited: false,
         proofread: false,
     }
 
-    const { progress, addProgress } = useContext(ProgressContext)
-
+    const { progress, addProgress, updateProgress } = useContext(ProgressContext)
     const [ currentProgress, setCurrentProgress ] = useState(defaultProgress)
-
     const [ progressFound, setProgressFound ] = useState(false)
 
     const constructNewProgress = () => {
-
         // Add today's date if selected
         if (currentProgress.dateEntered === "") {
             currentProgress.dateEntered = todaysDate
@@ -50,7 +47,18 @@ export const ProgressForm = project => {
         }
 
         if (progressFound) {
-            console.log("UPDATE PROGRESS", currentProgress)
+            updateProgress({
+                id: currentProgress.id,
+                projectId,
+                userId,
+                dateEntered: currentProgress.dateEntered,
+                wordsWritten: currentProgress.wordsWritten,
+                revised: currentProgress.revised,
+                edited: currentProgress.edited,
+                proofread: currentProgress.proofread,
+                completed: currentProgress.completed
+            })
+
         } else {
             addProgress({
                 projectId,
@@ -67,14 +75,13 @@ export const ProgressForm = project => {
 
     const filterCurrentDate = (dateValue) => {
 
-        // Loop through all progress, find matching projectId to one being passed in
-        const passedInProjectProgress = progress.filter(progress =>  progress.projectId === projectId)
         // Check if the entered date is in the passed in progress
-        const foundProgress = passedInProjectProgress.filter(progress => progress.dateEntered === dateValue)
+        const foundProgress = progress.filter(progress => progress.dateEntered === dateValue)
 
         if (foundProgress.length !== 0) {
             delete foundProgress[0].project
             const foundObject = foundProgress[0]
+            setCurrentProgress(currentProgress.id = foundObject.id)
             setCurrentProgress(currentProgress.wordsWritten = foundObject.wordsWritten)
             setCurrentProgress(currentProgress.revised = foundObject.revised)
             setCurrentProgress(currentProgress.edited = foundObject.edited)
