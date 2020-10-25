@@ -17,8 +17,15 @@
 
 .logo__color--darkMintBlue {
     stroke: var(--darkMintBlue);
+    fill: white;
 }
 
-.logo__color--lightBLack {
-    stroke: var(--lightBlack)
+.logo__color--lightBlack {
+    stroke: var(--lightBlack);
+    fill: white;
+}
+
+.logo__color--white {
+    stroke: white;
+    fill: black;
 }

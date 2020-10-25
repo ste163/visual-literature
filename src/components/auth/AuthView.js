@@ -1,6 +1,5 @@
 import React, { useRef, useState, useEffect } from "react"
 import { useHistory } from "react-router-dom";
-import { WriteLogLogo } from "../branding/WriteLogLogo"
 import { VisLitLogo } from "../branding/VisLitLogo"
 import { WriteLogTitle } from "../branding/WriteLogTitle"
 import { Modal } from "../modal/Modal";
@@ -105,12 +104,14 @@ export const AuthView = props => {
         <main className="auth__container">
 
             <Modal ref={existDialog} contentFunction={<ExistDialog/>} width={"modal__width--small"}/>
-
             <Modal ref={conflictDialog} contentFunction={<ConflictDialog/>} width={"modal__width--wide"} />
 
-            <VisLitLogo location="logo__login" location="logo__login" colorVis="logo__color--darkMintBlue" colorLit="logo__color--lightBLack" />
-            {/* <WriteLogLogo location="logo__login" color="logo__green" line="logo__line--green" /> */}
-            
+            <VisLitLogo
+            location="logo__login"
+            colorVis="logo__color--darkMintBlue"
+            colorLit="logo__color--lightBlack"
+            colorVisDot="logo__color--darkMintBlue"
+            colorLitDot="logo__color--lightBlack"/>
             <WriteLogTitle location="title__login" color="title__green" />
             
             <h2 className="subtitle">Visualize, track, and analyze writing projects</h2>
