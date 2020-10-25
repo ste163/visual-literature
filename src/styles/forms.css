@@ -26,7 +26,7 @@ label {
 }
 
 input, select{
-  background-color: var(--formFieldGray);
+  background-color: var(--mediumGray);
   border-style: none;
   border-radius: var(--formFieldRadius);
   padding: 0.5em;

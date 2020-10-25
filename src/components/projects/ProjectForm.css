@@ -24,7 +24,7 @@
 }
 
 .freq__selected {
-    background-color: var(--formFieldGray);
+    background-color: var(--mediumGray);
     border-radius: var(--formFieldRadius);
     padding: 0 0.3em;
 }
@@ -43,19 +43,19 @@
 }
 
 .day__placeholder--active {
-    background-color: var(--formFieldGray);
+    background-color: var(--mediumGray);
     color: var(--fontColor)
 }
 
 .day__placeholder--inactive::-webkit-input-placeholder {
-    color:lightgrey;
+    color:lightgray;
 }
 
 .day__placeholder--inactive::-moz-placeholder {
-    color:lightgrey;
+    color:lightgray;
 }
 
 .day__placeholder--inactive {
     background-color: whitesmoke;
-    color:lightgrey;
+    color:lightgray;
 }

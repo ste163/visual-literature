@@ -35,10 +35,10 @@
 
 .dot__btn:hover {
     border-radius: 2em;
-    background-color: var(--lightGrey);
+    background-color: var(--lightGray);
     box-shadow: var(--cardDropShadow);
 }
 
 .dot__btn:active {
-    background-color: var(--lightGreen);
+    background-color: var(--darkGray);
 }
