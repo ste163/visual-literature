@@ -151,6 +151,17 @@
       "proofread": false,
       "completed": true,
       "id": 7
+    },
+    {
+      "id": 8,
+      "projectId": 8,
+      "userId": 2,
+      "dateEntered": "2020-10-24",
+      "wordsWritten": 24,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "completed": false
     }
   ]
 }

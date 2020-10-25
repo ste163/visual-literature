@@ -4,8 +4,6 @@ import { Modal } from "../modal/Modal"
 import { ProgressForm } from "./ProgressForm"
 import "./ProgressCard.css"
 
-// To populate progress, will need ProgressProvider
-
 export const ProgressCard = (project) => {
 
     const { progress, getProgressByProjectId } = useContext(ProgressContext)
