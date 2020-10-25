@@ -8,12 +8,9 @@ import "./ProgressCard.css"
 
 export const ProgressCard = (project) => {
 
-    const { progress, todaysProgress, getTodaysProgress, getProgressByProjectId } = useContext(ProgressContext)
+    const { progress, getProgressByProjectId } = useContext(ProgressContext)
     
     const progressModal = useRef()
-
-    const currentDate = new Date()
-    const todaysDate = currentDate.toISOString().slice(0,10)
 
     const wordCountGoal = project.project.wordCountGoal
     const goalFrequency = project.project.goalFrequency
@@ -40,7 +37,6 @@ export const ProgressCard = (project) => {
         onClick={e => {
             progressModal.current.className = "background__modal modal__active"
             getProgressByProjectId(project.project)
-            .then(getTodaysProgress(todaysDate))
             }}>
             Add Progress</button>
         

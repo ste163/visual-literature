@@ -16,7 +16,7 @@ export const ProgressForm = project => {
     // Set default progress so form can reset when needed.
     const defaultProgress = {
         projectId,
-        dateEntered: todaysDate,
+        dateEntered: "",
         wordsWritten: "",
         revised: false,
         edited: false,
@@ -135,7 +135,7 @@ export const ProgressForm = project => {
                 }
                 id="progressDate"
                 name="dateEntered"
-                value={currentProgress.dateEntered ? currentProgress.dateEntered : todaysDate}
+                value={currentProgress.dateEntered}
                 />
             </fieldset>
 
