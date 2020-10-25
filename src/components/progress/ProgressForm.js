@@ -1,5 +1,6 @@
-import React, { useContext, useState } from "react"
+import React, { useContext, useState, useRef } from "react"
 import { ProgressContext } from "./ProgressProvider"
+import { Modal } from "../modal/Modal"
 import "./ProgressForm.css"
 
 export const ProgressForm = project => {
@@ -7,6 +8,8 @@ export const ProgressForm = project => {
     // Populates date picker with current date.
     const currentDate = new Date()
     const todaysDate = currentDate.toISOString().slice(0,10)
+
+    const deleteModal = useRef()
 
     // Get the current project being passed in.
     const passedInProject = project.project.project
@@ -23,7 +26,7 @@ export const ProgressForm = project => {
         proofread: false,
     }
 
-    const { progress, addProgress, updateProgress } = useContext(ProgressContext)
+    const { progress, addProgress, updateProgress, deleteProgress } = useContext(ProgressContext)
     const [ currentProgress, setCurrentProgress ] = useState(defaultProgress)
     const [ progressFound, setProgressFound ] = useState(false)
 
@@ -71,6 +74,7 @@ export const ProgressForm = project => {
                 completed: currentProgress.completed
             })
         }
+        setCurrentProgress(defaultProgress)
     }
 
     const filterCurrentDate = (dateValue) => {
@@ -117,8 +121,28 @@ export const ProgressForm = project => {
         constructNewProgress()
     }
 
+    const DeleteWarning = () => (
+        <>
+            <h2 className="modal__warning">Warning</h2>
+            <p>Deleting progress is permanent.</p>
+            <button className="btn btn--orange"
+            onClick={e => {
+                console.log(passedInProject)
+                deleteProgress(passedInProject.userId, passedInProject.id)
+                deleteModal.current.className = "background__modal"
+                setCurrentProgress(defaultProgress)
+                }
+            }>
+                Confirm
+            </button>
+        </>
+    )
+
     // Template for what's in state that we pass in
     return (
+        <>
+        <Modal ref={deleteModal} contentFunction={<DeleteWarning/>} width={"modal__width--small"}/>
+
         <form className="form__progress" onSubmit={createProgress}>
 
             <h3 className="form__h3">Add Progress to</h3>
@@ -178,8 +202,16 @@ export const ProgressForm = project => {
                 type="submit">
                     {progressFound ? "Update" : "Add"}
                 </button>
+
+                <button 
+                className="btn btn--orange"
+                type="button"
+                onClick={e => deleteModal.current.className = "background__modal modal__active"}>
+                    Delete
+                </button>
             </div>
 
         </form>
+        </>
     )
 }

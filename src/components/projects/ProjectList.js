@@ -12,7 +12,7 @@ import "./Project.css"
 export const ProjectList = () => {
     const { projects, getProjects } = useContext(ProjectContext)
 
-    const { progress, getProgressByUserId } = useContext(ProgressContext)
+    const { getProgressByUserId } = useContext(ProgressContext)
     
     // We getTypes for the forms on ProjectList load.
     // Types currently WILL NEVER change, so forms don't need the fetch.
@@ -21,15 +21,6 @@ export const ProjectList = () => {
     
     const modal = useRef()
 
-    // TO DO
-    // On initial load, get projects and current progress
-    // When the user clicks edit, need to get Projects again
-    // So it's always the latest data from database and doesn't save
-    // their un-edited form changes
-
-    // Get latest progress in that form as well
-    // It'll be an extra request, but should
-    // have less issues with always being the most up-to-date data
     useEffect(() => {
         getTypes()
         .then(getProjects(activeUser))
