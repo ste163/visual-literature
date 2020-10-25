@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { VisLitLogo } from "../branding/VisLitLogo"
 import { VisLitTitle } from "../branding/VisLitTitle"
 import { VisLitSubtitle } from "../branding/VisLitSubtitle"
+import { AuthBackground } from "./AuthBackground"
 import { Modal } from "../modal/Modal";
 import "./AuthView.css"
 
@@ -103,6 +104,8 @@ export const AuthView = props => {
 
     return (
         <main className="auth__container">
+
+            <AuthBackground />
 
             <Modal ref={existDialog} contentFunction={<ExistDialog/>} width={"modal__width--small"}/>
             <Modal ref={conflictDialog} contentFunction={<ConflictDialog/>} width={"modal__width--wide"} />
