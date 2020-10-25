@@ -12,8 +12,8 @@ export const VisLitLogo = props => {
             <title>Visual Literature Logo</title>
             <path className={props.colorLit} id="line__l" d="m44.941 41.869-13.781 0.094461-9.6036-35.841" style={{fill:"none",strokeLinecap:"round",strokeLinejoin:"round",strokeWidth:"4.6826"}}/>
             <path className={props.colorVis} id="line__v" d="m2.4641 23.852 8.2435 18.112 9.6036-35.841" style={{fill:"none",strokeLinecap:"round",strokeLinejoin:"round",strokeWidth:"4.6826"}}/>
-            <circle className={props.colorVisDot} id="dot_v" cx="21.014" cy="6.8446" r="4.3967" style={{strokeLinecap:"round",strokeLinejoin:"round",strokeWidth:"4.6826"}}/>
-            <circle className={props.colorLitDot} id="dot_l" cx="44.468" cy="41.574" r="4.3967" style={{strokeLinecap:"round",strokeLinejoin:"round",strokeWidth:"4.6826"}}/>
+            <circle className={props.colorVisDot} id="dot__v" cx="21.014" cy="6.8446" r="4.3967" style={{strokeLinecap:"round",strokeLinejoin:"round",strokeWidth:"4.6826"}}/>
+            <circle className={props.colorLitDot} id="dot__l" cx="44.468" cy="41.574" r="4.3967" style={{strokeLinecap:"round",strokeLinejoin:"round",strokeWidth:"4.6826"}}/>
         </svg>
     )
 }
