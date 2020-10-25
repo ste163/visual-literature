@@ -75,15 +75,18 @@ export const Header = () => {
                            history.push()
                         }}
                         onMouseOver={e => {
-                            // Currently getting the SVGs, need to loop through childNodes and classList.add the darkened color w/ transition time
-                            // SEE SPIRAL for how i did it there
-                            // Then on mouseOut, classList.remove
                            e.currentTarget.firstElementChild.children[1].childNodes.forEach(svg => {
+                                svg.classList.remove("icon__white")
                                 svg.classList.add("icon__hovered")
-                                console.log(svg)
+                            })
+                        }}
+                        onMouseOut={e => {
+                            e.currentTarget.firstElementChild.children[1].childNodes.forEach(svg => {
+                                svg.classList.remove("icon__hovered")
+                                svg.classList.add("icon__white")
                             })
                         }}>
-                            <IconLogout />
+                            <IconLogout color="icon__white" />
                             Logout
                         </button>
                         

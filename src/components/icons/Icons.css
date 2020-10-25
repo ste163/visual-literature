@@ -1,6 +1,6 @@
 .icon__hovered {
-    fill: whitesmoke;
-    transition: 1s;
+    fill: var(--darkGray);
+    transition: var(--btnHover);
 }
 
 .icon__gray {
@@ -9,6 +9,11 @@
 
 .icon__lightGray {
     fill: var(--mediumGray)
+}
+
+.icon__white {
+    fill: white;
+    transition: var(--btnHover);
 }
 
 .icon__plus {
