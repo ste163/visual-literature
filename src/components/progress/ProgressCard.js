@@ -15,7 +15,7 @@ export const ProgressCard = (project) => {
     const daysPerFrequency = project.project.daysPerFrequency
 
     return (
-    <section className="card card__color--mintBlue card__progress">
+    <section className="card card__color--mintBlue card__progress--inactive">
         
         <div className="progress__content">
             <h3 className="progress_h3">Goal</h3>

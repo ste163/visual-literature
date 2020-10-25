@@ -1,4 +1,8 @@
-.card__progress {
+.card__progress--inactive {
+    display: none
+}
+
+.card__progress--active {
     display: flex;
     flex-flow: column nowrap;
     grid-row: 6;
