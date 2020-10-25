@@ -9,7 +9,6 @@ export const Footer = () => {
             <div className="footer__row1">
 
                 <section className="footer__branding">
-                    
                     <VisLitLogo
                     location="logo__footer"
                     colorVis="logo__color--lightBlack"
@@ -17,51 +16,51 @@ export const Footer = () => {
                     colorVisDot="logo__color--lightBlack"
                     colorLitDot="logo__color--lightBlack"/>
                     <VisLitTitle location="title__footer" color="title__lightBlack" />
-
                 </section>
 
                 <section className="footer__summary">
-
                     <h2 className="footer__heading">Summary</h2>
                     <p className="summary__p">
-                        Assisting  writers with tracking, visualizing, and analyzing their writing projects.
+                        Visual Literature (VISLIT) assists writers by allowing them to track, visualize, and analyze their writing projects.
                     </p>
-
                 </section>
 
                 <section className="footer__about">
-
                     <h2 className="footer__heading">About</h2>
                     <p className="about__p">
-                        Then new column with created by Sam Edwards in TN, w/ linkedIn and github links
+                        Sam Edwards is a creative writer and web development student at <a href="http://nashvillesoftwareschool.com/">Nashville Software School</a>.
+                        <div>
+                            <a href="https://www.linkedin.com/in/st-edwards">LinkedIn</a>
+                        </div>
+                        <div>
+                            <a href="https://github.com/ste163">Github</a>
+                        </div>
                     </p>
-                    
                 </section>
 
                 <section className="footer__tech">
-                    
                     <h2 className="footer__heading">Technologies Used</h2>
                     <div className="footer__lists">
                         
                         <div>
                             <h3 className="footer__subHeading">Development</h3>
                             <ul className="tech__list">
-                                <li className="tech__item">React</li>
-                                <li className="tech__item">VS Code</li>
-                                <li className="tech__item">Ubuntu Linux</li>
+                                <li className="tech__item"><a href="https://reactjs.org/">React</a></li>
+                                <li className="tech__item"><a href="https://code.visualstudio.com/">VS Code</a></li>
+                                <li className="tech__item"><a href="https://ubuntu.com/">Ubuntu Linux</a></li>
                             </ul>
                         </div>
                         
                         <div className="footer__list">
                             <h3 className="footer__subHeading">Design</h3>
                             <ul className="tech__list">
-                                <li className="tech__item">Inkscape</li>
-                                <li className="tech__item">Colour Contrast Analyser</li>
+                                <li className="tech__item"><a href="https://inkscape.org/">Inkscape</a></li>
+                                <li className="tech__item"><a href="https://dribbble.com/">Dribbble</a></li>
+                                <li className="tech__item"><a href="https://developer.paciellogroup.com/resources/contrastanalyser/">Colour Contrast Analyser</a></li>
                             </ul>
                         </div>
                     
                     </div>
-                
                 </section>
             </div>
 
