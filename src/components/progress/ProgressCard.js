@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef } from "react"
+import React, { useContext, useRef } from "react"
 import { ProgressContext } from "./ProgressProvider"
 import { Modal } from "../modal/Modal"
 import { ProgressForm } from "./ProgressForm"
@@ -63,6 +63,7 @@ export const ProgressCard = (project) => {
 
             <h3 className="progress_h3">Progress</h3>
             <p className="progress_p">PROGRESS BAR</p>
+            {/* FOR DAILY, DISPLAY 35/60 words written BUT, also say if you edited, proofread, or revised */}
             <p className="progress_p">XX / XX words written</p>
             <p className="progress_p">XX days left OR none if daily</p>
         </div>

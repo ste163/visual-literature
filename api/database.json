@@ -135,8 +135,8 @@
       "projectId": 5,
       "userId": 1,
       "dateEntered": "2020-10-25",
-      "wordsWritten": 50,
-      "revised": false,
+      "wordsWritten": 45,
+      "revised": true,
       "edited": false,
       "proofread": false,
       "completed": true

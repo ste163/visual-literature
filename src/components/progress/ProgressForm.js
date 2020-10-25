@@ -160,6 +160,7 @@ export const ProgressForm = project => {
                 id="progressDate"
                 name="dateEntered"
                 value={currentProgress.dateEntered}
+                required
                 />
             </fieldset>
 
