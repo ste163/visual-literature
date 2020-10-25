@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from "react"
 import { useHistory } from "react-router-dom";
 import { WriteLogLogo } from "../branding/WriteLogLogo"
+import { VisLitLogo } from "../branding/VisLitLogo"
 import { WriteLogTitle } from "../branding/WriteLogTitle"
 import { Modal } from "../modal/Modal";
 import "./AuthView.css"
@@ -107,7 +108,8 @@ export const AuthView = props => {
 
             <Modal ref={conflictDialog} contentFunction={<ConflictDialog/>} width={"modal__width--wide"} />
 
-            <WriteLogLogo location="logo__login" color="logo__green" line="logo__line--green" />
+            <VisLitLogo location="logo__login" location="logo__login" colorVis="logo__color--darkMintBlue" colorLit="logo__color--lightBLack" />
+            {/* <WriteLogLogo location="logo__login" color="logo__green" line="logo__line--green" /> */}
             
             <WriteLogTitle location="title__login" color="title__green" />
             
