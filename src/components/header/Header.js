@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { useHistory, useLocation } from "react-router-dom"
 import { VisLitLogo } from "../branding/VisLitLogo"
-import { WriteLogTitle } from "../branding/WriteLogTitle"
+import { VisLitTitle } from "../branding/VisLitTitle"
 import { IconLogout } from "../icons/IconLogout"
 import "./Header.css"
 
@@ -34,7 +34,7 @@ export const Header = () => {
                 colorLit="logo__color--white"
                 colorVisDot="logo__color--white"
                 colorLitDot="logo__color--white"/>
-                <WriteLogTitle location="title__header" color="title__white" />
+                <VisLitTitle location="title__header" color="title__white" />
             </section>
 
             <nav className="header__nav">
