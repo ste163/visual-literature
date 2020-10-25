@@ -125,7 +125,7 @@ export const ProgressForm = project => {
         <>
             <h2 className="modal__warning">Warning</h2>
             <p>Deleting progress is permanent.</p>
-            <button className="btn btn--orange"
+            <button className="btn btn--red"
             onClick={e => {
                 console.log(passedInProject)
                 deleteProgress(passedInProject.userId, currentProgress.id)
@@ -198,17 +198,21 @@ export const ProgressForm = project => {
 
             <div className="progress__submit">
                 <button 
-                className="btn btn--green"
+                className="btn"
                 type="submit">
                     {progressFound ? "Update" : "Add"}
                 </button>
-
-                <button 
-                className="btn btn--orange"
-                type="button"
-                onClick={e => deleteModal.current.className = "background__modal modal__active"}>
-                    Delete
-                </button>
+                {progressFound ? 
+                    <button 
+                    className="btn btn--red"
+                    type="button"
+                    onClick={e => deleteModal.current.className = "background__modal modal__active"}>
+                        Delete
+                    </button>
+                    :
+                    <></>
+                }
+                
             </div>
 
         </form>

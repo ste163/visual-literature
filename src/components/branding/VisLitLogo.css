@@ -1,0 +1,93 @@
+.logo__login {
+    width: 7em;
+    height: 7em;
+}
+
+.logo__header {
+    width: 1.7em;
+    height: 1.7em;
+    margin-left: 0.7em;
+}
+
+.logo__footer {
+    width: 2em;
+    height: 2em;
+    margin-bottom: 0.5em;
+}
+
+.logo__color--darkMintBlue {
+    stroke: var(--darkMintBlue);
+    fill: var(--lightGray);
+}
+
+.logo__color--lightBlack {
+    stroke: var(--lightBlack);
+    fill: var(--lightGray);
+}
+
+.logo__color--white {
+    stroke: white;
+    fill: black;
+}
+
+.animation__lineV {
+    stroke-dasharray: 70;
+    stroke-dashoffset: 75;
+    animation: line__v 0.5s forwards;
+}
+
+.animation__lineL {
+    stroke-dasharray: 60;
+    stroke-dashoffset: -50;
+    animation: line__l 0.5s 0.2s forwards;
+}
+
+.animation__dotV {
+    stroke-opacity: 0%;
+    animation: dot__v  0.1s 0.2s forwards
+}
+
+.animation__dotL {
+    stroke-opacity: 0%;
+    animation: dot__l 0.1s 0.5s forwards
+}
+
+@keyframes line__v {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes line__l {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes dot__v {
+    0% {
+        stroke-opacity: 0%;
+    }
+
+    50% {
+        stroke-opacity: 50%
+    }
+
+    100% {
+        stroke-opacity: 100%
+    }
+}
+
+@keyframes dot__l {
+    0% {
+        stroke-opacity: 0%;
+    }
+
+    50% {
+        stroke-opacity: 50%
+    }
+
+    100% {
+        stroke-opacity: 100%
+    }
+} 

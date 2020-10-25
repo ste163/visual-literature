@@ -1,5 +1,6 @@
 .btn {
     background-color: transparent;
+    border-color: var(--lightBlack);
     border-style: solid;
     border-radius: var(--formFieldRadius);
     border-width: 0.2em;
@@ -14,46 +15,26 @@
   .btn:hover {
     cursor: pointer;
     font-weight:var(--weightHeavy);
-  }
-  
-  .btn--green {
-    border-color: var(--green);
-  }
-  
-  .btn--green:hover {
-    background-color: var(--green);
-    color: white;
-  }
-  
-  .btn--green:active {
-    background-color: var(--greenActive);
-    border-color: var(--greenActive);
-  }
-  
-  .btn--orange {
-    border-color: var(--orange);
-  }
-  
-  .btn--orange:hover {
-    background-color: var(--orange);
-    font-weight:var(--weightHeaviest);
-  }
-  
-  .btn--orange:active {
-    background-color: var(--orangeActive);
-    border-color: var(--orangeActive)
-  }
-
-  .btn--purple {
-    border-color: var(--purple)
-  }
-
-  .btn--purple:hover {
-    background-color: var(--purple);
+    background-color: var(--lightBlack);
+    border-color: var(--lightBlack);
     color: white;
   }
 
-  .btn--purple:active {
-    background-color: var(--purpleActive);
-    border-color: var(--purpleActive);
+  .btn:active {
+    background-color: black;
+    border-color: black;
+  }
+  
+  .btn--red {
+    border-color: var(--red);
+  }
+  
+  .btn--red:hover {
+    background-color: var(--red);
+    border-color: var(--red);
+  }
+  
+  .btn--red:active {
+    background-color: var(--redActive);
+    border-color: var(--redActive)
   }

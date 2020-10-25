@@ -1,0 +1,7 @@
+.auth__subtitle {
+    width: 16em;
+}
+
+.subtitle__lightBlack {
+    fill: var(--lightBlack);
+}

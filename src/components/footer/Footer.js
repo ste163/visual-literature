@@ -1,6 +1,6 @@
 import React from "react"
-import { WriteLogLogo } from "../branding/WriteLogLogo"
-import { WriteLogTitle } from "../branding/WriteLogTitle"
+import { VisLitLogo } from "../branding/VisLitLogo"
+import { VisLitTitle } from "../branding/VisLitTitle"
 import "./Footer.css"
 
 export const Footer = () => {
@@ -10,8 +10,13 @@ export const Footer = () => {
 
                 <section className="footer__branding">
                     
-                    <WriteLogLogo location="logo__footer" color="logo__green" line="logo__line--invisible"/>
-                    <WriteLogTitle location="title__footer" color="title__green" />
+                    <VisLitLogo
+                    location="logo__footer"
+                    colorVis="logo__color--lightBlack"
+                    colorLit="logo__color--lightBlack"
+                    colorVisDot="logo__color--lightBlack"
+                    colorLitDot="logo__color--lightBlack"/>
+                    <VisLitTitle location="title__footer" color="title__lightBlack" />
 
                 </section>
 

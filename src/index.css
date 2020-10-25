@@ -6,22 +6,19 @@
 :root {
   /* Colors */
   --fontColor: #333333;
-  --grey: #F6F6F6;
-  --darkGrey: #ACACAC;
-  --lightGrey: #f1f1f1; 
+
+  --lightGray: #F6F6F6;
+  --mediumGray: #f1f1f1; 
+  --darkGray: #ACACAC;
+  --shadowGray: #00000008;
+
   --offWhite: #FCFCFC;
-  --green: #02545B;
-  --lightGreen: #0058600f;
-  --greenActive: #01383d;
+  --lightBlack: #171717ff;
+  --mintBlue: #c3e8e5ff;
+  --darkMintBlue: #76cdc7ff;
+
   --red: #d85656;
-  --purple: #62496F;
-  --purpleActive: #45334f;
-  --lightPurple: #786384;
-  --orange: #F0CB72;
-  --orangeActive: #c7a961;
-  --lightOrange: #F0CB72;
-  --formFieldGray: #E9E9E9;
-  --shadowGrey: #00000008;
+  --redActive: #803232;
 
   /* Fonts */
   --fontFamily: 'Heebo', sans-serif;
@@ -37,9 +34,9 @@
   --formFieldRadius: 0.5em;
 
   /* Drop Shadow */
-  --cardDropShadow: -0.1em 0.1em 0.3em var(--shadowGrey);
-  --headingDropShadow: 0em 0.1em 0.3em var(--shadowGrey);
-  --footerDropShadow: 0em -0.1em 0.3em var(--shadowGrey);
+  --cardDropShadow: -0.1em 0.1em 0.3em var(--shadowGray);
+  --headingDropShadow: 0em 0.1em 0.3em var(--shadowGray);
+  --footerDropShadow: 0em -0.1em 0.3em var(--shadowGray);
 
   /* Transitions */
   --btnHover: 0.2s
@@ -63,7 +60,7 @@
 body {
   font-size: 1.3em;
   margin: 0;
-  background-color: var(--grey);
+  background-color: var(--lightGray);
 }
 
 h1 {

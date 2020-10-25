@@ -227,7 +227,7 @@ export const ProjectForm = props => {
             
             <div className="project__submit">
                 <button 
-                className="btn btn--green"
+                className="btn"
                 type="submit"
                 disabled={isLoading}>
                     {editableProject ? "Update" : "Create"}

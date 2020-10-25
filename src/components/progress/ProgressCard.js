@@ -6,7 +6,7 @@ import "./ProgressCard.css"
 
 export const ProgressCard = (project) => {
 
-    const { progress, getProgressByProjectId } = useContext(ProgressContext)
+    const { getProgressByProjectId } = useContext(ProgressContext)
     
     const progressModal = useRef()
 
@@ -15,7 +15,7 @@ export const ProgressCard = (project) => {
     const daysPerFrequency = project.project.daysPerFrequency
 
     return (
-    <section className="card card__color--orange card__progress">
+    <section className="card card__color--mintBlue card__progress">
         
         <div className="progress__content">
             <h3 className="progress_h3">Goal</h3>
@@ -31,7 +31,7 @@ export const ProgressCard = (project) => {
             <p className="progress_p">XX days left OR none if daily</p>
         </div>
 
-        <button className="btn btn--purple"
+        <button className="btn"
         onClick={e => {
             progressModal.current.className = "background__modal modal__active"
             getProgressByProjectId(project.project.id)

@@ -42,17 +42,6 @@
       "goalFrequency": "weekly",
       "daysPerFrequency": 5,
       "completed": false
-    },
-    {
-      "id": 8,
-      "name": "Newest",
-      "userId": 2,
-      "typeId": 3,
-      "dateStarted": "2020-10-25",
-      "wordCountGoal": 500,
-      "goalFrequency": "daily",
-      "daysPerFrequency": 1,
-      "completed": false
     }
   ],
   "types": [
@@ -129,17 +118,6 @@
       "edited": true,
       "proofread": true,
       "completed": true
-    },
-    {
-      "projectId": 8,
-      "userId": 2,
-      "dateEntered": "2020-10-25",
-      "wordsWritten": 100,
-      "revised": true,
-      "edited": false,
-      "proofread": false,
-      "completed": true,
-      "id": 7
     }
   ]
 }

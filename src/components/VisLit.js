@@ -3,8 +3,7 @@ import { Route, Redirect } from "react-router-dom"
 import { ApplicationViews } from "./ApplicationViews"
 import { AuthView } from "./auth/AuthView"
 
-export const WriteLog = () => (
-
+export const VisLit = () => (
     <>
 
     <Route render={() => {
@@ -22,5 +21,4 @@ export const WriteLog = () => (
     </Route>
 
     </>
-
 )
