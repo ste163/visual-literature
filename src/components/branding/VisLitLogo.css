@@ -1,3 +1,27 @@
+#line__v {
+    stroke-dasharray: 60;
+    stroke-dashoffset: 75;
+    animation: line__v 1s forwards;
+}
+
+#line__l {
+    stroke-dasharray: 60;
+    stroke-dashoffset: -50;
+    animation: line__l 1s 1s forwards;
+}
+
+@keyframes line__v {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes line__l {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
 .logo__login {
     width: 10em;
     height: 8em;
