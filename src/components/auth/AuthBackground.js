@@ -12,10 +12,10 @@ export const AuthBackground = () => {
         </svg>
         
         <svg className="bg__line--lightBlack"width="700" height="700" version="1.1" viewBox="0 0 185.21 185.21" xmlns="http://www.w3.org/2000/svg">
-            <path id="line__lightBlack" d="m183.74 19.747c-68.577 136.66-129.33 123.8-183.81 163.99" style={{fill:"none",strokeLinecap:"round",strokeLinejoin:"round",strokeWidth:"2.9387",stroke:"#171717"}}/>
+            <path id="line__lightBlack" d="m197.74 19.747c-68.577 136.66-129.33 123.8-183.81 189.99" style={{fill:"none",strokeLinecap:"round",strokeLinejoin:"round",strokeWidth:"2.9387",stroke:"#171717"}}/>
         </svg>
 
-        <svg className="bg__line--lightBlack" width="700" height="700" version="1.1" viewBox="0 0 185.21 185.21" xmlns="http://www.w3.org/2000/svg">
+        <svg className="bg__line--mintBlue" width="700" height="700" version="1.1" viewBox="0 0 185.21 185.21" xmlns="http://www.w3.org/2000/svg">
             <path id="line__mintBlue" d="m175.13 1.4694c-53.889 44.29-145.75 37.05-173.66 151.4" style={{fillOpacity:"0",strokeLinecap:"round",strokeLinejoin:"round",strokeWidth:"2.9387",stroke:"#c3e8e5"}}/>
         </svg>
 
