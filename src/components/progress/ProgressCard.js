@@ -80,15 +80,12 @@ export const ProgressCard = (project) => {
                     })
                     // If the counter reaches the freq for the month, set complete
                     if (monthlyProgressCounter >= daysPerFrequency) {
-                        console.log("PROGRESS COMPLETE FOR FREQ")
                         setGoalFreqComplete(2)
                     }  else if (monthlyProgressCounter < daysPerFrequency) {
-                        console.log("SOME PROGRESS BUT NOT COMPLETE")
                     }
                 } else {
                     setGoalFreqComplete(0)
                     setGoalProgression(0)
-                    console.log("NO PROGRESS ENTERED FOR TODAY")
                 }
                 break;
         }

@@ -172,8 +172,8 @@
       "projectId": 5,
       "userId": 1,
       "dateEntered": "2020-10-26",
-      "wordsWritten": 43,
-      "revised": true,
+      "wordsWritten": 55,
+      "revised": false,
       "edited": false,
       "proofread": false,
       "completed": true
@@ -201,15 +201,15 @@
       "id": 16
     },
     {
+      "id": 17,
       "projectId": 7,
       "userId": 1,
       "dateEntered": "2020-10-28",
-      "wordsWritten": 123,
+      "wordsWritten": 50,
       "revised": false,
       "edited": false,
-      "proofread": true,
-      "completed": true,
-      "id": 17
+      "proofread": false,
+      "completed": false
     },
     {
       "projectId": 7,
@@ -311,15 +311,26 @@
       "id": 29
     },
     {
-      "id": 30,
+      "projectId": 7,
+      "userId": 1,
+      "dateEntered": "2020-09-02",
+      "wordsWritten": 23,
+      "revised": false,
+      "edited": false,
+      "proofread": true,
+      "completed": true,
+      "id": 32
+    },
+    {
       "projectId": 7,
       "userId": 1,
       "dateEntered": "2020-10-26",
-      "wordsWritten": 9,
-      "revised": false,
+      "wordsWritten": 54,
+      "revised": true,
       "edited": false,
       "proofread": false,
-      "completed": false
+      "completed": true,
+      "id": 33
     }
   ]
 }

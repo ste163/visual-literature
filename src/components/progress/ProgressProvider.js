@@ -27,7 +27,6 @@ export const ProgressProvider = props => {
             body: JSON.stringify(progressObj)
         })
         .then(() => {
-            console.log(progressObj)
             getProgressByUserId(progressObj.userId)
         })
     }
