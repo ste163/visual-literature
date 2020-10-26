@@ -8,9 +8,9 @@ import "./ProgressCard.css"
 export const ProgressCard = (project) => {
 
     const { progress, getProgressByProjectId } = useContext(ProgressContext)
-    const [ goalProgression, setGoalProgression ] = useState(0)
+    const [ goalProgression, setGoalProgression ] = useState()
     // goalFreqComplete can be: 0, 1, or 2 (0 is no progress, 1 is some progress, 2 is complete for freq)
-    const [ goalFreqComplete, setGoalFreqComplete ] = useState(0)
+    const [ goalFreqComplete, setGoalFreqComplete ] = useState()
 
     const progressModal = useRef()
     const progressBar = useRef()
