@@ -28,7 +28,7 @@ export const ProgressCard = (project) => {
         // FOR Weekly, convert dates from picker, starting with console.log(Date("2020-10-03"))
     // How much per freq needs to happen
         // THEN
-    // find the progress that matches those freqs
+    // find the progress that matches those frequencies
     // find how many of those are called as "completed"
     // then use number of completed for that freq to populate the charts
     const checkGoalProgress = () => {
