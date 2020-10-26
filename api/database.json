@@ -162,6 +162,17 @@
       "proofread": false,
       "completed": true,
       "id": 9
+    },
+    {
+      "id": 10,
+      "projectId": 5,
+      "userId": 1,
+      "dateEntered": "2020-10-26",
+      "wordsWritten": 49,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "completed": false
     }
   ]
 }

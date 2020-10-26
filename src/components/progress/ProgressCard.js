@@ -36,10 +36,12 @@ export const ProgressCard = (project) => {
                     if (todaysProgress[0].completed === true) {
                         console.log("PROGRESS COMPLETED FOR TODAY")
                     } else {
-                        console.log("PROGRESS NOT COMPLETED FOR TODAY")
+                        console.log("PROGRESS MADE, BUT NOT COMPLETED FOR TODAY")
                     }
                 }
-            }    
+            } else {
+                console.log("NO PROGRESS ENTERED FOR TODAY")
+            }
             break;
         case "weekly":
             // console.log("weekly")
@@ -51,7 +53,7 @@ export const ProgressCard = (project) => {
     
 
     return (
-    <section className="card card__color--mintBlue card__progress--inactive">
+    <section className="card card__color--mintBlue card__progress">
         
         <div className="progress__content">
             <h3 className="progress_h3">Goal</h3>
