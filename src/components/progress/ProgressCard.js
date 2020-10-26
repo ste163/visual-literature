@@ -19,7 +19,6 @@ export const ProgressCard = (project) => {
     const goalFrequency = project.project.goalFrequency
     const daysPerFrequency = project.project.daysPerFrequency
 
-
 // To handle the checking of progress, we're going to need to
 // do comparisons based on:
     // What's their goal freq: daily, weekly, monthly
@@ -29,66 +28,6 @@ export const ProgressCard = (project) => {
     // find the progress that matches those freqs
     // find how many of those are called as "completed"
     // then use number of completed for that freq to populate the charts
-
-    useEffect(() => {
-        new Chart(progressBar.current, {
-          type: "horizontalBar",
-          data: {
-            labels: ["Progress"],
-            datasets: [{
-                label: "Progress",
-                data: [0.5],
-                backgroundColor:"#171717ff",
-                borderWidth: 0,
-            },
-            {
-                label: "Goal",
-                data: [1],
-                backgroundColor: "#FCFCFC",
-                borderWidth: 0,
-            },
-            ],
-          },
-          options: {
-            scales: {
-                xAxes: [{
-                    stacked: true,
-                    gridLines: {
-                        display: false
-                    },
-                    ticks: {
-                        min: 0,
-                        max: 1,
-                        padding: 0,
-                        display: true
-                    },
-                    scaleLabel: {
-                        display: false
-                    }
-                }],
-
-                yAxes: [{
-                    stacked: true,
-                    gridLines: {
-                        display: false
-                    },
-                    ticks: {
-                        min: 0,
-                        max: 1,
-                        display: false
-                    } 
-                }, { 
-                    stacked: true,
-                    display: false,
-                }],
-            },
-            
-            legend: {
-                display: false
-            }
-          }
-        });
-      }, []);
 
     switch(goalFrequency) {
         case "daily":
@@ -112,7 +51,75 @@ export const ProgressCard = (project) => {
             // console.log("monthly")
             break;
     }
-    
+
+    // Pass different data and max's in
+    const horizontalBarChart = {
+        type: "horizontalBar",
+        data: {
+          labels: ["Progress"],
+          datasets: [{
+              label: "Progress",
+              data: [0.5],
+              backgroundColor:"#171717ff",
+              borderWidth: 0,
+          },
+          {
+              label: "Goal",
+              data: [1],
+              backgroundColor: "#FCFCFC",
+              borderWidth: 0,
+          },
+          ],
+        },
+
+        options: {
+          tooltips: {
+              enabled: false,
+          },
+
+          scales: {
+              xAxes: [{
+                  stacked: true,
+                  gridLines: {
+                      display: false
+                  },
+                  ticks: {
+                      min: 0,
+                      max: 1,
+                      padding: 0,
+                      display: false
+                  },
+                  scaleLabel: {
+                      display: false
+                  }
+              }],
+
+              yAxes: [{
+                  stacked: true,
+                  gridLines: {
+                      display: false
+                  },
+                  ticks: {
+                      min: 0,
+                      max: 1,
+                      display: false
+                  } 
+              }, { 
+                  stacked: true,
+                  display: false,
+              }],
+          },
+          
+          legend: {
+              display: false
+          }
+        }
+      }
+
+
+    useEffect(() => {
+        new Chart(progressBar.current, horizontalBarChart);
+      }, []);
 
     return (
     <section className="card card__color--mintBlue card__progress">
@@ -126,7 +133,7 @@ export const ProgressCard = (project) => {
             </p>
 
             <h3 className="progress_h3">Progress</h3>
-            <canvas ref={progressBar} id="progress__bar" width="50" height="50" />
+            <canvas ref={progressBar} id="progress__bar" width="50" height="10" />
             <p className="progress_p">XX / XX words written</p>
             <p className="progress_p">XX days left OR none if daily</p>
         </div>
