@@ -48,6 +48,7 @@ export const Footer = () => {
                             <h3 className="footer__subHeading">Development</h3>
                             <ul className="tech__list">
                                 <li className="tech__item"><a href="https://reactjs.org/">React</a></li>
+                                <li className="tech__item"><a href="https://www.chartjs.org/">Chart.js</a></li>
                                 <li className="tech__item"><a href="https://code.visualstudio.com/">VS Code</a></li>
                                 <li className="tech__item"><a href="https://ubuntu.com/">Ubuntu Linux</a></li>
                             </ul>

@@ -46,11 +46,13 @@ export const ProgressCard = (project) => {
                                 setGoalFreqComplete(2)
                             }
                         } else {
+                            setGoalProgression(0.5)
                             console.log("PROGRESS MADE, BUT NOT COMPLETED FOR TODAY")
                         }
                     }
                 } else {
                     setGoalFreqComplete(0)
+                    setGoalProgression(0)
                     console.log("NO PROGRESS ENTERED FOR TODAY")
                 }
                 break;
@@ -87,6 +89,12 @@ export const ProgressCard = (project) => {
           tooltips: {
               enabled: false,
           },
+
+          animation: {
+              duration: 0
+          },
+
+          events:[],
 
           scales: {
               xAxes: [{

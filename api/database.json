@@ -164,15 +164,15 @@
       "id": 9
     },
     {
-      "id": 10,
       "projectId": 5,
       "userId": 1,
       "dateEntered": "2020-10-26",
-      "wordsWritten": 50,
+      "wordsWritten": 30,
       "revised": false,
       "edited": false,
       "proofread": false,
-      "completed": true
+      "completed": false,
+      "id": 10
     }
   ]
 }
