@@ -1,7 +1,8 @@
-import React, { useContext, useRef } from "react"
+import React, { useContext, useRef, useEffect } from "react"
 import { ProgressContext } from "./ProgressProvider"
 import { Modal } from "../modal/Modal"
 import { ProgressForm } from "./ProgressForm"
+import Chart from 'chart.js'
 import "./ProgressCard.css"
 
 export const ProgressCard = (project) => {
@@ -9,6 +10,7 @@ export const ProgressCard = (project) => {
     const { progress, getProgressByProjectId } = useContext(ProgressContext)
 
     const progressModal = useRef()
+    const progressBar = useRef()
 
     const currentDate = new Date()
     const todaysDate = currentDate.toISOString().slice(0,10)
@@ -27,6 +29,37 @@ export const ProgressCard = (project) => {
     // find the progress that matches those freqs
     // find how many of those are called as "completed"
     // then use number of completed for that freq to populate the charts
+
+    useEffect(() => {
+        new Chart(progressBar.current, {
+          type: "horizontalBar",
+          data: {
+            labels: ["Red"],
+            datasets: [
+              {
+                label: "",
+                data: [12],
+                backgroundColor: [
+                  "#171717ff",
+                ],
+                borderWidth: 0
+              }
+            ]
+          },
+          options: {
+            scales: {
+                xAxes: [{
+                    ticks: {
+                        min: 0
+                    }
+                }]
+            },
+            legend: {
+                display: false
+            }
+          }
+        });
+      }, []);
 
     switch(goalFrequency) {
         case "daily":
@@ -64,7 +97,7 @@ export const ProgressCard = (project) => {
             </p>
 
             <h3 className="progress_h3">Progress</h3>
-            <p className="progress_p">PROGRESS BAR</p>
+            <canvas ref={progressBar} id="progress__bar" width="100" height="25" />
             {/* FOR DAILY, DISPLAY 35/60 words written BUT, also say if you edited, proofread, or revised */}
             <p className="progress_p">XX / XX words written</p>
             <p className="progress_p">XX days left OR none if daily</p>

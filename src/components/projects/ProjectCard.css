@@ -7,7 +7,6 @@
     display: grid;
     margin: 0.8em;
     flex-basis: 15em;
-    height:min-content;
 }
 
 .card__btn {
