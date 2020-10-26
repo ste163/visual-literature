@@ -210,6 +210,28 @@
       "proofread": false,
       "completed": true,
       "id": 13
+    },
+    {
+      "projectId": 7,
+      "userId": 1,
+      "dateEntered": "2020-10-26",
+      "wordsWritten": 200,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "completed": true,
+      "id": 14
+    },
+    {
+      "projectId": 7,
+      "userId": 1,
+      "dateEntered": "2020-10-24",
+      "wordsWritten": 300,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "completed": true,
+      "id": 15
     }
   ]
 }

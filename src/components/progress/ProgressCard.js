@@ -53,7 +53,6 @@ export const ProgressCard = (project) => {
                 } else {
                     setGoalFreqComplete(0)
                     setGoalProgression(0)
-                    // console.log("NO PROGRESS ENTERED FOR TODAY")
                 }
                 break;
 
@@ -62,13 +61,26 @@ export const ProgressCard = (project) => {
                 break;
                 
             case "monthly":
+                let monthlyProgressCounter = 1
                 const monthlyProjects = progress.filter(each => each.project.goalFrequency === "monthly")
                 const currentMonth = new Date(todaysDate).getMonth()
                 const thisMonthsProgress = monthlyProjects.filter(each => {
                     const progressMonth = new Date(each.dateEntered).getMonth()
                     return progressMonth === currentMonth
                 })
-                console.log("THIS MONTHS PROGRESS", thisMonthsProgress)
+                if (thisMonthsProgress.length !== 0) {
+                    thisMonthsProgress.forEach(progress => {
+                        if (progress.completed === true) {
+                            monthlyProgressCounter = ++monthlyProgressCounter
+                            setGoalProgression(monthlyProgressCounter)
+                        }
+                    })
+                    console.log(monthlyProgressCounter)
+                } else {
+                    setGoalFreqComplete(0)
+                    setGoalProgression(0)
+                    console.log("NO PROGRESS ENTERED FOR TODAY")
+                }
                 break;
         }
     }
