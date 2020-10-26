@@ -1,4 +1,6 @@
-## Write Log
+## Visual Literature (VISLIT)
+
+Received help on the stacked bar charts from (https://codepen.io/jamiecalder/pen/NrROeB?editors=0010)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

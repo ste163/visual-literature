@@ -27,15 +27,17 @@ export const Footer = () => {
 
                 <section className="footer__about">
                     <h2 className="footer__heading">About</h2>
-                    <p className="about__p">
+                    <div className="about__p">
+                        <p className="about__p">
                         Sam Edwards is a creative writer and web development student at <a href="http://nashvillesoftwareschool.com/">Nashville Software School</a>.
+                        </p>
                         <div>
                             <a href="https://www.linkedin.com/in/st-edwards">LinkedIn</a>
                         </div>
                         <div>
                             <a href="https://github.com/ste163">Github</a>
                         </div>
-                    </p>
+                    </div>
                 </section>
 
                 <section className="footer__tech">
@@ -46,6 +48,7 @@ export const Footer = () => {
                             <h3 className="footer__subHeading">Development</h3>
                             <ul className="tech__list">
                                 <li className="tech__item"><a href="https://reactjs.org/">React</a></li>
+                                <li className="tech__item"><a href="https://www.chartjs.org/">Chart.js</a></li>
                                 <li className="tech__item"><a href="https://code.visualstudio.com/">VS Code</a></li>
                                 <li className="tech__item"><a href="https://ubuntu.com/">Ubuntu Linux</a></li>
                             </ul>

@@ -1,9 +1,19 @@
+.icon__hovered {
+    fill: var(--darkGray);
+    transition: var(--btnHover);
+}
+
 .icon__gray {
     fill: var(--darkGray)
 }
 
 .icon__lightGray {
     fill: var(--mediumGray)
+}
+
+.icon__white {
+    fill: white;
+    transition: var(--btnHover);
 }
 
 .icon__plus {

@@ -73,8 +73,20 @@ export const Header = () => {
                         onClick={() => {
                            sessionStorage.clear("userId")
                            history.push()
+                        }}
+                        onMouseOver={e => {
+                           e.currentTarget.firstElementChild.children[1].childNodes.forEach(svg => {
+                                svg.classList.remove("icon__white")
+                                svg.classList.add("icon__hovered")
+                            })
+                        }}
+                        onMouseOut={e => {
+                            e.currentTarget.firstElementChild.children[1].childNodes.forEach(svg => {
+                                svg.classList.remove("icon__hovered")
+                                svg.classList.add("icon__white")
+                            })
                         }}>
-                            <IconLogout />
+                            <IconLogout color="icon__white" />
                             Logout
                         </button>
                         
