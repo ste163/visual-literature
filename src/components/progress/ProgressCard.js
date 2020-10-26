@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useEffect } from "react"
+import React, { useContext, useRef, useEffect, useState } from "react"
 import { ProgressContext } from "./ProgressProvider"
 import { Modal } from "../modal/Modal"
 import { ProgressForm } from "./ProgressForm"
@@ -8,6 +8,8 @@ import "./ProgressCard.css"
 export const ProgressCard = (project) => {
 
     const { progress, getProgressByProjectId } = useContext(ProgressContext)
+    const [ goalProgression, setGoalProgression ] = useState(0)
+    const [ goalFreqComplete, setGoalFreqComplete ] = useState(false)
 
     const progressModal = useRef()
     const progressBar = useRef()
@@ -28,28 +30,34 @@ export const ProgressCard = (project) => {
     // find the progress that matches those freqs
     // find how many of those are called as "completed"
     // then use number of completed for that freq to populate the charts
-
-    switch(goalFrequency) {
-        case "daily":
-            const todaysProgress = progress.filter(each => each.dateEntered === todaysDate)
-            if (todaysProgress.length !== 0) {
-                if (todaysProgress[0].dateEntered === todaysDate) {
-                    if (todaysProgress[0].completed === true) {
-                        console.log("PROGRESS COMPLETED FOR TODAY")
-                    } else {
-                        console.log("PROGRESS MADE, BUT NOT COMPLETED FOR TODAY")
+    const checkGoalProgress = () => {
+        switch(goalFrequency) {
+            case "daily":
+                const todaysProgress = progress.filter(each => each.dateEntered === todaysDate)
+                if (todaysProgress.length !== 0) {
+                    if (todaysProgress[0].dateEntered === todaysDate) {
+                        if (todaysProgress[0].completed === true) {
+                            console.log("PROGRESS COMPLETED FOR TODAY")
+                            setGoalProgression(1)
+                            if (goalProgression === daysPerFrequency) {
+                                console.log("PROGRESS COMPLETE")
+                                setGoalFreqComplete(true)
+                            }
+                        } else {
+                            console.log("PROGRESS MADE, BUT NOT COMPLETED FOR TODAY")
+                        }
                     }
+                } else {
+                    console.log("NO PROGRESS ENTERED FOR TODAY")
                 }
-            } else {
-                console.log("NO PROGRESS ENTERED FOR TODAY")
-            }
-            break;
-        case "weekly":
-            // console.log("weekly")
-            break;
-        case "monthly":
-            // console.log("monthly")
-            break;
+                break;
+            case "weekly":
+                // console.log("weekly")
+                break;
+            case "monthly":
+                // console.log("monthly")
+                break;
+        }
     }
 
     // Pass different data and max's in
@@ -59,13 +67,13 @@ export const ProgressCard = (project) => {
           labels: ["Progress"],
           datasets: [{
               label: "Progress",
-              data: [0.5],
+              data: [goalProgression],
               backgroundColor:"#171717ff",
               borderWidth: 0,
           },
           {
               label: "Goal",
-              data: [1],
+              data: [daysPerFrequency],
               backgroundColor: "#FCFCFC",
               borderWidth: 0,
           },
@@ -85,7 +93,7 @@ export const ProgressCard = (project) => {
                   },
                   ticks: {
                       min: 0,
-                      max: 1,
+                      max: daysPerFrequency,
                       padding: 0,
                       display: false
                   },
@@ -101,7 +109,7 @@ export const ProgressCard = (project) => {
                   },
                   ticks: {
                       min: 0,
-                      max: 1,
+                      max: project.project.daysPerFrequency,
                       display: false
                   } 
               }, { 
@@ -116,10 +124,10 @@ export const ProgressCard = (project) => {
         }
       }
 
-
-    useEffect(() => {
+      useEffect(() => {
         new Chart(progressBar.current, horizontalBarChart);
-      }, []);
+        checkGoalProgress()
+      }, [checkGoalProgress]);
 
     return (
     <section className="card card__color--mintBlue card__progress">
@@ -133,7 +141,8 @@ export const ProgressCard = (project) => {
             </p>
 
             <h3 className="progress_h3">Progress</h3>
-            <canvas ref={progressBar} id="progress__bar" width="50" height="10" />
+            <canvas ref={progressBar} id="progress__bar" width="50" height="9" />
+            <p className="progress_p">{goalFreqComplete ? "Progress complete for this frequency" : "X AMOUNT OF PROGRESS LEFT"}</p>
             <p className="progress_p">XX / XX words written</p>
             <p className="progress_p">XX days left OR none if daily</p>
         </div>

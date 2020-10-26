@@ -168,11 +168,11 @@
       "projectId": 5,
       "userId": 1,
       "dateEntered": "2020-10-26",
-      "wordsWritten": 49,
+      "wordsWritten": 50,
       "revised": false,
       "edited": false,
       "proofread": false,
-      "completed": false
+      "completed": true
     }
   ]
 }
