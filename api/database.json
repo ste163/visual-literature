@@ -83,6 +83,10 @@
     {
       "id": 7,
       "name": "Short Story Collection"
+    },
+    {
+      "id": 8,
+      "name": "TBD"
     }
   ],
   "progress": [
@@ -173,6 +177,39 @@
       "proofread": false,
       "completed": false,
       "id": 10
+    },
+    {
+      "projectId": 7,
+      "userId": 1,
+      "dateEntered": "2020-09-26",
+      "wordsWritten": 1000,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "completed": true,
+      "id": 11
+    },
+    {
+      "projectId": 7,
+      "userId": 1,
+      "dateEntered": "2020-10-27",
+      "wordsWritten": 50,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "completed": false,
+      "id": 12
+    },
+    {
+      "projectId": 7,
+      "userId": 1,
+      "dateEntered": "2020-10-25",
+      "wordsWritten": 150,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "completed": true,
+      "id": 13
     }
   ]
 }

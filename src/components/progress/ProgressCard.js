@@ -38,29 +38,37 @@ export const ProgressCard = (project) => {
                 if (todaysProgress.length !== 0) {
                     if (todaysProgress[0].dateEntered === todaysDate) {
                         if (todaysProgress[0].completed === true) {
-                            console.log("PROGRESS COMPLETED FOR TODAY")
+                            // console.log("PROGRESS COMPLETED FOR TODAY")
                             setGoalProgression(1)
                             // THIS LINE ONLY NEEDED FOR WEEKLY AND MONTHLY
                             if (goalProgression === daysPerFrequency) {
-                                console.log("PROGRESS COMPLETE")
+                                // console.log("PROGRESS COMPLETE")
                                 setGoalFreqComplete(2)
                             }
                         } else {
                             setGoalProgression(0.5)
-                            console.log("PROGRESS MADE, BUT NOT COMPLETED FOR TODAY")
+                            // console.log("PROGRESS MADE, BUT NOT COMPLETED FOR TODAY")
                         }
                     }
                 } else {
                     setGoalFreqComplete(0)
                     setGoalProgression(0)
-                    console.log("NO PROGRESS ENTERED FOR TODAY")
+                    // console.log("NO PROGRESS ENTERED FOR TODAY")
                 }
                 break;
+
             case "weekly":
                 // console.log("weekly")
                 break;
+                
             case "monthly":
-                // console.log("monthly")
+                const monthlyProjects = progress.filter(each => each.project.goalFrequency === "monthly")
+                const currentMonth = new Date(todaysDate).getMonth()
+                const thisMonthsProgress = monthlyProjects.filter(each => {
+                    const progressMonth = new Date(each.dateEntered).getMonth()
+                    return progressMonth === currentMonth
+                })
+                console.log("THIS MONTHS PROGRESS", thisMonthsProgress)
                 break;
         }
     }
