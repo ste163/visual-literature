@@ -173,10 +173,10 @@
       "userId": 1,
       "dateEntered": "2020-10-26",
       "wordsWritten": 43,
-      "revised": false,
+      "revised": true,
       "edited": false,
       "proofread": false,
-      "completed": false
+      "completed": true
     },
     {
       "projectId": 7,

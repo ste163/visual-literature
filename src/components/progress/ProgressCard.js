@@ -7,7 +7,7 @@ import "./ProgressCard.css"
 
 export const ProgressCard = (project) => {
 
-    const { progress, getProgressByProjectId } = useContext(ProgressContext)
+    const { progress, getProgressByProjectId, getProgressByUserId } = useContext(ProgressContext)
     const [ goalProgression, setGoalProgression ] = useState()
     // goalFreqComplete can be: 0, 1, or 2 (0 is no progress, 1 is some progress, 2 is complete for freq)
     const [ goalFreqComplete, setGoalFreqComplete ] = useState()
@@ -195,7 +195,7 @@ export const ProgressCard = (project) => {
             }}>
             Add Progress</button>
         
-        <Modal ref={progressModal} key={project.id} contentFunction={<ProgressForm project={project}/>} width="modal__width--wide" />
+        <Modal ref={progressModal} key={project.project.id} userId={project.project.userId} fetchFunction={getProgressByUserId} contentFunction={<ProgressForm project={project}/>} width="modal__width--wide" />
 
     </section>
     )
