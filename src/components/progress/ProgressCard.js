@@ -34,26 +34,55 @@ export const ProgressCard = (project) => {
         new Chart(progressBar.current, {
           type: "horizontalBar",
           data: {
-            labels: ["Red"],
-            datasets: [
-              {
-                label: "",
-                data: [12],
-                backgroundColor: [
-                  "#171717ff",
-                ],
-                borderWidth: 0
-              }
-            ]
+            labels: ["Progress"],
+            datasets: [{
+                label: "Progress",
+                data: [0.5],
+                backgroundColor:"#171717ff",
+                borderWidth: 0,
+            },
+            {
+                label: "Goal",
+                data: [1],
+                backgroundColor: "#FCFCFC",
+                borderWidth: 0,
+            },
+            ],
           },
           options: {
             scales: {
                 xAxes: [{
+                    stacked: true,
+                    gridLines: {
+                        display: false
+                    },
                     ticks: {
-                        min: 0
+                        min: 0,
+                        max: 1,
+                        padding: 0,
+                        display: true
+                    },
+                    scaleLabel: {
+                        display: false
                     }
-                }]
+                }],
+
+                yAxes: [{
+                    stacked: true,
+                    gridLines: {
+                        display: false
+                    },
+                    ticks: {
+                        min: 0,
+                        max: 1,
+                        display: false
+                    } 
+                }, { 
+                    stacked: true,
+                    display: false,
+                }],
             },
+            
             legend: {
                 display: false
             }
@@ -97,8 +126,7 @@ export const ProgressCard = (project) => {
             </p>
 
             <h3 className="progress_h3">Progress</h3>
-            <canvas ref={progressBar} id="progress__bar" width="100" height="25" />
-            {/* FOR DAILY, DISPLAY 35/60 words written BUT, also say if you edited, proofread, or revised */}
+            <canvas ref={progressBar} id="progress__bar" width="50" height="50" />
             <p className="progress_p">XX / XX words written</p>
             <p className="progress_p">XX days left OR none if daily</p>
         </div>

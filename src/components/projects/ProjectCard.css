@@ -6,7 +6,7 @@
 .card__project {
     display: grid;
     margin: 0.8em;
-    flex-basis: 15em;
+    flex-basis: 13em;
 }
 
 .card__btn {
