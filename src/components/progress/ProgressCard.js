@@ -34,22 +34,20 @@ export const ProgressCard = (project) => {
     const checkGoalProgress = () => {
         switch(goalFrequency) {
             case "daily":
+                // Get only the progress that matches today
                 const todaysProgress = progress.filter(each => each.dateEntered === todaysDate)
                 if (todaysProgress.length !== 0) {
+                    // If the progress we have matches today's date, run the block
                     if (todaysProgress[0].dateEntered === todaysDate) {
+                        // If the goal is complete, set state as complete, if some progress made, set halfway
                         if (todaysProgress[0].completed === true) {
-                            // console.log("PROGRESS COMPLETED FOR TODAY")
                             setGoalProgression(1)
-                            // THIS LINE ONLY NEEDED FOR WEEKLY AND MONTHLY
-                            if (goalProgression === daysPerFrequency) {
-                                // console.log("PROGRESS COMPLETE")
-                                setGoalFreqComplete(2)
-                            }
+                            setGoalFreqComplete(2)
                         } else {
                             setGoalProgression(0.5)
-                            // console.log("PROGRESS MADE, BUT NOT COMPLETED FOR TODAY")
                         }
                     }
+                    // If no progress on today's date, set as 0
                 } else {
                     setGoalFreqComplete(0)
                     setGoalProgression(0)
@@ -61,21 +59,32 @@ export const ProgressCard = (project) => {
                 break;
                 
             case "monthly":
+                // Create a counter for amount completed
                 let monthlyProgressCounter = 1
+                // Get only the progress that matches today's date
                 const monthlyProjects = progress.filter(each => each.project.goalFrequency === "monthly")
                 const currentMonth = new Date(todaysDate).getMonth()
+                // Match only progress that matches today's date
                 const thisMonthsProgress = monthlyProjects.filter(each => {
                     const progressMonth = new Date(each.dateEntered).getMonth()
                     return progressMonth === currentMonth
                 })
                 if (thisMonthsProgress.length !== 0) {
+                    // For each progress of this month, run the goal checks
                     thisMonthsProgress.forEach(progress => {
                         if (progress.completed === true) {
+                            // If we have progress, increase the counter, then setGoalProgression as the counter
                             monthlyProgressCounter = ++monthlyProgressCounter
                             setGoalProgression(monthlyProgressCounter)
                         }
                     })
-                    console.log(monthlyProgressCounter)
+                    // If the counter reaches the freq for the month, set complete
+                    if (monthlyProgressCounter >= daysPerFrequency) {
+                        console.log("PROGRESS COMPLETE FOR FREQ")
+                        setGoalFreqComplete(2)
+                    }  else if (monthlyProgressCounter < daysPerFrequency) {
+                        console.log("SOME PROGRESS BUT NOT COMPLETE")
+                    }
                 } else {
                     setGoalFreqComplete(0)
                     setGoalProgression(0)
