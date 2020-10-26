@@ -9,7 +9,8 @@ export const ProgressCard = (project) => {
 
     const { progress, getProgressByProjectId } = useContext(ProgressContext)
     const [ goalProgression, setGoalProgression ] = useState(0)
-    const [ goalFreqComplete, setGoalFreqComplete ] = useState(false)
+    // goalFreqComplete can be: 0, 1, or 2 (0 is no progress, 1 is some progress, 2 is complete for freq)
+    const [ goalFreqComplete, setGoalFreqComplete ] = useState(0)
 
     const progressModal = useRef()
     const progressBar = useRef()
@@ -39,15 +40,17 @@ export const ProgressCard = (project) => {
                         if (todaysProgress[0].completed === true) {
                             console.log("PROGRESS COMPLETED FOR TODAY")
                             setGoalProgression(1)
+                            // THIS LINE ONLY NEEDED FOR WEEKLY AND MONTHLY
                             if (goalProgression === daysPerFrequency) {
                                 console.log("PROGRESS COMPLETE")
-                                setGoalFreqComplete(true)
+                                setGoalFreqComplete(2)
                             }
                         } else {
                             console.log("PROGRESS MADE, BUT NOT COMPLETED FOR TODAY")
                         }
                     }
                 } else {
+                    setGoalFreqComplete(0)
                     console.log("NO PROGRESS ENTERED FOR TODAY")
                 }
                 break;
@@ -142,7 +145,8 @@ export const ProgressCard = (project) => {
 
             <h3 className="progress_h3">Progress</h3>
             <canvas ref={progressBar} id="progress__bar" width="50" height="9" />
-            <p className="progress_p">{goalFreqComplete ? "Progress complete for this frequency" : "X AMOUNT OF PROGRESS LEFT"}</p>
+            <p className="progress_p">{goalFreqComplete === 2 ? "Progress complete for this frequency" :
+            "X AMOUNT OF PROGRESS LEFT"}</p>
             <p className="progress_p">XX / XX words written</p>
             <p className="progress_p">XX days left OR none if daily</p>
         </div>
