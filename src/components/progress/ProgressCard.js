@@ -115,12 +115,16 @@ export const ProgressCard = (project) => {
         },
 
         options: {
+
+        responsive: true,
+        maintainAspectRation: false,
+
           tooltips: {
               enabled: false,
           },
 
           animation: {
-              duration: 0
+              duration: 800
           },
 
           events:[],
@@ -134,7 +138,6 @@ export const ProgressCard = (project) => {
                   ticks: {
                       min: 0,
                       max: daysPerFrequency,
-                      padding: 0,
                       display: false
                   },
                   scaleLabel: {
@@ -149,7 +152,6 @@ export const ProgressCard = (project) => {
                   },
                   ticks: {
                       min: 0,
-                      max: project.project.daysPerFrequency,
                       display: false
                   } 
               }, { 
@@ -181,7 +183,10 @@ export const ProgressCard = (project) => {
             </p>
 
             <h3 className="progress_h3">Progress</h3>
-            <canvas ref={progressBar} id="progress__bar" width="50" height="9" />
+            <div className="progress__bar--container">
+                <canvas ref={progressBar} id="progress__bar" width="50" height="9" />
+            </div>
+
             <p className="progress_p">{goalFreqComplete === 2 ? "Progress complete for this frequency" :
             "X AMOUNT OF PROGRESS LEFT"}</p>
             <p className="progress_p">XX / XX words written</p>

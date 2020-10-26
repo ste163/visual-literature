@@ -50,8 +50,9 @@
   height: 100vh;
 }
 
-canvas {
+#progress__bar {
   max-width: 90%;
+  height: 2em !important;
 }
 
 /* Set Defaults */
