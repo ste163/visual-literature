@@ -51,8 +51,10 @@
 }
 
 #progress__bar {
-  max-width: 90%;
-  height: 2em !important;
+  width: 90% !important;
+  height: auto !important;
+  min-height: 2em !important;
+  max-height: 2em !important;
 }
 
 /* Set Defaults */

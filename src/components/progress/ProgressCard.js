@@ -183,8 +183,9 @@ export const ProgressCard = (project) => {
             </p>
 
             <h3 className="progress_h3">Progress</h3>
-            <div className="progress__bar--container">
-                <canvas ref={progressBar} id="progress__bar" width="50" height="9" />
+
+            <div>
+                <canvas ref={progressBar} id="progress__bar" width="50" height="50" />
             </div>
 
             <p className="progress_p">{goalFreqComplete === 2 ? "Progress complete for this frequency" :
