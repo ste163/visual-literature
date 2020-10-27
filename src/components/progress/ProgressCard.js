@@ -1,8 +1,9 @@
 import React, { useContext, useRef, useEffect, useState } from "react"
 import { ProgressContext } from "./ProgressProvider"
-import { Modal } from "../modal/Modal"
 import { ProgressForm } from "./ProgressForm"
+import { Modal } from "../modal/Modal"
 import Chart from 'chart.js'
+import { isSameWeek } from 'date-fns'
 import "./ProgressCard.css"
 
 export const ProgressCard = (project) => {
@@ -22,15 +23,6 @@ export const ProgressCard = (project) => {
     const goalFrequency = project.project.goalFrequency
     const daysPerFrequency = project.project.daysPerFrequency
 
-// To handle the checking of progress, we're going to need to
-// do comparisons based on:
-    // What's their goal freq: daily, weekly, monthly
-        // FOR Weekly, convert dates from picker, starting with console.log(Date("2020-10-03"))
-    // How much per freq needs to happen
-        // THEN
-    // find the progress that matches those frequencies
-    // find how many of those are called as "completed"
-    // then use number of completed for that freq to populate the charts
     const checkGoalProgress = () => {
         switch(goalFrequency) {
             case "daily":
@@ -60,7 +52,9 @@ export const ProgressCard = (project) => {
                 break;
 
             case "weekly":
-                console.log("weekly")
+                // To ensure that the date entered IS actually correct, at least with console.logs, have to replace the - with /
+                // console.log(new Date("2020-10-27".replace(/-/g, '\/')))
+                console.log(isSameWeek(new Date("2020/10/31"), currentDate))
                 break;
                 
             case "monthly":
