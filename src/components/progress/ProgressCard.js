@@ -39,12 +39,18 @@ export const ProgressCard = (project) => {
                 if (todaysProgress.length !== 0) {
                     // If the progress we have matches today's date, run the block
                     if (todaysProgress[0].dateEntered === todaysDate) {
-                        // If the goal is complete, set state as complete, if some progress made, set halfway
-                        if (todaysProgress[0].completed === true) {
+                        // If more words written than the goal, set complete, if some progress made, set halfway
+                        console.log(todaysProgress[0])
+                        if (todaysProgress[0].wordsWritten >= wordCountGoal) {
                             setGoalProgression(1)
                             setGoalFreqComplete(2)
                         } else {
                             setGoalProgression(0.5)
+                            setGoalFreqComplete(1)
+                        }
+                        if (todaysProgress[0].proofread || todaysProgress[0].revised || todaysProgress[0].edited) {
+                            setGoalProgression(1)
+                            setGoalFreqComplete(2)
                         }
                     }
                     // If no progress on today's date, set as 0

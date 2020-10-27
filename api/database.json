@@ -27,7 +27,7 @@
       "userId": 1,
       "typeId": 5,
       "dateStarted": "2020-10-21",
-      "wordCountGoal": 50,
+      "wordCountGoal": 100,
       "goalFrequency": "daily",
       "daysPerFrequency": 1,
       "completed": false
@@ -44,6 +44,7 @@
       "id": 6
     },
     {
+      "id": 7,
       "name": "Big Book",
       "userId": 1,
       "typeId": 1,
@@ -51,8 +52,7 @@
       "wordCountGoal": 100,
       "goalFrequency": "monthly",
       "daysPerFrequency": 10,
-      "completed": false,
-      "id": 7
+      "completed": false
     }
   ],
   "types": [
@@ -176,7 +176,7 @@
       "revised": false,
       "edited": false,
       "proofread": false,
-      "completed": true
+      "completed": false
     },
     {
       "projectId": 7,
@@ -331,6 +331,17 @@
       "proofread": false,
       "completed": true,
       "id": 33
+    },
+    {
+      "id": 34,
+      "projectId": 5,
+      "userId": 1,
+      "dateEntered": "2020-10-27",
+      "wordsWritten": 90,
+      "revised": false,
+      "edited": false,
+      "proofread": true,
+      "completed": true
     }
   ]
 }
