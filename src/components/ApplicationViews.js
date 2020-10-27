@@ -18,10 +18,9 @@ export const ApplicationViews = () => {
         <Header />
 
             <TypeProvider>
-
                 <ProgressProvider>
-                    <ProjectProvider>
 
+                    <ProjectProvider>
                         <Route exact path="/">
                             <Redirect to="/projects" />
                         </Route>
@@ -29,13 +28,9 @@ export const ApplicationViews = () => {
                         <Route exact path="/projects">                    
                             <ProjectList />  
                         </Route>
-                        
                     </ProjectProvider>
-                </ProgressProvider>
 
-                <ProgressProvider>
                     <ProjectProvider>
-
                         <Route exact path="/dashboard">
                             <Dashboard />
                         </Route>
@@ -43,10 +38,9 @@ export const ApplicationViews = () => {
                         <Route exact path="/dashboard/:projectId(\d+)">
                             <Dashboard />
                         </Route>
-
                     </ProjectProvider>
-                </ProgressProvider>
                 
+                </ProgressProvider>
             </TypeProvider>
         
         <Footer />

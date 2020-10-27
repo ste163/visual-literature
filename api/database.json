@@ -90,16 +90,6 @@
       "id": 2
     },
     {
-      "id": 3,
-      "projectId": 7,
-      "userId": 1,
-      "dateEntered": "2020-10-27",
-      "wordsWritten": 203,
-      "revised": true,
-      "edited": false,
-      "proofread": false
-    },
-    {
       "id": 4,
       "projectId": 7,
       "userId": 1,
@@ -194,7 +184,7 @@
       "projectId": 5,
       "userId": 1,
       "dateEntered": "2020-10-26",
-      "wordsWritten": 103,
+      "wordsWritten": 96,
       "revised": false,
       "edited": false,
       "proofread": false
@@ -202,12 +192,32 @@
     {
       "projectId": 5,
       "userId": 1,
-      "dateEntered": "2020-10-27",
-      "wordsWritten": 100,
-      "revised": true,
+      "dateEntered": "2020-10-28",
+      "wordsWritten": 150,
+      "revised": false,
       "edited": false,
       "proofread": false,
-      "id": 15
+      "id": 16
+    },
+    {
+      "projectId": 5,
+      "userId": 1,
+      "dateEntered": "2020-10-26",
+      "wordsWritten": 54,
+      "revised": false,
+      "edited": false,
+      "proofread": true,
+      "id": 17
+    },
+    {
+      "projectId": 5,
+      "userId": 1,
+      "dateEntered": "2020-10-27",
+      "wordsWritten": 500,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "id": 18
     }
   ]
 }
