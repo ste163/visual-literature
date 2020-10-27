@@ -23,11 +23,14 @@ export const Dashboard = () => {
     const { progress, getProgressByProjectId, getProgressByUserId } = useContext(ProgressContext)
     
     const [ currentProject, setCurrentProject ] = useState()
-    const [ currentProgress, setCurrentProgress ] = useState()
+    const [ currentProgress, setCurrentProgress ] = useState([])
 
     const displayProject = () => {
-        setCurrentProgress(progress)
-
+        // If we have progress, set state
+        if (progress.length !== 0) {
+            setCurrentProgress(progress)
+        }
+        // If we have multiple projects, show first, else show selected 
         if (Array.isArray(projects)) {
             setCurrentProject(projects[0])
         } else {
@@ -73,16 +76,19 @@ export const Dashboard = () => {
         <section className="view__container">
             {
                 currentProject === undefined ? null :
-                <>
-                    <DashTitleCard props={currentProject} />
-        
-                    <DashGoalCard props={currentProject} />
-                    
-                    <DashProgression props={currentProject} progress={currentProgress}/>
-                </>
+                        <>
+                            <DashTitleCard props={currentProject} />
+                
+                            <DashGoalCard props={currentProject} />
+                            {
+                                currentProgress.length === [] ? null :
+                                <DashProgression props={currentProject} progress={currentProgress}/>    
+                            }
+                           
+                            {/* <Modal ref={progressModal} contentFunction={<ProgressForm />} width={"modal__width--wide"}/> */}
+                        </>
             }
 
-            {/* <Modal ref={progressModal} contentFunction={<ProgressForm />} width={"modal__width--wide"}/> */}
             
         </section>
         </>

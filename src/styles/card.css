@@ -1,6 +1,7 @@
 .card {
     border-radius: var(--cardRadius);
     box-shadow: var(--cardDropShadow);
+    max-width: 90vw;
 }
 
 .card__color--white {
