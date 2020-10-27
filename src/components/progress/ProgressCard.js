@@ -1,8 +1,9 @@
 import React, { useContext, useRef, useEffect, useState } from "react"
 import { ProgressContext } from "./ProgressProvider"
-import { Modal } from "../modal/Modal"
 import { ProgressForm } from "./ProgressForm"
+import { Modal } from "../modal/Modal"
 import Chart from 'chart.js'
+import { isSameWeek } from 'date-fns'
 import "./ProgressCard.css"
 
 export const ProgressCard = (project) => {
@@ -22,15 +23,6 @@ export const ProgressCard = (project) => {
     const goalFrequency = project.project.goalFrequency
     const daysPerFrequency = project.project.daysPerFrequency
 
-// To handle the checking of progress, we're going to need to
-// do comparisons based on:
-    // What's their goal freq: daily, weekly, monthly
-        // FOR Weekly, convert dates from picker, starting with console.log(Date("2020-10-03"))
-    // How much per freq needs to happen
-        // THEN
-    // find the progress that matches those frequencies
-    // find how many of those are called as "completed"
-    // then use number of completed for that freq to populate the charts
     const checkGoalProgress = () => {
         switch(goalFrequency) {
             case "daily":
@@ -39,12 +31,17 @@ export const ProgressCard = (project) => {
                 if (todaysProgress.length !== 0) {
                     // If the progress we have matches today's date, run the block
                     if (todaysProgress[0].dateEntered === todaysDate) {
-                        // If the goal is complete, set state as complete, if some progress made, set halfway
-                        if (todaysProgress[0].completed === true) {
+                        // If more words written than the goal, set complete, if some progress made, set halfway
+                        if (todaysProgress[0].wordsWritten >= wordCountGoal) {
                             setGoalProgression(1)
                             setGoalFreqComplete(2)
                         } else {
                             setGoalProgression(0.5)
+                            setGoalFreqComplete(1)
+                        }
+                        if (todaysProgress[0].proofread || todaysProgress[0].revised || todaysProgress[0].edited) {
+                            setGoalProgression(1)
+                            setGoalFreqComplete(2)
                         }
                     }
                     // If no progress on today's date, set as 0
@@ -55,12 +52,42 @@ export const ProgressCard = (project) => {
                 break;
 
             case "weekly":
-                // console.log("weekly")
+                let weeklyProgressCounter = 0
+                const weeklyProjects = progress.filter(each => each.project.goalFrequency === "weekly")
+                const thisWeeksProgress = weeklyProjects.filter(each => {
+                    // To ensure that the date entered is tested correctly, at least with console.logs, have to replace the - with /
+                    const progressDate = new Date(each.dateEntered.replace(/-/g, '\/'))
+                    // Return only the progress in the current week
+                    return isSameWeek(progressDate, currentDate)
+                })
+                // If we have progress for this week...
+                if (thisWeeksProgress.length !== 0) {
+                    // see if the goal has been met for each entered progress
+                    thisWeeksProgress.forEach(progress => {
+                        if (progress.wordsWritten >= wordCountGoal) {
+                            ++weeklyProgressCounter
+                            setGoalProgression(weeklyProgressCounter)
+                        }
+                        if (progress.wordsWritten < wordCountGoal && progress.proofread || progress.revised || progress.edited) {
+                            ++weeklyProgressCounter
+                            setGoalProgression(weeklyProgressCounter)
+                        }
+                    })
+                    // If the counter reaches the freq for the week, set complete
+                    if (weeklyProgressCounter >= daysPerFrequency) {
+                        setGoalFreqComplete(2)
+                    }  else if (weeklyProgressCounter < daysPerFrequency) {
+                        setGoalFreqComplete(1)
+                    }
+                } else {
+                    setGoalFreqComplete(0)
+                    setGoalProgression(0)
+                }
                 break;
                 
             case "monthly":
-                // Create a counter for amount completed
-                let monthlyProgressCounter = 1
+                // Create a counter for amount completed. Used in graph and progress checks
+                let monthlyProgressCounter = 0
                 // Get only the progress that matches today's date
                 const monthlyProjects = progress.filter(each => each.project.goalFrequency === "monthly")
                 const currentMonth = new Date(todaysDate).getMonth()
@@ -72,9 +99,13 @@ export const ProgressCard = (project) => {
                 if (thisMonthsProgress.length !== 0) {
                     // For each progress of this month, run the goal checks
                     thisMonthsProgress.forEach(progress => {
-                        if (progress.completed === true) {
+                        if (progress.wordsWritten >= wordCountGoal) {
                             // If we have progress, increase the counter, then setGoalProgression as the counter
-                            monthlyProgressCounter = ++monthlyProgressCounter
+                            ++monthlyProgressCounter
+                            setGoalProgression(monthlyProgressCounter)
+                        }
+                        if (progress.wordsWritten < wordCountGoal && progress.proofread || progress.revised || progress.edited) {
+                            ++monthlyProgressCounter
                             setGoalProgression(monthlyProgressCounter)
                         }
                     })
@@ -82,6 +113,7 @@ export const ProgressCard = (project) => {
                     if (monthlyProgressCounter >= daysPerFrequency) {
                         setGoalFreqComplete(2)
                     }  else if (monthlyProgressCounter < daysPerFrequency) {
+                        setGoalFreqComplete(1)
                     }
                 } else {
                     setGoalFreqComplete(0)
