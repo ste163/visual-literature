@@ -3,11 +3,15 @@ import { IconDots } from "../icons/IconDots"
 import { Modal } from "../modal/Modal"
 import { ProjectForm } from "./ProjectForm"
 import { ProjectContext } from "./ProjectProvider"
+import { ProgressContext } from "../progress/ProgressProvider"
 import "./ProjectDotMenu.css"
 
 export const DotMenu = (React.forwardRef((props, ref) => {
 
     const { getProjectById, deleteProject } = useContext(ProjectContext);
+    const { getProgressByProjectId } = useContext(ProgressContext)
+
+    const activeUser = sessionStorage.getItem("userId")
 
     const deleteModal = useRef()
     const editModal = useRef()  
@@ -31,7 +35,7 @@ export const DotMenu = (React.forwardRef((props, ref) => {
         }
     }}>
 
-        <Modal ref={editModal} contentFunction={<ProjectForm props={props.project}/>} width={"modal__width--wide"}/> 
+        <Modal ref={editModal} projectId={props.project.id} fetchFunction={getProgressByProjectId} contentFunction={<ProjectForm props={props.project}/>} width={"modal__width--wide"}/> 
        
         <Modal ref={deleteModal} contentFunction={<DeleteWarning/>} width={"modal__width--small"}/>
         

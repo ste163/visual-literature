@@ -11,25 +11,14 @@
   ],
   "projects": [
     {
-      "id": 4,
-      "name": "Poems for Good Days",
-      "userId": 2,
-      "typeId": 5,
-      "dateStarted": "2020-10-21",
-      "wordCountGoal": 200,
-      "goalFrequency": "weekly",
-      "daysPerFrequency": 3,
-      "completed": false
-    },
-    {
       "id": 5,
       "name": "Poems for Sunny Days",
       "userId": 1,
       "typeId": 5,
       "dateStarted": "2020-10-21",
       "wordCountGoal": 100,
-      "goalFrequency": "daily",
-      "daysPerFrequency": 1,
+      "goalFrequency": "weekly",
+      "daysPerFrequency": 3,
       "completed": false
     },
     {
@@ -40,7 +29,7 @@
       "dateStarted": "2020-10-25",
       "wordCountGoal": 300,
       "goalFrequency": "weekly",
-      "daysPerFrequency": 3,
+      "daysPerFrequency": 4,
       "completed": false
     },
     {
@@ -51,7 +40,7 @@
       "dateStarted": "2020-10-31",
       "wordCountGoal": 300,
       "goalFrequency": "monthly",
-      "daysPerFrequency": 10,
+      "daysPerFrequency": 14,
       "completed": false
     }
   ],
@@ -91,16 +80,6 @@
   ],
   "progress": [
     {
-      "projectId": 5,
-      "userId": 1,
-      "dateEntered": "2020-10-27",
-      "wordsWritten": 75,
-      "revised": false,
-      "edited": false,
-      "proofread": false,
-      "id": 1
-    },
-    {
       "projectId": 7,
       "userId": 1,
       "dateEntered": "2020-10-26",
@@ -115,8 +94,8 @@
       "projectId": 7,
       "userId": 1,
       "dateEntered": "2020-10-27",
-      "wordsWritten": 350,
-      "revised": false,
+      "wordsWritten": 203,
+      "revised": true,
       "edited": false,
       "proofread": false
     },
@@ -126,7 +105,7 @@
       "userId": 1,
       "dateEntered": "2020-10-28",
       "wordsWritten": 100,
-      "revised": false,
+      "revised": true,
       "edited": false,
       "proofread": false
     },
@@ -141,14 +120,14 @@
       "id": 5
     },
     {
+      "id": 6,
       "projectId": 7,
       "userId": 1,
       "dateEntered": "2020-10-30",
-      "wordsWritten": 100,
+      "wordsWritten": 350,
       "revised": false,
       "edited": false,
-      "proofread": false,
-      "id": 6
+      "proofread": false
     },
     {
       "id": 7,
@@ -175,7 +154,7 @@
       "projectId": 6,
       "userId": 1,
       "dateEntered": "2020-10-27",
-      "wordsWritten": 250,
+      "wordsWritten": 100,
       "revised": false,
       "edited": false,
       "proofread": false
@@ -185,7 +164,7 @@
       "projectId": 6,
       "userId": 1,
       "dateEntered": "2020-10-28",
-      "wordsWritten": 350,
+      "wordsWritten": 250,
       "revised": false,
       "edited": false,
       "proofread": false
@@ -209,6 +188,26 @@
       "edited": false,
       "proofread": false,
       "id": 12
+    },
+    {
+      "id": 13,
+      "projectId": 5,
+      "userId": 1,
+      "dateEntered": "2020-10-27",
+      "wordsWritten": 50,
+      "revised": false,
+      "edited": false,
+      "proofread": false
+    },
+    {
+      "id": 14,
+      "projectId": 5,
+      "userId": 1,
+      "dateEntered": "2020-10-26",
+      "wordsWritten": 103,
+      "revised": false,
+      "edited": false,
+      "proofread": false
     }
   ]
 }

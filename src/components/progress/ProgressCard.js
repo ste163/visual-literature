@@ -26,8 +26,10 @@ export const ProgressCard = (project) => {
     const checkGoalProgress = () => {
         switch(goalFrequency) {
             case "daily":
+                // Get only progress for projects that are daily
+                const dailyProjects = progress.filter(each => each.project.goalFrequency === "daily")
                 // Get only the progress that matches today
-                const todaysProgress = progress.filter(each => each.dateEntered === todaysDate)
+                const todaysProgress = dailyProjects.filter(each => each.dateEntered === todaysDate)
                 if (todaysProgress.length !== 0) {
                     // If the progress we have matches today's date, run the block
                     if (todaysProgress[0].dateEntered === todaysDate) {
@@ -196,6 +198,10 @@ export const ProgressCard = (project) => {
       }
 
       useEffect(() => {
+        getProgressByProjectId(project.project.id)
+      },[])
+
+      useEffect(() => {
         new Chart(progressBar.current, horizontalBarChart);
         checkGoalProgress()
       }, [checkGoalProgress]);
@@ -204,23 +210,35 @@ export const ProgressCard = (project) => {
     <section className="card card__color--mintBlue card__progress">
         
         <div className="progress__content">
-            <h3 className="progress_h3">Goal</h3>
-            <p className="progress_p">{wordCountGoal} words
+            <h3 className="progress__h3">Goal</h3>
+            <p className="progress__p">{wordCountGoal} words
                 {goalFrequency === "daily" ? ` ${goalFrequency}` : 
-                    `${goalFrequency === "weekly" ? ` ${daysPerFrequency} days per week` : ` ${daysPerFrequency} days per month`}`
+                    `${goalFrequency === "weekly" ? ` ${daysPerFrequency} days per week` :
+                        ` ${daysPerFrequency} days per month`}`
                 }
             </p>
 
-            <h3 className="progress_h3">Progress</h3>
+            <h3 className="progress__h3">Progress</h3>
 
             <div>
                 <canvas ref={progressBar} id="progress__bar" width="50" height="50" />
             </div>
 
-            <p className="progress_p">{goalFreqComplete === 2 ? "Progress complete for this frequency" :
-            "X AMOUNT OF PROGRESS LEFT"}</p>
-            <p className="progress_p">XX / XX words written</p>
-            <p className="progress_p">XX days left OR none if daily</p>
+            <div className="progress__text">
+                {
+                goalFreqComplete === 0 ? <p className="progress__p">No progress for {
+                    goalFrequency === "daily" ? `today` : 
+                    `${goalFrequency === "weekly" ? `this week` :
+                        `this month`}`}
+                        .</p> : 
+                    goalFreqComplete === 1 ?
+                        <p className="progress__p">Goal met {goalProgression} / {daysPerFrequency} times {
+                   goalFrequency === "weekly" ? "this week" : 
+                        goalFrequency === "monthly" ? "this month" : "today"}
+                        .</p> :
+                    <p className="progress__p">Progress complete</p>
+                }
+            </div>
         </div>
 
         <button className="btn"
@@ -230,7 +248,7 @@ export const ProgressCard = (project) => {
             }}>
             Add Progress</button>
         
-        <Modal ref={progressModal} key={project.project.id} userId={project.project.userId} fetchFunction={getProgressByUserId} contentFunction={<ProgressForm project={project}/>} width="modal__width--wide" />
+        <Modal ref={progressModal} key={project.project.id} projectId={project.project.id} fetchFunction={getProgressByProjectId}  contentFunction={<ProgressForm project={project}/>} width="modal__width--wide" />
 
     </section>
     )

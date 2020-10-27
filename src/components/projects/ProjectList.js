@@ -1,7 +1,7 @@
-import React, { useRef, useEffect, useState, useContext } from "react"
+import React, { useRef, useEffect, useContext } from "react"
 import { TypeContext } from "../type/TypeProvider"
 import { ProjectContext } from "./ProjectProvider"
-import { ProgressContext } from "../progress/ProgressProvider"
+import { ProgressProvider, ProgressContext } from "../progress/ProgressProvider"
 import { ProjectForm } from "./ProjectForm"
 import { ProjectCard } from "./ProjectCard"
 import { Modal } from "../modal/Modal"
@@ -24,7 +24,6 @@ export const ProjectList = () => {
     useEffect(() => {
         getTypes()
         .then(getProjects(activeUser))
-        .then(getProgressByUserId(activeUser))
     }, [])
 
     return (
@@ -48,12 +47,12 @@ export const ProjectList = () => {
         <section className="view__container">
             
             <Modal ref={modal} contentFunction={<ProjectForm />} width={"modal__width--wide"}/>
-            
+
             <div className="project__cards">
-                {
-                    projects.map(project => {
-                        return <ProjectCard key={project.id} project={project} />
-                    })               
+                {                   
+                        projects.map(project => {
+                            return <ProgressProvider key={project.id}><ProjectCard key={project.id} project={project} /></ProgressProvider>
+                        })               
                 }
             </div>
             
