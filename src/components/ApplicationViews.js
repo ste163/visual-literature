@@ -1,11 +1,12 @@
 import React from "react"
 import { Redirect, Route } from "react-router-dom"
-import { Header } from "./header/Header"
-import { Footer } from "./footer/Footer"
 import { ProjectProvider } from "./projects/ProjectProvider"
-import { ProjectList } from "./projects/ProjectList"
-import { TypeProvider } from "./type/TypeProvider"
 import { ProgressProvider } from "./progress/ProgressProvider"
+import { TypeProvider } from "./type/TypeProvider"
+import { Header } from "./header/Header"
+import { ProjectList } from "./projects/ProjectList"
+import { Dashboard } from "./dashboard/Dashboard"
+import { Footer } from "./footer/Footer"
 
 export const ApplicationViews = () => {
     // If user will be able to decide default view as either
@@ -26,6 +27,10 @@ export const ApplicationViews = () => {
 
                     <Route exact path="/projects">                    
                         <ProjectList />  
+                    </Route>
+
+                    <Route exact path="/dashboard">
+                        <Dashboard />
                     </Route>
                     
                 </TypeProvider>
