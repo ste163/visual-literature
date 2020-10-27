@@ -17,8 +17,8 @@
       "typeId": 5,
       "dateStarted": "2020-10-21",
       "wordCountGoal": 100,
-      "goalFrequency": "weekly",
-      "daysPerFrequency": 3,
+      "goalFrequency": "daily",
+      "daysPerFrequency": 1,
       "completed": false
     },
     {

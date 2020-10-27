@@ -29,9 +29,17 @@ export const ApplicationViews = () => {
                         <ProjectList />  
                     </Route>
 
-                    <Route exact path="/dashboard">
-                        <Dashboard />
-                    </Route>
+                    <ProjectProvider>
+                        <TypeProvider>
+                        <Route exact path="/dashboard">
+                            <Dashboard />
+                        </Route>
+            
+                        <Route exact path="/dashboard/:projectId(\d+)">
+                            <Dashboard />
+                        </Route>
+                        </TypeProvider>
+                    </ProjectProvider>
                     
                 </TypeProvider>
             </ProjectProvider>

@@ -1,5 +1,5 @@
 import React, {useRef} from "react"
-import { IconArrow } from "../icons/IconArrow"
+import { Link } from "react-router-dom"
 import { IconGraph } from "../icons/IconGraph"
 import { DotMenu } from "./ProjectDotMenu"
 import { ProgressCard } from "../progress/ProgressCard"
@@ -21,12 +21,15 @@ export const ProjectCard = ({project}) => {
             <h2 className="project__h2--card">{project.name}</h2>  
             <div className="project__subtitle project__subtitle--type">{project.type.name}</div>
             <div className="project__subtitle project__subtitle--date">Started on {project.dateStarted}</div>
-            <button className="card__btn project__dash">
-                <IconGraph color="icon__gray" />
-                <span className="btn__text">
-                    Display on Dashboard
-                </span>
-            </button>
+            <Link className="project__dash" to={`/dashboard/${project.id}`}>
+                <button 
+                className="card__btn">
+                    <IconGraph color="icon__gray" />
+                    <span className="btn__text">
+                        Display on Dashboard
+                    </span>
+                </button>
+            </Link>
 
             <ProgressCard project={project} />
 
