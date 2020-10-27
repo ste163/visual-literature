@@ -1,12 +1,13 @@
-import React, { useRef, useEffect, useContext } from "react"
+import React, { useRef, useEffect, useState, useContext } from "react"
 import { useParams, useHistory } from "react-router-dom"
 import { ProgressContext } from "../progress/ProgressProvider"
 import { ProjectContext } from "../projects/ProjectProvider"
 import { TypeContext } from "../type/TypeProvider"
-import { ProgressForm } from "../progress/ProgressForm"
-import { Modal } from "../modal/Modal"
 import { IconPlus } from "../icons/IconPlus"
 import { IconDivider } from "../icons/IconDivider"
+import { ProgressForm } from "../progress/ProgressForm"
+import { Modal } from "../modal/Modal"
+import { DashTitleCard } from "./DashTitleCard"
 import "./Dashboard.css"
 
 export const Dashboard = () => {
@@ -18,9 +19,18 @@ export const Dashboard = () => {
     const { getTypes } = useContext(TypeContext)
     const { projects, getProjects, getProjectByParam } = useContext(ProjectContext)
     const { progress, getProgressByProjectId, getProgressByUserId } = useContext(ProgressContext)
+    
+    const [ currentProject, setCurrentProject ] = useState()
 
-    console.log(projects)
-    console.log(progress)
+    console.log(currentProject)
+
+    const displayProject = () => {
+        if (Array.isArray(projects)) {
+            setCurrentProject(projects[0])
+        } else {
+            setCurrentProject(projects)
+        }
+    }
 
     useEffect(() => {
         getTypes()
@@ -34,6 +44,10 @@ export const Dashboard = () => {
             }
         })
     }, [])
+
+    useEffect(() => {
+        displayProject()
+    }, [displayProject])
 
     return (
         <>
@@ -55,6 +69,7 @@ export const Dashboard = () => {
         </section>
 
         <section className="view__container">
+            <DashTitleCard />
             
             {/* <Modal ref={progressModal} contentFunction={<ProgressForm />} width={"modal__width--wide"}/> */}
             
