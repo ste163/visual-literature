@@ -52,21 +52,40 @@ export const ProgressCard = (project) => {
                 break;
 
             case "weekly":
-                let weeklyProgressCounter = 1
+                let weeklyProgressCounter = 0
                 const weeklyProjects = progress.filter(each => each.project.goalFrequency === "weekly")
+
                 console.log("ALL WEEKLY PROGRESS", weeklyProjects)
+
                 const thisWeeksProgress = weeklyProjects.filter(each => {
                     // To ensure that the date entered is tested correctly, at least with console.logs, have to replace the - with /
                     const progressDate = new Date(each.dateEntered.replace(/-/g, '\/'))
+                    // Return only the progress in the current week
                     return isSameWeek(progressDate, currentDate)
                 })
+
                 console.log("CURRENT WEEKS PROGRESS", thisWeeksProgress)
+                // If we have progress for this week...
+                if (thisWeeksProgress.length !== 0) {
+                    // see if the goal has been met for each entered progress
+                    thisWeeksProgress.forEach(progress => {
+                        if (progress.wordsWritten >= wordCountGoal) {
+                            console.log("GOAL MET FOR TODAY")
+                            ++weeklyProgressCounter
+                            setGoalProgression(weeklyProgressCounter)
+                        }
+                        if (progress.wordsWritten < wordCountGoal && progress.proofread || progress.revised || progress.edited) {
+                            ++weeklyProgressCounter
+                            setGoalProgression(weeklyProgressCounter)
+                        }
+                    })
+                }
 
                 break;
                 
             case "monthly":
-                // Create a counter for amount completed
-                let monthlyProgressCounter = 1
+                // Create a counter for amount completed. Used in graph and progress checks
+                let monthlyProgressCounter = 0
                 // Get only the progress that matches today's date
                 const monthlyProjects = progress.filter(each => each.project.goalFrequency === "monthly")
                 const currentMonth = new Date(todaysDate).getMonth()
@@ -80,11 +99,11 @@ export const ProgressCard = (project) => {
                     thisMonthsProgress.forEach(progress => {
                         if (progress.wordsWritten >= wordCountGoal) {
                             // If we have progress, increase the counter, then setGoalProgression as the counter
-                            monthlyProgressCounter = ++monthlyProgressCounter
+                            ++monthlyProgressCounter
                             setGoalProgression(monthlyProgressCounter)
                         }
-                        if (progress.proofread || progress.revised || progress.edited) {
-                            monthlyProgressCounter = ++monthlyProgressCounter
+                        if (progress.wordsWritten < wordCountGoal && progress.proofread || progress.revised || progress.edited) {
+                            ++monthlyProgressCounter
                             setGoalProgression(monthlyProgressCounter)
                         }
                     })
