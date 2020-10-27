@@ -26,8 +26,10 @@ export const ProgressCard = (project) => {
     const checkGoalProgress = () => {
         switch(goalFrequency) {
             case "daily":
+                // Get only progress for projects that are daily
+                const dailyProjects = progress.filter(each => each.project.goalFrequency === "daily")
                 // Get only the progress that matches today
-                const todaysProgress = progress.filter(each => each.dateEntered === todaysDate)
+                const todaysProgress = dailyProjects.filter(each => each.dateEntered === todaysDate)
                 if (todaysProgress.length !== 0) {
                     // If the progress we have matches today's date, run the block
                     if (todaysProgress[0].dateEntered === todaysDate) {

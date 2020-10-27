@@ -91,16 +91,6 @@
   ],
   "progress": [
     {
-      "projectId": 5,
-      "userId": 1,
-      "dateEntered": "2020-10-27",
-      "wordsWritten": 75,
-      "revised": false,
-      "edited": false,
-      "proofread": false,
-      "id": 1
-    },
-    {
       "projectId": 7,
       "userId": 1,
       "dateEntered": "2020-10-26",
