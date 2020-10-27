@@ -40,7 +40,6 @@ export const ProgressCard = (project) => {
                     // If the progress we have matches today's date, run the block
                     if (todaysProgress[0].dateEntered === todaysDate) {
                         // If more words written than the goal, set complete, if some progress made, set halfway
-                        console.log(todaysProgress[0])
                         if (todaysProgress[0].wordsWritten >= wordCountGoal) {
                             setGoalProgression(1)
                             setGoalFreqComplete(2)
@@ -78,7 +77,7 @@ export const ProgressCard = (project) => {
                 if (thisMonthsProgress.length !== 0) {
                     // For each progress of this month, run the goal checks
                     thisMonthsProgress.forEach(progress => {
-                        if (progress.completed === true) {
+                        if (progress.wordsWritten >= wordCountGoal) {
                             // If we have progress, increase the counter, then setGoalProgression as the counter
                             monthlyProgressCounter = ++monthlyProgressCounter
                             setGoalProgression(monthlyProgressCounter)
@@ -88,6 +87,7 @@ export const ProgressCard = (project) => {
                     if (monthlyProgressCounter >= daysPerFrequency) {
                         setGoalFreqComplete(2)
                     }  else if (monthlyProgressCounter < daysPerFrequency) {
+                        setGoalFreqComplete(1)
                     }
                 } else {
                     setGoalFreqComplete(0)

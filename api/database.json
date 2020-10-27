@@ -278,15 +278,14 @@
       "id": 24
     },
     {
+      "id": 26,
       "projectId": 7,
       "userId": 1,
       "dateEntered": "2020-10-02",
-      "wordsWritten": 11,
+      "wordsWritten": 50,
       "revised": false,
-      "edited": true,
-      "proofread": false,
-      "completed": true,
-      "id": 26
+      "edited": false,
+      "proofread": false
     },
     {
       "projectId": 5,
