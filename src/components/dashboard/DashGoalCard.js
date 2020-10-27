@@ -1,8 +1,7 @@
 import React from "react"
 
 export const DashGoalCard = (props) => {
-    console.log(props)
-
+    
     return (
         <section className="card card__color--white card__dash">
             {
@@ -16,7 +15,6 @@ export const DashGoalCard = (props) => {
                     }.
                 </p>
                 </>
-               
             }
         </section>
     )

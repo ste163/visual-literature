@@ -9,6 +9,7 @@ import { ProgressForm } from "../progress/ProgressForm"
 import { Modal } from "../modal/Modal"
 import { DashTitleCard } from "./DashTitleCard"
 import { DashGoalCard } from "./DashGoalCard"
+import { DashProgression } from "./DashProgression"
 import "./Dashboard.css"
 
 export const Dashboard = () => {
@@ -54,7 +55,6 @@ export const Dashboard = () => {
 
         {/* SELECT INPUT THAT POPULATES DROP DOWNS BASED ON AVAILABLE DATA.
         WILL NEED COMPLEX MAP FUNCTION TO CREATE SELECTS */}
-
         DISPLAY BY SELECTED DATE
 
         <IconDivider color="icon__lightGray" />
@@ -73,6 +73,8 @@ export const Dashboard = () => {
 
             <DashGoalCard props={currentProject} />
             
+            <DashProgression props={currentProject} />
+
             {/* <Modal ref={progressModal} contentFunction={<ProgressForm />} width={"modal__width--wide"}/> */}
             
         </section>
