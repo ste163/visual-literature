@@ -116,7 +116,7 @@
       "userId": 1,
       "dateEntered": "2020-10-28",
       "wordsWritten": 100,
-      "revised": false,
+      "revised": true,
       "edited": false,
       "proofread": false
     },
@@ -165,7 +165,7 @@
       "projectId": 6,
       "userId": 1,
       "dateEntered": "2020-10-27",
-      "wordsWritten": 250,
+      "wordsWritten": 100,
       "revised": false,
       "edited": false,
       "proofread": false
@@ -175,7 +175,7 @@
       "projectId": 6,
       "userId": 1,
       "dateEntered": "2020-10-28",
-      "wordsWritten": 350,
+      "wordsWritten": 250,
       "revised": false,
       "edited": false,
       "proofread": false

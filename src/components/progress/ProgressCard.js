@@ -222,13 +222,16 @@ export const ProgressCard = (project) => {
 
             <div className="progress__analysis">
                 {
-                goalFreqComplete === 0 ? <p className="progress__p">No Progress</p> : 
+                goalFreqComplete === 0 ? <p className="progress__p">No progress for {
+                    goalFrequency === "daily" ? `today` : 
+                    `${goalFrequency === "weekly" ? `this week` :
+                        `this month`}`
+                }.</p> : 
                     goalFreqComplete === 1 ?
-                        <p className="progress__p">XX / {wordCountGoal * daysPerFrequency} words written</p> :
-                        <>
-                        <p className="progress__p">XX / {wordCountGoal * daysPerFrequency} words written</p>
-                        <p className="progress__p">Progress complete</p>
-                        </>
+                <p className="progress__p">Goal met {goalProgression} / {daysPerFrequency} times this {
+                   goalFrequency === "weekly" ? "week" : "month" 
+                }.</p> :
+                    <p className="progress__p">Progress complete</p>
                 }
             </div>
         </div>
