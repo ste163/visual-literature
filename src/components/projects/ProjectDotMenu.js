@@ -9,7 +9,7 @@ import "./ProjectDotMenu.css"
 export const DotMenu = (React.forwardRef((props, ref) => {
 
     const { getProjectById, deleteProject } = useContext(ProjectContext);
-    const { getProgressByUserId } = useContext(ProgressContext)
+    const { getProgressByProjectId } = useContext(ProgressContext)
 
     const activeUser = sessionStorage.getItem("userId")
 
@@ -35,7 +35,7 @@ export const DotMenu = (React.forwardRef((props, ref) => {
         }
     }}>
 
-        <Modal ref={editModal} userId={activeUser} fetchFunction={getProgressByUserId} contentFunction={<ProjectForm props={props.project}/>} width={"modal__width--wide"}/> 
+        <Modal ref={editModal} projectId={props.project.id} fetchFunction={getProgressByProjectId} contentFunction={<ProjectForm props={props.project}/>} width={"modal__width--wide"}/> 
        
         <Modal ref={deleteModal} contentFunction={<DeleteWarning/>} width={"modal__width--small"}/>
         

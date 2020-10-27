@@ -1,7 +1,6 @@
 import React, { useContext, useState, useEffect} from "react"
 import { ProjectContext } from "./ProjectProvider"
 import { TypeContext } from "../type/TypeProvider"
-import { ProgressContext } from "../progress/ProgressProvider"
 import "./ProjectForm.css"
 
 export const ProjectForm = props => {

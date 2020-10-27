@@ -17,7 +17,7 @@ export const Modal = (React.forwardRef((props, ref) => (
            if (e.target.className === "background__modal modal__active") {
             ref.current.className = "background__modal"
             if (props.fetchFunction) {
-                props.fetchFunction(props.userId)
+                props.fetchFunction(props.projectId)
             }
            }
         }}>
@@ -30,7 +30,7 @@ export const Modal = (React.forwardRef((props, ref) => (
                     onClick={e => {
                         ref.current.className = "background__modal"
                         if (props.fetchFunction) {
-                            props.fetchFunction(props.userId)
+                            props.fetchFunction(props.projectId)
                         }
                     }}>
                         <IconClose color="icon__gray" /></button>
