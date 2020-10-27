@@ -1,5 +1,7 @@
-import React, { useState } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import { isSameWeek } from 'date-fns'
+import Chart from 'chart.js'
+import { horizontalBar } from "../graphs/horizontalBar"
 
 // Will include ALL progress checks
 // And display all data
@@ -9,7 +11,10 @@ export const DashProgression = (props, progress) => {
     const wordCountGoal = props.props.wordCountGoal
     const goalFrequency = props.props.goalFrequency
     const daysPerFrequency = props.props.daysPerFrequency
+
     const incomingProgress = props.progress
+
+    const progressBar = useRef()
 
     const currentDate = new Date()
     const todaysDate = currentDate.toISOString().slice(0,10)
@@ -127,13 +132,30 @@ export const DashProgression = (props, progress) => {
         }
     }
 
+    useEffect(() => {
+        new Chart(progressBar.current, horizontalBar(goalProgression, daysPerFrequency));
+        checkGoalProgress()
+    }, [checkGoalProgress])
 
 
     return (
         <>
 
-        <section className="card card__color--white card__dash">
-            Single progression bar chart for how you're doing meeting goals out of current month
+        <section className="card card__color--white card__dash card__dash--progressionBar">
+          Progress for month
+          {/*
+            IF this is daily, the max is the current month total
+           WEEKLY, take the current month and divide it by weeks to see how many weeks are in this month.
+                With that number, multiply how many times you want to write for 1 week.
+                For example, If there are 31 days in a month, there are 4.45 weeks.
+                4.45 * 6 days of writing = 26.7. So round that number down, so it's an even 26 as the max x-axis.
+            
+            MONTHLY is whatever day frequency you set because you're already working with months.
+                 
+           */}
+            <div>
+                <canvas ref={progressBar} id="progress__bar" width="40" height="40" />
+            </div>
         </section>
 
         <section className="card card__color--white card__dash">

@@ -1,3 +1,7 @@
+.dash__cards {
+    display: grid;
+}
+
 .card__dash {
     margin: 0.8em;
     padding: 0.5em 1em;
@@ -12,4 +16,16 @@
 
 .dash__h3 {
     font-size: 1em;
+}
+
+.card__dash--title {
+
+}
+
+.card__dash--goal {
+
+}
+
+.card__dash--progressionBar {
+    width: 13em;
 }

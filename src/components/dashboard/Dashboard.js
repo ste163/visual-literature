@@ -74,20 +74,22 @@ export const Dashboard = () => {
         </section>
 
         <section className="view__container">
-            {
-                currentProject === undefined ? null :
-                    <>
-                        <DashTitleCard props={currentProject} />
-            
-                        <DashGoalCard props={currentProject} />
-                        {
-                            currentProgress.length === [] ? null :
-                            <DashProgression props={currentProject} progress={currentProgress}/>    
-                        }
-                        
-                        <Modal ref={progressModal} projectId={currentProject.id} fetchFunction={getProgressByProjectId}  contentFunction={<ProgressForm project={currentProject} />} width={"modal__width--wide"}/>
-                    </>
-            }
+            <div className="dash__cards">
+                {
+                    currentProject === undefined ? null :
+                        <>
+                            <DashTitleCard props={currentProject} />
+                
+                            <DashGoalCard props={currentProject} />
+                            {
+                                currentProgress.length === [] ? null :
+                                <DashProgression props={currentProject} progress={currentProgress}/>    
+                            }
+                            
+                            <Modal ref={progressModal} projectId={currentProject.id} fetchFunction={getProgressByProjectId}  contentFunction={<ProgressForm project={currentProject} />} width={"modal__width--wide"}/>
+                        </>
+                }
+            </div>
         </section>
         </>
     )

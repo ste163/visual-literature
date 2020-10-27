@@ -210,14 +210,14 @@
       "id": 17
     },
     {
+      "id": 18,
       "projectId": 5,
       "userId": 1,
       "dateEntered": "2020-10-27",
-      "wordsWritten": 500,
-      "revised": false,
+      "wordsWritten": 10,
+      "revised": true,
       "edited": false,
-      "proofread": false,
-      "id": 18
+      "proofread": false
     }
   ]
 }
