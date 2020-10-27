@@ -54,23 +54,17 @@ export const ProgressCard = (project) => {
             case "weekly":
                 let weeklyProgressCounter = 0
                 const weeklyProjects = progress.filter(each => each.project.goalFrequency === "weekly")
-
-                console.log("ALL WEEKLY PROGRESS", weeklyProjects)
-
                 const thisWeeksProgress = weeklyProjects.filter(each => {
                     // To ensure that the date entered is tested correctly, at least with console.logs, have to replace the - with /
                     const progressDate = new Date(each.dateEntered.replace(/-/g, '\/'))
                     // Return only the progress in the current week
                     return isSameWeek(progressDate, currentDate)
                 })
-
-                console.log("CURRENT WEEKS PROGRESS", thisWeeksProgress)
                 // If we have progress for this week...
                 if (thisWeeksProgress.length !== 0) {
                     // see if the goal has been met for each entered progress
                     thisWeeksProgress.forEach(progress => {
                         if (progress.wordsWritten >= wordCountGoal) {
-                            console.log("GOAL MET FOR TODAY")
                             ++weeklyProgressCounter
                             setGoalProgression(weeklyProgressCounter)
                         }
@@ -79,8 +73,16 @@ export const ProgressCard = (project) => {
                             setGoalProgression(weeklyProgressCounter)
                         }
                     })
+                    // If the counter reaches the freq for the week, set complete
+                    if (weeklyProgressCounter >= daysPerFrequency) {
+                        setGoalFreqComplete(2)
+                    }  else if (weeklyProgressCounter < daysPerFrequency) {
+                        setGoalFreqComplete(1)
+                    }
+                } else {
+                    setGoalFreqComplete(0)
+                    setGoalProgression(0)
                 }
-
                 break;
                 
             case "monthly":

@@ -33,15 +33,15 @@
       "completed": false
     },
     {
+      "id": 6,
       "name": "Scary Stories",
       "userId": 1,
       "typeId": 7,
       "dateStarted": "2020-10-25",
       "wordCountGoal": 300,
       "goalFrequency": "weekly",
-      "daysPerFrequency": 5,
-      "completed": false,
-      "id": 6
+      "daysPerFrequency": 3,
+      "completed": false
     },
     {
       "id": 7,
@@ -185,7 +185,7 @@
       "projectId": 6,
       "userId": 1,
       "dateEntered": "2020-10-28",
-      "wordsWritten": 250,
+      "wordsWritten": 350,
       "revised": false,
       "edited": false,
       "proofread": false
@@ -199,6 +199,16 @@
       "edited": true,
       "proofread": false,
       "id": 11
+    },
+    {
+      "projectId": 6,
+      "userId": 1,
+      "dateEntered": "2020-10-29",
+      "wordsWritten": 300,
+      "revised": true,
+      "edited": false,
+      "proofread": false,
+      "id": 12
     }
   ]
 }
