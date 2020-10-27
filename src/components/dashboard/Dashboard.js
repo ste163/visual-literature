@@ -88,8 +88,6 @@ export const Dashboard = () => {
                             <Modal ref={progressModal} projectId={currentProject.id} fetchFunction={getProgressByProjectId}  contentFunction={<ProgressForm project={currentProject} />} width={"modal__width--wide"}/>
                         </>
             }
-
-            
         </section>
         </>
     )
