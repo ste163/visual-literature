@@ -23,8 +23,11 @@ export const Dashboard = () => {
     const { progress, getProgressByProjectId, getProgressByUserId } = useContext(ProgressContext)
     
     const [ currentProject, setCurrentProject ] = useState()
+    const [ currentProgress, setCurrentProgress ] = useState()
 
     const displayProject = () => {
+        setCurrentProgress(progress)
+
         if (Array.isArray(projects)) {
             setCurrentProject(projects[0])
         } else {
@@ -68,12 +71,16 @@ export const Dashboard = () => {
         </section>
 
         <section className="view__container">
-            
-            <DashTitleCard props={currentProject} />
-
-            <DashGoalCard props={currentProject} />
-            
-            <DashProgression props={currentProject} />
+            {
+                currentProject === undefined ? null :
+                <>
+                    <DashTitleCard props={currentProject} />
+        
+                    <DashGoalCard props={currentProject} />
+                    
+                    <DashProgression props={currentProject} progress={currentProgress}/>
+                </>
+            }
 
             {/* <Modal ref={progressModal} contentFunction={<ProgressForm />} width={"modal__width--wide"}/> */}
             

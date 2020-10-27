@@ -190,16 +190,6 @@
       "id": 12
     },
     {
-      "id": 13,
-      "projectId": 5,
-      "userId": 1,
-      "dateEntered": "2020-10-27",
-      "wordsWritten": 50,
-      "revised": false,
-      "edited": false,
-      "proofread": false
-    },
-    {
       "id": 14,
       "projectId": 5,
       "userId": 1,
