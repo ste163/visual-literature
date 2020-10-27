@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState, useContext } from "react"
+import React, { useRef, useEffect, useContext } from "react"
 import { TypeContext } from "../type/TypeProvider"
 import { ProjectContext } from "./ProjectProvider"
 import { ProgressContext } from "../progress/ProgressProvider"
@@ -47,8 +47,8 @@ export const ProjectList = () => {
 
         <section className="view__container">
             
-            <Modal ref={modal} contentFunction={<ProjectForm />} width={"modal__width--wide"}/>
-            
+            <Modal ref={modal} userId={activeUser} fetchFunction={getProgressByUserId} contentFunction={<ProjectForm />} width={"modal__width--wide"}/>
+
             <div className="project__cards">
                 {
                     projects.map(project => {
