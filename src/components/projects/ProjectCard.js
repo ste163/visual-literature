@@ -17,20 +17,6 @@ export const ProjectCard = ({project}) => {
         <article className="card card__color--white card__project">
 
             <DotMenu ref={dotMenu} project={project}/>
-            
-            {/* <button className="card__btn project__arrow"
-            onClick={e => {
-                const progressCard = e.currentTarget.parentElement.childNodes[6]
-                const classArray = [...progressCard.classList]
-                if (classArray.find((item) => item === "card__progress--active")) {
-                    progressCard.classList.remove("card__progress--active")
-                    progressCard.classList.add("card__progress--inactive")
-                } else {
-                    progressCard.classList.remove("card__progress--inactive")
-                    progressCard.classList.add("card__progress--active")
-                }
-            }}
-            ><IconArrow color="icon__gray" /></button> */}
 
             <h2 className="project__h2--card">{project.name}</h2>  
             <div className="project__subtitle project__subtitle--type">{project.type.name}</div>

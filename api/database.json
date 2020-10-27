@@ -28,8 +28,8 @@
       "typeId": 5,
       "dateStarted": "2020-10-21",
       "wordCountGoal": 100,
-      "goalFrequency": "daily",
-      "daysPerFrequency": 1,
+      "goalFrequency": "weekly",
+      "daysPerFrequency": 3,
       "completed": false
     },
     {
@@ -206,6 +206,16 @@
       "userId": 1,
       "dateEntered": "2020-10-27",
       "wordsWritten": 50,
+      "revised": false,
+      "edited": false,
+      "proofread": false
+    },
+    {
+      "id": 14,
+      "projectId": 5,
+      "userId": 1,
+      "dateEntered": "2020-10-26",
+      "wordsWritten": 103,
       "revised": false,
       "edited": false,
       "proofread": false
