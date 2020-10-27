@@ -11,17 +11,6 @@
   ],
   "projects": [
     {
-      "id": 4,
-      "name": "Poems for Good Days",
-      "userId": 2,
-      "typeId": 5,
-      "dateStarted": "2020-10-21",
-      "wordCountGoal": 200,
-      "goalFrequency": "weekly",
-      "daysPerFrequency": 3,
-      "completed": false
-    },
-    {
       "id": 5,
       "name": "Poems for Sunny Days",
       "userId": 1,
