@@ -17,17 +17,20 @@ export const Dashboard = () => {
 
     const { getTypes } = useContext(TypeContext)
     const { projects, getProjects, getProjectByParam } = useContext(ProjectContext)
-    const { getProgressByProjectId } = useContext(ProgressContext)
+    const { progress, getProgressByProjectId, getProgressByUserId } = useContext(ProgressContext)
 
     console.log(projects)
+    console.log(progress)
 
     useEffect(() => {
         getTypes()
         .then(() => {
             if (projectId) {
                 getProjectByParam(projectId)
+                .then(getProgressByProjectId(projectId))
             } else {
                 getProjects(activeUser)
+                .then(getProgressByUserId(activeUser))
             }
         })
     }, [])
