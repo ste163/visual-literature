@@ -220,17 +220,18 @@ export const ProgressCard = (project) => {
                 <canvas ref={progressBar} id="progress__bar" width="50" height="50" />
             </div>
 
-            <div className="progress__analysis">
+            <div className="progress__text">
                 {
                 goalFreqComplete === 0 ? <p className="progress__p">No progress for {
                     goalFrequency === "daily" ? `today` : 
                     `${goalFrequency === "weekly" ? `this week` :
-                        `this month`}`
-                }.</p> : 
+                        `this month`}`}
+                        .</p> : 
                     goalFreqComplete === 1 ?
-                <p className="progress__p">Goal met {goalProgression} / {daysPerFrequency} times this {
-                   goalFrequency === "weekly" ? "week" : "month" 
-                }.</p> :
+                        <p className="progress__p">Goal met {goalProgression} / {daysPerFrequency} times {
+                   goalFrequency === "weekly" ? "this week" : 
+                        goalFrequency === "monthly" ? "this month" : "today"}
+                        .</p> :
                     <p className="progress__p">Progress complete</p>
                 }
             </div>

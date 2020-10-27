@@ -18,6 +18,10 @@
     font-size: 0.8em;
 }
 
+.progress__text {
+    margin-left: 0.35em;
+}
+
 .progress__p {
     font-size: 0.6em;
 }
