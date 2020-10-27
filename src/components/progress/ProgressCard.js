@@ -248,7 +248,7 @@ export const ProgressCard = (project) => {
             }}>
             Add Progress</button>
         
-        <Modal ref={progressModal} key={project.project.id} projectId={project.project.id} fetchFunction={getProgressByProjectId} contentFunction={<ProgressForm project={project}/>} width="modal__width--wide" />
+        <Modal ref={progressModal} key={project.project.id} contentFunction={<ProgressForm project={project}/>} width="modal__width--wide" />
 
     </section>
     )

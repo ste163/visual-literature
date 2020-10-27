@@ -51,7 +51,7 @@ export const ProjectList = () => {
             <div className="project__cards">
                 {                   
                         projects.map(project => {
-                            return <ProgressProvider><ProjectCard key={project.id} project={project} /></ProgressProvider>
+                            return <ProgressProvider key={project.id}><ProjectCard key={project.id} project={project} /></ProgressProvider>
                         })               
                 }
             </div>
