@@ -60,7 +60,7 @@ export const ProgressCard = (project) => {
                 break;
 
             case "weekly":
-                // console.log("weekly")
+                console.log("weekly")
                 break;
                 
             case "monthly":
@@ -79,6 +79,10 @@ export const ProgressCard = (project) => {
                     thisMonthsProgress.forEach(progress => {
                         if (progress.wordsWritten >= wordCountGoal) {
                             // If we have progress, increase the counter, then setGoalProgression as the counter
+                            monthlyProgressCounter = ++monthlyProgressCounter
+                            setGoalProgression(monthlyProgressCounter)
+                        }
+                        if (progress.proofread || progress.revised || progress.edited) {
                             monthlyProgressCounter = ++monthlyProgressCounter
                             setGoalProgression(monthlyProgressCounter)
                         }
