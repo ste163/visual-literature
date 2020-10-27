@@ -2,6 +2,7 @@
 @import "./styles/forms.css";
 @import "./styles/viewHeader.css";
 @import "./styles/card.css";
+@import "./components/graphs/graphs.css";
 
 :root {
   /* Colors */
@@ -48,13 +49,6 @@
   display: grid;
   grid-template-rows: min-content min-content auto min-content;
   height: 100vh;
-}
-
-#progress__bar {
-  width: 90% !important;
-  height: auto !important;
-  min-height: 2em !important;
-  max-height: 2em !important;
 }
 
 /* Set Defaults */

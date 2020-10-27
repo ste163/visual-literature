@@ -150,7 +150,7 @@ export const ProgressCard = (project) => {
             <h3 className="progress__h3">Progress</h3>
 
             <div>
-                <canvas ref={progressBar} id="progress__bar" width="50" height="50" />
+                <canvas ref={progressBar} id="progress__bar" width="40" height="40" />
             </div>
 
             <div className="progress__text">
