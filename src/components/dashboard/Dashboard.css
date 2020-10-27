@@ -5,8 +5,9 @@
     height: min-content;
 }
 
-.dash__title {
+.dash__h2 {
     font-size: 1.3em;
+    font-weight: var(--weightThin);
 }
 
 .dash__h3 {
