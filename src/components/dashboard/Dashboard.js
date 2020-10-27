@@ -8,6 +8,7 @@ import { IconDivider } from "../icons/IconDivider"
 import { ProgressForm } from "../progress/ProgressForm"
 import { Modal } from "../modal/Modal"
 import { DashTitleCard } from "./DashTitleCard"
+import { DashGoalCard } from "./DashGoalCard"
 import "./Dashboard.css"
 
 export const Dashboard = () => {
@@ -21,8 +22,6 @@ export const Dashboard = () => {
     const { progress, getProgressByProjectId, getProgressByUserId } = useContext(ProgressContext)
     
     const [ currentProject, setCurrentProject ] = useState()
-
-    console.log(currentProject)
 
     const displayProject = () => {
         if (Array.isArray(projects)) {
@@ -69,7 +68,10 @@ export const Dashboard = () => {
         </section>
 
         <section className="view__container">
-            <DashTitleCard />
+            
+            <DashTitleCard props={currentProject} />
+
+            <DashGoalCard props={currentProject} />
             
             {/* <Modal ref={progressModal} contentFunction={<ProgressForm />} width={"modal__width--wide"}/> */}
             
