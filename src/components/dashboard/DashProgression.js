@@ -1,33 +1,35 @@
-import React, { useContext, useRef, useEffect, useState } from "react"
-import { ProgressContext } from "./ProgressProvider"
-import { ProgressForm } from "./ProgressForm"
-import { Modal } from "../modal/Modal"
-import Chart from 'chart.js'
+import React, { useState } from "react"
 import { isSameWeek } from 'date-fns'
-import "./ProgressCard.css"
 
-export const ProgressCard = (project) => {
+// Will include ALL progress checks
+// And display all data
 
-    const { progress, getProgressByProjectId } = useContext(ProgressContext)
-    const [ goalProgression, setGoalProgression ] = useState()
-    // goalFreqComplete can be: 0, 1, or 2 (0 is no progress, 1 is some progress, 2 is complete for freq)
-    const [ goalFreqComplete, setGoalFreqComplete ] = useState()
+export const DashProgression = (props, progress) => {
 
-    const progressModal = useRef()
-    const progressBar = useRef()
+    const wordCountGoal = props.props.wordCountGoal
+    const goalFrequency = props.props.goalFrequency
+    const daysPerFrequency = props.props.daysPerFrequency
+    const incomingProgress = props.progress
 
     const currentDate = new Date()
     const todaysDate = currentDate.toISOString().slice(0,10)
 
-    const wordCountGoal = project.project.wordCountGoal
-    const goalFrequency = project.project.goalFrequency
-    const daysPerFrequency = project.project.daysPerFrequency
+    const [ goalProgression, setGoalProgression ] = useState()
+    // goalFreqComplete can be: 0, 1, or 2 (0 is no progress, 1 is some progress, 2 is complete for freq)
+    const [ goalFreqComplete, setGoalFreqComplete ] = useState()
+    
+    console.log("INCOMING PROGRESS", incomingProgress)
 
+    // console.log("wordCountGoal", wordCountGoal)
+    // console.log("goalFreq", goalFrequency)
+    // console.log("daysPerFrequency", daysPerFrequency)
+
+    // Goal progression check from progressCard
     const checkGoalProgress = () => {
         switch(goalFrequency) {
             case "daily":
                 // Get only progress for projects that are daily
-                const dailyProjects = progress.filter(each => each.project.goalFrequency === "daily")
+                const dailyProjects = incomingProgress.filter(each => each.project.goalFrequency === "daily")
                 // Get only the progress that matches today
                 const todaysProgress = dailyProjects.filter(each => each.dateEntered === todaysDate)
                 if (todaysProgress.length !== 0) {
@@ -55,7 +57,7 @@ export const ProgressCard = (project) => {
 
             case "weekly":
                 let weeklyProgressCounter = 0
-                const weeklyProjects = progress.filter(each => each.project.goalFrequency === "weekly")
+                const weeklyProjects = incomingProgress.filter(each => each.project.goalFrequency === "weekly")
                 const thisWeeksProgress = weeklyProjects.filter(each => {
                     // To ensure that the date entered is tested correctly, at least with console.logs, have to replace the - with /
                     const progressDate = new Date(each.dateEntered.replace(/-/g, '\/'))
@@ -91,7 +93,7 @@ export const ProgressCard = (project) => {
                 // Create a counter for amount completed. Used in graph and progress checks
                 let monthlyProgressCounter = 0
                 // Get only the progress that matches today's date
-                const monthlyProjects = progress.filter(each => each.project.goalFrequency === "monthly")
+                const monthlyProjects = incomingProgress.filter(each => each.project.goalFrequency === "monthly")
                 const currentMonth = new Date(todaysDate).getMonth()
                 // Match only progress that matches today's date
                 const thisMonthsProgress = monthlyProjects.filter(each => {
@@ -125,131 +127,24 @@ export const ProgressCard = (project) => {
         }
     }
 
-    // Pass different data and max's in
-    const horizontalBarChart = {
-        type: "horizontalBar",
-        data: {
-          labels: ["Progress"],
-          datasets: [{
-              label: "Progress",
-              data: [goalProgression],
-              backgroundColor:"#171717ff",
-              borderWidth: 0,
-          },
-          {
-              label: "Goal",
-              data: [daysPerFrequency],
-              backgroundColor: "#FCFCFC",
-              borderWidth: 0,
-          },
-          ],
-        },
 
-        options: {
-
-        responsive: true,
-        maintainAspectRation: false,
-
-          tooltips: {
-              enabled: false,
-          },
-
-          animation: {
-              duration: 800
-          },
-
-          events:[],
-
-          scales: {
-              xAxes: [{
-                  stacked: true,
-                  gridLines: {
-                      display: false
-                  },
-                  ticks: {
-                      min: 0,
-                      max: daysPerFrequency,
-                      display: false
-                  },
-                  scaleLabel: {
-                      display: false
-                  }
-              }],
-
-              yAxes: [{
-                  stacked: true,
-                  gridLines: {
-                      display: false
-                  },
-                  ticks: {
-                      min: 0,
-                      display: false
-                  } 
-              }, { 
-                  stacked: true,
-                  display: false,
-              }],
-          },
-          
-          legend: {
-              display: false
-          }
-        }
-      }
-
-      useEffect(() => {
-        getProgressByProjectId(project.project.id)
-      },[])
-
-      useEffect(() => {
-        new Chart(progressBar.current, horizontalBarChart);
-        checkGoalProgress()
-      }, [checkGoalProgress]);
 
     return (
-    <section className="card card__color--mintBlue card__progress">
-        
-        <div className="progress__content">
-            <h3 className="progress__h3">Goal</h3>
-            <p className="progress__p">{wordCountGoal} words
-                {goalFrequency === "daily" ? ` ${goalFrequency}` : 
-                    `${goalFrequency === "weekly" ? ` ${daysPerFrequency} days per week` :
-                        ` ${daysPerFrequency} days per month`}`
-                }
-            </p>
+        <>
 
-            <h3 className="progress__h3">Progress</h3>
+        <section className="card card__color--white card__dash">
+            Single progression bar chart for how you're doing meeting goals out of current month
+        </section>
 
-            <div>
-                <canvas ref={progressBar} id="progress__bar" width="50" height="50" />
-            </div>
+        <section className="card card__color--white card__dash">
+            Goal progression bar chart, similar to the one on the progression menu, but vertical and not combined.
+            X axis based on the frequency? Or how many weeks in the month?
+        </section>
 
-            <div className="progress__text">
-                {
-                goalFreqComplete === 0 ? <p className="progress__p">No progress for {
-                    goalFrequency === "daily" ? `today` : 
-                    `${goalFrequency === "weekly" ? `this week` :
-                        `this month`}`}
-                        .</p> : 
-                    goalFreqComplete === 1 ?
-                        <p className="progress__p">Goal met {goalProgression} / {daysPerFrequency} times {
-                   goalFrequency === "weekly" ? "this week" : 
-                        goalFrequency === "monthly" ? "this month" : "today"}
-                        .</p> :
-                    <p className="progress__p">Progress complete</p>
-                }
-            </div>
-        </div>
+        <section className="card card__color--white card__dash">
+            Words written bar chart for current month
+        </section>
 
-        <button className="btn"
-        onClick={e => {
-            progressModal.current.className = "background__modal modal__active"
-            getProgressByProjectId(project.project.id)
-            }}>
-            Add Progress</button>
-        
-        <Modal ref={progressModal} key={project.project.id} projectId={project.project.id} fetchFunction={getProgressByProjectId}  contentFunction={<ProgressForm project={project}/>} width="modal__width--wide" />
-
-    </section>
+        </>
     )
 }

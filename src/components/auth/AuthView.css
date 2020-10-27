@@ -33,8 +33,7 @@
     display: flex;
     flex-flow: column nowrap;
     padding: 1em;
-    width: 30vmax;
-    max-width: 13em;
+    width: 13em;
     grid-column: 1 / 4;
     grid-row: 5;
     justify-self: center;

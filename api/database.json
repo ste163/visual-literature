@@ -17,8 +17,8 @@
       "typeId": 5,
       "dateStarted": "2020-10-21",
       "wordCountGoal": 100,
-      "goalFrequency": "weekly",
-      "daysPerFrequency": 3,
+      "goalFrequency": "daily",
+      "daysPerFrequency": 1,
       "completed": false
     },
     {
@@ -27,9 +27,9 @@
       "userId": 1,
       "typeId": 7,
       "dateStarted": "2020-10-25",
-      "wordCountGoal": 300,
+      "wordCountGoal": 350,
       "goalFrequency": "weekly",
-      "daysPerFrequency": 4,
+      "daysPerFrequency": 6,
       "completed": false
     },
     {
@@ -38,9 +38,9 @@
       "userId": 1,
       "typeId": 1,
       "dateStarted": "2020-10-31",
-      "wordCountGoal": 300,
+      "wordCountGoal": 250,
       "goalFrequency": "monthly",
-      "daysPerFrequency": 14,
+      "daysPerFrequency": 20,
       "completed": false
     }
   ],
@@ -88,16 +88,6 @@
       "edited": false,
       "proofread": false,
       "id": 2
-    },
-    {
-      "id": 3,
-      "projectId": 7,
-      "userId": 1,
-      "dateEntered": "2020-10-27",
-      "wordsWritten": 203,
-      "revised": true,
-      "edited": false,
-      "proofread": false
     },
     {
       "id": 4,
@@ -190,24 +180,44 @@
       "id": 12
     },
     {
-      "id": 13,
+      "id": 14,
       "projectId": 5,
       "userId": 1,
-      "dateEntered": "2020-10-27",
-      "wordsWritten": 50,
+      "dateEntered": "2020-10-26",
+      "wordsWritten": 96,
       "revised": false,
       "edited": false,
       "proofread": false
     },
     {
-      "id": 14,
+      "projectId": 5,
+      "userId": 1,
+      "dateEntered": "2020-10-28",
+      "wordsWritten": 150,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "id": 16
+    },
+    {
       "projectId": 5,
       "userId": 1,
       "dateEntered": "2020-10-26",
-      "wordsWritten": 103,
+      "wordsWritten": 54,
       "revised": false,
       "edited": false,
-      "proofread": false
+      "proofread": true,
+      "id": 17
+    },
+    {
+      "projectId": 5,
+      "userId": 1,
+      "dateEntered": "2020-10-27",
+      "wordsWritten": 500,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "id": 18
     }
   ]
 }

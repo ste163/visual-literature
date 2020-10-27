@@ -1,11 +1,12 @@
 import React from "react"
 import { Redirect, Route } from "react-router-dom"
-import { Header } from "./header/Header"
-import { Footer } from "./footer/Footer"
 import { ProjectProvider } from "./projects/ProjectProvider"
-import { ProjectList } from "./projects/ProjectList"
-import { TypeProvider } from "./type/TypeProvider"
 import { ProgressProvider } from "./progress/ProgressProvider"
+import { TypeProvider } from "./type/TypeProvider"
+import { Header } from "./header/Header"
+import { ProjectList } from "./projects/ProjectList"
+import { Dashboard } from "./dashboard/Dashboard"
+import { Footer } from "./footer/Footer"
 
 export const ApplicationViews = () => {
     // If user will be able to decide default view as either
@@ -16,21 +17,31 @@ export const ApplicationViews = () => {
     <> 
         <Header />
 
-        <ProgressProvider>
-            <ProjectProvider>
-                <TypeProvider>
+            <TypeProvider>
+                <ProgressProvider>
 
-                    <Route exact path="/">
-                        <Redirect to="/projects" />
-                    </Route>
+                    <ProjectProvider>
+                        <Route exact path="/">
+                            <Redirect to="/projects" />
+                        </Route>
 
-                    <Route exact path="/projects">                    
-                        <ProjectList />  
-                    </Route>
-                    
-                </TypeProvider>
-            </ProjectProvider>
-        </ProgressProvider>
+                        <Route exact path="/projects">                    
+                            <ProjectList />  
+                        </Route>
+                    </ProjectProvider>
+
+                    <ProjectProvider>
+                        <Route exact path="/dashboard">
+                            <Dashboard />
+                        </Route>
+            
+                        <Route exact path="/dashboard/:projectId(\d+)">
+                            <Dashboard />
+                        </Route>
+                    </ProjectProvider>
+                
+                </ProgressProvider>
+            </TypeProvider>
         
         <Footer />
     </>

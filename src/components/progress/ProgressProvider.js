@@ -27,7 +27,7 @@ export const ProgressProvider = props => {
             body: JSON.stringify(progressObj)
         })
         .then(() => {
-            getProgressByUserId(progressObj.userId)
+            getProgressByProjectId(progressObj.id)
         })
     }
 
@@ -40,7 +40,7 @@ export const ProgressProvider = props => {
             body: JSON.stringify(progressObj)
         })
         .then(() => {
-            getProgressByUserId(progressObj.userId)
+            getProgressByProjectId(progressObj.id)
         })
     }
 
