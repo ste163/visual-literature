@@ -5,17 +5,25 @@ import "./ProgressForm.css"
 
 export const ProgressForm = project => {
 
+      // Get the current project being passed in.
+    let passedInProject
+
+    if (project.project.project === undefined) {
+        passedInProject = project.project
+    } else {
+        passedInProject = project.project.project
+    }
+    
+    const projectId = passedInProject.id
+
     // Populates date picker with current date.
     const currentDate = new Date()
     const todaysDate = currentDate.toISOString().slice(0,10)
 
     const deleteModal = useRef()
+  
 
-    // Get the current project being passed in.
-    const passedInProject = project.project.project
-    const projectId = passedInProject.id
     const userId = +sessionStorage.getItem("userId")
-
     // Set default progress so form can reset when needed.
     const defaultProgress = {
         projectId,

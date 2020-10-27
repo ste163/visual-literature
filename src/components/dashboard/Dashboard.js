@@ -59,17 +59,17 @@ export const Dashboard = () => {
         <>
         <section className="view__header">
 
-        {/* SELECT INPUT THAT POPULATES DROP DOWNS BASED ON AVAILABLE DATA.
-        WILL NEED COMPLEX MAP FUNCTION TO CREATE SELECTS */}
-        DISPLAY BY SELECTED DATE
-
-        <IconDivider color="icon__lightGray" />
-
-            <button className="project__btn"
+        <button className="project__btn"
             onClick={e => progressModal.current.className = "background__modal modal__active"}>
                 <IconPlus color="icon__gray" />
                 Add Progress
             </button>
+
+        <IconDivider color="icon__lightGray" />
+
+        {/* SELECT INPUT THAT POPULATES DROP DOWNS BASED ON AVAILABLE DATA.
+        WILL NEED COMPLEX MAP FUNCTION TO CREATE SELECTS */}
+        DISPLAY BY SELECTED DATE
 
         </section>
 
@@ -85,7 +85,7 @@ export const Dashboard = () => {
                                 <DashProgression props={currentProject} progress={currentProgress}/>    
                             }
                            
-                            {/* <Modal ref={progressModal} contentFunction={<ProgressForm />} width={"modal__width--wide"}/> */}
+                            <Modal ref={progressModal} contentFunction={<ProgressForm project={currentProject} />} width={"modal__width--wide"}/>
                         </>
             }
 

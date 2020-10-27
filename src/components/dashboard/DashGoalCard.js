@@ -8,7 +8,7 @@ export const DashGoalCard = (props) => {
             <p className="dash__p">
                 Write {props.props.wordCountGoal} words {
                     props.props.goalFrequency === "daily" ? "daily" :
-                        props.props.goalFrequency === "weekly" ? "per week" : "per month"
+                        props.props.goalFrequency === "weekly" ? `${props.props.daysPerFrequency} days per week` : `${props.props.daysPerFrequency} days per month`
                 }.
             </p>
         </section>
