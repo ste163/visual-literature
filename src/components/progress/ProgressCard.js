@@ -198,6 +198,10 @@ export const ProgressCard = (project) => {
       }
 
       useEffect(() => {
+        getProgressByProjectId(project.project.id)
+      },[])
+
+      useEffect(() => {
         new Chart(progressBar.current, horizontalBarChart);
         checkGoalProgress()
       }, [checkGoalProgress]);

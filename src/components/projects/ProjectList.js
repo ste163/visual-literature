@@ -24,7 +24,6 @@ export const ProjectList = () => {
     useEffect(() => {
         getTypes()
         .then(getProjects(activeUser))
-        .then(getProgressByUserId(activeUser))
     }, [])
 
     return (
@@ -52,7 +51,6 @@ export const ProjectList = () => {
             <div className="project__cards">
                 {                   
                         projects.map(project => {
-                            console.log(project)
                             return <ProgressProvider><ProjectCard key={project.id} project={project} /></ProgressProvider>
                         })               
                 }
