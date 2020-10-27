@@ -6,6 +6,7 @@
     align-items: center;
     padding: 5px 0 10px 15px;
     margin-top: 0.4em;
+    height: min-content;
 }
 
 .progress__content {
@@ -13,10 +14,10 @@
     margin-bottom: 0.4em;
 }
 
-.progress_h3 {
+.progress__h3 {
     font-size: 0.8em;
 }
 
-.progress_p {
+.progress__p {
     font-size: 0.6em;
 }

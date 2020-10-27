@@ -206,23 +206,31 @@ export const ProgressCard = (project) => {
     <section className="card card__color--mintBlue card__progress">
         
         <div className="progress__content">
-            <h3 className="progress_h3">Goal</h3>
-            <p className="progress_p">{wordCountGoal} words
+            <h3 className="progress__h3">Goal</h3>
+            <p className="progress__p">{wordCountGoal} words
                 {goalFrequency === "daily" ? ` ${goalFrequency}` : 
-                    `${goalFrequency === "weekly" ? ` ${daysPerFrequency} days per week` : ` ${daysPerFrequency} days per month`}`
+                    `${goalFrequency === "weekly" ? ` ${daysPerFrequency} days per week` :
+                        ` ${daysPerFrequency} days per month`}`
                 }
             </p>
 
-            <h3 className="progress_h3">Progress</h3>
+            <h3 className="progress__h3">Progress</h3>
 
             <div>
                 <canvas ref={progressBar} id="progress__bar" width="50" height="50" />
             </div>
 
-            <p className="progress_p">{goalFreqComplete === 2 ? "Progress complete for this frequency" :
-            "X AMOUNT OF PROGRESS LEFT"}</p>
-            <p className="progress_p">XX / XX words written</p>
-            <p className="progress_p">XX days left OR none if daily</p>
+            <div className="progress__analysis">
+                {
+                goalFreqComplete === 0 ? <p className="progress__p">No Progress</p> : 
+                    goalFreqComplete === 1 ?
+                        <p className="progress__p">XX / {wordCountGoal * daysPerFrequency} words written</p> :
+                        <>
+                        <p className="progress__p">XX / {wordCountGoal * daysPerFrequency} words written</p>
+                        <p className="progress__p">Progress complete</p>
+                        </>
+                }
+            </div>
         </div>
 
         <button className="btn"
