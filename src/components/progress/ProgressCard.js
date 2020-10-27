@@ -52,9 +52,16 @@ export const ProgressCard = (project) => {
                 break;
 
             case "weekly":
-                // To ensure that the date entered IS actually correct, at least with console.logs, have to replace the - with /
-                // console.log(new Date("2020-10-27".replace(/-/g, '\/')))
-                console.log(isSameWeek(new Date("2020/10/31"), currentDate))
+                let weeklyProgressCounter = 1
+                const weeklyProjects = progress.filter(each => each.project.goalFrequency === "weekly")
+                console.log("ALL WEEKLY PROGRESS", weeklyProjects)
+                const thisWeeksProgress = weeklyProjects.filter(each => {
+                    // To ensure that the date entered is tested correctly, at least with console.logs, have to replace the - with /
+                    const progressDate = new Date(each.dateEntered.replace(/-/g, '\/'))
+                    return isSameWeek(progressDate, currentDate)
+                })
+                console.log("CURRENT WEEKS PROGRESS", thisWeeksProgress)
+
                 break;
                 
             case "monthly":
