@@ -5,7 +5,6 @@
 .card__dash {
     margin: 0.8em;
     padding: 0.5em 1em;
-    width: max-content;
     height: min-content;
 }
 
@@ -18,14 +17,33 @@
     font-size: 1em;
 }
 
-.card__dash--title {
+.dash__h3--graph {
+    margin-left: 0.4em;
+}
 
+.card__dash--title {
+    grid-row: 1;
+    grid-column: 1;
 }
 
 .card__dash--goal {
-
+    grid-row: 2;
+    grid-column: 1;
 }
 
 .card__dash--progressionBar {
+    grid-row: 1;
+    grid-column: 2;
     width: 13em;
+}
+
+.card__dash--progressionMultiBar {
+}
+
+.graph__textContainer {
+    margin-left: 0.4em;
+}
+
+.graph__text {
+    font-size: 0.7em;
 }

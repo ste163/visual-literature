@@ -142,7 +142,7 @@ export const DashProgression = (props, progress) => {
         <>
 
         <section className="card card__color--white card__dash card__dash--progressionBar">
-          Progress for month
+        <h3 className="dash__h3 dash__h3--graph">Progress for month</h3>
           {/*
             IF this is daily, the max is the current month total
            WEEKLY, take the current month and divide it by weeks to see how many weeks are in this month.
@@ -156,9 +156,12 @@ export const DashProgression = (props, progress) => {
             <div>
                 <canvas ref={progressBar} id="progress__bar" width="40" height="40" />
             </div>
+            <div className="graph__textContainer">
+                <p className="graph__text">How much of your goal your meeting / days in this month that need to be met</p>
+            </div>
         </section>
 
-        <section className="card card__color--white card__dash">
+        <section className="card card__color--white card__dash card__dash--progressionMultiBar">
             Goal progression bar chart, similar to the one on the progression menu, but vertical and not combined.
             X axis based on the frequency? Or how many weeks in the month?
         </section>
