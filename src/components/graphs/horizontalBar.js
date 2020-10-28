@@ -21,7 +21,7 @@ export const horizontalBar = (goalProgression, daysPerFrequency) => {
         options: {
 
         responsive: true,
-        maintainAspectRation: false,
+        maintainAspectRatio: false,
 
           tooltips: {
               enabled: false,

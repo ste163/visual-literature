@@ -4,3 +4,7 @@
     min-height: 1.1em !important;
     max-height: 1.1em !important;
   }
+
+#wordCount__line {
+  width: 100% !important
+}

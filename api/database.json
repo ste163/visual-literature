@@ -80,16 +80,6 @@
   ],
   "progress": [
     {
-      "projectId": 7,
-      "userId": 1,
-      "dateEntered": "2020-10-26",
-      "wordsWritten": 100,
-      "revised": false,
-      "edited": false,
-      "proofread": false,
-      "id": 2
-    },
-    {
       "id": 4,
       "projectId": 5,
       "userId": 1,
@@ -480,14 +470,34 @@
       "id": 48
     },
     {
+      "id": 49,
       "projectId": 7,
       "userId": 1,
       "dateEntered": "2020-10-18",
-      "wordsWritten": 5431,
+      "wordsWritten": 500,
+      "revised": false,
+      "edited": false,
+      "proofread": false
+    },
+    {
+      "projectId": 7,
+      "userId": 1,
+      "dateEntered": "2020-10-09",
+      "wordsWritten": 432,
       "revised": false,
       "edited": false,
       "proofread": false,
-      "id": 49
+      "id": 50
+    },
+    {
+      "projectId": 7,
+      "userId": 1,
+      "dateEntered": "2020-10-14",
+      "wordsWritten": 32,
+      "revised": true,
+      "edited": false,
+      "proofread": false,
+      "id": 51
     }
   ]
 }

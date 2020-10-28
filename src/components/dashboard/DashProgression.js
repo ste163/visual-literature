@@ -23,6 +23,12 @@ export const DashProgression = (props, progress) => {
 
     // AVERAGE WORDS WRITTEN
     const [ averageWordsWritten, setAverageWordsWritten ] = useState()
+    let wordsWrittenArray = []
+
+
+    // WORDS WRITTEN LINE GRAPH LABELS & DATA
+    const [ lineWordsWrittenArray, setLineWordsWrittenArray ] = useState([])
+    const [ lineWordsLabelArray, setLineWordsLabelArray ] = useState([])
 
     const wordCountGoal = props.props.wordCountGoal
     const goalFrequency = props.props.goalFrequency
@@ -40,11 +46,11 @@ export const DashProgression = (props, progress) => {
     // goalFreqComplete can be: 0, 1, or 2 (0 is no progress, 1 is some progress, 2 is complete for freq)
     const [ goalFreqComplete, setGoalFreqComplete ] = useState()
     
-    // console.log("INCOMING PROGRESS", incomingProgress)
 
-    // console.log("wordCountGoal", wordCountGoal)
-    // console.log("goalFreq", goalFrequency)
-    // console.log("daysPerFrequency", daysPerFrequency)
+    // Create arrays to hold data for line graph
+    let progressArray = []
+    let progressDateLabels = []
+    let progressWordsWritten = []
 
     // Goal progression check from progressCard
     const checkGoalProgress = () => {
@@ -52,9 +58,6 @@ export const DashProgression = (props, progress) => {
             case "daily":
                 // Counter used for progress bar
                 let dailyProgressCounter = 0
-
-                // Array to store every wordWritten count, used for average
-                let wordsWrittenDailyArray = []
 
                 // Set progressBarXAxis to the current month
                 setProgressBarXAxis(lastDayOfMonthInt)
@@ -72,15 +75,18 @@ export const DashProgression = (props, progress) => {
                 if (monthsDailyProgress.length !== 0) {
                     monthsDailyProgress.forEach(progress => {
 
+                        let progressDailyArray = []
+
                         // Find the average words written
                         if (progress.wordsWritten) {
-                            wordsWrittenDailyArray.push(progress.wordsWritten)
+                            wordsWrittenArray.push(progress.wordsWritten)
+                            progressDailyArray.push(progress)
                         }
                         let total = 0
-                        for (let i = 0; i < wordsWrittenDailyArray.length; i++) {
-                            total += wordsWrittenDailyArray[i]
+                        for (let i = 0; i < wordsWrittenArray.length; i++) {
+                            total += wordsWrittenArray[i]
                         }
-                        const wordAverage = total / wordsWrittenDailyArray.length
+                        const wordAverage = total / wordsWrittenArray.length
                         const roundedAverage = Math.ceil(wordAverage)
                         setAverageWordsWritten(roundedAverage)
 
@@ -110,9 +116,6 @@ export const DashProgression = (props, progress) => {
                 // Set counter to 0
                 let weeklyProgressCounter = 0
 
-                // Array to store every wordWritten count, used for average
-                let wordsWrittenWeeklyArray = []
-
                 // Calculate Progress Bar X-axis
                 const howMuchToWriteThisMonth = daysPerFrequency * weeksInCurrentMonth
 
@@ -131,15 +134,18 @@ export const DashProgression = (props, progress) => {
                     // see if the goal has been met for each entered progress
                     monthsWeeklyProgress.forEach(progress => {
 
+                        let progressWeeklyArray = []
+
                         // Find the average words written
                         if (progress.wordsWritten) {
-                            wordsWrittenWeeklyArray.push(progress.wordsWritten)
+                            wordsWrittenArray.push(progress.wordsWritten)
+                            progressWeeklyArray.push(progress)
                         }
                         let total = 0
-                        for (let i = 0; i < wordsWrittenWeeklyArray.length; i++) {
-                            total += wordsWrittenWeeklyArray[i]
+                        for (let i = 0; i < wordsWrittenArray.length; i++) {
+                            total += wordsWrittenArray[i]
                         }
-                        const wordAverage = total / wordsWrittenWeeklyArray.length
+                        const wordAverage = total / wordsWrittenArray.length
                         const roundedAverage = Math.ceil(wordAverage)
                         setAverageWordsWritten(roundedAverage)
 
@@ -168,8 +174,7 @@ export const DashProgression = (props, progress) => {
                 // Create a counter for amount completed. Used in graph and progress checks
                 let monthlyProgressCounter = 0
 
-                // Array to store every wordWritten count, used for average
-                let wordsWrittenMonthlyArray = []
+ 
 
                 setProgressBarXAxis(daysPerFrequency)
 
@@ -183,17 +188,18 @@ export const DashProgression = (props, progress) => {
                 })
                 if (thisMonthsProgress.length !== 0) {
                     // For each progress of this month, run the goal checks
-                    thisMonthsProgress.forEach(progress => {
 
+                    thisMonthsProgress.forEach(progress => {
                         // Find the average words written
                         if (progress.wordsWritten) {
-                            wordsWrittenMonthlyArray.push(progress.wordsWritten)
+                            wordsWrittenArray.push(progress.wordsWritten)
+                            progressArray.push(progress)
                         }
                         let total = 0
-                        for (let i = 0; i < wordsWrittenMonthlyArray.length; i++) {
-                            total += wordsWrittenMonthlyArray[i]
+                        for (let i = 0; i < wordsWrittenArray.length; i++) {
+                            total += wordsWrittenArray[i]
                         }
-                        const wordAverage = total / wordsWrittenMonthlyArray.length
+                        const wordAverage = total / wordsWrittenArray.length
                         const roundedAverage = Math.ceil(wordAverage)
                         setAverageWordsWritten(roundedAverage)
 
@@ -208,6 +214,17 @@ export const DashProgression = (props, progress) => {
                             setProgressBarProgression(monthlyProgressCounter)
                         }
                     })
+
+                    if (progressArray.length !== 0) {
+                        progressArray.forEach(progress => {
+                            progressDateLabels.push(progress.dateEntered)
+                            progressWordsWritten.push(progress.wordsWritten)
+
+                            console.log("DATE LABELS",progressDateLabels)
+                            console.log("WORDS WRITTEN",progressWordsWritten)
+                        })
+                    }
+
                     // If the counter reaches the freq for the month, set complete
                     if (monthlyProgressCounter >= daysPerFrequency) {
                         setGoalFreqComplete(2)
@@ -222,50 +239,53 @@ export const DashProgression = (props, progress) => {
         }
     }
 
+
     useEffect(() => {
+        checkGoalProgress()   
         new Chart(progressBar.current, horizontalBar(progressBarProgression, progressBarXAxis));
         new Chart(wordsWrittenLine.current, {
             type: 'line',
             data: {
-                labels: [1500,1600,1700,1750,1800,1850,1900,1950,1999,2050],
-                datasets: [{ 
-                    data: [86,114,106,106,107,111,133,221,783,2478],
-                    label: "Africa",
-                    borderColor: "#3e95cd",
-                    fill: false
-                }, { 
-                    data: [282,350,411,502,635,809,947,1402,3700,5267],
-                    label: "Asia",
-                    borderColor: "#8e5ea2",
-                    fill: false
-                }, { 
-                    data: [168,170,178,190,203,276,408,547,675,734],
-                    label: "Europe",
-                    borderColor: "#3cba9f",
-                    fill: false
-                }, { 
-                    data: [40,20,10,16,24,38,74,167,508,784],
-                    label: "Latin America",
-                    borderColor: "#e8c3b9",
-                    fill: false
-                }, { 
-                    data: [6,3,2,2,7,26,82,172,312,433],
-                    label: "North America",
-                    borderColor: "#c45850",
-                    fill: false
+                // PROBABLY NEED TO FEED IN THE INCOMING PROGRESS
+                
+                // GENERATE LABELS FROM WHEN  PROGRESS WAS MADE
+                labels: progressDateLabels,
+                datasets: [{
+                    // THE ARRAY OF WORDS WRITTEN 
+                    data: progressWordsWritten,
+                    label: "Words Written",
+                    borderColor: "#76cdc7ff",
+                    fill: true,
+                    backgroundColor: "#c3e8e5ff",
                 }
                 ]
             },
+
+            scales: {
+                xAxes: [{
+                    display: true,
+                }],
+                yAxes: [{
+                    display: true,
+                    min: 0,
+                    max: 500
+                }]
+            },
+
             options: {
+                tooltip: {
+                    position: "nearest"
+                },
                 title: {
-                display: true,
-                text: 'World population per region (in millions)'
-                }
+                display: false
+                },
+                scaleLineColor: "black",
+                scaleBeginAtZero: true,
+                responsive: true,
+                maintainAspectRatio: false,
             }
         })
-        checkGoalProgress()   
     }, [checkGoalProgress])
-
 
     return (
         <>
@@ -292,10 +312,10 @@ export const DashProgression = (props, progress) => {
             </p>
         </section>
 
-        <section className="card card__color--white card__dash">
+        <section className="card card__color--white card__dash card__dash--words">
             Words written bar chart for current month
             <div>
-                <canvas ref={wordsWrittenLine} id="wordCount__line" width="100" height="100" />
+                <canvas ref={wordsWrittenLine} id="wordCount__line" width="50" height="200"/>
             </div>
         </section>
 
