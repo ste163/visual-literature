@@ -4,6 +4,7 @@ import { ProgressForm } from "./ProgressForm"
 import { Modal } from "../modal/Modal"
 import Chart from 'chart.js'
 import { isSameWeek } from 'date-fns'
+import { horizontalBar } from "../graphs/horizontalBar"
 import "./ProgressCard.css"
 
 export const ProgressCard = (project) => {
@@ -125,84 +126,12 @@ export const ProgressCard = (project) => {
         }
     }
 
-    // Pass different data and max's in
-    const horizontalBarChart = {
-        type: "horizontalBar",
-        data: {
-          labels: ["Progress"],
-          datasets: [{
-              label: "Progress",
-              data: [goalProgression],
-              backgroundColor:"#171717ff",
-              borderWidth: 0,
-          },
-          {
-              label: "Goal",
-              data: [daysPerFrequency],
-              backgroundColor: "#FCFCFC",
-              borderWidth: 0,
-          },
-          ],
-        },
-
-        options: {
-
-        responsive: true,
-        maintainAspectRation: false,
-
-          tooltips: {
-              enabled: false,
-          },
-
-          animation: {
-              duration: 800
-          },
-
-          events:[],
-
-          scales: {
-              xAxes: [{
-                  stacked: true,
-                  gridLines: {
-                      display: false
-                  },
-                  ticks: {
-                      min: 0,
-                      max: daysPerFrequency,
-                      display: false
-                  },
-                  scaleLabel: {
-                      display: false
-                  }
-              }],
-
-              yAxes: [{
-                  stacked: true,
-                  gridLines: {
-                      display: false
-                  },
-                  ticks: {
-                      min: 0,
-                      display: false
-                  } 
-              }, { 
-                  stacked: true,
-                  display: false,
-              }],
-          },
-          
-          legend: {
-              display: false
-          }
-        }
-      }
-
       useEffect(() => {
         getProgressByProjectId(project.project.id)
       },[])
 
       useEffect(() => {
-        new Chart(progressBar.current, horizontalBarChart);
+        new Chart(progressBar.current, horizontalBar(goalProgression, daysPerFrequency));
         checkGoalProgress()
       }, [checkGoalProgress]);
 
@@ -221,7 +150,7 @@ export const ProgressCard = (project) => {
             <h3 className="progress__h3">Progress</h3>
 
             <div>
-                <canvas ref={progressBar} id="progress__bar" width="50" height="50" />
+                <canvas ref={progressBar} id="progress__bar" width="40" height="40" />
             </div>
 
             <div className="progress__text">
@@ -246,9 +175,9 @@ export const ProgressCard = (project) => {
             progressModal.current.className = "background__modal modal__active"
             getProgressByProjectId(project.project.id)
             }}>
-            Add Progress</button>
+            Add/Edit Progress</button>
         
-        <Modal ref={progressModal} key={project.project.id} projectId={project.project.id} fetchFunction={getProgressByProjectId}  contentFunction={<ProgressForm project={project}/>} width="modal__width--wide" />
+        <Modal ref={progressModal} key={project.project.id} projectId={project.project.id} fetchFunction={getProgressByProjectId}  contentFunction={<ProgressForm project={project}/>} width="modal__width--med" />
 
     </section>
     )
