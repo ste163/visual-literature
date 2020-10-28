@@ -7,6 +7,10 @@
     {
       "username": "author",
       "id": 2
+    },
+    {
+      "username": "sage",
+      "id": 3
     }
   ],
   "projects": [
@@ -41,6 +45,17 @@
       "wordCountGoal": 250,
       "goalFrequency": "monthly",
       "daysPerFrequency": 20,
+      "completed": false
+    },
+    {
+      "id": 8,
+      "name": "Spookiest Book 2",
+      "userId": 3,
+      "typeId": 3,
+      "dateStarted": "2020-10-28",
+      "wordCountGoal": 300,
+      "goalFrequency": "daily",
+      "daysPerFrequency": 1,
       "completed": false
     }
   ],
@@ -498,6 +513,36 @@
       "edited": false,
       "proofread": false,
       "id": 51
+    },
+    {
+      "projectId": 8,
+      "userId": 3,
+      "dateEntered": "2020-10-29",
+      "wordsWritten": 500,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "id": 53
+    },
+    {
+      "projectId": 8,
+      "userId": 3,
+      "dateEntered": "2020-10-01",
+      "wordsWritten": 500,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "id": 54
+    },
+    {
+      "projectId": 8,
+      "userId": 3,
+      "dateEntered": "2020-10-30",
+      "wordsWritten": 350,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "id": 55
     }
   ]
 }

@@ -313,16 +313,16 @@ export const DashProgression = (props, progress) => {
 
         <section className="card card__color--white card__dash card__dash--average">
             <h3 className="dash__h3 dash__h3--average">Average words written</h3>
+            <p className="graph__text">
+                per writing session this month
+            </p>
             <p className="average__text">
                 {averageWordsWritten}
-            </p>
-            <p className="graph__text">
-                    per frequency this month
             </p>
         </section>
 
         <section className="card card__color--white card__dash card__dash--words">
-            Words written bar chart for current month
+            Words written for current month
             <div>
                 <canvas ref={wordsWrittenLine} id="wordCount__line" width="50" height="200"/>
             </div>
