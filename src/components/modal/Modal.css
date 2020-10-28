@@ -37,7 +37,11 @@
 }
 
 .modal__width--small {
-    width: 12em;
+    width: 13em;
+}
+
+.modal__width--smallest {
+    width: 8em;
 }
 
 .modal__heading {

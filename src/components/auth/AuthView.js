@@ -90,15 +90,23 @@ export const AuthView = props => {
 
     const ExistDialog = () => (
         <>
-        <h2 className="modal__warning">Warning</h2>
-        <p className="auth__warning">User does not exist.</p>
+            <h2 className="modal__warning">Warning</h2>
+            <p className="auth__warning">User does not exist.</p>
+            <button className="btn"
+            onClick={e => existDialog.current.className = "background__modal"}>
+                Close
+            </button>
         </>
     )
 
     const ConflictDialog = () => (
         <>
-        <h2 className="modal__warning">Warning</h2>
-        <p className="auth__warning">Username already taken.</p>
+            <h2 className="modal__warning">Warning</h2>
+            <p className="auth__warning">Username has already been taken.</p>
+            <button className="btn"
+            onClick={e => conflictDialog.current.className = "background__modal"}>
+                Close
+            </button>
         </>
     )
 
@@ -107,7 +115,7 @@ export const AuthView = props => {
 
             <AuthBackground />
 
-            <Modal ref={existDialog} contentFunction={<ExistDialog/>} width={"modal__width--small"}/>
+            <Modal ref={existDialog} contentFunction={<ExistDialog/>} width={"modal__width--smallest"}/>
             <Modal ref={conflictDialog} contentFunction={<ConflictDialog/>} width={"modal__width--small"} />
 
             <div className="auth__column--middle">
