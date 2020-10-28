@@ -11,6 +11,10 @@
     {
       "username": "sage",
       "id": 3
+    },
+    {
+      "username": "Author123",
+      "id": 4
     }
   ],
   "projects": [
@@ -155,14 +159,14 @@
       "id": 11
     },
     {
-      "projectId": 6,
+      "id": 12,
+      "projectId": 5,
       "userId": 1,
       "dateEntered": "2020-10-29",
-      "wordsWritten": 300,
+      "wordsWritten": 350,
       "revised": true,
       "edited": false,
-      "proofread": false,
-      "id": 12
+      "proofread": false
     },
     {
       "id": 14,
