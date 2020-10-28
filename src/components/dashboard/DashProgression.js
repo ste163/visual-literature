@@ -1,16 +1,19 @@
 import React, { useState, useEffect, useRef } from "react"
-import { isSameWeek } from 'date-fns'
+import { isSameWeek, getWeeksInMonth } from 'date-fns'
 import Chart from 'chart.js'
 import { horizontalBar } from "../graphs/horizontalBar"
 
 // Will include ALL progress checks
 // And display all data
 
-const currentMonth = new Date()
-console.log("first day of month:", new Date(currentMonth.getFullYear(), currentMonth.getMonth(), 1))
-console.log("last day of month", new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 0))
-
 export const DashProgression = (props, progress) => {
+
+    // Get all the dates we need
+    const currentMonth = new Date()
+    const firstDayOfMonth =  new Date(currentMonth.getFullYear(), currentMonth.getMonth(), 1)
+    const lastDayOfMonth = new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 0)
+    const weeksInCurrentMonth = getWeeksInMonth(currentMonth)
+    console.log("HOW MANY WKS IN MONTH?", weeksInCurrentMonth)
 
     const wordCountGoal = props.props.wordCountGoal
     const goalFrequency = props.props.goalFrequency
