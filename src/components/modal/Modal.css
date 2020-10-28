@@ -32,8 +32,12 @@
     width: 20em;
 }
 
+.modal__width--med {
+    width: 15em;
+}
+
 .modal__width--small {
-    width: 10em;
+    width: 12em;
 }
 
 .modal__heading {
@@ -56,4 +60,8 @@
 
 .modal__warning {
     color: var(--red);
+}
+
+.warning__p {
+    margin: 0.7em 0;
 }

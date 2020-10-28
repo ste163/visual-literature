@@ -175,9 +175,9 @@ export const ProgressCard = (project) => {
             progressModal.current.className = "background__modal modal__active"
             getProgressByProjectId(project.project.id)
             }}>
-            Add Progress</button>
+            Add/Edit Progress</button>
         
-        <Modal ref={progressModal} key={project.project.id} projectId={project.project.id} fetchFunction={getProgressByProjectId}  contentFunction={<ProgressForm project={project}/>} width="modal__width--wide" />
+        <Modal ref={progressModal} key={project.project.id} projectId={project.project.id} fetchFunction={getProgressByProjectId}  contentFunction={<ProgressForm project={project}/>} width="modal__width--med" />
 
     </section>
     )

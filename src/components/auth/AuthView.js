@@ -108,7 +108,7 @@ export const AuthView = props => {
             <AuthBackground />
 
             <Modal ref={existDialog} contentFunction={<ExistDialog/>} width={"modal__width--small"}/>
-            <Modal ref={conflictDialog} contentFunction={<ConflictDialog/>} width={"modal__width--wide"} />
+            <Modal ref={conflictDialog} contentFunction={<ConflictDialog/>} width={"modal__width--small"} />
 
             <div className="auth__column--middle">
                 <VisLitLogo

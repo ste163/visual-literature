@@ -19,7 +19,7 @@ export const DotMenu = (React.forwardRef((props, ref) => {
     const DeleteWarning = () => (
         <>
             <h2 className="modal__warning">Warning</h2>
-            <p>Deleting a project is permanent.</p>
+            <p className="warning__p">Deleting a project is permanent.</p>
             <button className="btn btn--red"
             onClick={e => deleteProject(props.project.userId, props.project.id)}>
                 Delete

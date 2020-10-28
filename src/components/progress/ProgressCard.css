@@ -24,3 +24,8 @@
 .progress__p {
     font-size: 0.6em;
 }
+
+.progress__submit {
+    display: flex;
+    justify-content: space-evenly;
+}

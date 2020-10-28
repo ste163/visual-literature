@@ -117,7 +117,7 @@ export const ProgressForm = project => {
     const DeleteWarning = () => (
         <>
             <h2 className="modal__warning">Warning</h2>
-            <p>Deleting progress is permanent.</p>
+            <p className="warning__p">Deleting progress is permanent.</p>
             <button className="btn btn--red"
             onClick={e => {
                 console.log(passedInProject)
@@ -138,9 +138,9 @@ export const ProgressForm = project => {
 
         <form className="form__progress" onSubmit={createProgress}>
 
-            <h3 className="form__h3">Add Progress to</h3>
+            <h3 className="form__h3 form__h3--progress">{progressFound ? "Update Progress for" : "Add Progress to"}</h3>
 
-            <h4 className="form__h4"><em>{passedInProject.name}</em></h4>
+            <h4 className="form__h4 form__h4--progress"><em>{passedInProject.name}</em></h4>
             
             <fieldset>
                 <label htmlFor="progressDate">Progress date:</label>
@@ -171,23 +171,23 @@ export const ProgressForm = project => {
 
             <fieldset>
                 <label>Writing Processes Completed</label>
+                <div className="form__checkContainer">                
+                    <input className="progress__checkbox--first" type="checkbox" id="revised" name="revised" value="revised"
+                    checked={currentProgress.revised}
+                    onChange={handleControlledInputChange}
+                    />
+                    <label htmlFor="revised">Revised</label>
 
-                <input type="checkbox" id="revised" name="revised" value="revised"
-                checked={currentProgress.revised}
-                onChange={handleControlledInputChange}
-                />
-                <label htmlFor="revised">Revised</label>
+                    <input className="progress__checkbox" type="checkbox" id="edited" name="edited" value="edited"
+                    checked={currentProgress.edited}
+                    onChange={handleControlledInputChange}/>
+                    <label htmlFor="edited">Edited</label>
 
-                <input type="checkbox" id="edited" name="edited" value="edited"
-                checked={currentProgress.edited}
-                onChange={handleControlledInputChange}/>
-                <label htmlFor="edited">Edited</label>
-
-                <input type="checkbox" id="proofread" name="proofread" value="proofread"
-                checked={currentProgress.proofread}
-                onChange={handleControlledInputChange}/>
-                <label htmlFor="proofread">Proofread</label>
-
+                    <input className="progress__checkbox" type="checkbox" id="proofread" name="proofread" value="proofread"
+                    checked={currentProgress.proofread}
+                    onChange={handleControlledInputChange}/>
+                    <label htmlFor="proofread">Proofread</label>
+                </div>
             </fieldset>
 
             <div className="progress__submit">
@@ -206,7 +206,6 @@ export const ProgressForm = project => {
                     :
                     <></>
                 }
-                
             </div>
 
         </form>
