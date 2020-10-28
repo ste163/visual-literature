@@ -124,6 +124,9 @@ export const DashProgression = (props, progress) => {
             case "monthly":
                 // Create a counter for amount completed. Used in graph and progress checks
                 let monthlyProgressCounter = 0
+
+                setProgressBarXAxis(daysPerFrequency)
+
                 // Get only the progress that matches today's date
                 const monthlyProjects = incomingProgress.filter(each => each.project.goalFrequency === "monthly")
                 const currentMonth = new Date(todaysDate).getMonth()
@@ -138,11 +141,11 @@ export const DashProgression = (props, progress) => {
                         if (progress.wordsWritten >= wordCountGoal) {
                             // If we have progress, increase the counter, then setGoalProgression as the counter
                             ++monthlyProgressCounter
-                            setGoalProgression(monthlyProgressCounter)
+                            setProgressBarProgression(monthlyProgressCounter)
                         }
                         if (progress.wordsWritten < wordCountGoal && progress.proofread || progress.revised || progress.edited) {
                             ++monthlyProgressCounter
-                            setGoalProgression(monthlyProgressCounter)
+                            setProgressBarProgression(monthlyProgressCounter)
                         }
                     })
                     // If the counter reaches the freq for the month, set complete
