@@ -27,9 +27,9 @@ export const AuthView = props => {
     // it's Login or Register
     const [activeBtn, setBtn] = useState(true)
 
-    useEffect(() => {
-       activeBtn ? setBtn(true) : setBtn(false)
-    }, [])
+    // useEffect(() => {
+    //    activeBtn ? setBtn(true) : setBtn(false)
+    // }, [])
 
     // Fetch for only login field
     const existingUserCheckLogin = () => {
@@ -90,15 +90,23 @@ export const AuthView = props => {
 
     const ExistDialog = () => (
         <>
-        <h2 className="modal__warning">Warning</h2>
-        <p className="auth__warning">User does not exist.</p>
+            <h2 className="modal__warning">Warning</h2>
+            <p className="auth__warning">User does not exist.</p>
+            <button className="btn"
+            onClick={e => existDialog.current.className = "background__modal"}>
+                Close
+            </button>
         </>
     )
 
     const ConflictDialog = () => (
         <>
-        <h2 className="modal__warning">Warning</h2>
-        <p className="auth__warning">Username already taken.</p>
+            <h2 className="modal__warning">Warning</h2>
+            <p className="auth__warning">Username has already been taken.</p>
+            <button className="btn"
+            onClick={e => conflictDialog.current.className = "background__modal"}>
+                Close
+            </button>
         </>
     )
 
@@ -107,7 +115,7 @@ export const AuthView = props => {
 
             <AuthBackground />
 
-            <Modal ref={existDialog} contentFunction={<ExistDialog/>} width={"modal__width--small"}/>
+            <Modal ref={existDialog} contentFunction={<ExistDialog/>} width={"modal__width--smallest"}/>
             <Modal ref={conflictDialog} contentFunction={<ConflictDialog/>} width={"modal__width--small"} />
 
             <div className="auth__column--middle">
@@ -134,7 +142,9 @@ export const AuthView = props => {
                             className={activeBtn ? "auth__btn auth__btn--active" : "auth__btn"}
                             onClick={e => {
                                 setBtn(true)
-                                usernameRegister.current.value = ""
+                                if (usernameRegister.current !== undefined && usernameRegister.current !== null) {
+                                    usernameRegister.current.value = ""
+                                }
                             }}
                             onMouseEnter={e => underline.current.className = "auth__line line__login--active"}
                             onMouseLeave={e => underline.current.className = `auth__line ${activeBtn ? "line__login--active" : "line__register--active"}`}
@@ -146,7 +156,9 @@ export const AuthView = props => {
                             className={activeBtn ? "auth__btn" : "auth__btn auth__btn--active"}
                             onClick={e => {
                                 setBtn(false)
-                                usernameLogin.current.value = ""
+                                if (usernameLogin.current !== undefined  && usernameLogin.current !== null) {
+                                    usernameLogin.current.value = ""
+                                }
                             }}
                             onMouseEnter={e => underline.current.className = "auth__line line__register--active"}
                             onMouseLeave={e => underline.current.className = `auth__line ${activeBtn ? "line__login--active" : "line__register--active"}`}
