@@ -51,27 +51,24 @@ export const DashProgression = (props, progress) => {
                 // Get only progress for projects that are daily
                 const dailyProjects = incomingProgress.filter(each => each.project.goalFrequency === "daily")
                 // Get only the progress that matches this month
-                const monthsProgress = dailyProjects.filter(each => {
+                const monthsDailyProgress = dailyProjects.filter(each => {
                     const dateEntered = new Date(each.dateEntered)
                     const monthEntered = dateEntered.getMonth()
                     return monthEntered === currentMonthInt
                 })
-                console.log(monthsProgress)
-                if (monthsProgress.length !== 0) {
-                    monthsProgress.forEach(progress => {
+                if (monthsDailyProgress.length !== 0) {
+                    monthsDailyProgress.forEach(progress => {
                         // If more words written than the goal, set complete, if some progress made, set halfway
                         if (progress.wordsWritten >= wordCountGoal) {
                             ++dailyProgressCounter
                             setProgressBarProgression(dailyProgressCounter)
-                            console.log(dailyProgressCounter)
-                            setGoalProgression(1)
                             setGoalFreqComplete(2)
                         } else {
-                            setGoalProgression(0.5)
                             setGoalFreqComplete(1)
                         }
                         if (progress.proofread || progress.revised || progress.edited) {
-                            setGoalProgression(1)
+                            ++dailyProgressCounter
+                            setProgressBarProgression(dailyProgressCounter)
                             setGoalFreqComplete(2)
                         }
                     })
@@ -83,25 +80,33 @@ export const DashProgression = (props, progress) => {
                 break;
 
             case "weekly":
+                // Set counter to 0
                 let weeklyProgressCounter = 0
+
+                // Calculate Progress Bar X-axis
+                const howMuchToWriteThisMonth = daysPerFrequency * weeksInCurrentMonth
+
+                setProgressBarXAxis(howMuchToWriteThisMonth)
+
                 const weeklyProjects = incomingProgress.filter(each => each.project.goalFrequency === "weekly")
-                const thisWeeksProgress = weeklyProjects.filter(each => {
+                const monthsWeeklyProgress = weeklyProjects.filter(each => {
                     // To ensure that the date entered is tested correctly, at least with console.logs, have to replace the - with /
-                    const progressDate = new Date(each.dateEntered.replace(/-/g, '\/'))
+                    const dateEntered = new Date(each.dateEntered)
+                    const monthEntered = dateEntered.getMonth()
                     // Return only the progress in the current week
-                    return isSameWeek(progressDate, currentDate)
+                    return monthEntered === currentMonthInt
                 })
                 // If we have progress for this week...
-                if (thisWeeksProgress.length !== 0) {
+                if (monthsWeeklyProgress.length !== 0) {
                     // see if the goal has been met for each entered progress
-                    thisWeeksProgress.forEach(progress => {
+                    monthsWeeklyProgress.forEach(progress => {
                         if (progress.wordsWritten >= wordCountGoal) {
                             ++weeklyProgressCounter
-                            setGoalProgression(weeklyProgressCounter)
+                            setProgressBarProgression(weeklyProgressCounter)
                         }
                         if (progress.wordsWritten < wordCountGoal && progress.proofread || progress.revised || progress.edited) {
                             ++weeklyProgressCounter
-                            setGoalProgression(weeklyProgressCounter)
+                            setProgressBarProgression(weeklyProgressCounter)
                         }
                     })
                     // If the counter reaches the freq for the week, set complete
