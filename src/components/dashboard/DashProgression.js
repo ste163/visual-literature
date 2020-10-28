@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react"
 import { isSameWeek, getWeeksInMonth } from 'date-fns'
 import Chart from 'chart.js'
 import { horizontalBar } from "../graphs/horizontalBar"
+import { wordCountLine } from "../graphs/wordCountLine"
 
 // Will include ALL progress checks
 // And display all data
@@ -30,6 +31,7 @@ export const DashProgression = (props, progress) => {
     const incomingProgress = props.progress
 
     const progressBar = useRef()
+    const wordsWrittenLine = useRef()
 
     const currentDate = new Date()
     const todaysDate = currentDate.toISOString().slice(0,10)
@@ -222,6 +224,7 @@ export const DashProgression = (props, progress) => {
 
     useEffect(() => {
         new Chart(progressBar.current, horizontalBar(progressBarProgression, progressBarXAxis));
+        // new Chart(wordsWrittenLine.current, wordCountLine([100, 200, 150]))
         checkGoalProgress()
     }, [checkGoalProgress])
 
@@ -253,6 +256,9 @@ export const DashProgression = (props, progress) => {
 
         <section className="card card__color--white card__dash">
             Words written bar chart for current month
+            <div>
+                <canvas ref={wordCountLine} id="wordCount__line" width="100" height="100" />
+            </div>
         </section>
 
         </>
