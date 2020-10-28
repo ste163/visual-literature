@@ -132,7 +132,10 @@ export const AuthView = props => {
                         <li className="btns__li">
                             <button
                             className={activeBtn ? "auth__btn auth__btn--active" : "auth__btn"}
-                            onClick={e => setBtn(true)}
+                            onClick={e => {
+                                setBtn(true)
+                                usernameRegister.current.value = ""
+                            }}
                             onMouseEnter={e => underline.current.className = "auth__line line__login--active"}
                             onMouseLeave={e => underline.current.className = `auth__line ${activeBtn ? "line__login--active" : "line__register--active"}`}
                             >Log in</button>
@@ -141,7 +144,10 @@ export const AuthView = props => {
                         <li className="btns__li">
                             <button
                             className={activeBtn ? "auth__btn" : "auth__btn auth__btn--active"}
-                            onClick={e => setBtn(false)}
+                            onClick={e => {
+                                setBtn(false)
+                                usernameLogin.current.value = ""
+                            }}
                             onMouseEnter={e => underline.current.className = "auth__line line__register--active"}
                             onMouseLeave={e => underline.current.className = `auth__line ${activeBtn ? "line__login--active" : "line__register--active"}`}
                             >Register</button>
