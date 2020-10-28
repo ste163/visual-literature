@@ -46,7 +46,7 @@ export const ProjectList = () => {
 
         <section className="view__container">
             
-            <Modal ref={modal} contentFunction={<ProjectForm />} width={"modal__width--wide"}/>
+            <Modal ref={modal} contentFunction={<ProjectForm />} width={"modal__width--widest"}/>
 
             <div className="project__cards">
                 {                   

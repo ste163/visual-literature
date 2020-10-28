@@ -210,7 +210,7 @@ export const ProjectForm = props => {
                 <label
                 className={isFreqActive ? "label__days days--active" : "label__days"}
                 htmlFor="daysPerFrequency">
-                    How many days per <span className={isFreqActive ? "freq__selected" : "label__days"} >{isFreqActive ? freqGenerator() : ""}</span> do you plan on writing:
+                    How many days <span className={isFreqActive ? "freq__selected" : "label__days"} >{isFreqActive ? `per ${freqGenerator()}` : ""}</span> do you plan on writing:
                 </label>
 
                 <input type="number"
