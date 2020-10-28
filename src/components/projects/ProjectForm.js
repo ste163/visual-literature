@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect} from "react"
+import React, { useContext, useState, useEffect, useRef} from "react"
 import { ProjectContext } from "./ProjectProvider"
 import { TypeContext } from "../type/TypeProvider"
 import "./ProjectForm.css"
@@ -8,15 +8,12 @@ export const ProjectForm = props => {
     const editableProject = props.props
     const userId = +sessionStorage.getItem("userId")
 
-    // Populates date picker with current date.
-    const currentDate = new Date()
-    const todaysDate = currentDate.toISOString().slice(0,10)
 
     // Set the default project so the form can reset.
     const defaultProject = {
         name: "",
         typeId: "",
-        dateStarted: todaysDate,
+        dateStarted: "",
         wordCountGoal: "",
         goalFrequency: "",
         daysPerFrequency: ""
@@ -64,9 +61,6 @@ export const ProjectForm = props => {
             // Prepare not entered inputs for saving
             if (project.goalFrequency === "daily") {
                 project.daysPerFrequency = 1
-            }
-            if (!project.dateStarted) {
-                project.dateStarted = todaysDate
             }
             
             if (editableProject) {
@@ -145,7 +139,9 @@ export const ProjectForm = props => {
             
             <fieldset>
                 <label htmlFor="projectDate">Project Start Date:</label>
-                <input type="date"
+                <input
+                required 
+                type="date"
                 onChange={handleControlledInputChange}
                 id="projectDate"
                 name="dateStarted"
@@ -220,7 +216,7 @@ export const ProjectForm = props => {
                 name="daysPerFrequency"
                 value={project.daysPerFrequency}
                 min="1"
-                max={selectedFreq === "weekly" ? "6" : "30"}
+                max={selectedFreq === "weekly" ? "6" : "27"}
                 placeholder="3"
                 disabled={!isFreqActive}
                 required
