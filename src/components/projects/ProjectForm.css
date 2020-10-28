@@ -48,7 +48,8 @@
 
 .day__placeholder--active {
     background-color: var(--mediumGray);
-    color: var(--fontColor)
+    color: var(--fontColor);
+    width: 2.6em;
 }
 
 .day__placeholder--inactive::-webkit-input-placeholder {
@@ -62,4 +63,5 @@
 .day__placeholder--inactive {
     background-color: whitesmoke;
     color:lightgray;
+    width: 2.6em;
 }

@@ -208,7 +208,7 @@ export const ProjectForm = props => {
             
             <fieldset className="freq__days">
                 <label
-                className={isFreqActive ? "label__days days--active" : "label__days"}
+                className={isFreqActive ? "label__days days--active" : "label__days"}              
                 htmlFor="daysPerFrequency">
                     How many days <span className={isFreqActive ? "freq__selected" : "label__days"} >{isFreqActive ? `per ${freqGenerator()}` : ""}</span> do you plan on writing:
                 </label>
@@ -219,6 +219,8 @@ export const ProjectForm = props => {
                 id="daysPerFrequency"
                 name="daysPerFrequency"
                 value={project.daysPerFrequency}
+                min="1"
+                max={selectedFreq === "weekly" ? "6" : "30"}
                 placeholder="3"
                 disabled={!isFreqActive}
                 required
