@@ -10,10 +10,15 @@ export const DashProgression = (props, progress) => {
 
     // Get all the dates we need
     const currentMonth = new Date()
-    const firstDayOfMonth =  new Date(currentMonth.getFullYear(), currentMonth.getMonth(), 1)
-    const lastDayOfMonth = new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 0)
+    const currentMonthInt = currentMonth.getMonth()
+    const firstDayOfMonthFull =  new Date(currentMonth.getFullYear(), currentMonth.getMonth(), 1)
+    const lastDayOfMonthFull = new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 0)
+    const lastDayOfMonthInt = lastDayOfMonthFull.getDate()
     const weeksInCurrentMonth = getWeeksInMonth(currentMonth)
-    console.log("HOW MANY WKS IN MONTH?", weeksInCurrentMonth)
+
+    // PROGRESS BAR
+    const [ progressBarProgression, setProgressBarProgression] = useState()
+    const [ progressBarXAxis, setProgressBarXAxis ] = useState()
 
     const wordCountGoal = props.props.wordCountGoal
     const goalFrequency = props.props.goalFrequency
@@ -30,7 +35,7 @@ export const DashProgression = (props, progress) => {
     // goalFreqComplete can be: 0, 1, or 2 (0 is no progress, 1 is some progress, 2 is complete for freq)
     const [ goalFreqComplete, setGoalFreqComplete ] = useState()
     
-    console.log("INCOMING PROGRESS", incomingProgress)
+    // console.log("INCOMING PROGRESS", incomingProgress)
 
     // console.log("wordCountGoal", wordCountGoal)
     // console.log("goalFreq", goalFrequency)
@@ -40,26 +45,36 @@ export const DashProgression = (props, progress) => {
     const checkGoalProgress = () => {
         switch(goalFrequency) {
             case "daily":
+                let dailyProgressCounter = 0
+                // Set progressBarXAxis to the current month
+                setProgressBarXAxis(lastDayOfMonthInt)
                 // Get only progress for projects that are daily
                 const dailyProjects = incomingProgress.filter(each => each.project.goalFrequency === "daily")
-                // Get only the progress that matches today
-                const todaysProgress = dailyProjects.filter(each => each.dateEntered === todaysDate)
-                if (todaysProgress.length !== 0) {
-                    // If the progress we have matches today's date, run the block
-                    if (todaysProgress[0].dateEntered === todaysDate) {
+                // Get only the progress that matches this month
+                const monthsProgress = dailyProjects.filter(each => {
+                    const dateEntered = new Date(each.dateEntered)
+                    const monthEntered = dateEntered.getMonth()
+                    return monthEntered === currentMonthInt
+                })
+                console.log(monthsProgress)
+                if (monthsProgress.length !== 0) {
+                    monthsProgress.forEach(progress => {
                         // If more words written than the goal, set complete, if some progress made, set halfway
-                        if (todaysProgress[0].wordsWritten >= wordCountGoal) {
+                        if (progress.wordsWritten >= wordCountGoal) {
+                            ++dailyProgressCounter
+                            setProgressBarProgression(dailyProgressCounter)
+                            console.log(dailyProgressCounter)
                             setGoalProgression(1)
                             setGoalFreqComplete(2)
                         } else {
                             setGoalProgression(0.5)
                             setGoalFreqComplete(1)
                         }
-                        if (todaysProgress[0].proofread || todaysProgress[0].revised || todaysProgress[0].edited) {
+                        if (progress.proofread || progress.revised || progress.edited) {
                             setGoalProgression(1)
                             setGoalFreqComplete(2)
                         }
-                    }
+                    })
                     // If no progress on today's date, set as 0
                 } else {
                     setGoalFreqComplete(0)
@@ -140,7 +155,7 @@ export const DashProgression = (props, progress) => {
     }
 
     useEffect(() => {
-        new Chart(progressBar.current, horizontalBar(goalProgression, daysPerFrequency));
+        new Chart(progressBar.current, horizontalBar(progressBarProgression, progressBarXAxis));
         checkGoalProgress()
     }, [checkGoalProgress])
 
@@ -164,7 +179,9 @@ export const DashProgression = (props, progress) => {
                 <canvas ref={progressBar} id="progress__bar" width="40" height="40" />
             </div>
             <div className="graph__textContainer">
-                <p className="graph__text">How much of your goal your meeting / days in this month that need to be met</p>
+                <p className="graph__text">
+                    Meeting goal {progressBarProgression} / {progressBarXAxis} days in this month
+                </p>
             </div>
         </section>
 
