@@ -52,7 +52,7 @@ export const DashProgression = (props, progress) => {
                 let dailyProgressCounter = 0
 
                 // Array to store every wordWritten count, used for average
-                let wordsWrittenArray = []
+                let wordsWrittenDailyArray = []
 
                 // Set progressBarXAxis to the current month
                 setProgressBarXAxis(lastDayOfMonthInt)
@@ -72,13 +72,13 @@ export const DashProgression = (props, progress) => {
 
                         // Find the average words written
                         if (progress.wordsWritten) {
-                            wordsWrittenArray.push(progress.wordsWritten)
+                            wordsWrittenDailyArray.push(progress.wordsWritten)
                         }
                         let total = 0
-                        for (let i = 0; i < wordsWrittenArray.length; i++) {
-                            total += wordsWrittenArray[i]
+                        for (let i = 0; i < wordsWrittenDailyArray.length; i++) {
+                            total += wordsWrittenDailyArray[i]
                         }
-                        const wordAverage = total / wordsWrittenArray.length
+                        const wordAverage = total / wordsWrittenDailyArray.length
                         const roundedAverage = Math.ceil(wordAverage)
                         setAverageWordsWritten(roundedAverage)
 
@@ -108,6 +108,9 @@ export const DashProgression = (props, progress) => {
                 // Set counter to 0
                 let weeklyProgressCounter = 0
 
+                // Array to store every wordWritten count, used for average
+                let wordsWrittenWeeklyArray = []
+
                 // Calculate Progress Bar X-axis
                 const howMuchToWriteThisMonth = daysPerFrequency * weeksInCurrentMonth
 
@@ -125,6 +128,19 @@ export const DashProgression = (props, progress) => {
                 if (monthsWeeklyProgress.length !== 0) {
                     // see if the goal has been met for each entered progress
                     monthsWeeklyProgress.forEach(progress => {
+
+                        // Find the average words written
+                        if (progress.wordsWritten) {
+                            wordsWrittenWeeklyArray.push(progress.wordsWritten)
+                        }
+                        let total = 0
+                        for (let i = 0; i < wordsWrittenWeeklyArray.length; i++) {
+                            total += wordsWrittenWeeklyArray[i]
+                        }
+                        const wordAverage = total / wordsWrittenWeeklyArray.length
+                        const roundedAverage = Math.ceil(wordAverage)
+                        setAverageWordsWritten(roundedAverage)
+
                         if (progress.wordsWritten >= wordCountGoal) {
                             ++weeklyProgressCounter
                             setProgressBarProgression(weeklyProgressCounter)
@@ -150,6 +166,9 @@ export const DashProgression = (props, progress) => {
                 // Create a counter for amount completed. Used in graph and progress checks
                 let monthlyProgressCounter = 0
 
+                // Array to store every wordWritten count, used for average
+                let wordsWrittenMonthlyArray = []
+
                 setProgressBarXAxis(daysPerFrequency)
 
                 // Get only the progress that matches today's date
@@ -163,6 +182,20 @@ export const DashProgression = (props, progress) => {
                 if (thisMonthsProgress.length !== 0) {
                     // For each progress of this month, run the goal checks
                     thisMonthsProgress.forEach(progress => {
+
+                        // Find the average words written
+                        if (progress.wordsWritten) {
+                            wordsWrittenMonthlyArray.push(progress.wordsWritten)
+                        }
+                        let total = 0
+                        for (let i = 0; i < wordsWrittenMonthlyArray.length; i++) {
+                            total += wordsWrittenMonthlyArray[i]
+                        }
+                        const wordAverage = total / wordsWrittenMonthlyArray.length
+                        const roundedAverage = Math.ceil(wordAverage)
+                        setAverageWordsWritten(roundedAverage)
+
+
                         if (progress.wordsWritten >= wordCountGoal) {
                             // If we have progress, increase the counter, then setGoalProgression as the counter
                             ++monthlyProgressCounter
