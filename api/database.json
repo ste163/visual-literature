@@ -284,7 +284,7 @@
       "projectId": 5,
       "userId": 1,
       "dateEntered": "2020-10-14",
-      "wordsWritten": 4330,
+      "wordsWritten": 433,
       "revised": false,
       "edited": false,
       "proofread": false
@@ -420,14 +420,14 @@
       "id": 43
     },
     {
+      "id": 44,
       "projectId": 6,
       "userId": 1,
       "dateEntered": "2020-10-03",
-      "wordsWritten": 4321,
+      "wordsWritten": 432,
       "revised": false,
       "edited": false,
-      "proofread": false,
-      "id": 44
+      "proofread": false
     },
     {
       "projectId": 6,
@@ -450,14 +450,14 @@
       "id": 46
     },
     {
+      "id": 47,
       "projectId": 6,
       "userId": 1,
       "dateEntered": "2020-10-14",
-      "wordsWritten": 32145,
+      "wordsWritten": 321,
       "revised": false,
       "edited": false,
-      "proofread": false,
-      "id": 47
+      "proofread": false
     },
     {
       "projectId": 7,

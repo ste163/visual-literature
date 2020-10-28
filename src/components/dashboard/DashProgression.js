@@ -75,12 +75,10 @@ export const DashProgression = (props, progress) => {
                 if (monthsDailyProgress.length !== 0) {
                     monthsDailyProgress.forEach(progress => {
 
-                        let progressDailyArray = []
-
                         // Find the average words written
                         if (progress.wordsWritten) {
                             wordsWrittenArray.push(progress.wordsWritten)
-                            progressDailyArray.push(progress)
+                            progressArray.push(progress)
                         }
                         let total = 0
                         for (let i = 0; i < wordsWrittenArray.length; i++) {
@@ -105,7 +103,15 @@ export const DashProgression = (props, progress) => {
                         }
                     })
 
-                    // If no progress on today's date, set as 0
+                // Populate arrays for words written line graph
+                if (progressArray.length !== 0) {
+                    progressArray.forEach(progress => {
+                        progressDateLabels.push(progress.dateEntered)
+                        progressWordsWritten.push(progress.wordsWritten)
+                    })
+                }
+
+                // If no progress on today's date, set as 0
                 } else {
                     setGoalFreqComplete(0)
                     setGoalProgression(0)
@@ -134,12 +140,10 @@ export const DashProgression = (props, progress) => {
                     // see if the goal has been met for each entered progress
                     monthsWeeklyProgress.forEach(progress => {
 
-                        let progressWeeklyArray = []
-
                         // Find the average words written
                         if (progress.wordsWritten) {
                             wordsWrittenArray.push(progress.wordsWritten)
-                            progressWeeklyArray.push(progress)
+                            progressArray.push(progress)
                         }
                         let total = 0
                         for (let i = 0; i < wordsWrittenArray.length; i++) {
@@ -158,6 +162,15 @@ export const DashProgression = (props, progress) => {
                             setProgressBarProgression(weeklyProgressCounter)
                         }
                     })
+
+                    // Populate arrays for words written line graph
+                    if (progressArray.length !== 0) {
+                        progressArray.forEach(progress => {
+                            progressDateLabels.push(progress.dateEntered)
+                            progressWordsWritten.push(progress.wordsWritten)
+                        })
+                    }
+
                     // If the counter reaches the freq for the week, set complete
                     if (weeklyProgressCounter >= daysPerFrequency) {
                         setGoalFreqComplete(2)
@@ -173,8 +186,6 @@ export const DashProgression = (props, progress) => {
             case "monthly":
                 // Create a counter for amount completed. Used in graph and progress checks
                 let monthlyProgressCounter = 0
-
- 
 
                 setProgressBarXAxis(daysPerFrequency)
 
@@ -215,13 +226,11 @@ export const DashProgression = (props, progress) => {
                         }
                     })
 
+                    // Populate arrays for words written line graph
                     if (progressArray.length !== 0) {
                         progressArray.forEach(progress => {
                             progressDateLabels.push(progress.dateEntered)
                             progressWordsWritten.push(progress.wordsWritten)
-
-                            console.log("DATE LABELS",progressDateLabels)
-                            console.log("WORDS WRITTEN",progressWordsWritten)
                         })
                     }
 
