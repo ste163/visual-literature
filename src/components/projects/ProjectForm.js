@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect} from "react"
+import React, { useContext, useState, useEffect } from "react"
 import { ProjectContext } from "./ProjectProvider"
 import { TypeContext } from "../type/TypeProvider"
 import "./ProjectForm.css"
@@ -8,15 +8,12 @@ export const ProjectForm = props => {
     const editableProject = props.props
     const userId = +sessionStorage.getItem("userId")
 
-    // Populates date picker with current date.
-    const currentDate = new Date()
-    const todaysDate = currentDate.toISOString().slice(0,10)
 
     // Set the default project so the form can reset.
     const defaultProject = {
         name: "",
         typeId: "",
-        dateStarted: todaysDate,
+        dateStarted: "",
         wordCountGoal: "",
         goalFrequency: "",
         daysPerFrequency: ""
@@ -64,9 +61,6 @@ export const ProjectForm = props => {
             // Prepare not entered inputs for saving
             if (project.goalFrequency === "daily") {
                 project.daysPerFrequency = 1
-            }
-            if (!project.dateStarted) {
-                project.dateStarted = todaysDate
             }
             
             if (editableProject) {
@@ -145,7 +139,9 @@ export const ProjectForm = props => {
             
             <fieldset>
                 <label htmlFor="projectDate">Project Start Date:</label>
-                <input type="date"
+                <input
+                required 
+                type="date"
                 onChange={handleControlledInputChange}
                 id="projectDate"
                 name="dateStarted"
@@ -208,7 +204,7 @@ export const ProjectForm = props => {
             
             <fieldset className="freq__days">
                 <label
-                className={isFreqActive ? "label__days days--active" : "label__days"}
+                className={isFreqActive ? "label__days days--active" : "label__days"}              
                 htmlFor="daysPerFrequency">
                     How many days <span className={isFreqActive ? "freq__selected" : "label__days"} >{isFreqActive ? `per ${freqGenerator()}` : ""}</span> do you plan on writing:
                 </label>
@@ -219,6 +215,8 @@ export const ProjectForm = props => {
                 id="daysPerFrequency"
                 name="daysPerFrequency"
                 value={project.daysPerFrequency}
+                min="1"
+                max={selectedFreq === "weekly" ? "6" : "27"}
                 placeholder="3"
                 disabled={!isFreqActive}
                 required
