@@ -173,16 +173,6 @@ export const DashProgression = (props, progress) => {
 
         <section className="card card__color--white card__dash card__dash--progressionBar">
         <h3 className="dash__h3 dash__h3--graph">Progress for month</h3>
-          {/*
-            IF this is daily, the max is the current month total
-           WEEKLY, take the current month and divide it by weeks to see how many weeks are in this month.
-                With that number, multiply how many times you want to write for 1 week.
-                For example, If there are 31 days in a month, there are 4.45 weeks.
-                4.45 * 6 days of writing = 26.7. So round that number down, so it's an even 26 as the max x-axis.
-            
-            MONTHLY is whatever day frequency you set because you're already working with months.
-                 
-           */}
             <div>
                 <canvas ref={progressBar} id="progress__bar" width="40" height="40" />
             </div>
@@ -193,9 +183,14 @@ export const DashProgression = (props, progress) => {
             </div>
         </section>
 
-        <section className="card card__color--white card__dash card__dash--progressionMultiBar">
-            Goal progression bar chart, similar to the one on the progression menu, but vertical and not combined.
-            X axis based on the frequency? Or how many weeks in the month?
+        <section className="card card__color--white card__dash card__dash--average">
+            <h3 className="dash__h3 dash__h3--average">Average words written</h3>
+            <p className="average__text">
+                320
+            </p>
+            <p className="graph__text">
+                    per frequency
+            </p>
         </section>
 
         <section className="card card__color--white card__dash">
