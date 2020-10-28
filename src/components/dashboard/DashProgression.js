@@ -20,6 +20,9 @@ export const DashProgression = (props, progress) => {
     const [ progressBarProgression, setProgressBarProgression] = useState()
     const [ progressBarXAxis, setProgressBarXAxis ] = useState()
 
+    // AVERAGE WORDS WRITTEN
+    const [ averageWordsWritten, setAverageWordsWritten ] = useState()
+
     const wordCountGoal = props.props.wordCountGoal
     const goalFrequency = props.props.goalFrequency
     const daysPerFrequency = props.props.daysPerFrequency
@@ -45,19 +48,40 @@ export const DashProgression = (props, progress) => {
     const checkGoalProgress = () => {
         switch(goalFrequency) {
             case "daily":
+                // Counter used for progress bar
                 let dailyProgressCounter = 0
+
+                // Array to store every wordWritten count, used for average
+                let wordsWrittenArray = []
+
                 // Set progressBarXAxis to the current month
                 setProgressBarXAxis(lastDayOfMonthInt)
+
                 // Get only progress for projects that are daily
                 const dailyProjects = incomingProgress.filter(each => each.project.goalFrequency === "daily")
+
                 // Get only the progress that matches this month
                 const monthsDailyProgress = dailyProjects.filter(each => {
                     const dateEntered = new Date(each.dateEntered)
                     const monthEntered = dateEntered.getMonth()
                     return monthEntered === currentMonthInt
                 })
+
                 if (monthsDailyProgress.length !== 0) {
                     monthsDailyProgress.forEach(progress => {
+
+                        // Find the average words written
+                        if (progress.wordsWritten) {
+                            wordsWrittenArray.push(progress.wordsWritten)
+                        }
+                        let total = 0
+                        for (let i = 0; i < wordsWrittenArray.length; i++) {
+                            total += wordsWrittenArray[i]
+                        }
+                        const wordAverage = total / wordsWrittenArray.length
+                        const roundedAverage = Math.ceil(wordAverage)
+                        setAverageWordsWritten(roundedAverage)
+
                         // If more words written than the goal, set complete, if some progress made, set halfway
                         if (progress.wordsWritten >= wordCountGoal) {
                             ++dailyProgressCounter
@@ -72,6 +96,7 @@ export const DashProgression = (props, progress) => {
                             setGoalFreqComplete(2)
                         }
                     })
+
                     // If no progress on today's date, set as 0
                 } else {
                     setGoalFreqComplete(0)
@@ -186,10 +211,10 @@ export const DashProgression = (props, progress) => {
         <section className="card card__color--white card__dash card__dash--average">
             <h3 className="dash__h3 dash__h3--average">Average words written</h3>
             <p className="average__text">
-                320
+                {averageWordsWritten}
             </p>
             <p className="graph__text">
-                    per frequency
+                    per frequency this month
             </p>
         </section>
 

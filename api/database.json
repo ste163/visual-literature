@@ -290,14 +290,14 @@
       "id": 29
     },
     {
+      "id": 30,
       "projectId": 5,
       "userId": 1,
       "dateEntered": "2020-10-14",
-      "wordsWritten": 433,
+      "wordsWritten": 4330,
       "revised": false,
       "edited": false,
-      "proofread": false,
-      "id": 30
+      "proofread": false
     },
     {
       "projectId": 5,
