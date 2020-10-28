@@ -1,5 +1,5 @@
 .form__h3--progress {
-    
+    margin: 0 0 0.5em 0;
 }
 
 .form__h4--progress {
@@ -9,6 +9,7 @@
 .form__checkContainer {
     display: flex;
     flex-flow: row wrap;
+    align-items: center;
 }
 
 .progress__checkbox--first {

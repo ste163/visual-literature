@@ -6,6 +6,10 @@ import { horizontalBar } from "../graphs/horizontalBar"
 // Will include ALL progress checks
 // And display all data
 
+const currentMonth = new Date()
+console.log("first day of month:", new Date(currentMonth.getFullYear(), currentMonth.getMonth(), 1))
+console.log("last day of month", new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 0))
+
 export const DashProgression = (props, progress) => {
 
     const wordCountGoal = props.props.wordCountGoal
