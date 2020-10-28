@@ -28,6 +28,10 @@
     z-index: 6;
 }
 
+.modal__width--widest {
+    width: 21.5em;
+}
+
 .modal__width--wide {
     width: 20em;
 }
