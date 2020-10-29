@@ -34,7 +34,7 @@ export const ProgressForm = project => {
         proofread: false,
     }
 
-    const { progress, getProgressByProjectId, addProgress, updateProgress, deleteProgress } = useContext(ProgressContext)
+    const { progress, addProgress, updateProgress, deleteProgress } = useContext(ProgressContext)
     const [ currentProgress, setCurrentProgress ] = useState(defaultProgress)
     const [ progressFound, setProgressFound ] = useState(false)
 
@@ -43,7 +43,7 @@ export const ProgressForm = project => {
         datePicker.current.max = todaysDate
     }
 
-    const constructNewProgress = () => {
+    const constructNewProgress = (e) => {
         // Add today's date if selected
         if (currentProgress.dateEntered === "") {
             currentProgress.dateEntered = todaysDate
@@ -76,6 +76,7 @@ export const ProgressForm = project => {
                 })
             }
             setCurrentProgress(defaultProgress)
+            e.currentTarget.parentNode.parentNode.parentNode.className = "background__modal"
         }
 
     }
@@ -121,9 +122,7 @@ export const ProgressForm = project => {
 
     const createProgress = (e) => {
         e.preventDefault()
-        constructNewProgress()
-        // getProgressByProjectId(projectId)
-        e.currentTarget.parentNode.parentNode.parentNode.className = "background__modal"
+        constructNewProgress(e)
     }
 
     const DeleteWarning = () => (

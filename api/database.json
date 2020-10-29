@@ -428,14 +428,14 @@
       "id": 56
     },
     {
+      "id": 59,
       "projectId": 6,
       "userId": 1,
       "dateEntered": "2020-10-29",
-      "wordsWritten": 380,
+      "wordsWritten": 350,
       "revised": false,
       "edited": false,
-      "proofread": false,
-      "id": 59
+      "proofread": false
     }
   ]
 }

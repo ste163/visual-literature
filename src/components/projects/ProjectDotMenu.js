@@ -35,7 +35,7 @@ export const DotMenu = (React.forwardRef((props, ref) => {
         }
     }}>
 
-        <Modal ref={editModal} projectId={props.project.id} fetchFunction={getProgressByProjectId} contentFunction={<ProjectForm props={props.project}/>} width={"modal__width--wide"}/> 
+        <Modal ref={editModal} contentFunction={<ProjectForm props={props.project}/>} width={"modal__width--wide"}/> 
        
         <Modal ref={deleteModal} contentFunction={<DeleteWarning/>} width={"modal__width--small"}/>
         

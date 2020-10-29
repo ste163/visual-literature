@@ -15,7 +15,6 @@ export const ProjectCard = ({project}) => {
 
     return (
         <article className="card card__color--white card__project">
-
             <DotMenu ref={dotMenu} project={project}/>
 
             <h2 className="project__h2--card">{project.name}</h2>  
@@ -32,7 +31,6 @@ export const ProjectCard = ({project}) => {
             </Link>
 
             <ProgressCard project={project} />
-
         </article>
     )
 }
