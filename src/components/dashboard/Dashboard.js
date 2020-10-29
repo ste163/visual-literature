@@ -78,7 +78,6 @@ export const Dashboard = () => {
 
         {/* SELECT INPUT THAT POPULATES DROP DOWNS BASED ON AVAILABLE DATA.
         WILL NEED COMPLEX MAP FUNCTION TO CREATE SELECTS */}
-        DISPLAY BY SELECTED DATE
 
         </section>
 
