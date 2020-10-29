@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react"
+import React, { useContext, useState, useEffect, useRef } from "react"
 import { ProjectContext } from "./ProjectProvider"
 import { TypeContext } from "../type/TypeProvider"
 import "./ProjectForm.css"
@@ -8,6 +8,14 @@ export const ProjectForm = props => {
     const editableProject = props.props
     const userId = +sessionStorage.getItem("userId")
 
+    const datePicker = useRef()
+    // Get todays date and fix issues based on timezones
+    const basicDate = new Date()
+    const todaysDate = new Date(basicDate.getTime() - (basicDate.getTimezoneOffset() * 60000)).toISOString().split("T")[0]
+
+    if (datePicker.current !== undefined) {
+        datePicker.current.max = todaysDate
+    }
 
     // Set the default project so the form can reset.
     const defaultProject = {
@@ -62,33 +70,37 @@ export const ProjectForm = props => {
             if (project.goalFrequency === "daily") {
                 project.daysPerFrequency = 1
             }
-            
-            if (editableProject) {
-                updateProject({
-                    id: editableProject.id,
-                    name: project.name,
-                    userId,
-                    typeId: +project.typeId,
-                    dateStarted: project.dateStarted,
-                    wordCountGoal: +project.wordCountGoal,
-                    goalFrequency: project.goalFrequency,
-                    daysPerFrequency: +project.daysPerFrequency,
-                    completed: false
-                })
 
+            if (+project.wordCountGoal === 0) {
+                console.log("WORD COUNT GOAL SET TO 0")
             } else {
-                addProject({
-                    name: project.name,
-                    userId,
-                    typeId: +project.typeId,
-                    dateStarted: project.dateStarted,
-                    wordCountGoal: +project.wordCountGoal,
-                    goalFrequency: project.goalFrequency,
-                    daysPerFrequency: +project.daysPerFrequency,
-                    completed: false
-                })
-                setProject(defaultProject)
-            }  
+                if (editableProject) {
+                    updateProject({
+                        id: editableProject.id,
+                        name: project.name,
+                        userId,
+                        typeId: +project.typeId,
+                        dateStarted: project.dateStarted,
+                        wordCountGoal: +project.wordCountGoal,
+                        goalFrequency: project.goalFrequency,
+                        daysPerFrequency: +project.daysPerFrequency,
+                        completed: false
+                    })
+    
+                } else {
+                    addProject({
+                        name: project.name,
+                        userId,
+                        typeId: +project.typeId,
+                        dateStarted: project.dateStarted,
+                        wordCountGoal: +project.wordCountGoal,
+                        goalFrequency: project.goalFrequency,
+                        daysPerFrequency: +project.daysPerFrequency,
+                        completed: false
+                    })
+                    setProject(defaultProject)
+                }  
+            }   
         }
     }
 
@@ -140,6 +152,7 @@ export const ProjectForm = props => {
             <fieldset>
                 <label htmlFor="projectDate">Project Start Date:</label>
                 <input
+                ref={datePicker}
                 required 
                 type="date"
                 onChange={handleControlledInputChange}
@@ -158,6 +171,7 @@ export const ProjectForm = props => {
                  id="projectGoal"
                  name="wordCountGoal"
                  value={project.wordCountGoal}
+                 min="0"
                  placeholder="500"
                  required
                  autoFocus
