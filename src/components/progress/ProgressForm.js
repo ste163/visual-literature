@@ -34,7 +34,7 @@ export const ProgressForm = project => {
         proofread: false,
     }
 
-    const { progress, addProgress, updateProgress, deleteProgress } = useContext(ProgressContext)
+    const { progress, getProgressByProjectId, addProgress, updateProgress, deleteProgress } = useContext(ProgressContext)
     const [ currentProgress, setCurrentProgress ] = useState(defaultProgress)
     const [ progressFound, setProgressFound ] = useState(false)
 
@@ -122,7 +122,8 @@ export const ProgressForm = project => {
     const createProgress = (e) => {
         e.preventDefault()
         constructNewProgress()
-        console.log(e.currentTarget.parentNode.parentNode.parentNode.className = "background__modal")
+        // getProgressByProjectId(projectId)
+        e.currentTarget.parentNode.parentNode.parentNode.className = "background__modal"
     }
 
     const DeleteWarning = () => (

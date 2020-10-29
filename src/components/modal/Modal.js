@@ -3,12 +3,14 @@ import { IconClose } from "../icons/IconClose"
 import "./Modal.css"
 
 // To use Modal
-    // Add props for width:
+    // Add props for width (see Modal.css for all):
         // modal__width--small
         // modal__width--wide
     // Add content with
         // contentFunction
-
+    // Add fetch request on close with
+        // fetchFunction
+        
 export const Modal = (React.forwardRef((props, ref) => (
      (
         <section ref={ref} className="background__modal"

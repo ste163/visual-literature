@@ -19,6 +19,7 @@ export const ProgressProvider = props => {
     }
 
     const addProgress = progressObj => {
+        debugger
         return fetch(`http://localhost:8088/progress/`, {
             method: "POST",
             headers: {
@@ -27,7 +28,7 @@ export const ProgressProvider = props => {
             body: JSON.stringify(progressObj)
         })
         .then(() => {
-            getProgressByProjectId(progressObj.id)
+            getProgressByProjectId(progressObj.projectId)
         })
     }
 
@@ -40,7 +41,7 @@ export const ProgressProvider = props => {
             body: JSON.stringify(progressObj)
         })
         .then(() => {
-            getProgressByProjectId(progressObj.id)
+            getProgressByProjectId(progressObj.projectId)
         })
     }
 
