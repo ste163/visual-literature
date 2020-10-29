@@ -15,6 +15,10 @@
     {
       "username": "Author123",
       "id": 4
+    },
+    {
+      "username": "noProjects",
+      "id": 5
     }
   ],
   "projects": [
@@ -50,6 +54,17 @@
       "goalFrequency": "daily",
       "daysPerFrequency": 1,
       "completed": false
+    },
+    {
+      "name": "Crash Me",
+      "userId": 5,
+      "typeId": 8,
+      "dateStarted": "2020-10-29",
+      "wordCountGoal": 300,
+      "goalFrequency": "weekly",
+      "daysPerFrequency": 3,
+      "completed": false,
+      "id": 9
     }
   ],
   "types": [
@@ -446,6 +461,66 @@
       "edited": false,
       "proofread": false,
       "id": 61
+    },
+    {
+      "projectId": 9,
+      "userId": 5,
+      "dateEntered": "2020-10-27",
+      "wordsWritten": 250,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "id": 64
+    },
+    {
+      "projectId": 9,
+      "userId": 5,
+      "dateEntered": "2020-10-26",
+      "wordsWritten": 274,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "id": 65
+    },
+    {
+      "id": 66,
+      "projectId": 9,
+      "userId": 5,
+      "dateEntered": "2020-10-25",
+      "wordsWritten": 300,
+      "revised": false,
+      "edited": false,
+      "proofread": false
+    },
+    {
+      "projectId": 9,
+      "userId": 5,
+      "dateEntered": "2020-10-02",
+      "wordsWritten": 299,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "id": 67
+    },
+    {
+      "projectId": 9,
+      "userId": 5,
+      "dateEntered": "2020-10-03",
+      "wordsWritten": 300,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "id": 68
+    },
+    {
+      "id": 69,
+      "projectId": 9,
+      "userId": 5,
+      "dateEntered": "2020-10-29",
+      "wordsWritten": 340,
+      "revised": false,
+      "edited": false,
+      "proofread": false
     }
   ]
 }

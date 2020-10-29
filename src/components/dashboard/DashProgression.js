@@ -192,14 +192,15 @@ export const DashProgression = (props, progress) => {
                 // Get only the progress that matches today's date
                 const monthlyProjects = incomingProgress.filter(each => each.project.goalFrequency === "monthly")
                 const currentMonth = new Date(todaysDate).getMonth()
+               
                 // Match only progress that matches today's date
                 const thisMonthsProgress = monthlyProjects.filter(each => {
                     const progressMonth = new Date(each.dateEntered).getMonth()
                     return progressMonth === currentMonth
                 })
                 if (thisMonthsProgress.length !== 0) {
+                   
                     // For each progress of this month, run the goal checks
-
                     thisMonthsProgress.forEach(progress => {
                         // Find the average words written
                         if (progress.wordsWritten) {
@@ -249,10 +250,10 @@ export const DashProgression = (props, progress) => {
     }
 
     useEffect(() => {
-        checkGoalProgress()   
+        checkGoalProgress()
         new Chart(progressBar.current, horizontalBar(progressBarProgression, progressBarXAxis));
         new Chart(wordsWrittenLine.current, wordCountLine(progressDateLabels, progressWordsWritten))
-    }, [checkGoalProgress])
+    }, [incomingProgress, progressBarProgression, lineWordsWrittenArray])
 
     return (
         <>

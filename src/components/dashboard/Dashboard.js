@@ -43,26 +43,35 @@ export const Dashboard = () => {
         .then(() => {
             if (projectId) {
                 getProjectByParam(projectId)
-                .then(getProgressByProjectId(projectId))
+                .then(() => {
+                    getProgressByProjectId(projectId)
+                })
             } else {
                 getProjects(activeUser)
-                .then(getProgressByUserId(activeUser))
+                .then(() => {
+                    getProgressByUserId(activeUser)
+                })
             }
         })
     }, [])
 
     useEffect(() => {
         displayProject()
-    }, [displayProject])
+    }, [progress])
 
     return (
         <>
         <section className="view__header">
 
         <button className="project__btn"
-            onClick={e => progressModal.current.className = "background__modal modal__active"}>
+            onClick={e => {
+                    if (progressModal.current !== undefined) {
+                        progressModal.current.className = "background__modal modal__active"
+                    }
+                }
+            }>
                 <IconPlus color="icon__gray" />
-                Add Progress
+                Add progress
             </button>
 
         <IconDivider color="icon__lightGray" />
@@ -82,7 +91,7 @@ export const Dashboard = () => {
                 
                             <DashGoalCard props={currentProject} />
                             {
-                                currentProgress.length === [] ? null :
+                                currentProgress.length === 0 ? null :
                                     <DashProgression props={currentProject} progress={currentProgress}/>    
                             }
                             <Modal ref={progressModal} contentFunction={<ProgressForm project={currentProject} />} width={"modal__width--med"}/>
