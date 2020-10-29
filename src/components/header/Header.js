@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react"
-import { useHistory, useLocation } from "react-router-dom"
+import React, { useRef, useState } from "react"
+import { useHistory } from "react-router-dom"
 import { VisLitLogo } from "../branding/VisLitLogo"
 import { VisLitTitle } from "../branding/VisLitTitle"
 import { IconLogout } from "../icons/IconLogout"
@@ -8,19 +8,9 @@ import "./Header.css"
 export const Header = () => {
 
     const history = useHistory()
-    const location = useLocation()
 
-    // We will set the nav with the current location.pathname
-    // const [activeNav, setNav] = useState()
-
-    let activeNavItem = location.pathname
-
-    // useEffect(() => {
-    //     Location doesn't show on load because it takes a couple seconds
-    //     for it to run. This delay happens when clicking the buttons, too.
-    //     console.log(location.pathname)
-    //     setNav(location.pathname)
-    // }, [])
+    const btnProj = useRef()
+    const btnDash = useRef()
 
     // Refactor header so each item is it's own element on the grid
     // for perfect, aligned placement
@@ -38,37 +28,38 @@ export const Header = () => {
             </section>
 
             <nav className="header__nav">
-                
                 <ul className="nav__list">
-
                     <div className="nav__centered">
-
                         <li className="nav__item">
-                            <button className="nav__btn" onClick={() => {
+                            <button 
+                            ref={btnProj}
+                            className="nav__btn nav__btn--active"
+                            onClick={ e => {
                                 history.push("/projects")
-                                activeNavItem = "/projects"
-                                console.log("CURRENT NAV", activeNavItem)
+                                btnProj.current.className = "nav__btn nav__btn--active"
+                                btnDash.current.className = "nav__btn"
                             }}>
                                 Projects
                             </button>
                         </li>
 
                         <li className="nav__item">
-                            <button className="nav__btn"  onClick={() => {
+                            <button
+                            ref={btnDash}
+                            className="nav__btn"
+                            onClick={ e => {
                                 history.push("/dashboard")
-                                activeNavItem = "/dashboard"
-                                console.log("CURRENT NAV", activeNavItem)
+                                btnProj.current.className = "nav__btn"
+                                btnDash.current.className = "nav__btn nav__btn--active"
                             }}>
                                 Dashboard
                             </button>
                         </li>      
 
                         <div className="nav__line"></div>
-                    
                     </div>
 
                     <li className="nav__item nav__rightAligned">
-
                         <button className="nav__btn btn__logout" 
                         onClick={() => {
                            sessionStorage.clear("userId")
@@ -89,11 +80,8 @@ export const Header = () => {
                             <IconLogout color="icon__white" />
                             Logout
                         </button>
-                        
                     </li>
-
                 </ul>
-
             </nav>
 
         </header>

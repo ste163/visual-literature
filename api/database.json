@@ -19,6 +19,10 @@
     {
       "username": "noProjects",
       "id": 5
+    },
+    {
+      "username": "bestAuthorEvar",
+      "id": 6
     }
   ],
   "projects": [
@@ -65,6 +69,28 @@
       "daysPerFrequency": 3,
       "completed": false,
       "id": 9
+    },
+    {
+      "id": 10,
+      "name": "The Spookiest Story Ever Written",
+      "userId": 6,
+      "typeId": 1,
+      "dateStarted": "2020-10-26",
+      "wordCountGoal": 500,
+      "goalFrequency": "monthly",
+      "daysPerFrequency": 17,
+      "completed": false
+    },
+    {
+      "id": 11,
+      "name": "The Funniest",
+      "userId": 6,
+      "typeId": 3,
+      "dateStarted": "2020-09-01",
+      "wordCountGoal": 500,
+      "goalFrequency": "weekly",
+      "daysPerFrequency": 4,
+      "completed": false
     }
   ],
   "types": [
@@ -211,6 +237,116 @@
       "edited": false,
       "proofread": false,
       "id": 11
+    },
+    {
+      "projectId": 10,
+      "userId": 6,
+      "dateEntered": "2020-10-26",
+      "wordsWritten": 515,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "id": 12
+    },
+    {
+      "projectId": 10,
+      "userId": 6,
+      "dateEntered": "2020-10-27",
+      "wordsWritten": 489,
+      "revised": false,
+      "edited": false,
+      "proofread": true,
+      "id": 13
+    },
+    {
+      "projectId": 10,
+      "userId": 6,
+      "dateEntered": "2020-10-28",
+      "wordsWritten": 632,
+      "revised": false,
+      "edited": false,
+      "proofread": true,
+      "id": 14
+    },
+    {
+      "id": 15,
+      "projectId": 10,
+      "userId": 6,
+      "dateEntered": "2020-10-29",
+      "wordsWritten": 509,
+      "revised": false,
+      "edited": false,
+      "proofread": false
+    },
+    {
+      "projectId": 10,
+      "userId": 6,
+      "dateEntered": "2020-10-25",
+      "wordsWritten": 698,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "id": 16
+    },
+    {
+      "projectId": 10,
+      "userId": 6,
+      "dateEntered": "2020-10-19",
+      "wordsWritten": 600,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "id": 17
+    },
+    {
+      "projectId": 10,
+      "userId": 6,
+      "dateEntered": "2020-10-20",
+      "wordsWritten": 780,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "id": 18
+    },
+    {
+      "projectId": 11,
+      "userId": 6,
+      "dateEntered": "2020-09-04",
+      "wordsWritten": 5000,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "id": 19
+    },
+    {
+      "projectId": 11,
+      "userId": 6,
+      "dateEntered": "2020-09-11",
+      "wordsWritten": 90000,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "id": 20
+    },
+    {
+      "projectId": 11,
+      "userId": 6,
+      "dateEntered": "2020-10-09",
+      "wordsWritten": 600,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "id": 21
+    },
+    {
+      "id": 22,
+      "projectId": 11,
+      "userId": 6,
+      "dateEntered": "2020-10-29",
+      "wordsWritten": 400,
+      "revised": false,
+      "edited": true,
+      "proofread": false
     }
   ]
 }

@@ -54,10 +54,10 @@
 }
 
 .nav__btn--active {
-    font-weight: var(--weightHeavier)
+    font-weight: var(--weightHeavier);
 }
 
-.nav__line {
+/* .nav__line {
     grid-row-start: 2;
     align-self: self-start;
     border-bottom-style: solid;
@@ -65,6 +65,14 @@
     border-radius: 5em;
     border-color: white;
 }
+
+.nav__line--projects {
+    grid-column: 1;
+}
+
+.nav__line--dashboard {
+    grid-column: 2;
+} */
 
 .btn__logout {
     display: flex;
