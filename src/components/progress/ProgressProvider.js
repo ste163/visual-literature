@@ -19,7 +19,6 @@ export const ProgressProvider = props => {
     }
 
     const addProgress = progressObj => {
-        debugger
         return fetch(`http://localhost:8088/progress/`, {
             method: "POST",
             headers: {
