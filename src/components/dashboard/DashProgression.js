@@ -61,9 +61,7 @@ export const DashProgression = (props, progress) => {
         // Get only the selected project's progress
         const currentProjectsProgress = incomingProgress.filter(each => each.projectId === props.props.id)
 
-        // Function for preparing data for line graph
         const prepareDataForLineGraph = () => {
-            // Populate arrays for words written line graph
             if (progressArray.length !== 0) {
                 progressArray.forEach(progress => {
                     progressDateLabels.push(progress.dateEntered)
@@ -72,6 +70,20 @@ export const DashProgression = (props, progress) => {
                 setLineWordsLabelArray(progressDateLabels)
                 setLineWordsWrittenArray(progressWordsWritten)
             }
+        }
+
+        const findAverageWordsWritten = (progress) => {
+            if (progress.wordsWritten) {
+                wordsWrittenArray.push(progress.wordsWritten)
+                progressArray.push(progress)
+            }
+            let total = 0
+            for (let i = 0; i < wordsWrittenArray.length; i++) {
+                total += wordsWrittenArray[i]
+            }
+            const wordAverage = total / wordsWrittenArray.length
+            const roundedAverage = Math.ceil(wordAverage)
+            setAverageWordsWritten(roundedAverage)
         }
 
         switch(goalFrequency) {
@@ -95,18 +107,7 @@ export const DashProgression = (props, progress) => {
                 if (monthsDailyProgress.length !== 0) {
                     monthsDailyProgress.forEach(progress => {
 
-                        // Find the average words written
-                        if (progress.wordsWritten) {
-                            wordsWrittenArray.push(progress.wordsWritten)
-                            progressArray.push(progress)
-                        }
-                        let total = 0
-                        for (let i = 0; i < wordsWrittenArray.length; i++) {
-                            total += wordsWrittenArray[i]
-                        }
-                        const wordAverage = total / wordsWrittenArray.length
-                        const roundedAverage = Math.ceil(wordAverage)
-                        setAverageWordsWritten(roundedAverage)
+                        findAverageWordsWritten(progress)
 
                         // If more words written than the goal, set complete, if some progress made, set halfway
                         if (progress.wordsWritten >= wordCountGoal) {
@@ -123,7 +124,6 @@ export const DashProgression = (props, progress) => {
                         }
                     })
 
-                // Populate arrays for words written line graph
                 prepareDataForLineGraph()
 
                 // If no progress on today's date, set as 0
@@ -155,18 +155,7 @@ export const DashProgression = (props, progress) => {
                     // see if the goal has been met for each entered progress
                     monthsWeeklyProgress.forEach(progress => {
 
-                        // Find the average words written
-                        if (progress.wordsWritten) {
-                            wordsWrittenArray.push(progress.wordsWritten)
-                            progressArray.push(progress)
-                        }
-                        let total = 0
-                        for (let i = 0; i < wordsWrittenArray.length; i++) {
-                            total += wordsWrittenArray[i]
-                        }
-                        const wordAverage = total / wordsWrittenArray.length
-                        const roundedAverage = Math.ceil(wordAverage)
-                        setAverageWordsWritten(roundedAverage)
+                        findAverageWordsWritten(progress)
 
                         if (progress.wordsWritten >= wordCountGoal) {
                             ++weeklyProgressCounter
@@ -178,7 +167,6 @@ export const DashProgression = (props, progress) => {
                         }
                     })
 
-                    // Populate arrays for words written line graph
                     prepareDataForLineGraph()
 
                     // If the counter reaches the freq for the week, set complete
@@ -212,19 +200,8 @@ export const DashProgression = (props, progress) => {
                    
                     // For each progress of this month, run the goal checks
                     thisMonthsProgress.forEach(progress => {
-                        // Find the average words written
-                        if (progress.wordsWritten) {
-                            wordsWrittenArray.push(progress.wordsWritten)
-                            progressArray.push(progress)
-                        }
-                        let total = 0
-                        for (let i = 0; i < wordsWrittenArray.length; i++) {
-                            total += wordsWrittenArray[i]
-                        }
-                        const wordAverage = total / wordsWrittenArray.length
-                        const roundedAverage = Math.ceil(wordAverage)
-                        setAverageWordsWritten(roundedAverage)
 
+                        findAverageWordsWritten(progress)
 
                         if (progress.wordsWritten >= wordCountGoal) {
                             // If we have progress, increase the counter, then setGoalProgression as the counter
@@ -237,7 +214,6 @@ export const DashProgression = (props, progress) => {
                         }
                     })
 
-                    // Populate arrays for words written line graph
                     prepareDataForLineGraph()
 
                     // If the counter reaches the freq for the month, set complete
