@@ -29,15 +29,19 @@ export const DashProgression = (props, progress) => {
     const [ lineWordsWrittenArray, setLineWordsWrittenArray ] = useState([])
     const [ lineWordsLabelArray, setLineWordsLabelArray ] = useState([])
 
+    // PROJECT INFO
     const wordCountGoal = props.props.wordCountGoal
     const goalFrequency = props.props.goalFrequency
     const daysPerFrequency = props.props.daysPerFrequency
 
+    // PROGRESS INFO
     const incomingProgress = props.progress
 
+    // REFS
     const progressBar = useRef()
     const wordsWrittenLine = useRef()
 
+    // DATES
     const currentDate = new Date()
     const todaysDate = currentDate.toISOString().slice(0,10)
 
@@ -46,7 +50,7 @@ export const DashProgression = (props, progress) => {
     const [ goalFreqComplete, setGoalFreqComplete ] = useState()
     
 
-    // Create arrays to hold data for line graph
+    // LINE GRAPH DATA ARRAYS
     let progressArray = []
     let progressDateLabels = []
     let progressWordsWritten = []
@@ -56,6 +60,19 @@ export const DashProgression = (props, progress) => {
 
         // Get only the selected project's progress
         const currentProjectsProgress = incomingProgress.filter(each => each.projectId === props.props.id)
+
+        // Function for preparing data for line graph
+        const prepareDataForLineGraph = () => {
+            // Populate arrays for words written line graph
+            if (progressArray.length !== 0) {
+                progressArray.forEach(progress => {
+                    progressDateLabels.push(progress.dateEntered)
+                    progressWordsWritten.push(progress.wordsWritten)
+                })
+                setLineWordsLabelArray(progressDateLabels)
+                setLineWordsWrittenArray(progressWordsWritten)
+            }
+        }
 
         switch(goalFrequency) {
             case "daily":
@@ -107,14 +124,7 @@ export const DashProgression = (props, progress) => {
                     })
 
                 // Populate arrays for words written line graph
-                if (progressArray.length !== 0) {
-                    progressArray.forEach(progress => {
-                        progressDateLabels.push(progress.dateEntered)
-                        progressWordsWritten.push(progress.wordsWritten)
-                    })
-                    setLineWordsLabelArray(progressDateLabels)
-                    setLineWordsWrittenArray(progressWordsWritten)
-                }
+                prepareDataForLineGraph()
 
                 // If no progress on today's date, set as 0
                 } else {
@@ -169,14 +179,7 @@ export const DashProgression = (props, progress) => {
                     })
 
                     // Populate arrays for words written line graph
-                    if (progressArray.length !== 0) {
-                        progressArray.forEach(progress => {
-                            progressDateLabels.push(progress.dateEntered)
-                            progressWordsWritten.push(progress.wordsWritten)
-                        })
-                        setLineWordsLabelArray(progressDateLabels)
-                        setLineWordsWrittenArray(progressWordsWritten)
-                    }
+                    prepareDataForLineGraph()
 
                     // If the counter reaches the freq for the week, set complete
                     if (weeklyProgressCounter >= daysPerFrequency) {
@@ -235,14 +238,7 @@ export const DashProgression = (props, progress) => {
                     })
 
                     // Populate arrays for words written line graph
-                    if (progressArray.length !== 0) {
-                        progressArray.forEach(progress => {
-                            progressDateLabels.push(progress.dateEntered)
-                            progressWordsWritten.push(progress.wordsWritten)
-                        })
-                        setLineWordsLabelArray(progressDateLabels)
-                        setLineWordsWrittenArray(progressWordsWritten)
-                    }
+                    prepareDataForLineGraph()
 
                     // If the counter reaches the freq for the month, set complete
                     if (monthlyProgressCounter >= daysPerFrequency) {
