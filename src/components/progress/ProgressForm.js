@@ -122,6 +122,7 @@ export const ProgressForm = project => {
     const createProgress = (e) => {
         e.preventDefault()
         constructNewProgress()
+        console.log(e.currentTarget.parentNode.parentNode.parentNode.className = "background__modal")
     }
 
     const DeleteWarning = () => (
@@ -206,7 +207,8 @@ export const ProgressForm = project => {
             <div className="progress__submit">
                 <button 
                 className="btn"
-                type="submit">
+                type="submit"
+                >
                     {progressFound ? "Update" : "Add"}
                 </button>
                 {progressFound ? 
