@@ -97,8 +97,8 @@ export const DashProgression = (props, progress) => {
                 setProgressBarXAxis(lastDayOfMonthInt)
                 
                 // Get only progress for daily projects
+                // then only for this month
                 const dailyProjects = currentProjectsProgress.filter(each => each.project.goalFrequency === "daily")
-                // Get only progress that matches this month
                 const monthsDailyProgress = dailyProjects.filter(each => currentMonthsProgress(each))
 
                 if (monthsDailyProgress.length !== 0) {
@@ -118,14 +118,12 @@ export const DashProgression = (props, progress) => {
                 break;
 
             case "weekly":
-                // Set counter to 0
                 let weeklyProgressCounter = 0
 
                 // Calculate Progress Bar X-axis
                 const howMuchToWriteThisMonth = daysPerFrequency * weeksInCurrentMonth
                 setProgressBarXAxis(howMuchToWriteThisMonth)
 
-                // Get only the progress that matches this month
                 const weeklyProjects = currentProjectsProgress.filter(each => each.project.goalFrequency === "weekly")
                 const monthsWeeklyProgress = weeklyProjects.filter(each => currentMonthsProgress(each))
 
@@ -149,7 +147,6 @@ export const DashProgression = (props, progress) => {
 
                 setProgressBarXAxis(daysPerFrequency)
 
-                // Get only the progress for this month
                 const monthlyProjects = currentProjectsProgress.filter(each => each.project.goalFrequency === "monthly")
                 const thisMonthsProgress = monthlyProjects.filter(each => currentMonthsProgress(each))
 
@@ -157,12 +154,11 @@ export const DashProgression = (props, progress) => {
                     thisMonthsProgress.forEach(progress => {
                         findAverageWordsWritten(progress)
                         if (progress.wordsWritten >= wordCountGoal) {
-                            // If we have progress, increase the counter, then setGoalProgression as the counter
                             ++monthlyProgressCounter
                         }
                         if (progress.wordsWritten < wordCountGoal && progress.proofread || progress.revised || progress.edited) {
                             ++monthlyProgressCounter
-                        }
+                        } 
                     })
                     setProgressBarProgression(monthlyProgressCounter)
                     prepareDataForLineGraph()
@@ -179,7 +175,6 @@ export const DashProgression = (props, progress) => {
 
     return (
         <>
-
         <section className="card card__color--white card__dash card__dash--progressionBar">
         <h3 className="dash__h3 dash__h3--graph">Progress for month</h3>
             <div>
@@ -208,7 +203,6 @@ export const DashProgression = (props, progress) => {
                 <canvas ref={wordsWrittenLine} id="wordCount__line" width="50" height="200"/>
             </div>
         </section>
-
         </>
     )
 }
