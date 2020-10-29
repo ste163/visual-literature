@@ -25,7 +25,6 @@ export const DashProgression = (props, progress) => {
     const [ averageWordsWritten, setAverageWordsWritten ] = useState()
     let wordsWrittenArray = []
 
-
     // WORDS WRITTEN LINE GRAPH LABELS & DATA
     const [ lineWordsWrittenArray, setLineWordsWrittenArray ] = useState([])
     const [ lineWordsLabelArray, setLineWordsLabelArray ] = useState([])
@@ -54,6 +53,10 @@ export const DashProgression = (props, progress) => {
 
     // Goal progression check from progressCard
     const checkGoalProgress = () => {
+
+        // Get only the selected project's progress
+        const currentProjectsProgress = incomingProgress.filter(each => each.projectId === props.props.id)
+
         switch(goalFrequency) {
             case "daily":
                 // Counter used for progress bar
@@ -63,7 +66,7 @@ export const DashProgression = (props, progress) => {
                 setProgressBarXAxis(lastDayOfMonthInt)
 
                 // Get only progress for projects that are daily
-                const dailyProjects = incomingProgress.filter(each => each.project.goalFrequency === "daily")
+                const dailyProjects = currentProjectsProgress.filter(each => each.project.goalFrequency === "daily")
 
                 // Get only the progress that matches this month
                 const monthsDailyProgress = dailyProjects.filter(each => {
@@ -109,6 +112,8 @@ export const DashProgression = (props, progress) => {
                         progressDateLabels.push(progress.dateEntered)
                         progressWordsWritten.push(progress.wordsWritten)
                     })
+                    setLineWordsLabelArray(progressDateLabels)
+                    setLineWordsWrittenArray(progressWordsWritten)
                 }
 
                 // If no progress on today's date, set as 0
@@ -127,7 +132,7 @@ export const DashProgression = (props, progress) => {
 
                 setProgressBarXAxis(howMuchToWriteThisMonth)
 
-                const weeklyProjects = incomingProgress.filter(each => each.project.goalFrequency === "weekly")
+                const weeklyProjects = currentProjectsProgress.filter(each => each.project.goalFrequency === "weekly")
                 const monthsWeeklyProgress = weeklyProjects.filter(each => {
                     // To ensure that the date entered is tested correctly, at least with console.logs, have to replace the - with /
                     const dateEntered = new Date(each.dateEntered)
@@ -169,6 +174,8 @@ export const DashProgression = (props, progress) => {
                             progressDateLabels.push(progress.dateEntered)
                             progressWordsWritten.push(progress.wordsWritten)
                         })
+                        setLineWordsLabelArray(progressDateLabels)
+                        setLineWordsWrittenArray(progressWordsWritten)
                     }
 
                     // If the counter reaches the freq for the week, set complete
@@ -190,7 +197,7 @@ export const DashProgression = (props, progress) => {
                 setProgressBarXAxis(daysPerFrequency)
 
                 // Get only the progress that matches today's date
-                const monthlyProjects = incomingProgress.filter(each => each.project.goalFrequency === "monthly")
+                const monthlyProjects = currentProjectsProgress.filter(each => each.project.goalFrequency === "monthly")
                 const currentMonth = new Date(todaysDate).getMonth()
                
                 // Match only progress that matches today's date
@@ -233,6 +240,8 @@ export const DashProgression = (props, progress) => {
                             progressDateLabels.push(progress.dateEntered)
                             progressWordsWritten.push(progress.wordsWritten)
                         })
+                        setLineWordsLabelArray(progressDateLabels)
+                        setLineWordsWrittenArray(progressWordsWritten)
                     }
 
                     // If the counter reaches the freq for the month, set complete
@@ -252,8 +261,8 @@ export const DashProgression = (props, progress) => {
     useEffect(() => {
         checkGoalProgress()
         new Chart(progressBar.current, horizontalBar(progressBarProgression, progressBarXAxis));
-        new Chart(wordsWrittenLine.current, wordCountLine(progressDateLabels, progressWordsWritten))
-    }, [incomingProgress, progressBarProgression, lineWordsWrittenArray])
+        new Chart(wordsWrittenLine.current, wordCountLine(lineWordsLabelArray, lineWordsWrittenArray))
+    }, [incomingProgress, progressBarProgression])
 
     return (
         <>
