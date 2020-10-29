@@ -56,6 +56,12 @@ export const DashProgression = (props, progress) => {
         // Get only the selected project's progress
         const currentProjectsProgress = incomingProgress.filter(each => each.projectId === props.props.id)
 
+        // Get only this month's progress
+        const currentMonthsProgress = (progress) => {
+            const dateEntered = new Date(progress.dateEntered).getMonth()
+            return dateEntered === currentMonthInt
+        }
+
         const findAverageWordsWritten = (progress) => {
             if (progress.wordsWritten) {
                 wordsWrittenArray.push(progress.wordsWritten)
@@ -80,7 +86,8 @@ export const DashProgression = (props, progress) => {
                 setLineWordsWrittenArray(progressWordsWritten)
             }
         }
-
+        
+        // Check goal progression per project type
         switch(goalFrequency) {
             case "daily":
                 // Counter used for progress bar
@@ -88,33 +95,24 @@ export const DashProgression = (props, progress) => {
 
                 // Set progressBarXAxis to the current month
                 setProgressBarXAxis(lastDayOfMonthInt)
-
-                // Get only progress for projects that are daily
+                
+                // Get only progress for daily projects
                 const dailyProjects = currentProjectsProgress.filter(each => each.project.goalFrequency === "daily")
-
-                // Get only the progress that matches this month
-                const monthsDailyProgress = dailyProjects.filter(each => {
-                    const dateEntered = new Date(each.dateEntered)
-                    const monthEntered = dateEntered.getMonth()
-                    return monthEntered === currentMonthInt
-                })
+                // Get only progress that matches this month
+                const monthsDailyProgress = dailyProjects.filter(each => currentMonthsProgress(each))
 
                 if (monthsDailyProgress.length !== 0) {
                     monthsDailyProgress.forEach(progress => {
-
                         findAverageWordsWritten(progress)
-
                         // If more words written than the goal, set complete, if some progress made, set halfway
                         if (progress.wordsWritten >= wordCountGoal) {
                             ++dailyProgressCounter
-                            setProgressBarProgression(dailyProgressCounter)
                         }
                         if (progress.proofread || progress.revised || progress.edited) {
                             ++dailyProgressCounter
-                            setProgressBarProgression(dailyProgressCounter)
                         }
                     })
-
+                    setProgressBarProgression(dailyProgressCounter)
                     prepareDataForLineGraph()
                 }
                 break;
@@ -125,72 +123,48 @@ export const DashProgression = (props, progress) => {
 
                 // Calculate Progress Bar X-axis
                 const howMuchToWriteThisMonth = daysPerFrequency * weeksInCurrentMonth
-
                 setProgressBarXAxis(howMuchToWriteThisMonth)
 
                 // Get only the progress that matches this month
                 const weeklyProjects = currentProjectsProgress.filter(each => each.project.goalFrequency === "weekly")
-                const monthsWeeklyProgress = weeklyProjects.filter(each => {
-                    // To ensure that the date entered is tested correctly, at least with console.logs, have to replace the - with /
-                    const dateEntered = new Date(each.dateEntered)
-                    const monthEntered = dateEntered.getMonth()
-                    // Return only the progress in the current week
-                    return monthEntered === currentMonthInt
-                })
+                const monthsWeeklyProgress = weeklyProjects.filter(each => currentMonthsProgress(each))
 
-                // If we have progress for this week...
                 if (monthsWeeklyProgress.length !== 0) {
-                    // see if the goal has been met for each entered progress
                     monthsWeeklyProgress.forEach(progress => {
-
                         findAverageWordsWritten(progress)
-
                         if (progress.wordsWritten >= wordCountGoal) {
                             ++weeklyProgressCounter
-                            setProgressBarProgression(weeklyProgressCounter)
                         }
                         if (progress.wordsWritten < wordCountGoal && progress.proofread || progress.revised || progress.edited) {
                             ++weeklyProgressCounter
-                            setProgressBarProgression(weeklyProgressCounter)
                         }
                     })
-
+                    setProgressBarProgression(weeklyProgressCounter)
                     prepareDataForLineGraph()
                 }
                 break;
                 
             case "monthly":
-                // Create a counter for amount completed. Used in graph and progress checks
                 let monthlyProgressCounter = 0
 
                 setProgressBarXAxis(daysPerFrequency)
 
-                // Get only the progress that matches today's date
+                // Get only the progress for this month
                 const monthlyProjects = currentProjectsProgress.filter(each => each.project.goalFrequency === "monthly")
-                const currentMonth = new Date(todaysDate).getMonth()
-               
-                // Match only progress that matches today's date
-                const thisMonthsProgress = monthlyProjects.filter(each => {
-                    const progressMonth = new Date(each.dateEntered).getMonth()
-                    return progressMonth === currentMonth
-                })
+                const thisMonthsProgress = monthlyProjects.filter(each => currentMonthsProgress(each))
 
                 if (thisMonthsProgress.length !== 0) {
-                    // For each progress of this month, run the goal checks
                     thisMonthsProgress.forEach(progress => {
                         findAverageWordsWritten(progress)
-
                         if (progress.wordsWritten >= wordCountGoal) {
                             // If we have progress, increase the counter, then setGoalProgression as the counter
                             ++monthlyProgressCounter
-                            setProgressBarProgression(monthlyProgressCounter)
                         }
                         if (progress.wordsWritten < wordCountGoal && progress.proofread || progress.revised || progress.edited) {
                             ++monthlyProgressCounter
-                            setProgressBarProgression(monthlyProgressCounter)
                         }
                     })
-
+                    setProgressBarProgression(monthlyProgressCounter)
                     prepareDataForLineGraph()
                 }
                 break;

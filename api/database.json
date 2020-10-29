@@ -29,8 +29,8 @@
       "typeId": 5,
       "dateStarted": "2020-10-21",
       "wordCountGoal": 220,
-      "goalFrequency": "daily",
-      "daysPerFrequency": 1,
+      "goalFrequency": "weekly",
+      "daysPerFrequency": 6,
       "completed": false
     },
     {
@@ -41,7 +41,7 @@
       "dateStarted": "2020-10-25",
       "wordCountGoal": 300,
       "goalFrequency": "monthly",
-      "daysPerFrequency": 13,
+      "daysPerFrequency": 20,
       "completed": false
     },
     {
@@ -511,6 +511,26 @@
       "revised": false,
       "edited": false,
       "proofread": false
+    },
+    {
+      "projectId": 5,
+      "userId": 1,
+      "dateEntered": "2020-09-17",
+      "wordsWritten": 3120,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "id": 71
+    },
+    {
+      "projectId": 5,
+      "userId": 1,
+      "dateEntered": "2020-09-30",
+      "wordsWritten": 1000000,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "id": 72
     }
   ]
 }
