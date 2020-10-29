@@ -15,6 +15,10 @@
     {
       "username": "Author123",
       "id": 4
+    },
+    {
+      "username": "noProjects",
+      "id": 5
     }
   ],
   "projects": [

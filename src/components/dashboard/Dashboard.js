@@ -60,9 +60,14 @@ export const Dashboard = () => {
         <section className="view__header">
 
         <button className="project__btn"
-            onClick={e => progressModal.current.className = "background__modal modal__active"}>
+            onClick={e => {
+                    if (progressModal.current !== undefined) {
+                        progressModal.current.className = "background__modal modal__active"
+                    }
+                }
+            }>
                 <IconPlus color="icon__gray" />
-                Add Progress
+                Add progress
             </button>
 
         <IconDivider color="icon__lightGray" />
