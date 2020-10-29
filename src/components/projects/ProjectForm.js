@@ -70,33 +70,37 @@ export const ProjectForm = props => {
             if (project.goalFrequency === "daily") {
                 project.daysPerFrequency = 1
             }
-            
-            if (editableProject) {
-                updateProject({
-                    id: editableProject.id,
-                    name: project.name,
-                    userId,
-                    typeId: +project.typeId,
-                    dateStarted: project.dateStarted,
-                    wordCountGoal: +project.wordCountGoal,
-                    goalFrequency: project.goalFrequency,
-                    daysPerFrequency: +project.daysPerFrequency,
-                    completed: false
-                })
 
+            if (+project.wordCountGoal === 0) {
+                console.log("WORD COUNT GOAL SET TO 0")
             } else {
-                addProject({
-                    name: project.name,
-                    userId,
-                    typeId: +project.typeId,
-                    dateStarted: project.dateStarted,
-                    wordCountGoal: +project.wordCountGoal,
-                    goalFrequency: project.goalFrequency,
-                    daysPerFrequency: +project.daysPerFrequency,
-                    completed: false
-                })
-                setProject(defaultProject)
-            }  
+                if (editableProject) {
+                    updateProject({
+                        id: editableProject.id,
+                        name: project.name,
+                        userId,
+                        typeId: +project.typeId,
+                        dateStarted: project.dateStarted,
+                        wordCountGoal: +project.wordCountGoal,
+                        goalFrequency: project.goalFrequency,
+                        daysPerFrequency: +project.daysPerFrequency,
+                        completed: false
+                    })
+    
+                } else {
+                    addProject({
+                        name: project.name,
+                        userId,
+                        typeId: +project.typeId,
+                        dateStarted: project.dateStarted,
+                        wordCountGoal: +project.wordCountGoal,
+                        goalFrequency: project.goalFrequency,
+                        daysPerFrequency: +project.daysPerFrequency,
+                        completed: false
+                    })
+                    setProject(defaultProject)
+                }  
+            }   
         }
     }
 

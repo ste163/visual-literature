@@ -49,30 +49,35 @@ export const ProgressForm = project => {
             currentProgress.dateEntered = todaysDate
         }
 
-        if (progressFound) {
-            updateProgress({
-                id: currentProgress.id,
-                projectId,
-                userId,
-                dateEntered: currentProgress.dateEntered,
-                wordsWritten: currentProgress.wordsWritten,
-                revised: currentProgress.revised,
-                edited: currentProgress.edited,
-                proofread: currentProgress.proofread,
-            })
-
+        if (currentProgress.wordsWritten === 0) {
+            console.log("ZERO WORDS WRITTEN")
         } else {
-            addProgress({
-                projectId,
-                userId,
-                dateEntered: currentProgress.dateEntered,
-                wordsWritten: currentProgress.wordsWritten,
-                revised: currentProgress.revised,
-                edited: currentProgress.edited,
-                proofread: currentProgress.proofread,
-            })
+            if (progressFound) {
+                updateProgress({
+                    id: currentProgress.id,
+                    projectId,
+                    userId,
+                    dateEntered: currentProgress.dateEntered,
+                    wordsWritten: currentProgress.wordsWritten,
+                    revised: currentProgress.revised,
+                    edited: currentProgress.edited,
+                    proofread: currentProgress.proofread,
+                })
+    
+            } else {
+                addProgress({
+                    projectId,
+                    userId,
+                    dateEntered: currentProgress.dateEntered,
+                    wordsWritten: currentProgress.wordsWritten,
+                    revised: currentProgress.revised,
+                    edited: currentProgress.edited,
+                    proofread: currentProgress.proofread,
+                })
+            }
+            setCurrentProgress(defaultProgress)
         }
-        setCurrentProgress(defaultProgress)
+
     }
 
     const filterCurrentDate = (dateValue) => {
