@@ -57,7 +57,7 @@ export const Dashboard = () => {
 
     useEffect(() => {
         displayProject()
-    }, [progress, projects])
+    }, [progress])
 
     return (
         <>
@@ -67,11 +67,6 @@ export const Dashboard = () => {
             onClick={e => {
                     if (progressModal.current !== undefined) {
                         progressModal.current.className = "background__modal modal__active"
-                        if (projectId) {
-                            getProgressByProjectId(projectId)
-                        } else {
-                            getProgressByUserId(activeUser)
-                        }
                     }
                 }
             }>

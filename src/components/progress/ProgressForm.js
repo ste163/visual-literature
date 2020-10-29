@@ -83,7 +83,6 @@ export const ProgressForm = project => {
     }
 
     const filterCurrentDate = (dateValue) => {
-
         // Check if the entered date is in the passed in progress
         const foundProgress = progress.filter(progress => progress.dateEntered === dateValue)
 

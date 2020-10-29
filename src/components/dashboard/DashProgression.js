@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react"
-import { isSameWeek, getWeeksInMonth } from 'date-fns'
+import { getWeeksInMonth } from 'date-fns'
 import Chart from 'chart.js'
 import { horizontalBar } from "../graphs/horizontalBar"
 import { wordCountLine } from "../graphs/wordCountLine"
@@ -35,7 +35,8 @@ export const DashProgression = (props, progress) => {
     const goalFrequency = props.props.goalFrequency
     const daysPerFrequency = props.props.daysPerFrequency
 
-    // PROGRESS INFO
+    // PROGRESS INFO, MUST USE A DEEP COPY OF PROGRESS
+    // OR ELSE DATE SORTING OVERWRITES ALL PROGRESS
     const incomingProgress = props.progress
 
     // REFS
@@ -54,15 +55,15 @@ export const DashProgression = (props, progress) => {
         const currentProjectsProgress = incomingProgress.filter(each => each.projectId === props.props.id)
 
         // Get only this month's progress
-        const currentMonthsProgress = (progress) => {
-            const dateEntered = new Date(progress.dateEntered).getMonth()
+        const currentMonthsProgress = singleProgress => {
+            const dateEntered = new Date(singleProgress.dateEntered).getMonth()
             return dateEntered === currentMonthInt
         }
 
-        const findAverageWordsWritten = (progress) => {
-            if (progress.wordsWritten) {
-                wordsWrittenArray.push(progress.wordsWritten)
-                progressArray.push(progress)
+        const findAverageWordsWritten = singleProgress => {
+            if (singleProgress.wordsWritten) {
+                progressArray.push(singleProgress)
+                wordsWrittenArray.push(singleProgress.wordsWritten)
             }
             let total = 0
             for (let i = 0; i < wordsWrittenArray.length; i++) {
@@ -74,22 +75,21 @@ export const DashProgression = (props, progress) => {
         }
 
         const prepareDataForLineGraph = () => {
+            const arrayCopy = JSON.parse(JSON.stringify(progressArray))
             // Remove YEAR-MONTH-
             const yearMonthToRemove = todaysDate.slice(0, 8)
-            const progressWithShortenedDates = progressArray.map(each => {
+            const progressWithShortenedDates = arrayCopy.map(each => {
                 each.dateEntered = +each.dateEntered.replace(yearMonthToRemove, "")
                 return each
             })
             // Sort progress by day
             const sortedProgress = progressWithShortenedDates.sort((a, b) => a.dateEntered - b.dateEntered)
-            if (sortedProgress.length !== 0) {
-                sortedProgress.forEach(progress => {
-                    progressDateLabels.push(progress.dateEntered)
-                    progressWordsWritten.push(progress.wordsWritten)
-                })
-                setLineWordsLabelArray(progressDateLabels)
-                setLineWordsWrittenArray(progressWordsWritten)
-            }
+            sortedProgress.forEach(singleProgress => {
+                progressDateLabels.push(singleProgress.dateEntered)
+                progressWordsWritten.push(singleProgress.wordsWritten)
+            })
+            setLineWordsLabelArray(progressDateLabels)
+            setLineWordsWrittenArray(progressWordsWritten)
         }
         
         // Check goal progression per project type
@@ -107,13 +107,13 @@ export const DashProgression = (props, progress) => {
                 const monthsDailyProgress = dailyProjects.filter(each => currentMonthsProgress(each))
 
                 if (monthsDailyProgress.length !== 0) {
-                    monthsDailyProgress.forEach(progress => {
-                        findAverageWordsWritten(progress)
+                    monthsDailyProgress.forEach(singleProgress => {
+                        findAverageWordsWritten(singleProgress)
                         // If more words written than the goal, set complete, if some progress made, set halfway
-                        if (progress.wordsWritten >= wordCountGoal) {
+                        if (singleProgress.wordsWritten >= wordCountGoal) {
                             ++dailyProgressCounter
                         }
-                        if (progress.proofread || progress.revised || progress.edited) {
+                        if (singleProgress.proofread || singleProgress.revised || singleProgress.edited) {
                             ++dailyProgressCounter
                         }
                     })
@@ -133,12 +133,12 @@ export const DashProgression = (props, progress) => {
                 const monthsWeeklyProgress = weeklyProjects.filter(each => currentMonthsProgress(each))
 
                 if (monthsWeeklyProgress.length !== 0) {
-                    monthsWeeklyProgress.forEach(progress => {
-                        findAverageWordsWritten(progress)
-                        if (progress.wordsWritten >= wordCountGoal) {
+                    monthsWeeklyProgress.forEach(singleProgress => {
+                        findAverageWordsWritten(singleProgress)
+                        if (singleProgress.wordsWritten >= wordCountGoal) {
                             ++weeklyProgressCounter
                         }
-                        if (progress.wordsWritten < wordCountGoal && progress.proofread || progress.revised || progress.edited) {
+                        if (singleProgress.wordsWritten < wordCountGoal && singleProgress.proofread || singleProgress.revised || singleProgress.edited) {
                             ++weeklyProgressCounter
                         }
                     })
@@ -156,12 +156,12 @@ export const DashProgression = (props, progress) => {
                 const thisMonthsProgress = monthlyProjects.filter(each => currentMonthsProgress(each))
 
                 if (thisMonthsProgress.length !== 0) {
-                    thisMonthsProgress.forEach(progress => {
-                        findAverageWordsWritten(progress)
-                        if (progress.wordsWritten >= wordCountGoal) {
+                    thisMonthsProgress.forEach(singleProgress => {
+                        findAverageWordsWritten(singleProgress)
+                        if (singleProgress.wordsWritten >= wordCountGoal) {
                             ++monthlyProgressCounter
                         }
-                        if (progress.wordsWritten < wordCountGoal && progress.proofread || progress.revised || progress.edited) {
+                        if (singleProgress.wordsWritten < wordCountGoal && singleProgress.proofread || singleProgress.revised || singleProgress.edited) {
                             ++monthlyProgressCounter
                         } 
                     })
@@ -203,7 +203,7 @@ export const DashProgression = (props, progress) => {
         </section>
 
         <section className="card card__color--white card__dash card__dash--words">
-            Words written for current month
+            Words written per day this month
             <div>
                 <canvas ref={wordsWrittenLine} id="wordCount__line" width="50" height="200"/>
             </div>
