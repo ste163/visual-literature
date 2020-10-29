@@ -45,11 +45,6 @@ export const DashProgression = (props, progress) => {
     const currentDate = new Date()
     const todaysDate = currentDate.toISOString().slice(0,10)
 
-    const [ goalProgression, setGoalProgression ] = useState()
-    // goalFreqComplete can be: 0, 1, or 2 (0 is no progress, 1 is some progress, 2 is complete for freq)
-    const [ goalFreqComplete, setGoalFreqComplete ] = useState()
-    
-
     // LINE GRAPH DATA ARRAYS
     let progressArray = []
     let progressDateLabels = []
@@ -60,17 +55,6 @@ export const DashProgression = (props, progress) => {
 
         // Get only the selected project's progress
         const currentProjectsProgress = incomingProgress.filter(each => each.projectId === props.props.id)
-
-        const prepareDataForLineGraph = () => {
-            if (progressArray.length !== 0) {
-                progressArray.forEach(progress => {
-                    progressDateLabels.push(progress.dateEntered)
-                    progressWordsWritten.push(progress.wordsWritten)
-                })
-                setLineWordsLabelArray(progressDateLabels)
-                setLineWordsWrittenArray(progressWordsWritten)
-            }
-        }
 
         const findAverageWordsWritten = (progress) => {
             if (progress.wordsWritten) {
@@ -84,6 +68,17 @@ export const DashProgression = (props, progress) => {
             const wordAverage = total / wordsWrittenArray.length
             const roundedAverage = Math.ceil(wordAverage)
             setAverageWordsWritten(roundedAverage)
+        }
+
+        const prepareDataForLineGraph = () => {
+            if (progressArray.length !== 0) {
+                progressArray.forEach(progress => {
+                    progressDateLabels.push(progress.dateEntered)
+                    progressWordsWritten.push(progress.wordsWritten)
+                })
+                setLineWordsLabelArray(progressDateLabels)
+                setLineWordsWrittenArray(progressWordsWritten)
+            }
         }
 
         switch(goalFrequency) {
@@ -113,23 +108,14 @@ export const DashProgression = (props, progress) => {
                         if (progress.wordsWritten >= wordCountGoal) {
                             ++dailyProgressCounter
                             setProgressBarProgression(dailyProgressCounter)
-                            setGoalFreqComplete(2)
-                        } else {
-                            setGoalFreqComplete(1)
                         }
                         if (progress.proofread || progress.revised || progress.edited) {
                             ++dailyProgressCounter
                             setProgressBarProgression(dailyProgressCounter)
-                            setGoalFreqComplete(2)
                         }
                     })
 
-                prepareDataForLineGraph()
-
-                // If no progress on today's date, set as 0
-                } else {
-                    setGoalFreqComplete(0)
-                    setGoalProgression(0)
+                    prepareDataForLineGraph()
                 }
                 break;
 
@@ -142,6 +128,7 @@ export const DashProgression = (props, progress) => {
 
                 setProgressBarXAxis(howMuchToWriteThisMonth)
 
+                // Get only the progress that matches this month
                 const weeklyProjects = currentProjectsProgress.filter(each => each.project.goalFrequency === "weekly")
                 const monthsWeeklyProgress = weeklyProjects.filter(each => {
                     // To ensure that the date entered is tested correctly, at least with console.logs, have to replace the - with /
@@ -150,6 +137,7 @@ export const DashProgression = (props, progress) => {
                     // Return only the progress in the current week
                     return monthEntered === currentMonthInt
                 })
+
                 // If we have progress for this week...
                 if (monthsWeeklyProgress.length !== 0) {
                     // see if the goal has been met for each entered progress
@@ -168,16 +156,6 @@ export const DashProgression = (props, progress) => {
                     })
 
                     prepareDataForLineGraph()
-
-                    // If the counter reaches the freq for the week, set complete
-                    if (weeklyProgressCounter >= daysPerFrequency) {
-                        setGoalFreqComplete(2)
-                    }  else if (weeklyProgressCounter < daysPerFrequency) {
-                        setGoalFreqComplete(1)
-                    }
-                } else {
-                    setGoalFreqComplete(0)
-                    setGoalProgression(0)
                 }
                 break;
                 
@@ -196,11 +174,10 @@ export const DashProgression = (props, progress) => {
                     const progressMonth = new Date(each.dateEntered).getMonth()
                     return progressMonth === currentMonth
                 })
+
                 if (thisMonthsProgress.length !== 0) {
-                   
                     // For each progress of this month, run the goal checks
                     thisMonthsProgress.forEach(progress => {
-
                         findAverageWordsWritten(progress)
 
                         if (progress.wordsWritten >= wordCountGoal) {
@@ -215,16 +192,6 @@ export const DashProgression = (props, progress) => {
                     })
 
                     prepareDataForLineGraph()
-
-                    // If the counter reaches the freq for the month, set complete
-                    if (monthlyProgressCounter >= daysPerFrequency) {
-                        setGoalFreqComplete(2)
-                    }  else if (monthlyProgressCounter < daysPerFrequency) {
-                        setGoalFreqComplete(1)
-                    }
-                } else {
-                    setGoalFreqComplete(0)
-                    setGoalProgression(0)
                 }
                 break;
         }
