@@ -131,7 +131,7 @@ export const ProgressForm = project => {
             <p className="warning__p">Deleting progress is permanent.</p>
             <button className="btn btn--red"
             onClick={e => {
-                deleteProgress(passedInProject.userId, currentProgress.id)
+                deleteProgress(currentProgress.projectId, currentProgress.id)
                 deleteModal.current.className = "background__modal"
                 deleteModal.current.parentNode.parentNode.parentNode.className = "background__modal"
                 setCurrentProgress(defaultProgress)

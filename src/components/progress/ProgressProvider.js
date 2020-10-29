@@ -44,12 +44,12 @@ export const ProgressProvider = props => {
         })
     }
 
-    const deleteProgress = (userId, progressId) => {
+    const deleteProgress = (projectId, progressId) => {
         return fetch(`http://localhost:8088/progress/${progressId}`, {
             method: "DELETE"
         })
         .then(() => {
-            getProgressByUserId(userId)
+            getProgressByProjectId(projectId)
         })
     }
 

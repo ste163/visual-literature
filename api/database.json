@@ -446,16 +446,6 @@
       "edited": false,
       "proofread": false,
       "id": 61
-    },
-    {
-      "projectId": 6,
-      "userId": 1,
-      "dateEntered": "2020-10-29",
-      "wordsWritten": 250,
-      "revised": false,
-      "edited": false,
-      "proofread": true,
-      "id": 63
     }
   ]
 }
