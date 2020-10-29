@@ -22,6 +22,7 @@ export const ProgressForm = project => {
 
     const datePicker = useRef()
     const deleteModal = useRef()
+    const wordsModal = useRef()
   
     const userId = +sessionStorage.getItem("userId")
     // Set default progress so form can reset when needed.
@@ -50,7 +51,7 @@ export const ProgressForm = project => {
         }
 
         if (currentProgress.wordsWritten === 0) {
-            console.log("ZERO WORDS WRITTEN")
+            wordsModal.current.className = "background__modal modal__active"
         } else {
             if (progressFound) {
                 updateProgress({
@@ -142,10 +143,22 @@ export const ProgressForm = project => {
         </>
     )
 
+    const ZeroWordsWritten = () => (
+        <>
+            <h2 className="modal__warning">Warning</h2>
+            <p className="warning__p">Cannot enter zero words written.</p>
+            <button className="btn btn--red"
+            onClick={e => wordsModal.current.className = "background__modal"}>
+                Close
+            </button>
+        </>
+    )
+
     // Template for what's in state that we pass in
     return (
         <>
         <Modal ref={deleteModal} contentFunction={<DeleteWarning/>} width={"modal__width--small"}/>
+        <Modal ref={wordsModal} contentFunction={<ZeroWordsWritten/>} width={"modal__width--small"}/>
 
         <form className="form__progress" onSubmit={createProgress}>
 
@@ -219,8 +232,7 @@ export const ProgressForm = project => {
                     onClick={e => deleteModal.current.className = "background__modal modal__active"}>
                         Delete
                     </button>
-                    :
-                    <></>
+                    : null
                 }
             </div>
 
