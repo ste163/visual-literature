@@ -2,12 +2,16 @@ import React, { useContext, useState, useEffect, useRef } from "react"
 import { ProjectContext } from "./ProjectProvider"
 import { ProgressContext } from "../progress/ProgressProvider"
 import { TypeContext } from "../type/TypeProvider"
+import { Modal } from "../modal/Modal"
 import "./ProjectForm.css"
 
 export const ProjectForm = props => {
 
     const editableProject = props.props
     const userId = +sessionStorage.getItem("userId")
+
+    const typeModal = useRef()
+    const wordGoalModal = useRef()
 
     const datePicker = useRef()
     // Get todays date and fix issues based on timezones
@@ -66,7 +70,7 @@ export const ProjectForm = props => {
 
     const constructNewProject = (e) => {
         if (!parseInt(project.typeId)) {
-            console.log("NO TYPE SELECTED -- ADD WARNING MODAL")
+            typeModal.current.className = "background__modal modal__active"
         } else {
             // Prepare not entered inputs for saving
             if (project.goalFrequency === "daily") {
@@ -74,7 +78,7 @@ export const ProjectForm = props => {
             }
 
             if (+project.wordCountGoal === 0) {
-                console.log("WORD COUNT GOAL SET TO 0")
+                wordGoalModal.current.className = "background__modal modal__active"
             } else {
                 if (editableProject) {
                     updateProject({
@@ -115,7 +119,34 @@ export const ProjectForm = props => {
         setIsFreqActive(false)
     }
 
+
+    const TypeWarning = () => (
+        <>
+            <h2 className="modal__warning">Warning</h2>
+            <p className="warning__p">No project type selected.</p>
+            <button className="btn btn--red"
+            onClick={e => typeModal.current.className = "background__modal"}>
+                Close
+            </button>
+        </>
+    )
+
+    const WordGoal = () => (
+        <>
+            <h2 className="modal__warning">Warning</h2>
+            <p className="warning__p">Word count goal cannot be zero.</p>
+            <button className="btn btn--red"
+            onClick={e => wordGoalModal.current.className = "background__modal"}>
+                Close
+            </button>
+        </>
+    )
+
     return (
+        <>
+        <Modal ref={typeModal} contentFunction={<TypeWarning/>} width={"modal__width--small"}/>
+        <Modal ref={wordGoalModal} contentFunction={<WordGoal/>} width={"modal__width--small"}/>
+
         <form className="form__project" onSubmit={createProject}>
 
             <h3 className="form__h3">
@@ -252,5 +283,6 @@ export const ProjectForm = props => {
             </div>
 
         </form>
+        </>
     )
 }

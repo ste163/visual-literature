@@ -146,7 +146,7 @@ export const ProgressForm = project => {
     const ZeroWordsWritten = () => (
         <>
             <h2 className="modal__warning">Warning</h2>
-            <p className="warning__p">Cannot enter zero words written.</p>
+            <p className="warning__p">Zero words entered.</p>
             <button className="btn btn--red"
             onClick={e => wordsModal.current.className = "background__modal"}>
                 Close
