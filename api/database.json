@@ -24,7 +24,7 @@
       "userId": 1,
       "typeId": 5,
       "dateStarted": "2020-10-21",
-      "wordCountGoal": 100,
+      "wordCountGoal": 200,
       "goalFrequency": "daily",
       "daysPerFrequency": 1,
       "completed": false
@@ -122,10 +122,10 @@
       "projectId": 5,
       "userId": 1,
       "dateEntered": "2020-10-29",
-      "wordsWritten": 75,
+      "wordsWritten": 150,
       "revised": false,
       "edited": false,
-      "proofread": true
+      "proofread": false
     },
     {
       "id": 14,
@@ -153,7 +153,7 @@
       "userId": 1,
       "dateEntered": "2020-10-27",
       "wordsWritten": 300,
-      "revised": true,
+      "revised": false,
       "edited": false,
       "proofread": false
     },
@@ -432,10 +432,30 @@
       "projectId": 6,
       "userId": 1,
       "dateEntered": "2020-10-29",
-      "wordsWritten": 350,
+      "wordsWritten": 360,
       "revised": false,
       "edited": false,
       "proofread": false
+    },
+    {
+      "projectId": 6,
+      "userId": 1,
+      "dateEntered": "2020-10-22",
+      "wordsWritten": 60,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "id": 60
+    },
+    {
+      "projectId": 6,
+      "userId": 1,
+      "dateEntered": "2020-10-02",
+      "wordsWritten": 60,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "id": 61
     }
   ]
 }
