@@ -5,7 +5,7 @@ import "./ProgressForm.css"
 
 export const ProgressForm = project => {
 
-      // Get the current project being passed in.
+    // Get the current project being passed in.
     let passedInProject
 
     if (project.project.project === undefined) {
@@ -16,13 +16,13 @@ export const ProgressForm = project => {
     
     const projectId = passedInProject.id
 
-    // Populates date picker with current date.
-    const currentDate = new Date()
-    const todaysDate = currentDate.toISOString().slice(0,10)
+    // Get todays date and fix issues based on timezones
+    const basicDate = new Date()
+    const todaysDate = new Date(basicDate.getTime() - (basicDate.getTimezoneOffset() * 60000)).toISOString().split("T")[0]
 
+    const datePicker = useRef()
     const deleteModal = useRef()
   
-
     const userId = +sessionStorage.getItem("userId")
     // Set default progress so form can reset when needed.
     const defaultProgress = {
@@ -37,6 +37,11 @@ export const ProgressForm = project => {
     const { progress, addProgress, updateProgress, deleteProgress } = useContext(ProgressContext)
     const [ currentProgress, setCurrentProgress ] = useState(defaultProgress)
     const [ progressFound, setProgressFound ] = useState(false)
+
+    // Set date picker's max to today
+    if (datePicker.current !== undefined) {
+        datePicker.current.max = todaysDate
+    }
 
     const constructNewProgress = () => {
         // Add today's date if selected
@@ -143,7 +148,9 @@ export const ProgressForm = project => {
             
             <fieldset>
                 <label htmlFor="progressDate">Progress date:</label>
-                <input type="date"
+                <input
+                ref={datePicker}
+                type="date"
                 onChange={e => {
                     filterCurrentDate(e.target.value)
                     handleControlledInputChange(e)

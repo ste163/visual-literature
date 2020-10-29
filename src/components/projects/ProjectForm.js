@@ -9,16 +9,13 @@ export const ProjectForm = props => {
     const userId = +sessionStorage.getItem("userId")
 
     const datePicker = useRef()
-    const basicDate = new Date()
     // Get todays date and fix issues based on timezones
+    const basicDate = new Date()
     const todaysDate = new Date(basicDate.getTime() - (basicDate.getTimezoneOffset() * 60000)).toISOString().split("T")[0]
 
     if (datePicker.current !== undefined) {
         datePicker.current.max = todaysDate
     }
-
-  
-
 
     // Set the default project so the form can reset.
     const defaultProject = {
