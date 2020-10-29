@@ -57,7 +57,7 @@ export const Dashboard = () => {
 
     useEffect(() => {
         displayProject()
-    }, [progress])
+    }, [progress, projects])
 
     return (
         <>
@@ -67,6 +67,11 @@ export const Dashboard = () => {
             onClick={e => {
                     if (progressModal.current !== undefined) {
                         progressModal.current.className = "background__modal modal__active"
+                        if (projectId) {
+                            getProgressByProjectId(projectId)
+                        } else {
+                            getProgressByUserId(activeUser)
+                        }
                     }
                 }
             }>
@@ -78,7 +83,6 @@ export const Dashboard = () => {
 
         {/* SELECT INPUT THAT POPULATES DROP DOWNS BASED ON AVAILABLE DATA.
         WILL NEED COMPLEX MAP FUNCTION TO CREATE SELECTS */}
-        DISPLAY BY SELECTED DATE
 
         </section>
 

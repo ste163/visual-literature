@@ -325,16 +325,6 @@
     {
       "projectId": 6,
       "userId": 1,
-      "dateEntered": "2020-10-15",
-      "wordsWritten": 433,
-      "revised": true,
-      "edited": false,
-      "proofread": false,
-      "id": 41
-    },
-    {
-      "projectId": 6,
-      "userId": 1,
       "dateEntered": "2020-10-13",
       "wordsWritten": 432,
       "revised": false,
@@ -507,7 +497,7 @@
       "projectId": 6,
       "userId": 1,
       "dateEntered": "2020-10-29",
-      "wordsWritten": 200,
+      "wordsWritten": 225,
       "revised": false,
       "edited": false,
       "proofread": false
@@ -531,6 +521,16 @@
       "edited": false,
       "proofread": false,
       "id": 72
+    },
+    {
+      "projectId": 5,
+      "userId": 1,
+      "dateEntered": "2020-10-15",
+      "wordsWritten": 600,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "id": 73
     }
   ]
 }

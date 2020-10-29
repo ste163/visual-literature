@@ -9,13 +9,14 @@ import { wordCountLine } from "../graphs/wordCountLine"
 
 export const DashProgression = (props, progress) => {
 
-    // Get all the dates we need
-    const currentMonth = new Date()
-    const currentMonthInt = currentMonth.getMonth()
-    const firstDayOfMonthFull =  new Date(currentMonth.getFullYear(), currentMonth.getMonth(), 1)
-    const lastDayOfMonthFull = new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 0)
+    // DATES
+    const currentTime = new Date()
+    const todaysDate = new Date(currentTime.getTime() - (currentTime.getTimezoneOffset() * 60000)).toISOString().split("T")[0]
+    const currentMonthInt = currentTime.getMonth()
+    const firstDayOfMonthFull =  new Date(currentTime.getFullYear(), currentTime.getMonth(), 1)
+    const lastDayOfMonthFull = new Date(currentTime.getFullYear(), currentTime.getMonth() + 1, 0)
     const lastDayOfMonthInt = lastDayOfMonthFull.getDate()
-    const weeksInCurrentMonth = getWeeksInMonth(currentMonth)
+    const weeksInCurrentMonth = getWeeksInMonth(currentTime)
 
     // PROGRESS BAR
     const [ progressBarProgression, setProgressBarProgression] = useState()
@@ -40,10 +41,6 @@ export const DashProgression = (props, progress) => {
     // REFS
     const progressBar = useRef()
     const wordsWrittenLine = useRef()
-
-    // DATES
-    const currentDate = new Date()
-    const todaysDate = currentDate.toISOString().slice(0,10)
 
     // LINE GRAPH DATA ARRAYS
     let progressArray = []
@@ -77,8 +74,16 @@ export const DashProgression = (props, progress) => {
         }
 
         const prepareDataForLineGraph = () => {
-            if (progressArray.length !== 0) {
-                progressArray.forEach(progress => {
+            // Remove YEAR-MONTH-
+            const yearMonthToRemove = todaysDate.slice(0, 8)
+            const progressWithShortenedDates = progressArray.map(each => {
+                each.dateEntered = +each.dateEntered.replace(yearMonthToRemove, "")
+                return each
+            })
+            // Sort progress by day
+            const sortedProgress = progressWithShortenedDates.sort((a, b) => a.dateEntered - b.dateEntered)
+            if (sortedProgress.length !== 0) {
+                sortedProgress.forEach(progress => {
                     progressDateLabels.push(progress.dateEntered)
                     progressWordsWritten.push(progress.wordsWritten)
                 })
