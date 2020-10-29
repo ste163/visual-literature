@@ -8,8 +8,6 @@ import "./Modal.css"
         // modal__width--wide
     // Add content with
         // contentFunction
-    // Add fetch request on close with
-        // fetchFunction
         
 export const Modal = (React.forwardRef((props, ref) => (
      (
@@ -18,9 +16,6 @@ export const Modal = (React.forwardRef((props, ref) => (
             // If you click off the background, close modal
            if (e.target.className === "background__modal modal__active") {
             ref.current.className = "background__modal"
-            if (props.fetchFunction) {
-                props.fetchFunction(props.projectId)
-            }
            }
         }}>
 
@@ -29,12 +24,7 @@ export const Modal = (React.forwardRef((props, ref) => (
                 <section className="modal__heading">
 
                     <button className="modal__close"
-                    onClick={e => {
-                        ref.current.className = "background__modal"
-                        if (props.fetchFunction) {
-                            props.fetchFunction(props.projectId)
-                        }
-                    }}>
+                    onClick={e => ref.current.className = "background__modal"}>
                         <IconClose color="icon__gray" /></button>
 
                 </section>
