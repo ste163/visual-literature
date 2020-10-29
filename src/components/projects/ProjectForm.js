@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react"
+import React, { useContext, useState, useEffect, useRef } from "react"
 import { ProjectContext } from "./ProjectProvider"
 import { TypeContext } from "../type/TypeProvider"
 import "./ProjectForm.css"
@@ -7,6 +7,17 @@ export const ProjectForm = props => {
 
     const editableProject = props.props
     const userId = +sessionStorage.getItem("userId")
+
+    const datePicker = useRef()
+    const basicDate = new Date()
+    // Get todays date and fix issues based on timezones
+    const todaysDate = new Date(basicDate.getTime() - (basicDate.getTimezoneOffset() * 60000)).toISOString().split("T")[0]
+
+    if (datePicker.current !== undefined) {
+        datePicker.current.max = todaysDate
+    }
+
+  
 
 
     // Set the default project so the form can reset.
@@ -140,6 +151,7 @@ export const ProjectForm = props => {
             <fieldset>
                 <label htmlFor="projectDate">Project Start Date:</label>
                 <input
+                ref={datePicker}
                 required 
                 type="date"
                 onChange={handleControlledInputChange}
@@ -158,6 +170,7 @@ export const ProjectForm = props => {
                  id="projectGoal"
                  name="wordCountGoal"
                  value={project.wordCountGoal}
+                 min="0"
                  placeholder="500"
                  required
                  autoFocus

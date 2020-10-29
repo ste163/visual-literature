@@ -163,6 +163,8 @@ export const ProgressForm = project => {
                  id="progressGoal"
                  name="wordsWritten"
                  value={currentProgress.wordsWritten}
+                 min="0"
+                 placeholder={passedInProject.wordCountGoal}
                  required
                  autoFocus
                  />
