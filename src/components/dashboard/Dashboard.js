@@ -43,17 +43,21 @@ export const Dashboard = () => {
         .then(() => {
             if (projectId) {
                 getProjectByParam(projectId)
-                .then(getProgressByProjectId(projectId))
+                .then(() => {
+                    getProgressByProjectId(projectId)
+                })
             } else {
                 getProjects(activeUser)
-                .then(getProgressByUserId(activeUser))
+                .then(() => {
+                    getProgressByUserId(activeUser)
+                })
             }
         })
     }, [])
 
     useEffect(() => {
         displayProject()
-    }, [displayProject])
+    }, [progress])
 
     return (
         <>
@@ -87,7 +91,7 @@ export const Dashboard = () => {
                 
                             <DashGoalCard props={currentProject} />
                             {
-                                currentProgress.length === [] ? null :
+                                currentProgress.length === 0 ? null :
                                     <DashProgression props={currentProject} progress={currentProgress}/>    
                             }
                             <Modal ref={progressModal} contentFunction={<ProgressForm project={currentProject} />} width={"modal__width--med"}/>
