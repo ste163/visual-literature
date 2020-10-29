@@ -27,7 +27,7 @@ export const ProgressProvider = props => {
             body: JSON.stringify(progressObj)
         })
         .then(() => {
-            getProgressByProjectId(progressObj.id)
+            getProgressByProjectId(progressObj.projectId)
         })
     }
 
@@ -40,16 +40,16 @@ export const ProgressProvider = props => {
             body: JSON.stringify(progressObj)
         })
         .then(() => {
-            getProgressByProjectId(progressObj.id)
+            getProgressByProjectId(progressObj.projectId)
         })
     }
 
-    const deleteProgress = (userId, progressId) => {
+    const deleteProgress = (projectId, progressId) => {
         return fetch(`http://localhost:8088/progress/${progressId}`, {
             method: "DELETE"
         })
         .then(() => {
-            getProgressByUserId(userId)
+            getProgressByProjectId(projectId)
         })
     }
 

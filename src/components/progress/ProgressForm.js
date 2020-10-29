@@ -43,7 +43,7 @@ export const ProgressForm = project => {
         datePicker.current.max = todaysDate
     }
 
-    const constructNewProgress = () => {
+    const constructNewProgress = (e) => {
         // Add today's date if selected
         if (currentProgress.dateEntered === "") {
             currentProgress.dateEntered = todaysDate
@@ -76,6 +76,7 @@ export const ProgressForm = project => {
                 })
             }
             setCurrentProgress(defaultProgress)
+            e.currentTarget.parentNode.parentNode.parentNode.className = "background__modal"
         }
 
     }
@@ -121,7 +122,7 @@ export const ProgressForm = project => {
 
     const createProgress = (e) => {
         e.preventDefault()
-        constructNewProgress()
+        constructNewProgress(e)
     }
 
     const DeleteWarning = () => (
@@ -130,8 +131,9 @@ export const ProgressForm = project => {
             <p className="warning__p">Deleting progress is permanent.</p>
             <button className="btn btn--red"
             onClick={e => {
-                deleteProgress(passedInProject.userId, currentProgress.id)
+                deleteProgress(currentProgress.projectId, currentProgress.id)
                 deleteModal.current.className = "background__modal"
+                deleteModal.current.parentNode.parentNode.parentNode.className = "background__modal"
                 setCurrentProgress(defaultProgress)
                 }
             }>
@@ -206,7 +208,8 @@ export const ProgressForm = project => {
             <div className="progress__submit">
                 <button 
                 className="btn"
-                type="submit">
+                type="submit"
+                >
                     {progressFound ? "Update" : "Add"}
                 </button>
                 {progressFound ? 

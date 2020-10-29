@@ -3,15 +3,11 @@ import { IconDots } from "../icons/IconDots"
 import { Modal } from "../modal/Modal"
 import { ProjectForm } from "./ProjectForm"
 import { ProjectContext } from "./ProjectProvider"
-import { ProgressContext } from "../progress/ProgressProvider"
 import "./ProjectDotMenu.css"
 
 export const DotMenu = (React.forwardRef((props, ref) => {
 
-    const { getProjectById, deleteProject } = useContext(ProjectContext);
-    const { getProgressByProjectId } = useContext(ProgressContext)
-
-    const activeUser = sessionStorage.getItem("userId")
+    const { deleteProject } = useContext(ProjectContext);
 
     const deleteModal = useRef()
     const editModal = useRef()  
@@ -35,7 +31,7 @@ export const DotMenu = (React.forwardRef((props, ref) => {
         }
     }}>
 
-        <Modal ref={editModal} projectId={props.project.id} fetchFunction={getProgressByProjectId} contentFunction={<ProjectForm props={props.project}/>} width={"modal__width--wide"}/> 
+        <Modal ref={editModal} contentFunction={<ProjectForm props={props.project}/>} width={"modal__width--wide"}/> 
        
         <Modal ref={deleteModal} contentFunction={<DeleteWarning/>} width={"modal__width--small"}/>
         
@@ -49,11 +45,10 @@ export const DotMenu = (React.forwardRef((props, ref) => {
         onMouseLeave={e => ref.current.className = "dot__btns--inactive"}>
             
             <button className="dot__btn"
-            onClick={e =>  {
-                editModal.current.className = "background__modal modal__active"
-                getProjectById(props.project)
-                }
-            }>Edit</button>
+            onClick={e => editModal.current.className = "background__modal modal__active"}
+            >
+                Edit
+            </button>
             
             <button className="dot__btn"
             onClick={e => deleteModal.current.className = "background__modal modal__active"}>Delete</button>

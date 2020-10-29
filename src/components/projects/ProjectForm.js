@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect, useRef } from "react"
 import { ProjectContext } from "./ProjectProvider"
+import { ProgressContext } from "../progress/ProgressProvider"
 import { TypeContext } from "../type/TypeProvider"
 import "./ProjectForm.css"
 
@@ -28,6 +29,7 @@ export const ProjectForm = props => {
     } 
 
     const { projects, addProject, updateProject } = useContext(ProjectContext)
+    const { getProgressByProjectId } = useContext(ProgressContext)
     const { types } = useContext(TypeContext)
     
     // Sets state for creating the project
@@ -62,7 +64,7 @@ export const ProjectForm = props => {
             setProject(newProject)
     }
 
-    const constructNewProject = () => {
+    const constructNewProject = (e) => {
         if (!parseInt(project.typeId)) {
             console.log("NO TYPE SELECTED -- ADD WARNING MODAL")
         } else {
@@ -85,6 +87,8 @@ export const ProjectForm = props => {
                         goalFrequency: project.goalFrequency,
                         daysPerFrequency: +project.daysPerFrequency,
                         completed: false
+                    }).then(() => {
+                        getProgressByProjectId(editableProject.id)
                     })
     
                 } else {
@@ -100,13 +104,14 @@ export const ProjectForm = props => {
                     })
                     setProject(defaultProject)
                 }  
+                e.currentTarget.parentNode.parentNode.parentNode.className = "background__modal"
             }   
         }
     }
 
     const createProject = (e) => {
         e.preventDefault()
-        constructNewProject()
+        constructNewProject(e)
         setIsFreqActive(false)
     }
 

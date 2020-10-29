@@ -85,7 +85,7 @@ export const Dashboard = () => {
                                 currentProgress.length === [] ? null :
                                     <DashProgression props={currentProject} progress={currentProgress}/>    
                             }
-                            <Modal ref={progressModal} projectId={currentProject.id} fetchFunction={getProgressByProjectId}  contentFunction={<ProgressForm project={currentProject} />} width={"modal__width--med"}/>
+                            <Modal ref={progressModal} contentFunction={<ProgressForm project={currentProject} />} width={"modal__width--med"}/>
                         </>
                 }
             </div>
