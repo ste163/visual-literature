@@ -62,7 +62,7 @@ export const ProjectForm = props => {
             setProject(newProject)
     }
 
-    const constructNewProject = () => {
+    const constructNewProject = (e) => {
         if (!parseInt(project.typeId)) {
             console.log("NO TYPE SELECTED -- ADD WARNING MODAL")
         } else {
@@ -100,13 +100,14 @@ export const ProjectForm = props => {
                     })
                     setProject(defaultProject)
                 }  
+                e.currentTarget.parentNode.parentNode.parentNode.className = "background__modal"
             }   
         }
     }
 
     const createProject = (e) => {
         e.preventDefault()
-        constructNewProject()
+        constructNewProject(e)
         setIsFreqActive(false)
     }
 
