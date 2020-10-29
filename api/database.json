@@ -35,9 +35,9 @@
       "userId": 1,
       "typeId": 7,
       "dateStarted": "2020-10-25",
-      "wordCountGoal": 350,
-      "goalFrequency": "weekly",
-      "daysPerFrequency": 6,
+      "wordCountGoal": 300,
+      "goalFrequency": "daily",
+      "daysPerFrequency": 1,
       "completed": false
     },
     {
@@ -49,17 +49,6 @@
       "wordCountGoal": 300,
       "goalFrequency": "daily",
       "daysPerFrequency": 1,
-      "completed": false
-    },
-    {
-      "id": 9,
-      "name": "543",
-      "userId": 1,
-      "typeId": 7,
-      "dateStarted": "2020-10-28",
-      "wordCountGoal": 500,
-      "goalFrequency": "weekly",
-      "daysPerFrequency": 3,
       "completed": false
     }
   ],
@@ -439,16 +428,6 @@
       "id": 56
     },
     {
-      "id": 59,
-      "projectId": 6,
-      "userId": 1,
-      "dateEntered": "2020-10-29",
-      "wordsWritten": 360,
-      "revised": false,
-      "edited": false,
-      "proofread": false
-    },
-    {
       "projectId": 6,
       "userId": 1,
       "dateEntered": "2020-10-22",
@@ -469,14 +448,14 @@
       "id": 61
     },
     {
-      "projectId": 9,
+      "projectId": 6,
       "userId": 1,
       "dateEntered": "2020-10-29",
-      "wordsWritten": 680,
+      "wordsWritten": 250,
       "revised": false,
       "edited": false,
-      "proofread": false,
-      "id": 62
+      "proofread": true,
+      "id": 63
     }
   ]
 }

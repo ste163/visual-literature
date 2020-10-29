@@ -133,6 +133,7 @@ export const ProgressForm = project => {
             onClick={e => {
                 deleteProgress(passedInProject.userId, currentProgress.id)
                 deleteModal.current.className = "background__modal"
+                deleteModal.current.parentNode.parentNode.parentNode.className = "background__modal"
                 setCurrentProgress(defaultProgress)
                 }
             }>
