@@ -203,7 +203,7 @@ export const DashProgression = (props, progress) => {
         </section>
 
         <section className="card card__color--white card__dash card__dash--words">
-            Words written per day this month
+            Words written per day for this month
             <div>
                 <canvas ref={wordsWrittenLine} id="wordCount__line" width="50" height="200"/>
             </div>

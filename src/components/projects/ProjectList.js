@@ -34,10 +34,9 @@ export const ProjectList = () => {
             </button>
 
             <IconDivider color="icon__lightGray" />
-            Sort view
 
-            <IconDivider color="icon__lightGray" />
-            Cool Info About All Your Projects
+            {/* <IconDivider color="icon__lightGray" />
+            Cool Info About All Your Projects */}
         </section>
 
         <section className="view__container">

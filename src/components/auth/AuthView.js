@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react"
+import React, { useRef, useState } from "react"
 import { useHistory } from "react-router-dom";
 import { VisLitLogo } from "../branding/VisLitLogo"
 import { VisLitTitle } from "../branding/VisLitTitle"
