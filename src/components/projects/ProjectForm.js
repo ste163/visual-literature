@@ -119,7 +119,6 @@ export const ProjectForm = props => {
         setIsFreqActive(false)
     }
 
-
     const TypeWarning = () => (
         <>
             <h2 className="modal__warning">Warning</h2>
