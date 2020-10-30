@@ -1,5 +1,5 @@
-import React, { useRef, useState } from "react"
-import { useHistory } from "react-router-dom"
+import React, { useEffect, useRef, useState } from "react"
+import { useHistory, useLocation } from "react-router-dom"
 import { VisLitLogo } from "../branding/VisLitLogo"
 import { VisLitTitle } from "../branding/VisLitTitle"
 import { IconLogout } from "../icons/IconLogout"
@@ -8,12 +8,18 @@ import "./Header.css"
 export const Header = () => {
 
     const history = useHistory()
+    const location = useLocation()
+    console.log(location.pathname)
 
     const btnProj = useRef()
     const btnDash = useRef()
 
-    // Refactor header so each item is it's own element on the grid
-    // for perfect, aligned placement
+    const [currentLocation, setCurrentLocation] = useState(location.pathname)
+
+    useEffect(() => {
+        setCurrentLocation(location.pathname)
+    }, [location.pathname])
+
     return (
         <header className="header">
 
@@ -33,12 +39,8 @@ export const Header = () => {
                         <li className="nav__item">
                             <button 
                             ref={btnProj}
-                            className="nav__btn nav__btn--active"
-                            onClick={ e => {
-                                history.push("/projects")
-                                btnProj.current.className = "nav__btn nav__btn--active"
-                                btnDash.current.className = "nav__btn"
-                            }}>
+                            className={currentLocation === "/projects" ? "nav__btn nav__btn--active" : "nav__btn"}
+                            onClick={ e => history.push("/projects")}>
                                 Projects
                             </button>
                         </li>
@@ -46,12 +48,8 @@ export const Header = () => {
                         <li className="nav__item">
                             <button
                             ref={btnDash}
-                            className="nav__btn"
-                            onClick={ e => {
-                                history.push("/dashboard")
-                                btnProj.current.className = "nav__btn"
-                                btnDash.current.className = "nav__btn nav__btn--active"
-                            }}>
+                            className={currentLocation !== "/projects" ? "nav__btn nav__btn--active" : "nav__btn"}
+                            onClick={ e => history.push("/dashboard")}>
                                 Dashboard
                             </button>
                         </li>      
