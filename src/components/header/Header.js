@@ -9,7 +9,6 @@ export const Header = () => {
 
     const history = useHistory()
     const location = useLocation()
-    console.log(location.pathname)
 
     const btnProj = useRef()
     const btnDash = useRef()
@@ -54,7 +53,7 @@ export const Header = () => {
                             </button>
                         </li>      
 
-                        <div className="nav__line"></div>
+                        <div className={currentLocation === "/projects" ? "nav__line nav__line--projects" : "nav__line nav__line--dashboard"}></div>
                     </div>
 
                     <li className="nav__item nav__rightAligned">
