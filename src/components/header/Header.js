@@ -10,8 +10,10 @@ export const Header = () => {
     const history = useHistory()
     const location = useLocation()
 
+    // Get references for nav buttons and underline
     const btnProj = useRef()
     const btnDash = useRef()
+    const navLine = useRef()
 
     const [currentLocation, setCurrentLocation] = useState(location.pathname)
 
@@ -39,6 +41,8 @@ export const Header = () => {
                             <button 
                             ref={btnProj}
                             className={currentLocation === "/projects" ? "nav__btn nav__btn--active" : "nav__btn"}
+                            onMouseEnter={e => navLine.current.className = "nav__line nav__line--projects"}
+                            onMouseLeave={e => navLine.current.className = `${currentLocation === "/projects" ? "nav__line nav__line--projects" : "nav__line nav__line--dashboard"}`}
                             onClick={ e => history.push("/projects")}>
                                 Projects
                             </button>
@@ -48,12 +52,17 @@ export const Header = () => {
                             <button
                             ref={btnDash}
                             className={currentLocation !== "/projects" ? "nav__btn nav__btn--active" : "nav__btn"}
+                            onMouseEnter={e => navLine.current.className = "nav__line nav__line--dashboard"}
+                            onMouseLeave={e => navLine.current.className = `${currentLocation === "/projects" ? "nav__line nav__line--projects" : "nav__line nav__line--dashboard"}`}
                             onClick={ e => history.push("/dashboard")}>
                                 Dashboard
                             </button>
                         </li>      
 
-                        <div className={currentLocation === "/projects" ? "nav__line nav__line--projects" : "nav__line nav__line--dashboard"}></div>
+                        <div 
+                        ref={navLine}
+                        className={currentLocation === "/projects" ? "nav__line nav__line--projects" : "nav__line nav__line--dashboard"}>
+                        </div>
                     </div>
 
                     <li className="nav__item nav__rightAligned">
