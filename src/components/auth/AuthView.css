@@ -73,14 +73,18 @@
     border-bottom-width: 0.25em;
     border-radius: 5em;
     border-color: var(--green);
+    grid-column: 1 / 3;
+    transition: var(--btnHover);
 }
 
 .line__login--active {
-    grid-column-start: 1;
+    margin-right: 3.4em;
+    transition: var(--btnHover);
 }
 
 .line__register--active {
-    grid-column-start: 2;
+    margin-left: 2.9em;
+    transition: var(--btnHover);
 }
 
 .btn__authSubmit {
