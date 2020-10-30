@@ -38,17 +38,6 @@
       "completed": false
     },
     {
-      "id": 6,
-      "name": "Scary Stories",
-      "userId": 1,
-      "typeId": 7,
-      "dateStarted": "2020-10-25",
-      "wordCountGoal": 300,
-      "goalFrequency": "monthly",
-      "daysPerFrequency": 20,
-      "completed": false
-    },
-    {
       "id": 8,
       "name": "Spookiest Book 2",
       "userId": 3,
@@ -155,66 +144,6 @@
       "edited": false,
       "proofread": true,
       "id": 5
-    },
-    {
-      "projectId": 6,
-      "userId": 1,
-      "dateEntered": "2020-10-29",
-      "wordsWritten": 350,
-      "revised": false,
-      "edited": false,
-      "proofread": false,
-      "id": 6
-    },
-    {
-      "id": 7,
-      "projectId": 6,
-      "userId": 1,
-      "dateEntered": "2020-10-28",
-      "wordsWritten": 285,
-      "revised": false,
-      "edited": true,
-      "proofread": false
-    },
-    {
-      "id": 8,
-      "projectId": 6,
-      "userId": 1,
-      "dateEntered": "2020-10-27",
-      "wordsWritten": 331,
-      "revised": false,
-      "edited": false,
-      "proofread": false
-    },
-    {
-      "id": 9,
-      "projectId": 6,
-      "userId": 1,
-      "dateEntered": "2020-10-26",
-      "wordsWritten": 242,
-      "revised": false,
-      "edited": true,
-      "proofread": false
-    },
-    {
-      "projectId": 6,
-      "userId": 1,
-      "dateEntered": "2020-10-25",
-      "wordsWritten": 360,
-      "revised": false,
-      "edited": false,
-      "proofread": false,
-      "id": 10
-    },
-    {
-      "projectId": 6,
-      "userId": 1,
-      "dateEntered": "2020-10-24",
-      "wordsWritten": 456,
-      "revised": false,
-      "edited": false,
-      "proofread": false,
-      "id": 11
     }
   ]
 }

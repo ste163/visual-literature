@@ -21,10 +21,6 @@ export const AuthView = props => {
     // To allow for the nav underline to move,
     // target it by useRef
     const underline = useRef()
-
-    // useEffect and state are used
-    // to re-render the form, based on whether
-    // it's Login or Register
     const [activeBtn, setBtn] = useState(true)
 
     // useEffect(() => {
