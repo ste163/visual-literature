@@ -42,6 +42,7 @@ export const ProgressForm = project => {
     // Set date picker's max to today
     if (datePicker.current !== undefined) {
         datePicker.current.max = todaysDate
+        datePicker.current.min = passedInProject.dateStarted 
     }
 
     const constructNewProgress = (e) => {
