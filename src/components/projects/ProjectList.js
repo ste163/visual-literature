@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useContext } from "react"
 import { TypeContext } from "../type/TypeProvider"
 import { ProjectContext } from "./ProjectProvider"
-import { ProgressProvider, ProgressContext } from "../progress/ProgressProvider"
+import { ProgressProvider } from "../progress/ProgressProvider"
 import { ProjectForm } from "./ProjectForm"
 import { ProjectCard } from "./ProjectCard"
 import { Modal } from "../modal/Modal"
