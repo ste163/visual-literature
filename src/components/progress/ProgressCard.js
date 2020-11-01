@@ -96,7 +96,7 @@ export const ProgressCard = (project) => {
                 let monthlyProgressCounter = 0
                 // Get only the progress that matches today's date
                 const monthlyProjects = progress.filter(each => each.project.goalFrequency === "monthly")
-                const currentMonth = new Date(`${todaysDate} : 00:00:00`).getMonth()
+                const currentMonth = new Date(`${todaysDate} 00:00:00`).getMonth()
                 // Match only progress that matches today's date
                 const thisMonthsProgress = monthlyProjects.filter(each => {
                     const progressMonth = new Date(`${each.dateEntered} 00:00:00`).getMonth()

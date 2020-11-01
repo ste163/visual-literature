@@ -115,14 +115,14 @@
       "id": 6
     },
     {
+      "id": 7,
       "projectId": 5,
       "userId": 1,
       "dateEntered": "2020-11-01",
       "wordsWritten": 353,
       "revised": false,
       "edited": false,
-      "proofread": false,
-      "id": 7
+      "proofread": false
     }
   ]
 }
