@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState, useContext } from "react"
-import { useParams, useHistory } from "react-router-dom"
+import { useParams, useLocation } from "react-router-dom"
 import { ProgressContext } from "../progress/ProgressProvider"
 import { ProjectContext } from "../projects/ProjectProvider"
 import { TypeContext } from "../type/TypeProvider"
@@ -16,6 +16,7 @@ export const Dashboard = () => {
 
     const activeUser = +sessionStorage.getItem("userId")
     const progressModal = useRef()
+    const location = useLocation()
     const { projectId } = useParams()
 
     const { getTypes } = useContext(TypeContext)
@@ -28,6 +29,8 @@ export const Dashboard = () => {
     const displayProject = () => {
         // If we have progress, set state
         if (progress.length !== 0) {
+            setCurrentProgress(progress)
+        } else if (progress.length === 0) {
             setCurrentProgress(progress)
         }
         // If we have multiple projects, show first, else show selected 

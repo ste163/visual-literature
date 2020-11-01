@@ -3,26 +3,6 @@
     {
       "id": 1,
       "username": "sam"
-    },
-    {
-      "username": "author",
-      "id": 2
-    },
-    {
-      "username": "sage",
-      "id": 3
-    },
-    {
-      "username": "Author123",
-      "id": 4
-    },
-    {
-      "username": "noProjects",
-      "id": 5
-    },
-    {
-      "username": "bestAuthorEvar",
-      "id": 6
     }
   ],
   "projects": [
@@ -38,26 +18,15 @@
       "completed": false
     },
     {
-      "id": 8,
-      "name": "Spookiest Book 2",
-      "userId": 3,
-      "typeId": 3,
-      "dateStarted": "2020-10-28",
-      "wordCountGoal": 300,
+      "name": "Short Songs",
+      "userId": 1,
+      "typeId": 5,
+      "dateStarted": "2020-10-26",
+      "wordCountGoal": 350,
       "goalFrequency": "daily",
       "daysPerFrequency": 1,
-      "completed": false
-    },
-    {
-      "name": "Crash Me",
-      "userId": 5,
-      "typeId": 8,
-      "dateStarted": "2020-10-29",
-      "wordCountGoal": 300,
-      "goalFrequency": "weekly",
-      "daysPerFrequency": 3,
       "completed": false,
-      "id": 9
+      "id": 6
     }
   ],
   "types": [

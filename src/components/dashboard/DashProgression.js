@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from "react"
 import { getWeeksInMonth } from 'date-fns'
-import Chart from 'chart.js'
 import { horizontalBar } from "../graphs/horizontalBar"
 import { wordCountLine } from "../graphs/wordCountLine"
+import Chart from 'chart.js'
 
 // Will include ALL progress checks
 // And display all data
