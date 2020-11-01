@@ -13,6 +13,7 @@ export const Header = () => {
     // Get references for nav buttons and underline
     const btnProj = useRef()
     const btnDash = useRef()
+    const btnTable = useRef()
     const navLine = useRef()
 
     const [currentLocation, setCurrentLocation] = useState(location.pathname)
@@ -54,10 +55,21 @@ export const Header = () => {
                             className={currentLocation !== "/projects" ? "nav__btn nav__btn--active" : "nav__btn"}
                             onMouseEnter={e => navLine.current.className = "nav__line nav__line--dashboard"}
                             onMouseLeave={e => navLine.current.className = `${currentLocation === "/projects" ? "nav__line nav__line--projects" : "nav__line nav__line--dashboard"}`}
-                            onClick={ e => history.push("/dashboard")}>
+                            onClick={e => history.push("/dashboard")}>
                                 Dashboard
                             </button>
-                        </li>      
+                        </li>
+
+                        <li className="nav__item">
+                            <button 
+                            className="nav__btn"
+                            ref={btnTable}
+                            // className
+                            onClick={e => history.push("/table")}
+                            >
+                                Table
+                            </button>
+                        </li>
 
                         <div 
                         ref={navLine}

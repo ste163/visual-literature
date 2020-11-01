@@ -18,15 +18,15 @@
       "completed": false
     },
     {
-      "name": "Short Songs",
+      "id": 6,
+      "name": "Scary Kari",
       "userId": 1,
       "typeId": 5,
       "dateStarted": "2020-10-26",
       "wordCountGoal": 350,
       "goalFrequency": "daily",
       "daysPerFrequency": 1,
-      "completed": false,
-      "id": 6
+      "completed": false
     }
   ],
   "types": [
