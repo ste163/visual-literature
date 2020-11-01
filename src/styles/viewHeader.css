@@ -6,3 +6,34 @@
     box-shadow: var(--headingDropShadow);
     height: 3em;
 }
+
+.view__sort {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    margin: 0;
+}
+
+.view__projectSelect {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    margin: 0 0 0 0.5em;
+}
+
+.sort__label, .projectSelect__label {
+    margin-right: 0.3em;
+    font-size: 0.8em;
+}
+
+
+.sort__select, .projectSelect__select {
+    margin-right: 0.4em;
+    padding: 0.2em;
+    font-size: 0.8em;
+    font-weight: var(--weightThin)
+}
+
+.sort__select--year {
+    margin-right: 0;
+}
