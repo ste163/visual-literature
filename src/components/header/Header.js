@@ -24,8 +24,8 @@ export const Header = () => {
     }, [location.pathname])
 
     const navLineMouseLeave = () => {
-        navLine.current.className = `${currentLocation === "/projects" ? "nav__line nav__line--projects" :
-        currentLocation === "/dashboard" ? "nav__line nav__line--dashboard" : "nav__line nav__line--table"}`
+        navLine.current.className = `${currentLocation.includes("/projects") ? "nav__line nav__line--projects" :
+        currentLocation.includes("/dashboard") ? "nav__line nav__line--dashboard" : "nav__line nav__line--table"}`
     }
 
     return (
@@ -47,7 +47,7 @@ export const Header = () => {
                         <li className="nav__item">
                             <button 
                             ref={btnProj}
-                            className={currentLocation === "/projects" ? "nav__btn nav__btn--active" : "nav__btn"}
+                            className={currentLocation.includes("/projects") ? "nav__btn nav__btn--active" : "nav__btn"}
                             onMouseEnter={e => navLine.current.className = "nav__line nav__line--projects"}
                             onMouseLeave={e => navLineMouseLeave()}
                             onClick={ e => history.push("/projects")}>
@@ -59,7 +59,7 @@ export const Header = () => {
                             <button 
                             className="nav__btn"
                             ref={btnTable}
-                            className={currentLocation === "/table" ? "nav__btn nav__btn--active" : "nav__btn"}
+                            className={currentLocation.includes("/table") ? "nav__btn nav__btn--active" : "nav__btn"}
                             onMouseEnter={e => navLine.current.className = "nav__line nav__line--table"}
                             onMouseLeave={e => navLineMouseLeave()}
                             onClick={e => history.push("/table")}
@@ -71,7 +71,7 @@ export const Header = () => {
                         <li className="nav__item">
                             <button
                             ref={btnDash}
-                            className={currentLocation === "/dashboard" ? "nav__btn nav__btn--active" : "nav__btn"}
+                            className={currentLocation.includes("/dashboard") ? "nav__btn nav__btn--active" : "nav__btn"}
                             onMouseEnter={e => navLine.current.className = "nav__line nav__line--dashboard"}
                             onMouseLeave={e => navLineMouseLeave()}
                             onClick={e => history.push("/dashboard")}>
@@ -81,8 +81,8 @@ export const Header = () => {
 
                         <div 
                         ref={navLine}
-                        className={currentLocation === "/projects" ? "nav__line nav__line--projects" : 
-                                    currentLocation === "/dashboard" ? "nav__line nav__line--dashboard" : "nav__line nav__line--table"}>
+                        className={currentLocation.includes("/projects") ? "nav__line nav__line--projects" : 
+                                    currentLocation.includes("/dashboard") ? "nav__line nav__line--dashboard" : "nav__line nav__line--table"}>
                         </div>
                     </div>
 
