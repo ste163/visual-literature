@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState, useContext } from "react"
-import { useParams, useLocation } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { ProgressContext } from "../progress/ProgressProvider"
 import { ProjectContext } from "../projects/ProjectProvider"
 import { TypeContext } from "../type/TypeProvider"
@@ -16,7 +16,6 @@ export const Dashboard = () => {
 
     const activeUser = +sessionStorage.getItem("userId")
     const progressModal = useRef()
-    const location = useLocation()
     const { projectId } = useParams()
 
     const { getTypes } = useContext(TypeContext)

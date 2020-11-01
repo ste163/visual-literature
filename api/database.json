@@ -13,8 +13,8 @@
       "typeId": 5,
       "dateStarted": "2020-10-21",
       "wordCountGoal": 220,
-      "goalFrequency": "weekly",
-      "daysPerFrequency": 6,
+      "goalFrequency": "monthly",
+      "daysPerFrequency": 10,
       "completed": false
     },
     {
@@ -65,16 +65,6 @@
   ],
   "progress": [
     {
-      "id": 1,
-      "projectId": 5,
-      "userId": 1,
-      "dateEntered": "2020-10-29",
-      "wordsWritten": 431,
-      "revised": false,
-      "edited": false,
-      "proofread": false
-    },
-    {
       "projectId": 5,
       "userId": 1,
       "dateEntered": "2020-10-28",
@@ -113,6 +103,26 @@
       "edited": false,
       "proofread": true,
       "id": 5
+    },
+    {
+      "projectId": 5,
+      "userId": 1,
+      "dateEntered": "2020-10-21",
+      "wordsWritten": 350,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "id": 6
+    },
+    {
+      "projectId": 5,
+      "userId": 1,
+      "dateEntered": "2020-11-01",
+      "wordsWritten": 353,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "id": 7
     }
   ]
 }

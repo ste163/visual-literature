@@ -136,6 +136,7 @@ export const ProgressForm = project => {
                 deleteModal.current.className = "background__modal"
                 deleteModal.current.parentNode.parentNode.parentNode.className = "background__modal"
                 setCurrentProgress(defaultProgress)
+                setProgressFound(false);
                 }
             }>
                 Confirm

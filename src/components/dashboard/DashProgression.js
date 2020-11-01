@@ -45,8 +45,6 @@ export const DashProgression = (props, progress) => {
 
     // LINE GRAPH DATA ARRAYS
     let progressArray = []
-    let progressDateLabels = []
-    let progressWordsWritten = []
 
     // Goal progression check from progressCard
     const checkGoalProgress = () => {
@@ -56,7 +54,8 @@ export const DashProgression = (props, progress) => {
 
         // Get only this month's progress
         const currentMonthsProgress = singleProgress => {
-            const dateEntered = new Date(singleProgress.dateEntered).getMonth()
+            // Remove timezone differences by setting time to 00:00:00 on the current day
+            const dateEntered = new Date(`${singleProgress.dateEntered} : 00:00:00`).getMonth()
             return dateEntered === currentMonthInt
         }
 
@@ -64,17 +63,22 @@ export const DashProgression = (props, progress) => {
             if (singleProgress.wordsWritten) {
                 progressArray.push(singleProgress)
                 wordsWrittenArray.push(singleProgress.wordsWritten)
+                let total = 0
+                for (let i = 0; i < wordsWrittenArray.length; i++) {
+                    total += wordsWrittenArray[i]
+                }
+                const wordAverage = total / wordsWrittenArray.length
+                const roundedAverage = Math.ceil(wordAverage)
+                setAverageWordsWritten(roundedAverage)
+            } else {
+                setAverageWordsWritten(0)
             }
-            let total = 0
-            for (let i = 0; i < wordsWrittenArray.length; i++) {
-                total += wordsWrittenArray[i]
-            }
-            const wordAverage = total / wordsWrittenArray.length
-            const roundedAverage = Math.ceil(wordAverage)
-            setAverageWordsWritten(roundedAverage)
         }
 
         const prepareDataForLineGraph = () => {
+            let progressDateLabels = []
+            let progressWordsWritten = []
+
             const arrayCopy = JSON.parse(JSON.stringify(progressArray))
             // Remove YEAR-MONTH-
             const yearMonthToRemove = todaysDate.slice(0, 8)
@@ -105,7 +109,6 @@ export const DashProgression = (props, progress) => {
                 // then only for this month
                 const dailyProjects = currentProjectsProgress.filter(each => each.project.goalFrequency === "daily")
                 const monthsDailyProgress = dailyProjects.filter(each => currentMonthsProgress(each))
-
                 if (monthsDailyProgress.length !== 0) {
                     monthsDailyProgress.forEach(singleProgress => {
                         findAverageWordsWritten(singleProgress)
@@ -118,6 +121,10 @@ export const DashProgression = (props, progress) => {
                         }
                     })
                     setProgressBarProgression(dailyProgressCounter)
+                    prepareDataForLineGraph()
+                } else if (monthsDailyProgress.length === 0) {
+                    findAverageWordsWritten("")
+                    setProgressBarProgression(0)
                     prepareDataForLineGraph()
                 }
                 break;
@@ -144,6 +151,10 @@ export const DashProgression = (props, progress) => {
                     })
                     setProgressBarProgression(weeklyProgressCounter)
                     prepareDataForLineGraph()
+                } else if (monthsWeeklyProgress.length === 0) {
+                    findAverageWordsWritten("")
+                    setProgressBarProgression(0)
+                    prepareDataForLineGraph()
                 }
                 break;
                 
@@ -166,6 +177,10 @@ export const DashProgression = (props, progress) => {
                         } 
                     })
                     setProgressBarProgression(monthlyProgressCounter)
+                    prepareDataForLineGraph()
+                } else if (thisMonthsProgress.length === 0) {
+                    findAverageWordsWritten("")
+                    setProgressBarProgression(0)
                     prepareDataForLineGraph()
                 }
                 break;
