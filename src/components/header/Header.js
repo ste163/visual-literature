@@ -20,7 +20,13 @@ export const Header = () => {
 
     useEffect(() => {
         setCurrentLocation(location.pathname)
+        console.log(location.pathname)
     }, [location.pathname])
+
+    const navLineMouseLeave = () => {
+        navLine.current.className = `${currentLocation === "/projects" ? "nav__line nav__line--projects" :
+        currentLocation === "/dashboard" ? "nav__line nav__line--dashboard" : "nav__line nav__line--table"}`
+    }
 
     return (
         <header className="header">
@@ -43,7 +49,7 @@ export const Header = () => {
                             ref={btnProj}
                             className={currentLocation === "/projects" ? "nav__btn nav__btn--active" : "nav__btn"}
                             onMouseEnter={e => navLine.current.className = "nav__line nav__line--projects"}
-                            onMouseLeave={e => navLine.current.className = `${currentLocation === "/projects" ? "nav__line nav__line--projects" : "nav__line nav__line--dashboard"}`}
+                            onMouseLeave={e => navLineMouseLeave()}
                             onClick={ e => history.push("/projects")}>
                                 Projects
                             </button>
@@ -52,9 +58,9 @@ export const Header = () => {
                         <li className="nav__item">
                             <button
                             ref={btnDash}
-                            className={currentLocation !== "/projects" ? "nav__btn nav__btn--active" : "nav__btn"}
+                            className={currentLocation === "/dashboard" ? "nav__btn nav__btn--active" : "nav__btn"}
                             onMouseEnter={e => navLine.current.className = "nav__line nav__line--dashboard"}
-                            onMouseLeave={e => navLine.current.className = `${currentLocation === "/projects" ? "nav__line nav__line--projects" : "nav__line nav__line--dashboard"}`}
+                            onMouseLeave={e => navLineMouseLeave()}
                             onClick={e => history.push("/dashboard")}>
                                 Dashboard
                             </button>
@@ -64,7 +70,9 @@ export const Header = () => {
                             <button 
                             className="nav__btn"
                             ref={btnTable}
-                            // className
+                            className={currentLocation === "/table" ? "nav__btn nav__btn--active" : "nav__btn"}
+                            onMouseEnter={e => navLine.current.className = "nav__line nav__line--table"}
+                            onMouseLeave={e => navLineMouseLeave()}
                             onClick={e => history.push("/table")}
                             >
                                 Table
@@ -73,7 +81,8 @@ export const Header = () => {
 
                         <div 
                         ref={navLine}
-                        className={currentLocation === "/projects" ? "nav__line nav__line--projects" : "nav__line nav__line--dashboard"}>
+                        className={currentLocation === "/projects" ? "nav__line nav__line--projects" : 
+                                    currentLocation === "/dashboard" ? "nav__line nav__line--dashboard" : "nav__line nav__line--table"}>
                         </div>
                     </div>
 
@@ -89,7 +98,7 @@ export const Header = () => {
                                 svg.classList.add("icon__hovered")
                             })
                         }}
-                        onMouseOut={e => {
+                        onMouseLeave={e => {
                             e.currentTarget.firstElementChild.children[1].childNodes.forEach(svg => {
                                 svg.classList.remove("icon__hovered")
                                 svg.classList.add("icon__white")
