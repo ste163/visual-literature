@@ -38,6 +38,7 @@ export const DashProgression = (props, progress) => {
     // PROGRESS INFO, MUST USE A DEEP COPY OF PROGRESS
     // OR ELSE DATE SORTING OVERWRITES ALL PROGRESS
     const incomingProgress = props.progress
+console.log("INCOMING PROG", incomingProgress)
 
     // REFS
     const progressBar = useRef()
@@ -65,14 +66,16 @@ export const DashProgression = (props, progress) => {
             if (singleProgress.wordsWritten) {
                 progressArray.push(singleProgress)
                 wordsWrittenArray.push(singleProgress.wordsWritten)
+                let total = 0
+                for (let i = 0; i < wordsWrittenArray.length; i++) {
+                    total += wordsWrittenArray[i]
+                }
+                const wordAverage = total / wordsWrittenArray.length
+                const roundedAverage = Math.ceil(wordAverage)
+                setAverageWordsWritten(roundedAverage)
+            } else {
+                setAverageWordsWritten(0)
             }
-            let total = 0
-            for (let i = 0; i < wordsWrittenArray.length; i++) {
-                total += wordsWrittenArray[i]
-            }
-            const wordAverage = total / wordsWrittenArray.length
-            const roundedAverage = Math.ceil(wordAverage)
-            setAverageWordsWritten(roundedAverage)
         }
 
         const prepareDataForLineGraph = () => {
@@ -106,7 +109,7 @@ export const DashProgression = (props, progress) => {
                 // then only for this month
                 const dailyProjects = currentProjectsProgress.filter(each => each.project.goalFrequency === "daily")
                 const monthsDailyProgress = dailyProjects.filter(each => currentMonthsProgress(each))
-
+            console.log(monthsDailyProgress)
                 if (monthsDailyProgress.length !== 0) {
                     monthsDailyProgress.forEach(singleProgress => {
                         findAverageWordsWritten(singleProgress)
@@ -120,6 +123,8 @@ export const DashProgression = (props, progress) => {
                     })
                     setProgressBarProgression(dailyProgressCounter)
                     prepareDataForLineGraph()
+                } else if (monthsDailyProgress.length === 0) {
+                    findAverageWordsWritten("")
                 }
                 break;
 

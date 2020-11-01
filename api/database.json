@@ -65,16 +65,6 @@
   ],
   "progress": [
     {
-      "id": 1,
-      "projectId": 5,
-      "userId": 1,
-      "dateEntered": "2020-10-29",
-      "wordsWritten": 431,
-      "revised": false,
-      "edited": false,
-      "proofread": false
-    },
-    {
       "projectId": 5,
       "userId": 1,
       "dateEntered": "2020-10-28",
@@ -113,16 +103,6 @@
       "edited": false,
       "proofread": true,
       "id": 5
-    },
-    {
-      "projectId": 5,
-      "userId": 1,
-      "dateEntered": "2020-11-01",
-      "wordsWritten": 300,
-      "revised": false,
-      "edited": false,
-      "proofread": false,
-      "id": 6
     }
   ]
 }
