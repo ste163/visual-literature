@@ -56,17 +56,6 @@ export const Header = () => {
                         </li>
 
                         <li className="nav__item">
-                            <button
-                            ref={btnDash}
-                            className={currentLocation === "/dashboard" ? "nav__btn nav__btn--active" : "nav__btn"}
-                            onMouseEnter={e => navLine.current.className = "nav__line nav__line--dashboard"}
-                            onMouseLeave={e => navLineMouseLeave()}
-                            onClick={e => history.push("/dashboard")}>
-                                Dashboard
-                            </button>
-                        </li>
-
-                        <li className="nav__item">
                             <button 
                             className="nav__btn"
                             ref={btnTable}
@@ -76,6 +65,17 @@ export const Header = () => {
                             onClick={e => history.push("/table")}
                             >
                                 Table
+                            </button>
+                        </li>
+
+                        <li className="nav__item">
+                            <button
+                            ref={btnDash}
+                            className={currentLocation === "/dashboard" ? "nav__btn nav__btn--active" : "nav__btn"}
+                            onMouseEnter={e => navLine.current.className = "nav__line nav__line--dashboard"}
+                            onMouseLeave={e => navLineMouseLeave()}
+                            onClick={e => history.push("/dashboard")}>
+                                Dashboard
                             </button>
                         </li>
 

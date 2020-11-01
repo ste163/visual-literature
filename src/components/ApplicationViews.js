@@ -32,22 +32,22 @@ export const ApplicationViews = () => {
                     </ProjectProvider>
 
                     <ProjectProvider>
-                        <Route exact path="/dashboard">
-                            <Dashboard />
-                        </Route>
-            
-                        <Route exact path="/dashboard/:projectId(\d+)">
-                            <Dashboard />
-                        </Route>
-                    </ProjectProvider>
-
-                    <ProjectProvider>
                         <Route exact path="/table">
                             <TableView />
                         </Route>
 
                         <Route exact path="/table/:projectId(\d+)">
                             <TableView />
+                        </Route>
+                    </ProjectProvider>
+
+                    <ProjectProvider>
+                        <Route exact path="/dashboard">
+                            <Dashboard />
+                        </Route>
+            
+                        <Route exact path="/dashboard/:projectId(\d+)">
+                            <Dashboard />
                         </Route>
                     </ProjectProvider>
                 
