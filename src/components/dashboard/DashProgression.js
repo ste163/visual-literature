@@ -38,7 +38,6 @@ export const DashProgression = (props, progress) => {
     // PROGRESS INFO, MUST USE A DEEP COPY OF PROGRESS
     // OR ELSE DATE SORTING OVERWRITES ALL PROGRESS
     const incomingProgress = props.progress
-console.log("INCOMING PROG", incomingProgress)
 
     // REFS
     const progressBar = useRef()
@@ -46,8 +45,6 @@ console.log("INCOMING PROG", incomingProgress)
 
     // LINE GRAPH DATA ARRAYS
     let progressArray = []
-    let progressDateLabels = []
-    let progressWordsWritten = []
 
     // Goal progression check from progressCard
     const checkGoalProgress = () => {
@@ -79,6 +76,9 @@ console.log("INCOMING PROG", incomingProgress)
         }
 
         const prepareDataForLineGraph = () => {
+            let progressDateLabels = []
+            let progressWordsWritten = []
+
             const arrayCopy = JSON.parse(JSON.stringify(progressArray))
             // Remove YEAR-MONTH-
             const yearMonthToRemove = todaysDate.slice(0, 8)
@@ -125,6 +125,7 @@ console.log("INCOMING PROG", incomingProgress)
                 } else if (monthsDailyProgress.length === 0) {
                     findAverageWordsWritten("")
                     setProgressBarProgression(0)
+                    prepareDataForLineGraph()
                 }
                 break;
 
@@ -153,6 +154,7 @@ console.log("INCOMING PROG", incomingProgress)
                 } else if (monthsWeeklyProgress.length === 0) {
                     findAverageWordsWritten("")
                     setProgressBarProgression(0)
+                    prepareDataForLineGraph()
                 }
                 break;
                 
@@ -179,6 +181,7 @@ console.log("INCOMING PROG", incomingProgress)
                 } else if (thisMonthsProgress.length === 0) {
                     findAverageWordsWritten("")
                     setProgressBarProgression(0)
+                    prepareDataForLineGraph()
                 }
                 break;
         }

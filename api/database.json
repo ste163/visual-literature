@@ -14,7 +14,7 @@
       "dateStarted": "2020-10-21",
       "wordCountGoal": 220,
       "goalFrequency": "monthly",
-      "daysPerFrequency": 4,
+      "daysPerFrequency": 10,
       "completed": false
     },
     {
@@ -103,6 +103,26 @@
       "edited": false,
       "proofread": true,
       "id": 5
+    },
+    {
+      "projectId": 5,
+      "userId": 1,
+      "dateEntered": "2020-10-21",
+      "wordsWritten": 350,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "id": 6
+    },
+    {
+      "projectId": 5,
+      "userId": 1,
+      "dateEntered": "2020-11-01",
+      "wordsWritten": 353,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "id": 7
     }
   ]
 }
