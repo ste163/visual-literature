@@ -109,7 +109,6 @@ console.log("INCOMING PROG", incomingProgress)
                 // then only for this month
                 const dailyProjects = currentProjectsProgress.filter(each => each.project.goalFrequency === "daily")
                 const monthsDailyProgress = dailyProjects.filter(each => currentMonthsProgress(each))
-            console.log(monthsDailyProgress)
                 if (monthsDailyProgress.length !== 0) {
                     monthsDailyProgress.forEach(singleProgress => {
                         findAverageWordsWritten(singleProgress)
@@ -125,6 +124,7 @@ console.log("INCOMING PROG", incomingProgress)
                     prepareDataForLineGraph()
                 } else if (monthsDailyProgress.length === 0) {
                     findAverageWordsWritten("")
+                    setProgressBarProgression(0)
                 }
                 break;
 
@@ -150,6 +150,9 @@ console.log("INCOMING PROG", incomingProgress)
                     })
                     setProgressBarProgression(weeklyProgressCounter)
                     prepareDataForLineGraph()
+                } else if (monthsWeeklyProgress.length === 0) {
+                    findAverageWordsWritten("")
+                    setProgressBarProgression(0)
                 }
                 break;
                 
@@ -173,6 +176,9 @@ console.log("INCOMING PROG", incomingProgress)
                     })
                     setProgressBarProgression(monthlyProgressCounter)
                     prepareDataForLineGraph()
+                } else if (thisMonthsProgress.length === 0) {
+                    findAverageWordsWritten("")
+                    setProgressBarProgression(0)
                 }
                 break;
         }
