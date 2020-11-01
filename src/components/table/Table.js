@@ -1,4 +1,5 @@
 import React from "react"
+import "./Table.css"
 
 export const Table = () => {
 
@@ -7,25 +8,48 @@ export const Table = () => {
     // And inserts the date, placeholder min-goal text, and check boxes
 
     return (
-        <table>
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Words Written</th>
-                    <th>Revised</th>
-                    <th>Edited</th>
-                    <th>Proofread</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>2020/11/01</td>
-                    <td>500</td>
-                    <td></td>
-                    <td>X</td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
+        <div className="card card__color--white card--table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Words Written</th>
+                        <th>Revised</th>
+                        <th>Edited</th>
+                        <th>Proofread</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2020/11/02</td>
+                        <td>500</td>
+                        <td></td>
+                        <td>X</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>2020/11/03</td>
+                        <td>564</td>
+                        <td></td>
+                        <td>X</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>2020/11/04</td>
+                        <td>223</td>
+                        <td>X</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>2020/11/05</td>
+                        <td>329</td>
+                        <td></td>
+                        <td></td>
+                        <td>X</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     )
 }
