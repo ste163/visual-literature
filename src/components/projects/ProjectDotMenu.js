@@ -37,7 +37,19 @@ export const DotMenu = (React.forwardRef((props, ref) => {
         
         <button 
         className="card__btn"
-        onClick={e => ref.current.className === "dot__btns--inactive" ? ref.current.className = "dot__btns--active" : ref.current.className = "dot__btns--inactive" }>
+        onClick={e => ref.current.className === "dot__btns--inactive" ? ref.current.className = "dot__btns--active" : ref.current.className = "dot__btns--inactive" }
+        onMouseOver={e => {
+        e.currentTarget.firstElementChild.children[1].childNodes.forEach(svg => {
+                svg.classList.remove("icon__gray")
+                svg.classList.add("icon__hovered")
+            })
+        }}
+        onMouseOut={e => {
+            e.currentTarget.firstElementChild.children[1].childNodes.forEach(svg => {
+                svg.classList.remove("icon__hovered")
+                svg.classList.add("icon__gray")
+            })
+        }}>
             <IconDots color="icon__gray"/>
         </button>
         

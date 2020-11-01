@@ -84,3 +84,12 @@
     padding-bottom: 0.4em;
     margin-right: 0.2em;
 }
+
+.btn__logout:hover {
+    color: var(--darkGray);
+}
+
+.btn__logout:active {
+    font-weight: var(--weightHeavy);
+    color: var(--darkGray);
+}
