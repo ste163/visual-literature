@@ -6,6 +6,7 @@ import { TypeProvider } from "./type/TypeProvider"
 import { Header } from "./header/Header"
 import { ProjectList } from "./projects/ProjectList"
 import { Dashboard } from "./dashboard/Dashboard"
+import { TableView } from "./table/TableView"
 import { Footer } from "./footer/Footer"
 
 export const ApplicationViews = () => {
@@ -27,6 +28,16 @@ export const ApplicationViews = () => {
 
                         <Route exact path="/projects">                    
                             <ProjectList />  
+                        </Route>
+                    </ProjectProvider>
+
+                    <ProjectProvider>
+                        <Route exact path="/table">
+                            <TableView />
+                        </Route>
+
+                        <Route exact path="/table/:projectId(\d+)">
+                            <TableView />
                         </Route>
                     </ProjectProvider>
 

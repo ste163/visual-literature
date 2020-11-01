@@ -13,6 +13,7 @@ export const Header = () => {
     // Get references for nav buttons and underline
     const btnProj = useRef()
     const btnDash = useRef()
+    const btnTable = useRef()
     const navLine = useRef()
 
     const [currentLocation, setCurrentLocation] = useState(location.pathname)
@@ -20,6 +21,11 @@ export const Header = () => {
     useEffect(() => {
         setCurrentLocation(location.pathname)
     }, [location.pathname])
+
+    const navLineMouseLeave = () => {
+        navLine.current.className = `${currentLocation.includes("/projects") ? "nav__line nav__line--projects" :
+        currentLocation.includes("/dashboard") ? "nav__line nav__line--dashboard" : "nav__line nav__line--table"}`
+    }
 
     return (
         <header className="header">
@@ -40,28 +46,42 @@ export const Header = () => {
                         <li className="nav__item">
                             <button 
                             ref={btnProj}
-                            className={currentLocation === "/projects" ? "nav__btn nav__btn--active" : "nav__btn"}
+                            className={currentLocation.includes("/projects") ? "nav__btn nav__btn--active" : "nav__btn"}
                             onMouseEnter={e => navLine.current.className = "nav__line nav__line--projects"}
-                            onMouseLeave={e => navLine.current.className = `${currentLocation === "/projects" ? "nav__line nav__line--projects" : "nav__line nav__line--dashboard"}`}
+                            onMouseLeave={e => navLineMouseLeave()}
                             onClick={ e => history.push("/projects")}>
                                 Projects
                             </button>
                         </li>
 
                         <li className="nav__item">
+                            <button 
+                            className="nav__btn"
+                            ref={btnTable}
+                            className={currentLocation.includes("/table") ? "nav__btn nav__btn--active" : "nav__btn"}
+                            onMouseEnter={e => navLine.current.className = "nav__line nav__line--table"}
+                            onMouseLeave={e => navLineMouseLeave()}
+                            onClick={e => history.push("/table")}
+                            >
+                                Table
+                            </button>
+                        </li>
+
+                        <li className="nav__item">
                             <button
                             ref={btnDash}
-                            className={currentLocation !== "/projects" ? "nav__btn nav__btn--active" : "nav__btn"}
+                            className={currentLocation.includes("/dashboard") ? "nav__btn nav__btn--active" : "nav__btn"}
                             onMouseEnter={e => navLine.current.className = "nav__line nav__line--dashboard"}
-                            onMouseLeave={e => navLine.current.className = `${currentLocation === "/projects" ? "nav__line nav__line--projects" : "nav__line nav__line--dashboard"}`}
-                            onClick={ e => history.push("/dashboard")}>
+                            onMouseLeave={e => navLineMouseLeave()}
+                            onClick={e => history.push("/dashboard")}>
                                 Dashboard
                             </button>
-                        </li>      
+                        </li>
 
                         <div 
                         ref={navLine}
-                        className={currentLocation === "/projects" ? "nav__line nav__line--projects" : "nav__line nav__line--dashboard"}>
+                        className={currentLocation.includes("/projects") ? "nav__line nav__line--projects" : 
+                                    currentLocation.includes("/dashboard") ? "nav__line nav__line--dashboard" : "nav__line nav__line--table"}>
                         </div>
                     </div>
 
@@ -77,7 +97,7 @@ export const Header = () => {
                                 svg.classList.add("icon__hovered")
                             })
                         }}
-                        onMouseOut={e => {
+                        onMouseLeave={e => {
                             e.currentTarget.firstElementChild.children[1].childNodes.forEach(svg => {
                                 svg.classList.remove("icon__hovered")
                                 svg.classList.add("icon__white")

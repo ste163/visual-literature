@@ -1,0 +1,33 @@
+.card--table {
+    margin-top: 1em;
+    padding: 0.8em 1em;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td {
+    padding: 0.3em 0.8em 0.5em 0.1em;
+    border-right: solid 0.15em var(--mediumGray);
+    text-align: right;
+}
+
+tbody tr td:last-child {
+    border: none;
+}
+
+thead tr th:first-child {
+    border-top-left-radius: 0.5em;
+}
+
+thead tr th:last-child {
+    border-top-right-radius: 0.5em;
+    padding-right: 0.3em
+}
+
+th {
+    text-align: left;
+    padding: 0 1em 0 0.3em;
+    background-color: var(--mediumGray);
+}

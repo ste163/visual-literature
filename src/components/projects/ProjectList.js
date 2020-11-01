@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useContext, useState } from "react"
+import React, { useRef, useEffect, useContext } from "react"
 import { TypeContext } from "../type/TypeProvider"
 import { ProjectContext } from "./ProjectProvider"
 import { ProgressProvider } from "../progress/ProgressProvider"
@@ -11,9 +11,6 @@ import "./Project.css"
 
 export const ProjectList = () => {
     const { projects, getProjects } = useContext(ProjectContext)
-    
-    // Set state for all buttons
-    const [btnProject, setBtnProject ] = useState(false)
 
     // We getTypes for the forms on ProjectList load.
     // Types currently WILL NEVER change, so forms don't need the fetch.

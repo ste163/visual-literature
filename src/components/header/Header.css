@@ -64,17 +64,25 @@
     border-bottom-width: 0.25em;
     border-radius: 5em;
     border-color: white;
-    grid-column: 1 / 3;
+    grid-column: 1 / 4;
     transition: var(--btnHover)
 }
 
 .nav__line--projects {
-    margin-right: 4.2em;
+    margin-right: 6.8em;
+    margin-left: 0.2em;
+    transition: var(--btnHover)
+}
+
+.nav__line--table {
+    margin-left: 3.6em;
+    margin-right: 4.35em;
     transition: var(--btnHover)
 }
 
 .nav__line--dashboard {
-    margin-left: 3.5em;
+    margin-left: 6em;
+    margin-right: 0.1em;
     transition: var(--btnHover)
 }
 
