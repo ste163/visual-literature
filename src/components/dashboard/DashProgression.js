@@ -55,7 +55,7 @@ export const DashProgression = (props, progress) => {
         // Get only this month's progress
         const currentMonthsProgress = singleProgress => {
             // Remove timezone differences by setting time to 00:00:00 on the current day
-            const dateEntered = new Date(`${singleProgress.dateEntered} : 00:00:00`).getMonth()
+            const dateEntered = new Date(`${singleProgress.dateEntered} 00:00:00`).getMonth()
             return dateEntered === currentMonthInt
         }
 

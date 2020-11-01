@@ -18,7 +18,8 @@ export const ProgressCard = (project) => {
     const progressBar = useRef()
 
     const currentDate = new Date()
-    const removeTimeFromDate = new Date(`${currentDate.toISOString().slice(0,10)} : 00:00:00`)
+    const convertedToISO = currentDate.toISOString().slice(0,10)
+    const removeTimeFromDate = new Date(`${convertedToISO} 00:00:00`)
     const todaysDate = removeTimeFromDate.toISOString().slice(0,10)
 
     const wordCountGoal = project.project.wordCountGoal
@@ -61,7 +62,7 @@ export const ProgressCard = (project) => {
                 const thisWeeksProgress = weeklyProjects.filter(each => {
 
                     // To ensure that the date entered is tested correctly, at least with console.logs, have to replace the - with /
-                    const progressDate = new Date(`${each.dateEntered} : 00:00:00`)
+                    const progressDate = new Date(`${each.dateEntered} 00:00:00`)
                     // Return only the progress in the current week
                     return isSameWeek(progressDate, currentDate)
                 })
@@ -98,7 +99,7 @@ export const ProgressCard = (project) => {
                 const currentMonth = new Date(`${todaysDate} : 00:00:00`).getMonth()
                 // Match only progress that matches today's date
                 const thisMonthsProgress = monthlyProjects.filter(each => {
-                    const progressMonth = new Date(`${each.dateEntered} : 00:00:00`).getMonth()
+                    const progressMonth = new Date(`${each.dateEntered} 00:00:00`).getMonth()
                     return progressMonth === currentMonth
                 })
                 if (thisMonthsProgress.length !== 0) {
