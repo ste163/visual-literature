@@ -22,8 +22,18 @@ td {
     font-size: 0.7em;
 }
 
+
+tr:nth-child(even) {
+    background-color: var(--lightGray);
+}
+
 tbody tr td:last-child {
     border: none;
+}
+
+
+tr:hover {
+    background-color: var(--mediumGray);
 }
 
 thead tr th:first-child {
@@ -39,7 +49,7 @@ thead tr th:last-child {
 th {
     font-size: 0.8em;
     text-align: left;
-    padding: 0 1em 0 0.3em;
+    padding: 0.5em 0.8em  0.3em;
     font-weight: var(--weightNormal);
-    background-color: var(--lightGray);
+    background-color: var(--mediumGray);
 }
