@@ -123,6 +123,16 @@
       "revised": false,
       "edited": false,
       "proofread": false
+    },
+    {
+      "projectId": 6,
+      "userId": 1,
+      "dateEntered": "2020-11-01",
+      "wordsWritten": 388,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "id": 8
     }
   ]
 }

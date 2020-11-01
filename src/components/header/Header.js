@@ -20,7 +20,6 @@ export const Header = () => {
 
     useEffect(() => {
         setCurrentLocation(location.pathname)
-        console.log(location.pathname)
     }, [location.pathname])
 
     const navLineMouseLeave = () => {
