@@ -4,7 +4,8 @@
     align-items: center;
     background-color: var(--offWhite);
     box-shadow: var(--headingDropShadow);
-    height: 3em;
+    height: max-content;
+    padding: 0.5em 0;
 }
 
 .view__sort {

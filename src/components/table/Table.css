@@ -28,9 +28,15 @@ tr:nth-child(even) {
 }
 
 tbody tr td:last-child {
-    border: none;
+    border-right: none;
+    border-bottom-right-radius: 0.5em;
 }
 
+tbody tr td:first-child {
+    padding-left: 0.8em;
+    border-right: none;
+    border-bottom-left-radius: 0.5em;
+}
 
 tr:hover {
     background-color: var(--mediumGray);
