@@ -1,9 +1,19 @@
-import React from "react"
+import React, { useContext, useEffect } from "react"
+import { useParams } from "react-router-dom"
+import { TypeContext } from "../type/TypeProvider"
+import { ProjectContext } from "../projects/ProjectProvider"
+import { ProgressContext } from "../progress/ProgressProvider"
 import { IconDivider } from "../icons/IconDivider"
 import { Table } from "./Table"
 import "./TableView.css"
 
 export const TableView = () => {
+
+    const { projectId } = useParams()
+    const { getTypes } = useContext(TypeContext)
+    const { projects, getProjects, getProjectByParam } = useContext(ProjectContext)
+    const { progress, getProgressByProjectId } = useContext(ProgressContext)
+
 
     // DATES
     const currentTime = new Date()
@@ -13,8 +23,21 @@ export const TableView = () => {
     const lastDayOfMonthFull = new Date(currentTime.getFullYear(), currentTime.getMonth() + 1, 0)
     const lastDayOfMonthInt = lastDayOfMonthFull.getDate()
 
+   
     // FETCH INFO FOR SELECTED PROJECT & CURRENT PROGRESS FOR SELECTED PROJECT
-
+    useEffect(() => {
+        getTypes()
+        .then(() => {
+            if (projectId) {
+                getProjectByParam(projectId)
+                .then(() => {
+                    getProgressByProjectId(projectId)
+                })
+            } else {
+                console.log("NO PROJECT ID YET")
+            }
+        })
+    }, [])
 
     return (
         <>
