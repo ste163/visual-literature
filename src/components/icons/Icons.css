@@ -1,10 +1,16 @@
 .icon__hovered {
-    fill: var(--darkGray);
+    fill: var(--lighterBlack);
+    transition: var(--btnHover);
+}
+
+.icon__hovered--logout {
+    transform: translateX(1em);
     transition: var(--btnHover);
 }
 
 .icon__gray {
-    fill: var(--darkGray)
+    fill: var(--darkGray);
+    transition: var(--btnHover);
 }
 
 .icon__lightGray {

@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useContext } from "react"
+import React, { useRef, useEffect, useContext, useState } from "react"
 import { TypeContext } from "../type/TypeProvider"
 import { ProjectContext } from "./ProjectProvider"
 import { ProgressProvider } from "../progress/ProgressProvider"
@@ -12,6 +12,9 @@ import "./Project.css"
 export const ProjectList = () => {
     const { projects, getProjects } = useContext(ProjectContext)
     
+    // Set state for all buttons
+    const [btnProject, setBtnProject ] = useState(false)
+
     // We getTypes for the forms on ProjectList load.
     // Types currently WILL NEVER change, so forms don't need the fetch.
     const { getTypes } = useContext(TypeContext)
@@ -28,7 +31,20 @@ export const ProjectList = () => {
         <>
         <section className="view__header">
             <button className="project__btn"
-            onClick={e => modal.current.className = "background__modal modal__active"}>
+            onClick={e => modal.current.className = "background__modal modal__active"}
+            onMouseOver={e => {
+                e.currentTarget.firstElementChild.children[1].childNodes.forEach(svg => {
+                    svg.classList.remove("icon__gray")
+                    svg.classList.add("icon__hovered")
+
+                 })
+             }}
+             onMouseOut={e => {
+                 e.currentTarget.firstElementChild.children[1].childNodes.forEach(svg => {
+                    svg.classList.remove("icon__hovered")
+                    svg.classList.add("icon__gray")
+                 })
+             }}>
                 <IconPlus color="icon__gray" />
                 Create new project
             </button>

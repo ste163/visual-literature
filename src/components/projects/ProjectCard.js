@@ -22,7 +22,22 @@ export const ProjectCard = ({project}) => {
             <div className="project__subtitle project__subtitle--date">Started on {project.dateStarted}</div>
             <Link className="project__dash" to={`/dashboard/${project.id}`}>
                 <button 
-                className="card__btn">
+                className="card__btn"
+                onMouseOver={e => {
+                    const svgs = [...e.currentTarget.firstElementChild.children]
+                    svgs.forEach(svg => {
+                            svg.classList.remove("icon__gray")
+                            svg.classList.add("icon__hovered")
+                        })
+                    }}
+                    onMouseOut={e => {
+                        const svgs = [...e.currentTarget.firstElementChild.children]
+                        svgs.forEach(svg => {
+                            svg.classList.remove("icon__hovered")
+                            svg.classList.add("icon__gray")
+                        })
+                    }}
+                >
                     <IconGraph color="icon__gray" />
                     <span className="btn__text">
                         Display on Dashboard

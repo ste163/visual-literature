@@ -71,7 +71,20 @@ export const Dashboard = () => {
                         progressModal.current.className = "background__modal modal__active"
                     }
                 }
-            }>
+            }
+            onMouseOver={e => {
+                e.currentTarget.firstElementChild.children[1].childNodes.forEach(svg => {
+                    svg.classList.remove("icon__gray")
+                    svg.classList.add("icon__hovered")
+
+                 })
+             }}
+             onMouseOut={e => {
+                 e.currentTarget.firstElementChild.children[1].childNodes.forEach(svg => {
+                    svg.classList.remove("icon__hovered")
+                    svg.classList.add("icon__gray")
+                 })
+             }}>
                 <IconPlus color="icon__gray" />
                 Add progress
             </button>
