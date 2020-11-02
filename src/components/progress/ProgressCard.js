@@ -1,5 +1,4 @@
-import React, { useContext, useRef, useEffect, useState } from "react"
-import { ProgressContext } from "./ProgressProvider"
+import React, { useRef, useEffect, useState } from "react"
 import { ProgressForm } from "./ProgressForm"
 import { Modal } from "../modal/Modal"
 import { isSameWeek } from 'date-fns'
@@ -8,7 +7,6 @@ import Chart from 'chart.js'
 import "./ProgressCard.css"
 
 export const ProgressCard = (project) => {
-    console.log(project.progress)
 
     const progress = project.progress
 
@@ -20,9 +18,7 @@ export const ProgressCard = (project) => {
     const progressBar = useRef()
 
     const currentDate = new Date()
-    console.log("CURRENT DATE", currentDate)
     const convertedToISO = currentDate.toISOString().slice(0,10)
-    console.log("CONVERTED", convertedToISO)
     const removeTimeFromDate = new Date(`${convertedToISO} 00:00:00`)
     console.log(removeTimeFromDate)
     const todaysDate = removeTimeFromDate.toISOString().slice(0,10)
@@ -38,8 +34,6 @@ export const ProgressCard = (project) => {
                 const dailyProjects = progress.filter(each => each.project.goalFrequency === "daily")
                 // Get only the progress that matches today
                 const todaysProgress = dailyProjects.filter(each => {
-                    console.log("ENTERED DATE", each.dateEntered)
-                    console.log("TODAY?",todaysDate)
                     return each.dateEntered === todaysDate
                 
                 })
@@ -135,9 +129,9 @@ export const ProgressCard = (project) => {
     }
 
       useEffect(() => {
-        checkGoalProgress()
-        new Chart(progressBar.current, horizontalBar(goalProgression, daysPerFrequency));
-      }, [progress]);
+          new Chart(progressBar.current, horizontalBar(goalProgression, daysPerFrequency));
+          checkGoalProgress()
+      }, [progress, checkGoalProgress]);
 
     return (
     <section className="card card__color--mintBlue card__progress">

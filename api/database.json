@@ -133,6 +133,26 @@
       "revised": false,
       "edited": true,
       "proofread": false
+    },
+    {
+      "projectId": 5,
+      "userId": 1,
+      "dateEntered": "2020-11-02",
+      "wordsWritten": 225,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "id": 10
+    },
+    {
+      "projectId": 6,
+      "userId": 1,
+      "dateEntered": "2020-11-02",
+      "wordsWritten": 349,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "id": 11
     }
   ]
 }
