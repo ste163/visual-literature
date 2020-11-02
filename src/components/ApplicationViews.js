@@ -2,6 +2,7 @@ import React from "react"
 import { Redirect, Route } from "react-router-dom"
 import { ProjectProvider } from "./projects/ProjectProvider"
 import { ProgressProvider } from "./progress/ProgressProvider"
+import { SettingsProvider } from "./settings/SettingsProvider"
 import { TypeProvider } from "./type/TypeProvider"
 import { Header } from "./header/Header"
 import { ProjectList } from "./projects/ProjectList"
@@ -17,7 +18,9 @@ export const ApplicationViews = () => {
     return (
     <> 
         <ProjectProvider>
-            <Header />
+            <SettingsProvider>
+                <Header />
+            </SettingsProvider>
 
             <TypeProvider>
                 <ProgressProvider>
