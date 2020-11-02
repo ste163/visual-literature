@@ -37,7 +37,7 @@ export const ApplicationViews = () => {
                             <TableView />
                         </Route>
 
-                        <Route exact path="/table/:projectId(\d+)">
+                        <Route exact path="/table/:projectId">
                             <TableView />
                         </Route>
                     </ProjectProvider>
@@ -47,7 +47,7 @@ export const ApplicationViews = () => {
                             <Dashboard />
                         </Route>
             
-                        <Route exact path="/dashboard/:projectId(\d+)">
+                        <Route exact path="/dashboard/:projectId">
                             <Dashboard />
                         </Route>
                     </ProjectProvider>

@@ -14,6 +14,7 @@ export const TableView = () => {
     const defaultProject = +sessionStorage.getItem("defaultProject")
 
     const { projectId } = useParams()
+    console.log(projectId)
     const { getTypes } = useContext(TypeContext)
     const { projects, getProjectsWithoutStateUpdate, getProjectByParam } = useContext(ProjectContext)
     const { progress, getProgressByProjectId } = useContext(ProgressContext)
@@ -40,8 +41,11 @@ export const TableView = () => {
         .then(() => {
             getProjectsWithoutStateUpdate(userId)
             .then(allProjects => {
-                console.log(allProjects)
-                
+                const byProjectId = allProjects.find(project => project.id === +projectId)
+                if (byProjectId) {
+                    console.log("PROJECT BY PARAM")
+                    setCurrentProject(byProjectId)
+                }
             })
         })
 
@@ -86,7 +90,9 @@ export const TableView = () => {
 
         <section className="view__container">
             <div className="table__container">
-                <Table props={projects}/>
+                {
+                    currentProject === undefined ? null : <Table props={currentProject}/>
+                }
             </div>
         </section>
         </>
