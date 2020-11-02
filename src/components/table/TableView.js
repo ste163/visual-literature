@@ -32,7 +32,12 @@ export const TableView = () => {
     // FETCH INFO FOR SELECTED PROJECT & CURRENT PROGRESS FOR SELECTED PROJECT
     useEffect(() => {
         getTypes()
+        // To have project selection available,
+        // Must get ALL projects
+        // THEN sort by matching project based on params/defaultProjects
+        // THEN get the progress for that project
         .then(() => {
+
             if (projectId) {
                 getProjectByParam(projectId)
                 .then(() => {
