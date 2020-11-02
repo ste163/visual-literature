@@ -20,8 +20,9 @@ export const ProjectCard = ({project}) => {
             <h2 className="project__h2--card">{project.name}</h2>  
             <div className="project__subtitle project__subtitle--type">{project.type.name}</div>
             <div className="project__subtitle project__subtitle--date">Started on {project.dateStarted}</div>
+            <div classname="project__goal"></div>
             <Link className="project__table" to={`/table/${project.id}`}>
-                <button>
+                <button className="card__btn">
                     Table
                 </button>
             </Link>
