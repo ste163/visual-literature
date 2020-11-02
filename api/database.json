@@ -9,7 +9,7 @@
     {
       "id": 1,
       "userId": 1,
-      "defaultPage": "/dashboard",
+      "defaultPage": "/table",
       "defaultProject": 5,
       "colorMode": "light"
     }

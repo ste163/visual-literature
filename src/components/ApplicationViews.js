@@ -11,10 +11,9 @@ import { TableView } from "./table/TableView"
 import { Footer } from "./footer/Footer"
 
 export const ApplicationViews = () => {
-    // If user will be able to decide default view as either
-    // project or dashboard, then an if statement
-    // will need to go on the route exact path "/"
-    // checking what the user has selected as the default view
+
+    const defaultPage = sessionStorage.getItem("defaultPage")
+
     return (
     <> 
         <ProjectProvider>
@@ -26,7 +25,7 @@ export const ApplicationViews = () => {
                 <ProgressProvider>
 
                     <Route exact path="/">
-                        <Redirect to="/projects" />
+                        <Redirect to={defaultPage} />
                     </Route>
 
                     <Route exact path="/projects">                    
