@@ -4,22 +4,23 @@ import { ProjectContext } from "../projects/ProjectProvider"
 
 export const HeaderSettings = () => {
 
+    // Default settings from session storage
     const userId = parseInt(sessionStorage.getItem("userId"))
+    const defaultPage = sessionStorage.getItem("defaultPage")
+    const defaultProject = sessionStorage.getItem("defaultProject")
+    const colorMode = sessionStorage.getItem("colorMode")
 
-    // SET DEFAULT STATE FROM SESSION STORAGE
     const defaultSettings = {
         userId,
-        defaultPage: "/projects",
-        defaultProject: 0,
-        colorMode: "light"
+        defaultPage,
+        defaultProject,
+        colorMode
     }
 
     const [ currentSettings, setCurrentSettings ] = useState(defaultSettings)
     
     const { settings, getSettings, updateSettings } = useContext(SettingsContext)
     const { projects, getProjects } = useContext(ProjectContext)
-    
-    console.log("STATE", currentSettings)
     
     const handleControlledInputChange = e => {
         const newSetting = {...settings[0]}
@@ -42,6 +43,9 @@ export const HeaderSettings = () => {
                 defaultProject: +currentSettings.defaultProject,
                 colorMode: currentSettings.colorMode
             })
+            sessionStorage.setItem("defaultPage", currentSettings.defaultPage)
+            sessionStorage.setItem("defaultProject", +currentSettings.defaultProject) 
+            sessionStorage.setItem("colorMode", currentSettings.colorMode)
         }
     }, [currentSettings])
 

@@ -15,9 +15,6 @@ export const SettingsProvider = props => {
             },
             body: JSON.stringify(settingsObj)
         })
-        .then(() => {
-            getSettings(settingsObj.userId)
-        })
     }
 
     const getSettings = (userId) => {
@@ -38,6 +35,9 @@ export const SettingsProvider = props => {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(settingsObj)
+        })
+        .then(() => {
+            getSettings(settingsObj.userId)
         })
     }
 
