@@ -72,8 +72,17 @@
 
 .modal__h2 {
     font-size: 1em;
+    margin-bottom: 0.5em;
 }
 
 .warning__p {
     margin: 0.7em 0;
+}
+
+.container__settings {
+    width: 90%;
+}
+
+.settings__fieldset {
+    margin: 0 0 1em 0;
 }
