@@ -8,10 +8,10 @@
   "settings": [
     {
       "id": 1,
-      "userId": "1",
+      "userId": 1,
       "defaultPage": "/dashboard",
       "defaultProject": 5,
-      "colorMode": "light"
+      "colorMode": "dark"
     }
   ],
   "projects": [

@@ -4,7 +4,7 @@ import { ProjectContext } from "../projects/ProjectProvider"
 
 export const HeaderSettings = () => {
 
-    const userId = sessionStorage.getItem("userId")
+    const userId = parseInt(sessionStorage.getItem("userId"))
 
     const defaultSettings = {
         userId,
@@ -13,33 +13,33 @@ export const HeaderSettings = () => {
         colorMode: "light"
     }
 
+    const updateStateValues = () => {
+        console.log("SETTINGS", settings[0])
+        // if (settings[0] !== undefined) {
+        //     setCurrentSettings(currentSettings.id = settings[0].id)
+        //     setCurrentSettings(currentSettings.userId = userId)
+        //     setCurrentSettings(currentSettings.defaultPage = settings[0].defaultPage)
+        //     setCurrentSettings(currentSettings.defaultProject = settings[0].defaultProject)
+        //     setCurrentSettings(currentSettings.colorMode = settings[0].colorMode)
+        // }
+    }
+
     const [ currentSettings, setCurrentSettings ] = useState(defaultSettings)
     
     const { settings, getSettings, updateSettings } = useContext(SettingsContext)
     const { projects, getProjects } = useContext(ProjectContext)
     
-    console.log(currentSettings)
+    console.log("STATE", currentSettings)
     
     const handleControlledInputChange = e => {
         const newSetting = {...settings[0]}
         newSetting[e.target.name] = e.target.value
         setCurrentSettings(newSetting)
-}
+    }
 
     useEffect(() => {
         getProjects(userId)
-        .then(() => {
-            getSettings(userId)
-            .then(() => {
-                if (settings[0] !== undefined) {
-                    setCurrentSettings(currentSettings.id = settings[0].id)
-                    setCurrentSettings(currentSettings.userId = userId)
-                    setCurrentSettings(currentSettings.defaultPage = settings[0].defaultPage)
-                    setCurrentSettings(currentSettings.defaultProject = settings[0].defaultProject)
-                    setCurrentSettings(currentSettings.colorMode = settings[0].colorMode)
-                }
-            })
-        })
+        .then(getSettings(userId))
     }, [])
 
     // Wait for state to change, then update
@@ -55,6 +55,10 @@ export const HeaderSettings = () => {
         }
     }, [currentSettings])
 
+    useEffect(() => {
+        updateStateValues()
+    }, [settings])
+
     return (
         <>
         {settings[0] === undefined ? null : 
@@ -67,6 +71,7 @@ export const HeaderSettings = () => {
                         <select
                         id="defaultPage"
                         name="defaultPage"
+                        value={currentSettings.defaultPage}
                         onChange={handleControlledInputChange}>
                             <option value="/projects">Projects</option>
                             <option value="/table">Table</option>
@@ -79,6 +84,7 @@ export const HeaderSettings = () => {
                         <select
                         id="defaultProject"
                         name="defaultProject"
+                        value={currentSettings.defaultProject}
                         onChange={handleControlledInputChange}>
                             <option value="0">Select default project</option>
                             {projects.map(project => (
