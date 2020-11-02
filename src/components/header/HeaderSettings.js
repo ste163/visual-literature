@@ -13,17 +13,6 @@ export const HeaderSettings = () => {
         colorMode: "light"
     }
 
-    const updateStateValues = () => {
-        console.log("SETTINGS", settings[0])
-        // if (settings[0] !== undefined) {
-        //     setCurrentSettings(currentSettings.id = settings[0].id)
-        //     setCurrentSettings(currentSettings.userId = userId)
-        //     setCurrentSettings(currentSettings.defaultPage = settings[0].defaultPage)
-        //     setCurrentSettings(currentSettings.defaultProject = settings[0].defaultProject)
-        //     setCurrentSettings(currentSettings.colorMode = settings[0].colorMode)
-        // }
-    }
-
     const [ currentSettings, setCurrentSettings ] = useState(defaultSettings)
     
     const { settings, getSettings, updateSettings } = useContext(SettingsContext)
@@ -55,10 +44,6 @@ export const HeaderSettings = () => {
         }
     }, [currentSettings])
 
-    useEffect(() => {
-        updateStateValues()
-    }, [settings])
-
     return (
         <>
         {settings[0] === undefined ? null : 
@@ -71,7 +56,7 @@ export const HeaderSettings = () => {
                         <select
                         id="defaultPage"
                         name="defaultPage"
-                        value={currentSettings.defaultPage}
+                        value={settings[0].defaultPage}
                         onChange={handleControlledInputChange}>
                             <option value="/projects">Projects</option>
                             <option value="/table">Table</option>
@@ -84,7 +69,7 @@ export const HeaderSettings = () => {
                         <select
                         id="defaultProject"
                         name="defaultProject"
-                        value={currentSettings.defaultProject}
+                        value={settings[0].defaultProject}
                         onChange={handleControlledInputChange}>
                             <option value="0">Select default project</option>
                             {projects.map(project => (
@@ -98,13 +83,13 @@ export const HeaderSettings = () => {
                         <label htmlFor="darkMode">View mode:</label>
                         <div className="radios">
                             <input className="input__radio" type="radio" id="light" name="colorMode" value="light" required
-                            checked={currentSettings.colorMode === "light" ? "light" : ""}
+                            checked={settings[0].colorMode === "light" ? "light" : ""}
                             onChange={handleControlledInputChange}
                             />
                             <label htmlFor="daily">Light mode</label>
                             
                             <input className="input__radio" type="radio" id="dark" name="colorMode" value="dark" required
-                            checked={currentSettings.colorMode === "dark" ? "dark" : ""}
+                            checked={settings[0].colorMode === "dark" ? "dark" : ""}
                             onChange={handleControlledInputChange}
                             />
                             <label htmlFor="weekly">Dark mode</label>

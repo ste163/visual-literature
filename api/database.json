@@ -9,9 +9,9 @@
     {
       "id": 1,
       "userId": 1,
-      "defaultPage": "/dashboard",
-      "defaultProject": 5,
-      "colorMode": "dark"
+      "defaultPage": "/table",
+      "defaultProject": 6,
+      "colorMode": "light"
     }
   ],
   "projects": [
