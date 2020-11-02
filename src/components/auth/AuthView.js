@@ -19,14 +19,6 @@ export const AuthView = props => {
     const loginBtn = useRef()
     const registerBtn = useRef()
 
-    // Create generic settings for a user
-    const defaultSettings = {
-        userId: 0,
-        defaultPage: "/projects",
-        defaultProject: 0,
-        colorMode: "light"
-    }
-
     // To allow for the nav underline to move,
     // target it by useRef
     const underline = useRef()
@@ -90,7 +82,17 @@ export const AuthView = props => {
                         .then(createdUser => {
                             if (createdUser.hasOwnProperty("id")) {
                                 sessionStorage.setItem("userId", createdUser.id)
-                                history.push("/")
+                                addDefaultSettings({
+                                    userId: createdUser.id,
+                                    defaultPage: "/projects",
+                                    defaultProject: 0,
+                                    colorMode: "light"
+                                }).then(() => {
+                                    sessionStorage.setItem("defaultPage", "/projects")
+                                    sessionStorage.setItem("defaultProject", 0)
+                                    sessionStorage.setItem("colorMode", "light")
+                                    history.push("/")
+                                })
                             }
                         })
                 }

@@ -39,9 +39,6 @@ export const SettingsProvider = props => {
             },
             body: JSON.stringify(settingsObj)
         })
-        .then(() => {
-            getSettings(settingsObj.userId)
-        })
     }
 
     return (
