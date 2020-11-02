@@ -72,7 +72,7 @@ export const ProjectCard = ({project}) => {
                 </button>
             </Link>
 
-            <ProgressCard project={project} />
+            <ProgressCard project={project} progress={progress} />
         </article>
     )
 }

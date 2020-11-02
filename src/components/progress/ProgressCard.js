@@ -8,8 +8,10 @@ import Chart from 'chart.js'
 import "./ProgressCard.css"
 
 export const ProgressCard = (project) => {
+    console.log(project.progress)
 
-    const { progress, getProgressByProjectId } = useContext(ProgressContext)
+    const progress = project.progress
+
     const [ goalProgression, setGoalProgression ] = useState()
     // goalFreqComplete can be: 0, 1, or 2 (0 is no progress, 1 is some progress, 2 is complete for freq)
     const [ goalFreqComplete, setGoalFreqComplete ] = useState()
@@ -18,8 +20,11 @@ export const ProgressCard = (project) => {
     const progressBar = useRef()
 
     const currentDate = new Date()
+    console.log("CURRENT DATE", currentDate)
     const convertedToISO = currentDate.toISOString().slice(0,10)
+    console.log("CONVERTED", convertedToISO)
     const removeTimeFromDate = new Date(`${convertedToISO} 00:00:00`)
+    console.log(removeTimeFromDate)
     const todaysDate = removeTimeFromDate.toISOString().slice(0,10)
 
     const wordCountGoal = project.project.wordCountGoal
@@ -32,7 +37,12 @@ export const ProgressCard = (project) => {
                 // Get only progress for projects that are daily
                 const dailyProjects = progress.filter(each => each.project.goalFrequency === "daily")
                 // Get only the progress that matches today
-                const todaysProgress = dailyProjects.filter(each => each.dateEntered === todaysDate)
+                const todaysProgress = dailyProjects.filter(each => {
+                    console.log("ENTERED DATE", each.dateEntered)
+                    console.log("TODAY?",todaysDate)
+                    return each.dateEntered === todaysDate
+                
+                })
                 if (todaysProgress.length !== 0) {
                     // If the progress we have matches today's date, run the block
                     if (todaysProgress[0].dateEntered === todaysDate) {
@@ -60,15 +70,10 @@ export const ProgressCard = (project) => {
                 let weeklyProgressCounter = 0
                 const weeklyProjects = progress.filter(each => each.project.goalFrequency === "weekly")
                 const thisWeeksProgress = weeklyProjects.filter(each => {
-
-                    // To ensure that the date entered is tested correctly, at least with console.logs, have to replace the - with /
                     const progressDate = new Date(`${each.dateEntered} 00:00:00`)
-                    // Return only the progress in the current week
                     return isSameWeek(progressDate, currentDate)
                 })
-                // If we have progress for this week...
                 if (thisWeeksProgress.length !== 0) {
-                    // see if the goal has been met for each entered progress
                     thisWeeksProgress.forEach(progress => {
                         if (progress.wordsWritten >= wordCountGoal) {
                             ++weeklyProgressCounter
@@ -77,9 +82,10 @@ export const ProgressCard = (project) => {
                         if (progress.wordsWritten < wordCountGoal && progress.proofread || progress.revised || progress.edited) {
                             ++weeklyProgressCounter
                             setGoalProgression(weeklyProgressCounter)
+                        } else {
+                            setGoalProgression(0)
                         }
                     })
-                    // If the counter reaches the freq for the week, set complete
                     if (weeklyProgressCounter >= daysPerFrequency) {
                         setGoalFreqComplete(2)
                     }  else if (weeklyProgressCounter < daysPerFrequency) {
@@ -92,12 +98,11 @@ export const ProgressCard = (project) => {
                 break;
                 
             case "monthly":
-                // Create a counter for amount completed. Used in graph and progress checks
                 let monthlyProgressCounter = 0
-                // Get only the progress that matches today's date
+
                 const monthlyProjects = progress.filter(each => each.project.goalFrequency === "monthly")
                 const currentMonth = new Date(`${todaysDate} 00:00:00`).getMonth()
-                // Match only progress that matches today's date
+
                 const thisMonthsProgress = monthlyProjects.filter(each => {
                     const progressMonth = new Date(`${each.dateEntered} 00:00:00`).getMonth()
                     return progressMonth === currentMonth
@@ -130,13 +135,9 @@ export const ProgressCard = (project) => {
     }
 
       useEffect(() => {
-        getProgressByProjectId(project.project.id)
-      },[])
-
-      useEffect(() => {
-        new Chart(progressBar.current, horizontalBar(goalProgression, daysPerFrequency));
         checkGoalProgress()
-      }, [checkGoalProgress]);
+        new Chart(progressBar.current, horizontalBar(goalProgression, daysPerFrequency));
+      }, [progress]);
 
     return (
     <section className="card card__color--mintBlue card__progress">
@@ -168,9 +169,9 @@ export const ProgressCard = (project) => {
         <button className="btn"
         onClick={e => {
             progressModal.current.className = "background__modal modal__active"
-            getProgressByProjectId(project.project.id)
             }}>
-            Add/Edit Progress</button>
+            Add/Edit Progress
+        </button>
         
         <Modal ref={progressModal} key={project.project.id} contentFunction={<ProgressForm project={project}/>} width="modal__width--med" />
 
