@@ -20,6 +20,11 @@ export const ProjectCard = ({project}) => {
             <h2 className="project__h2--card">{project.name}</h2>  
             <div className="project__subtitle project__subtitle--type">{project.type.name}</div>
             <div className="project__subtitle project__subtitle--date">Started on {project.dateStarted}</div>
+            <Link className="project__table" to={`/table/${project.id}`}>
+                <button>
+                    Table
+                </button>
+            </Link>
             <Link className="project__dash" to={`/dashboard/${project.id}`}>
                 <button 
                 className="card__btn"
@@ -40,7 +45,7 @@ export const ProjectCard = ({project}) => {
                 >
                     <IconGraph color="icon__gray" />
                     <span className="btn__text">
-                        Display on Dashboard
+                        Dashboard
                     </span>
                 </button>
             </Link>

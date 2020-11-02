@@ -7,7 +7,6 @@ import { ProjectCard } from "./ProjectCard"
 import { Modal } from "../modal/Modal"
 import { IconPlus } from "../icons/IconPlus"
 import { IconDivider } from "../icons/IconDivider"
-import "./Project.css"
 
 export const ProjectList = () => {
     const { projects, getProjects } = useContext(ProjectContext)

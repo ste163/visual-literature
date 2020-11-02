@@ -9,6 +9,7 @@ export const Table = () => {
 
     return (
         <div className="card card__color--white card--table">
+            <h2 className="table__h2">Current Project</h2>
             <table>
                 <thead>
                     <tr>

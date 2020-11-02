@@ -4,5 +4,61 @@
     align-items: center;
     background-color: var(--offWhite);
     box-shadow: var(--headingDropShadow);
-    height: 3em;
+    height: max-content;
+    padding: 0.5em 0;
+}
+
+/* PROJECT VIEW */
+.project__btn {
+    display: flex;
+    align-items: center;
+    font-size: 0.8em;
+    font-weight: var(--weightThin);
+    background-color: transparent;
+    border-style: none;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+.project__btn:hover {
+    color: var(--lightBlack);
+}
+
+.project__btn:active {
+    color: var(--lightBlack);
+    font-weight: var(--weightMedium)
+}
+
+/* TABLE VIEW */
+
+.view__sort {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    margin: 0;
+}
+
+.view__projectSelect {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    margin: 0 0 0 0.5em;
+}
+
+.sort__label, .projectSelect__label {
+    margin-right: 0.3em;
+    font-size: 0.8em;
+}
+
+
+.sort__select, .projectSelect__select {
+    margin-right: 0.4em;
+    padding: 0.2em;
+    font-size: 0.8em;
+    font-weight: var(--weightThin)
+}
+
+.sort__select--year {
+    margin-right: 0;
 }

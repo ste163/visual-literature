@@ -1,33 +1,61 @@
 .card--table {
-    margin-top: 1em;
+    margin: 1em;
     padding: 0.8em 1em;
+    width: max-content
+}
+
+.table__h2 {
+    font-size: 1.2em;
+    font-weight: var(--weightThin);
+    margin-bottom: 0.2em;
 }
 
 table {
     border-collapse: collapse;
+    font-weight: var(--weightThin)
 }
 
 td {
-    padding: 0.3em 0.8em 0.5em 0.1em;
-    border-right: solid 0.15em var(--mediumGray);
+    padding: 0.6em 0.8em 0.5em 0.1em;
+    border-right: solid 0.15em var(--lightGray);
     text-align: right;
+    font-size: 0.7em;
+}
+
+
+tr:nth-child(even) {
+    background-color: var(--lightGray);
 }
 
 tbody tr td:last-child {
-    border: none;
+    border-right: none;
+    border-bottom-right-radius: 0.5em;
+}
+
+tbody tr td:first-child {
+    padding-left: 0.8em;
+    border-right: none;
+    border-bottom-left-radius: 0.5em;
+}
+
+tr:hover {
+    background-color: var(--mediumGray);
 }
 
 thead tr th:first-child {
     border-top-left-radius: 0.5em;
+    padding-left: 0.6em;
 }
 
 thead tr th:last-child {
     border-top-right-radius: 0.5em;
-    padding-right: 0.3em
+    padding-right: 0.6em
 }
 
 th {
+    font-size: 0.8em;
     text-align: left;
-    padding: 0 1em 0 0.3em;
+    padding: 0.5em 0.8em  0.3em;
+    font-weight: var(--weightNormal);
     background-color: var(--mediumGray);
 }
