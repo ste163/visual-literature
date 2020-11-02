@@ -12,7 +12,7 @@ export const ProjectProvider = props => {
         .then(setProject)
     }
 
-    const getProjectByParam = (projectId) => {
+    const getProjectByParam = projectId => {
         return fetch(`http://localhost:8088/projects/${projectId}`)
         .then(response => response.json())
         .then(setProject)

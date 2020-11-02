@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { TypeContext } from "../type/TypeProvider"
 import { ProjectContext } from "../projects/ProjectProvider"
@@ -14,6 +14,8 @@ export const TableView = () => {
     const { projects, getProjects, getProjectByParam } = useContext(ProjectContext)
     const { progress, getProgressByProjectId } = useContext(ProgressContext)
 
+    // SESSION STORAGE
+    const defaultProject = +sessionStorage.getItem("defaultProject")
 
     // DATES
     const currentTime = new Date()
@@ -23,7 +25,10 @@ export const TableView = () => {
     const lastDayOfMonthFull = new Date(currentTime.getFullYear(), currentTime.getMonth() + 1, 0)
     const lastDayOfMonthInt = lastDayOfMonthFull.getDate()
 
-   
+    // STATE
+    const [ currentProject, setCurrentProject ] = useState()
+
+
     // FETCH INFO FOR SELECTED PROJECT & CURRENT PROGRESS FOR SELECTED PROJECT
     useEffect(() => {
         getTypes()
@@ -33,8 +38,11 @@ export const TableView = () => {
                 .then(() => {
                     getProgressByProjectId(projectId)
                 })
+            } else if (defaultProject !== 0) {
+                console.log("PROJECT IN SESSION STORAGE", defaultProject)
+                getProjectByParam(defaultProject)
             } else {
-                console.log("NO PROJECT ID YET")
+                console.log("NO PROJECT SELECTED OR IN STORAGE", defaultProject)
             }
         })
     }, [])
@@ -45,7 +53,7 @@ export const TableView = () => {
             <fieldset className="view__projectSelect">
                 <label className="projectSelect__label" htmlFor="projectSelect">Select project: </label>
                 <select className="projectSelect__select">
-                    <option value="CurrentProject">Test Project</option>
+                    <option value="CurrentProject">select project</option>
                 </select>
             </fieldset>
 
@@ -67,7 +75,7 @@ export const TableView = () => {
 
         <section className="view__container">
             <div className="table__container">
-                <Table />
+                <Table props={projects}/>
             </div>
         </section>
         </>
