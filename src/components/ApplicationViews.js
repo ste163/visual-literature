@@ -16,20 +16,19 @@ export const ApplicationViews = () => {
     // checking what the user has selected as the default view
     return (
     <> 
-        <Header />
+        <ProjectProvider>
+            <Header />
 
             <TypeProvider>
                 <ProgressProvider>
 
-                    <ProjectProvider>
-                        <Route exact path="/">
-                            <Redirect to="/projects" />
-                        </Route>
+                    <Route exact path="/">
+                        <Redirect to="/projects" />
+                    </Route>
 
-                        <Route exact path="/projects">                    
-                            <ProjectList />  
-                        </Route>
-                    </ProjectProvider>
+                    <Route exact path="/projects">                    
+                        <ProjectList />  
+                    </Route>
 
                     <ProjectProvider>
                         <Route exact path="/table">
@@ -53,6 +52,8 @@ export const ApplicationViews = () => {
                 
                 </ProgressProvider>
             </TypeProvider>
+
+        </ProjectProvider>
         
         <Footer />
     </>

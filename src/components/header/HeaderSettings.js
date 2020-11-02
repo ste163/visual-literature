@@ -1,7 +1,15 @@
-import React from "react"
+import React, { useContext, useEffect } from "react"
 import { ProjectContext } from "../projects/ProjectProvider"
 
 export const HeaderSettings = () => {
+
+    const userId = sessionStorage.getItem("userId")
+
+    const { projects, getProjects } = useContext(ProjectContext)
+
+    useEffect(() => {
+        getProjects(userId)
+    }, [])
 
     return (
         <>
@@ -25,11 +33,11 @@ export const HeaderSettings = () => {
                     id="defaultProject"
                     name="defaultProject">
                         <option value="0">Select default project</option>
-                        {/* {projects.map(project => (
+                        {projects.map(project => (
                             <option key={project.id} value={project.id}>
                                 {project.name}
                             </option>
-                        ))} */}
+                        ))}
                     </select>
                 </fieldset>
                 <fieldset className="settings__fieldset">
