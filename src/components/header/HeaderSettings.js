@@ -6,17 +6,31 @@ export const HeaderSettings = () => {
 
     const userId = sessionStorage.getItem("userId")
 
-    const [ settingState, setSettingState ] = useState()
+    const defaultSettings = {
+        userId,
+        defaultPage: "/projects",
+        defaultProject: 0,
+        colorMode: "light"
+    }
+
+    const [ currentSettings, setCurrentSettings ] = useState(defaultSettings)
     
     const { settings, getSettings, updateSettings } = useContext(SettingsContext)
     const { projects, getProjects } = useContext(ProjectContext)
-    console.log(settings[0])
+    
+    console.log(currentSettings)
     
     const handleControlledInputChange = e => {
-        const newSetting = { ...settings }
+        const newSetting = {...settings[0]}
         newSetting[e.target.name] = e.target.value
-        // setSettingState(newSetting)
-        // updateSettings(userId)
+        setCurrentSettings(newSetting)
+        // updateSettings({
+        //     id: settings.id,
+        //     userId: userId,
+        //     defaultPage: currentSettings.defaultPage,
+        //     defaultProject: +currentSettings.defaultProject,
+        //     colorMode: currentSettings.colorMode
+        // })
 }
 
     useEffect(() => {
@@ -24,7 +38,13 @@ export const HeaderSettings = () => {
         .then(() => {
             getSettings(userId)
             .then(() => {
-                setSettingState(settings)
+                if (settings[0] !== undefined) {
+                    setCurrentSettings(currentSettings.id = settings[0].id)
+                    setCurrentSettings(currentSettings.userId = userId)
+                    setCurrentSettings(currentSettings.defaultPage = settings[0].defaultPage)
+                    setCurrentSettings(currentSettings.defaultProject = settings[0].defaultProject)
+                    setCurrentSettings(currentSettings.colorMode = settings[0].colorMode)
+                }
             })
         })
     }, [])
@@ -42,9 +62,9 @@ export const HeaderSettings = () => {
                         id="defaultPage"
                         name="defaultPage"
                         onChange={handleControlledInputChange}>
-                            <option value="0">Projects</option>
-                            <option value="1">Table</option>
-                            <option value="2">Dashboard</option>
+                            <option value="/projects">Projects</option>
+                            <option value="/table">Table</option>
+                            <option value="/dashboard">Dashboard</option>
                         </select>
                         
                     </fieldset>
@@ -65,21 +85,15 @@ export const HeaderSettings = () => {
                     <fieldset className="settings__fieldset">
                         <label htmlFor="darkMode">View mode:</label>
                         <div className="radios">
-                            <input className="input__radio" type="radio" id="light" name="goalFrequency" value="light" required
-                            checked={settings[0].colorMode === "light" ? "light" : false}
+                            <input className="input__radio" type="radio" id="light" name="colorMode" value="light" required
+                            checked={currentSettings.colorMode === "light" ? "light" : ""}
                             onChange={handleControlledInputChange}
-                            onClick={e => {
-                                // setSelectedFreq(e.target.value)
-                            }}
                             />
                             <label htmlFor="daily">Light mode</label>
                             
-                            <input className="input__radio" type="radio" id="dark" name="goalFrequency" value="dark" required
-                            // checked={settings.colorMode === "dark"}
+                            <input className="input__radio" type="radio" id="dark" name="colorMode" value="dark" required
+                            checked={currentSettings.colorMode === "dark" ? "dark" : ""}
                             onChange={handleControlledInputChange}
-                            onClick={e => {
-                                // setSelectedFreq(e.target.value)
-                            }}
                             />
                             <label htmlFor="weekly">Dark mode</label>
                         </div>

@@ -39,6 +39,8 @@ export const ProgressForm = project => {
     const [ currentProgress, setCurrentProgress ] = useState(defaultProgress)
     const [ progressFound, setProgressFound ] = useState(false)
 
+console.log(currentProgress)
+
     // Set date picker's max to today
     if (datePicker.current !== undefined) {
         datePicker.current.max = todaysDate
