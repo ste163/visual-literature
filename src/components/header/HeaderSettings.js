@@ -41,7 +41,28 @@ export const HeaderSettings = () => {
                     </select>
                 </fieldset>
                 <fieldset className="settings__fieldset">
-                    Dark mode
+                    <label htmlFor="darkMode">View mode:</label>
+                    <div className="radios">
+                        <input className="input__radio" type="radio" id="light" name="goalFrequency" value="light" required
+                        // checked={project.goalFrequency === "daily"}
+                        // onChange={handleControlledInputChange}
+                        onClick={e => {
+                            // setIsFreqActive(false)
+                            // setSelectedFreq(e.target.value)
+                        }}
+                        />
+                        <label htmlFor="daily">Light mode</label>
+                        
+                        <input className="input__radio" type="radio" id="dark" name="goalFrequency" value="dark" required
+                        // checked={project.goalFrequency === "weekly"}
+                        // onChange={handleControlledInputChange}
+                        onClick={e => {
+                            // setIsFreqActive(true)
+                            // setSelectedFreq(e.target.value)
+                        }}
+                        />
+                        <label htmlFor="weekly">Dark mode</label>
+                    </div>
                 </fieldset>
                 <fieldset className="settings__fieldset">
                     <button 
