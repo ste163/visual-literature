@@ -20,7 +20,6 @@ export const ProgressCard = (project) => {
     const currentDate = new Date()
     const convertedToISO = currentDate.toISOString().slice(0,10)
     const removeTimeFromDate = new Date(`${convertedToISO} 00:00:00`)
-    console.log(removeTimeFromDate)
     const todaysDate = removeTimeFromDate.toISOString().slice(0,10)
 
     const wordCountGoal = project.project.wordCountGoal

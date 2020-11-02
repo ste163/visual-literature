@@ -85,28 +85,36 @@ export const Header = () => {
                         </div>
                     </div>
 
-                    <li className="nav__item nav__rightAligned">
-                        <button className="nav__btn btn__logout" 
-                        onClick={() => {
-                           sessionStorage.clear("userId")
-                           history.push()
-                        }}
-                        onMouseOver={e => {
-                           e.currentTarget.firstElementChild.children[1].childNodes.forEach(svg => {
-                                svg.classList.remove("icon__white")
-                                svg.classList.add("icon__hovered")
-                            })
-                        }}
-                        onMouseLeave={e => {
+                    <div className="nav__rightAligned">
+                        <li className="nav__item">
+                            <button className="nav__btn btn__settings">
+                                Settings
+                            </button>
+                        </li>
+                        
+                        <li className="nav__item">
+                            <button className="nav__btn btn__logout" 
+                            onClick={() => {
+                            sessionStorage.clear("userId")
+                            history.push()
+                            }}
+                            onMouseOver={e => {
                             e.currentTarget.firstElementChild.children[1].childNodes.forEach(svg => {
-                                svg.classList.remove("icon__hovered")
-                                svg.classList.add("icon__white")
-                            })
-                        }}>
-                            <IconLogout color="icon__white" />
-                            Logout
-                        </button>
-                    </li>
+                                    svg.classList.remove("icon__white")
+                                    svg.classList.add("icon__hovered")
+                                })
+                            }}
+                            onMouseLeave={e => {
+                                e.currentTarget.firstElementChild.children[1].childNodes.forEach(svg => {
+                                    svg.classList.remove("icon__hovered")
+                                    svg.classList.add("icon__white")
+                                })
+                            }}>
+                                <IconLogout color="icon__white" />
+                                Logout
+                            </button>
+                        </li>
+                    </div>
                 </ul>
             </nav>
 
