@@ -32,6 +32,12 @@
     margin-left: 1em;
 }
 
+.nav__rightAligned {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
 .nav__item {
     display: flex;
     align-items: center;
@@ -86,6 +92,10 @@
     transition: var(--btnHover)
 }
 
+.btn__settings {
+    padding-bottom: 0.4em;
+}
+
 .btn__logout {
     display: flex;
     align-items: center;
@@ -93,11 +103,11 @@
     margin-right: 0.2em;
 }
 
-.btn__logout:hover {
+.btn__logout:hover, .btn__settings:hover {
     color: var(--darkGray);
 }
 
-.btn__logout:active {
+.btn__logout:active, .btn__settings:active {
     font-weight: var(--weightHeavy);
     color: var(--darkGray);
 }

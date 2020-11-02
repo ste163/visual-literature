@@ -2,6 +2,7 @@ import React from "react"
 import { Redirect, Route } from "react-router-dom"
 import { ProjectProvider } from "./projects/ProjectProvider"
 import { ProgressProvider } from "./progress/ProgressProvider"
+import { SettingsProvider } from "./settings/SettingsProvider"
 import { TypeProvider } from "./type/TypeProvider"
 import { Header } from "./header/Header"
 import { ProjectList } from "./projects/ProjectList"
@@ -16,20 +17,21 @@ export const ApplicationViews = () => {
     // checking what the user has selected as the default view
     return (
     <> 
-        <Header />
+        <ProjectProvider>
+            <SettingsProvider>
+                <Header />
+            </SettingsProvider>
 
             <TypeProvider>
                 <ProgressProvider>
 
-                    <ProjectProvider>
-                        <Route exact path="/">
-                            <Redirect to="/projects" />
-                        </Route>
+                    <Route exact path="/">
+                        <Redirect to="/projects" />
+                    </Route>
 
-                        <Route exact path="/projects">                    
-                            <ProjectList />  
-                        </Route>
-                    </ProjectProvider>
+                    <Route exact path="/projects">                    
+                        <ProjectList />  
+                    </Route>
 
                     <ProjectProvider>
                         <Route exact path="/table">
@@ -53,6 +55,8 @@ export const ApplicationViews = () => {
                 
                 </ProgressProvider>
             </TypeProvider>
+
+        </ProjectProvider>
         
         <Footer />
     </>

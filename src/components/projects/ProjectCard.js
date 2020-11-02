@@ -63,8 +63,7 @@ export const ProjectCard = ({project}) => {
                             svg.classList.remove("icon__hovered")
                             svg.classList.add("icon__gray")
                         })
-                    }}
-                >
+                    }}>
                     <IconGraph color="icon__gray" />
                     <span className="btn__text">
                         Dashboard

@@ -3,6 +3,8 @@ import { useHistory, useLocation } from "react-router-dom"
 import { VisLitLogo } from "../branding/VisLitLogo"
 import { VisLitTitle } from "../branding/VisLitTitle"
 import { IconLogout } from "../icons/IconLogout"
+import { Modal } from "../modal/Modal"
+import { HeaderSettings } from "./HeaderSettings"
 import "./Header.css"
 
 export const Header = () => {
@@ -15,6 +17,9 @@ export const Header = () => {
     const btnDash = useRef()
     const btnTable = useRef()
     const navLine = useRef()
+
+    // Get references for modals
+    const settingsModal = useRef()
 
     const [currentLocation, setCurrentLocation] = useState(location.pathname)
 
@@ -85,31 +90,44 @@ export const Header = () => {
                         </div>
                     </div>
 
-                    <li className="nav__item nav__rightAligned">
-                        <button className="nav__btn btn__logout" 
-                        onClick={() => {
-                           sessionStorage.clear("userId")
-                           history.push()
-                        }}
-                        onMouseOver={e => {
-                           e.currentTarget.firstElementChild.children[1].childNodes.forEach(svg => {
-                                svg.classList.remove("icon__white")
-                                svg.classList.add("icon__hovered")
-                            })
-                        }}
-                        onMouseLeave={e => {
+                    <div className="nav__rightAligned">
+                        <li className="nav__item">
+                            <button className="nav__btn btn__settings"
+                            onClick={() => { 
+                                settingsModal.current.className = "background__modal modal__active"
+                            }}>
+                                Settings
+                            </button>
+                        </li>
+                        
+                        <li className="nav__item">
+                            <button className="nav__btn btn__logout" 
+                            onClick={() => {
+                            sessionStorage.clear("userId")
+                            history.push()
+                            }}
+                            onMouseOver={e => {
                             e.currentTarget.firstElementChild.children[1].childNodes.forEach(svg => {
-                                svg.classList.remove("icon__hovered")
-                                svg.classList.add("icon__white")
-                            })
-                        }}>
-                            <IconLogout color="icon__white" />
-                            Logout
-                        </button>
-                    </li>
+                                    svg.classList.remove("icon__white")
+                                    svg.classList.add("icon__hovered")
+                                })
+                            }}
+                            onMouseLeave={e => {
+                                e.currentTarget.firstElementChild.children[1].childNodes.forEach(svg => {
+                                    svg.classList.remove("icon__hovered")
+                                    svg.classList.add("icon__white")
+                                })
+                            }}>
+                                <IconLogout color="icon__white" />
+                                Logout
+                            </button>
+                        </li>
+                    </div>
                 </ul>
             </nav>
 
+            <Modal  ref={settingsModal} contentFunction={<HeaderSettings/>} width={"modal__width--med"}/>
+        
         </header>
     )
 }

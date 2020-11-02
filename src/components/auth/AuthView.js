@@ -1,10 +1,11 @@
-import React, { useRef, useState } from "react"
+import React, { useRef, useState, useContext } from "react"
 import { useHistory } from "react-router-dom";
 import { VisLitLogo } from "../branding/VisLitLogo"
 import { VisLitTitle } from "../branding/VisLitTitle"
 import { VisLitSubtitle } from "../branding/VisLitSubtitle"
 import { AuthBackground } from "./AuthBackground"
 import { Modal } from "../modal/Modal";
+import { SettingsContext } from "../settings/SettingsProvider"
 import "./AuthView.css"
 
 export const AuthView = props => {
@@ -23,9 +24,8 @@ export const AuthView = props => {
     const underline = useRef()
     const [activeBtn, setBtn] = useState(true)
 
-    // useEffect(() => {
-    //    activeBtn ? setBtn(true) : setBtn(false)
-    // }, [])
+    // Create default settings for user, or load user's settings
+    const { settings, getSettingsOnLogin, addDefaultSettings } = useContext(SettingsContext)
 
     // Fetch for only login field
     const existingUserCheckLogin = () => {
@@ -48,7 +48,15 @@ export const AuthView = props => {
             .then(exists => {
                 if (exists) {
                     sessionStorage.setItem("userId", exists.id)
-                    history.push("/")
+                    getSettingsOnLogin(exists.id)
+                    .then(settingsExists => {
+                        if (settingsExists) {
+                            sessionStorage.setItem("defaultPage", settingsExists[0].defaultPage)
+                            sessionStorage.setItem("defaultProject", settingsExists[0].defaultProject)
+                            sessionStorage.setItem("colorMode", settingsExists[0].colorMode)
+                        }
+                        history.push("/")
+                    })
                 } else {
                     existDialog.current.className = "background__modal modal__active"
                 }
@@ -74,7 +82,17 @@ export const AuthView = props => {
                         .then(createdUser => {
                             if (createdUser.hasOwnProperty("id")) {
                                 sessionStorage.setItem("userId", createdUser.id)
-                                history.push("/")
+                                addDefaultSettings({
+                                    userId: createdUser.id,
+                                    defaultPage: "/projects",
+                                    defaultProject: 0,
+                                    colorMode: "light"
+                                }).then(() => {
+                                    sessionStorage.setItem("defaultPage", "/projects")
+                                    sessionStorage.setItem("defaultProject", 0)
+                                    sessionStorage.setItem("colorMode", "light")
+                                    history.push("/")
+                                })
                             }
                         })
                 }
