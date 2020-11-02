@@ -9,13 +9,14 @@ import "./TableView.css"
 
 export const TableView = () => {
 
+    // SESSION STORAGE
+    const userId = +sessionStorage.getItem("userId")
+    const defaultProject = +sessionStorage.getItem("defaultProject")
+
     const { projectId } = useParams()
     const { getTypes } = useContext(TypeContext)
-    const { projects, getProjects, getProjectByParam } = useContext(ProjectContext)
+    const { projects, getProjectsWithoutStateUpdate, getProjectByParam } = useContext(ProjectContext)
     const { progress, getProgressByProjectId } = useContext(ProgressContext)
-
-    // SESSION STORAGE
-    const defaultProject = +sessionStorage.getItem("defaultProject")
 
     // DATES
     const currentTime = new Date()
@@ -37,19 +38,24 @@ export const TableView = () => {
         // THEN sort by matching project based on params/defaultProjects
         // THEN get the progress for that project
         .then(() => {
-
-            if (projectId) {
-                getProjectByParam(projectId)
-                .then(() => {
-                    getProgressByProjectId(projectId)
-                })
-            } else if (defaultProject !== 0) {
-                console.log("PROJECT IN SESSION STORAGE", defaultProject)
-                getProjectByParam(defaultProject)
-            } else {
-                console.log("NO PROJECT SELECTED OR IN STORAGE", defaultProject)
-            }
+            getProjectsWithoutStateUpdate(userId)
+            .then(allProjects => {
+                console.log(allProjects)
+                
+            })
         })
+
+            // if (projectId) {
+            //     getProjectByParam(projectId)
+            //     .then(() => {
+            //         getProgressByProjectId(projectId)
+            //     })
+            // } else if (defaultProject !== 0) {
+            //     console.log("PROJECT IN SESSION STORAGE", defaultProject)
+            //     getProjectByParam(defaultProject)
+            // } else {
+            //     console.log("NO PROJECT SELECTED OR IN STORAGE", defaultProject)
+            // }
     }, [])
 
     return (
