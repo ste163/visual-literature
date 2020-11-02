@@ -70,6 +70,10 @@
     color: var(--red);
 }
 
+.modal__h2 {
+    font-size: 1em;
+}
+
 .warning__p {
     margin: 0.7em 0;
 }

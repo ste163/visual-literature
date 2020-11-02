@@ -5,7 +5,6 @@ import { VisLitTitle } from "../branding/VisLitTitle"
 import { IconLogout } from "../icons/IconLogout"
 import { Modal } from "../modal/Modal"
 import { HeaderSettings } from "./HeaderSettings"
-import { HeaderLogout } from "./HeaderLogout"
 import "./Header.css"
 
 export const Header = () => {
@@ -20,7 +19,6 @@ export const Header = () => {
     const navLine = useRef()
 
     // Get references for modals
-    const logoutModal = useRef()
     const settingsModal = useRef()
 
     const [currentLocation, setCurrentLocation] = useState(location.pathname)
@@ -105,9 +103,8 @@ export const Header = () => {
                         <li className="nav__item">
                             <button className="nav__btn btn__logout" 
                             onClick={() => {
-                                logoutModal.current.className = "background__modal modal__active"
-                            // sessionStorage.clear("userId")
-                            // history.push()
+                            sessionStorage.clear("userId")
+                            history.push()
                             }}
                             onMouseOver={e => {
                             e.currentTarget.firstElementChild.children[1].childNodes.forEach(svg => {
@@ -129,9 +126,8 @@ export const Header = () => {
                 </ul>
             </nav>
 
-            <Modal  ref={settingsModal} contentFunction={<HeaderSettings/>} width={"modal__width--small"}/>
-            <Modal ref={logoutModal} contentFunction={<HeaderLogout/>} width={"modal__width--small"}/>
-
+            <Modal  ref={settingsModal} contentFunction={<HeaderSettings/>} width={"modal__width--med"}/>
+        
         </header>
     )
 }
