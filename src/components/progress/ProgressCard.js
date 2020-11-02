@@ -142,14 +142,6 @@ export const ProgressCard = (project) => {
     <section className="card card__color--mintBlue card__progress">
         
         <div className="progress__content">
-            <h3 className="progress__h3">Goal</h3>
-            <p className="progress__p">{wordCountGoal} words
-                {goalFrequency === "daily" ? ` ${goalFrequency}` : 
-                    `${goalFrequency === "weekly" ? ` ${daysPerFrequency} days per week` :
-                        ` ${daysPerFrequency} days per month`}`
-                }
-            </p>
-
             <h3 className="progress__h3">Progress</h3>
 
             <div>
