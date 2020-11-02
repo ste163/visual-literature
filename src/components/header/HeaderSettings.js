@@ -24,13 +24,6 @@ export const HeaderSettings = () => {
         const newSetting = {...settings[0]}
         newSetting[e.target.name] = e.target.value
         setCurrentSettings(newSetting)
-        // updateSettings({
-        //     id: settings.id,
-        //     userId: userId,
-        //     defaultPage: currentSettings.defaultPage,
-        //     defaultProject: +currentSettings.defaultProject,
-        //     colorMode: currentSettings.colorMode
-        // })
 }
 
     useEffect(() => {
@@ -48,6 +41,19 @@ export const HeaderSettings = () => {
             })
         })
     }, [])
+
+    // Wait for state to change, then update
+    useEffect(() => {
+        if (settings[0] !== undefined) {
+            updateSettings({
+                id: settings[0].id,
+                userId: userId,
+                defaultPage: currentSettings.defaultPage,
+                defaultProject: +currentSettings.defaultProject,
+                colorMode: currentSettings.colorMode
+            })
+        }
+    }, [currentSettings])
 
     return (
         <>
