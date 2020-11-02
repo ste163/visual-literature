@@ -14,9 +14,9 @@ export const TableView = () => {
     const defaultProject = +sessionStorage.getItem("defaultProject")
 
     const { projectId } = useParams()
-    console.log(projectId)
+
     const { getTypes } = useContext(TypeContext)
-    const { projects, getProjectsWithoutStateUpdate, getProjectByParam } = useContext(ProjectContext)
+    const { projects, getProjectsWithoutStateUpdate } = useContext(ProjectContext)
     const { progress, getProgressByProjectId } = useContext(ProgressContext)
 
     // DATES
@@ -29,6 +29,7 @@ export const TableView = () => {
 
     // STATE
     const [ currentProject, setCurrentProject ] = useState()
+    const [ retrievedProjects, setRetrievedProjects ] = useState([])
 
 
     // FETCH INFO FOR SELECTED PROJECT & CURRENT PROGRESS FOR SELECTED PROJECT
@@ -42,24 +43,23 @@ export const TableView = () => {
             getProjectsWithoutStateUpdate(userId)
             .then(allProjects => {
                 const byProjectId = allProjects.find(project => project.id === +projectId)
+                const byDefaultProject = allProjects.find(project => project.id ===  defaultProject)
+                console.log(byDefaultProject)
                 if (byProjectId) {
                     console.log("PROJECT BY PARAM")
+                    setRetrievedProjects(allProjects)
                     setCurrentProject(byProjectId)
+                } else if (!byProjectId && byDefaultProject) {
+                    console.log("NO PARAM, BUT A DEFAULT")
+                    setRetrievedProjects(allProjects)
+                    setCurrentProject(byDefaultProject)
+                } else if (!byProjectId && !byDefaultProject) {
+                    console.log("NO DEFAULT, NO PARAM")
+                    setRetrievedProjects(allProjects)
+                    // SHOW CARD FOR SELECTING A PROJECT
                 }
             })
         })
-
-            // if (projectId) {
-            //     getProjectByParam(projectId)
-            //     .then(() => {
-            //         getProgressByProjectId(projectId)
-            //     })
-            // } else if (defaultProject !== 0) {
-            //     console.log("PROJECT IN SESSION STORAGE", defaultProject)
-            //     getProjectByParam(defaultProject)
-            // } else {
-            //     console.log("NO PROJECT SELECTED OR IN STORAGE", defaultProject)
-            // }
     }, [])
 
     return (
@@ -68,7 +68,14 @@ export const TableView = () => {
             <fieldset className="view__projectSelect">
                 <label className="projectSelect__label" htmlFor="projectSelect">Select project: </label>
                 <select className="projectSelect__select">
-                    <option value="CurrentProject">select project</option>
+                    <option value="0">Select project</option>
+                    {
+                        retrievedProjects.map(project => (
+                            <option key={project.id} value={project.id}>
+                                {project.name}
+                            </option>
+                        ))
+                    }
                 </select>
             </fieldset>
 
