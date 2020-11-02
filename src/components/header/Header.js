@@ -38,9 +38,9 @@ export const Header = () => {
             <section className="header__branding">
                 <VisLitLogo
                 location="logo__header"
-                colorVis="logo__color--white"
+                colorVis="logo__color--mintBlue"
                 colorLit="logo__color--white"
-                colorVisDot="logo__color--white"
+                colorVisDot="logo__color--mintBlue"
                 colorLitDot="logo__color--white"/>
                 <VisLitTitle location="title__header" color="title__white" />
             </section>

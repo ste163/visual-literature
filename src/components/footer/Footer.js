@@ -11,9 +11,9 @@ export const Footer = () => {
                 <section className="footer__branding">
                     <VisLitLogo
                     location="logo__footer"
-                    colorVis="logo__color--lightBlack"
+                    colorVis="logo__color--darkMintBlue"
                     colorLit="logo__color--lightBlack"
-                    colorVisDot="logo__color--lightBlack"
+                    colorVisDot="logo__color--darkMintBlue"
                     colorLitDot="logo__color--lightBlack"/>
                     <VisLitTitle location="title__footer" color="title__lightBlack" />
                 </section>
