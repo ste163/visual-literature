@@ -10,8 +10,8 @@
       "id": 1,
       "userId": 1,
       "defaultPage": "/table",
-      "defaultProject": 6,
-      "colorMode": "light"
+      "defaultProject": 5,
+      "colorMode": "dark"
     }
   ],
   "projects": [

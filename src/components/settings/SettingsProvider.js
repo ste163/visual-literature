@@ -6,6 +6,20 @@ export const SettingsProvider = props => {
 
     const [ settings, setSettings ] = useState([])
 
+
+    const addDefaultSettings = settingsObj => {
+        return fetch("http://localhost:8088/settings/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(settingsObj)
+        })
+        .then(() => {
+            getSettings(settingsObj.userId)
+        })
+    }
+
     const getSettings = (userId) => {
         return fetch(`http://localhost:8088/settings?userId=${userId}`)
         .then(response => response.json())
@@ -27,7 +41,7 @@ export const SettingsProvider = props => {
 
     return (
         <SettingsContext.Provider value={{
-            settings, getSettings, updateSettings
+            settings, addDefaultSettings, getSettings, updateSettings
         }}>
             {props.children}
         </SettingsContext.Provider>

@@ -6,6 +6,7 @@ export const HeaderSettings = () => {
 
     const userId = parseInt(sessionStorage.getItem("userId"))
 
+    // SET DEFAULT STATE FROM SESSION STORAGE
     const defaultSettings = {
         userId,
         defaultPage: "/projects",
