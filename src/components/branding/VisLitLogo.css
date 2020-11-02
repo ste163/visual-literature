@@ -20,6 +20,11 @@
     fill: var(--lightGray);
 }
 
+.logo__color--mintBlue {
+    stroke: var(--darkMintBlue);
+    fill: var(--lightBlack);
+}
+
 .logo__color--lightBlack {
     stroke: var(--lightBlack);
     fill: var(--lightGray);
