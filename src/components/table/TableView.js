@@ -39,26 +39,19 @@ export const TableView = () => {
     // FETCH INFO FOR SELECTED PROJECT & CURRENT PROGRESS FOR SELECTED PROJECT
     useEffect(() => {
         getTypes()
-        // To have project selection available,
-        // Must get ALL projects
-        // THEN sort by matching project based on params/defaultProjects
         // THEN get the progress for that project
         .then(() => {
             getProjectsWithoutStateUpdate(userId)
             .then(allProjects => {
                 const byProjectId = allProjects.find(project => project.id === +projectId)
                 const byDefaultProject = allProjects.find(project => project.id === defaultProject)
-                console.log(byDefaultProject)
                 if (byProjectId) {
-                    console.log("PROJECT BY PARAM")
                     setRetrievedProjects(allProjects)
                     setCurrentProject(byProjectId)
                 } else if (!byProjectId && byDefaultProject) {
-                    console.log("NO PARAM, BUT A DEFAULT")
                     setRetrievedProjects(allProjects)
                     setCurrentProject(byDefaultProject)
                 } else if (!byProjectId && !byDefaultProject) {
-                    console.log("NO DEFAULT, NO PARAM")
                     setRetrievedProjects(allProjects)
                     // SHOW CARD FOR SELECTING A PROJECT
                 }
