@@ -5,11 +5,6 @@ export const Table = props => {
 
     const incomingProject = props.props
     const incomingProgress = props.progress
-    console.log("INCOMING TABLE PROG", incomingProgress)
-
-    // Table rows MUST be generated based on the current amount of days in current month
-    // Will need to import date-fns and setup a loop that generates all rows based on that
-    // And inserts the date, placeholder min-goal text, and check boxes
 
     return (
         <section className="card card__color--white card--table">

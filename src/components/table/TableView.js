@@ -6,6 +6,7 @@ import { ProgressContext } from "../progress/ProgressProvider"
 import { IconDivider } from "../icons/IconDivider"
 import { NoDefaultCard } from "../selectionCards/NoDefaultCard"
 import { NoYearCard } from "../selectionCards/NoYearCard"
+import { NoMonthCard } from "../selectionCards/NoMonthCard"
 import { Table } from "./Table"
 import "./TableView.css"
 
@@ -53,6 +54,7 @@ export const TableView = () => {
 
     // STATE FOR DROP-DOWNS
     const [ currentSelectedYear, setCurrentSelectedYear ] = useState()
+    const [ currentSelectedMonth, setCurrentSelectedMonth ] = useState() 
 
     // REFS FOR DROP-DOWN MENUS
     const yearSelect = useRef()
@@ -100,7 +102,6 @@ export const TableView = () => {
                 setCurrentSelectedYear(selectedYear)
                 setProgressSortedYearly(progressForSelectedYear)
             } else {
-                console.log("SELECT A YEAR")
                 setCurrentSelectedYear(+yearSelect.current.value)
             }
         }
@@ -131,8 +132,9 @@ export const TableView = () => {
                     }
                 })
                 setProgressSortedMonthly(progressForSelectedMonth)
+                setCurrentSelectedMonth(monthSelect.current.value)
             } else {
-                console.log("SELECT A MONTH")
+                setCurrentSelectedMonth(monthSelect.current.value)
             }
         }
     }
@@ -265,7 +267,8 @@ export const TableView = () => {
                     currentProject === undefined ? <NoDefaultCard/> : 
                         currentSelectedYear === undefined ? null :
                             currentSelectedYear === 0 ? <NoYearCard/> :
-                                <Table props={currentProject} progress={progressSortedMonthly}/>
+                                currentSelectedMonth === "0" ? <NoMonthCard/> :
+                                    <Table props={currentProject} progress={progressSortedMonthly}/>
                 }
             </div>
         </section>
