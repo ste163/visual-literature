@@ -20,7 +20,7 @@
       "name": "Poems for Sunny Days",
       "userId": 1,
       "typeId": 5,
-      "dateStarted": "2020-10-21",
+      "dateStarted": "2019-01-10",
       "wordCountGoal": 220,
       "goalFrequency": "daily",
       "daysPerFrequency": 1,
@@ -172,6 +172,26 @@
       "edited": false,
       "proofread": false,
       "id": 13
+    },
+    {
+      "projectId": 5,
+      "userId": 1,
+      "dateEntered": "2019-02-12",
+      "wordsWritten": 225,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "id": 14
+    },
+    {
+      "projectId": 5,
+      "userId": 1,
+      "dateEntered": "2019-01-16",
+      "wordsWritten": 300,
+      "revised": false,
+      "edited": true,
+      "proofread": false,
+      "id": 15
     }
   ]
 }

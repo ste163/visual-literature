@@ -24,6 +24,7 @@ export const TableView = () => {
     const currentTime = new Date()
     const todaysDate = new Date(currentTime.getTime() - (currentTime.getTimezoneOffset() * 60000)).toISOString().split("T")[0]
     const currentMonthInt = currentTime.getMonth()
+    const currentYear = new Date(`${todaysDate} 00:00:00`).getFullYear()
     const firstDayOfMonthFull =  new Date(currentTime.getFullYear(), currentTime.getMonth(), 1)
     const lastDayOfMonthFull = new Date(currentTime.getFullYear(), currentTime.getMonth() + 1, 0)
     const lastDayOfMonthInt = lastDayOfMonthFull.getDate()
@@ -31,7 +32,8 @@ export const TableView = () => {
     // STATE
     const [ currentProject, setCurrentProject ] = useState()
     const [ retrievedProjects, setRetrievedProjects ] = useState([])
-    const [ progressSorted, setProgressSorted ] = useState([])
+    const [ progressYears, setProgressYears ] = useState()
+    const [ progressSortedYearly, setProgressSortedYearly ] = useState([])
 
     const selectProject = e => {
         const bySelectedProject = retrievedProjects.find(project => project.id === +e.target.value)
@@ -41,12 +43,32 @@ export const TableView = () => {
     // GET ALL THE PROGRESS
     // GET THE CURRENT YEAR, AND SET THAT AS THE DEFAULT
     // THEN, BASED ON THAT YEAR, POPULATE THE DROP DOWNS WITH MONTHS FOR THAT YEAR
-    
+
+    const progressYearOptions = () => {
+        // GET ALL PROGRESS YEARS AND SET THEIR VALUES TO THE DROP DOWNS
+        let yearsAvailableArray = []
+        const yearsAvailable = progress.find(singleProgress => {
+            const yearOptions = new Date(`${singleProgress.dateEntered} 00:00:00`).getFullYear()
+            console.log("YEARS AVAILABLE", yearOptions)
+            // CHECK IF THE YEAR IS ALREADY IN THE ARRAY. IF IT IS, DO NOT PUSH IT
+            yearsAvailableArray.push(yearOptions)
+        })
+        setProgressYears(yearsAvailableArray)
+        console.log(yearsAvailableArray)
+    }
+
     const sortProgressByYear = e => {
+        // BASED ON DROP DOWN SELECTION, SORT PROGRESS
         console.log("ALL PROGRESS FOR YEAR", progress)
+        const selectedYear = progress.find(singleProgress => {
+            const progressYear = new Date(`${singleProgress.dateEntered} 00:00:00`).getFullYear()
+            console.log(progressYear)
+            console.log("Current Year",)
+        })
     }
 
     const sortProgressByMonth = e => {
+        // BASED ON SELECT YEAR, FILL DROP DOWNS WITH THAT MONTH
         console.log("ALL PROGRESS", progress)
     }
 
@@ -78,6 +100,11 @@ export const TableView = () => {
             getProgressByProjectId(currentProject.id)
         }
     }, [currentProject])
+
+    // When progress state updates, re-sort drop-down menus
+    useEffect(() => {
+        progressYearOptions()
+    }, [progress])
 
     return (
         <>
@@ -113,11 +140,24 @@ export const TableView = () => {
                     <option value="0">Month</option>
                     <option value="1">Test</option>
                 </select>
-                <label className="sort__label" htmlFor="year">View by year: </label>
-                <select className="sort__select sort__select--year" name="year" id="year"
-                onChange={e => sortProgressByYear(e)}>
-                    <option value="0">Year</option>
-                </select>
+
+                {
+                    progressYears === undefined ? null :
+                    <>
+                    <label className="sort__label" htmlFor="year">View by year: </label>
+                    <select className="sort__select sort__select--year" name="year" id="year"
+                    onChange={e => sortProgressByYear(e)}>
+                        <option value="0">Year</option>
+                        {/* {
+                            progressYears.map(year => (
+                                <option>
+
+                                </option>
+                            ))
+                        } */}
+                    </select>
+                    </>
+                }
                 </fieldset>
                 </>
             }
