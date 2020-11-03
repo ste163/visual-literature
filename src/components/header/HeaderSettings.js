@@ -31,7 +31,10 @@ export const HeaderSettings = () => {
 
     useEffect(() => {
         getProjects(userId)
-        .then(getSettings(userId))
+        .then(() => {
+            getSettings(userId)
+            HeaderColorMode()
+        })
     }, [])
 
     // Wait for state to change, then update
