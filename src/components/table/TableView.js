@@ -71,10 +71,8 @@ export const TableView = () => {
             const selectedYear = +yearSelect.current.value
             console.log(selectedYear)
             if (selectedYear !== 0) {
-                console.log("FIND PROGRESS FOR YEAR", selectedYear)
                 const progressForSelectedYear = progress.filter(singleProgress => {
                     const progressYear = new Date(`${singleProgress.dateEntered} 00:00:00`).getFullYear()
-                    console.log("DATE FOR PROGRESS", progressYear)
                     if (progressYear === selectedYear) {
                         return singleProgress
                     }
@@ -124,6 +122,11 @@ export const TableView = () => {
         sortProgressByYear()
     }, [progress])
 
+    // When progressYears changes, sort progress for that year
+    useEffect(() => {
+        sortProgressByYear()
+    }, [progressYears])
+
     return (
         <>
         <section className="view__header">
@@ -161,11 +164,12 @@ export const TableView = () => {
 
                 {
                     progressYears === undefined ? null :
+                    progressYears.length === 0 ? null :
                     <>
                     <label className="sort__label" htmlFor="year">View by year: </label>
                     <select className="sort__select sort__select--year" name="year" id="year"
                     ref={yearSelect}
-                    defaultValue={0} 
+                    defaultValue={progressYears[0]} 
                     onChange={e => sortProgressByYear(e)}>
                         
                         <option value="0">Year</option>
