@@ -31,6 +31,10 @@ export const TableView = () => {
     const [ currentProject, setCurrentProject ] = useState()
     const [ retrievedProjects, setRetrievedProjects ] = useState([])
 
+    const selectProject = e => {
+        const bySelectedProject = retrievedProjects.find(project => project.id === +e.target.value)
+        setCurrentProject(bySelectedProject)
+    }
 
     // FETCH INFO FOR SELECTED PROJECT & CURRENT PROGRESS FOR SELECTED PROJECT
     useEffect(() => {
@@ -43,7 +47,7 @@ export const TableView = () => {
             getProjectsWithoutStateUpdate(userId)
             .then(allProjects => {
                 const byProjectId = allProjects.find(project => project.id === +projectId)
-                const byDefaultProject = allProjects.find(project => project.id ===  defaultProject)
+                const byDefaultProject = allProjects.find(project => project.id === defaultProject)
                 console.log(byDefaultProject)
                 if (byProjectId) {
                     console.log("PROJECT BY PARAM")
@@ -65,20 +69,26 @@ export const TableView = () => {
     return (
         <>
         <section className="view__header">
-            <fieldset className="view__projectSelect">
-                <label className="projectSelect__label" htmlFor="projectSelect">Select project: </label>
-                <select className="projectSelect__select">
-                    <option value="0">Select project</option>
-                    {
-                        retrievedProjects.map(project => (
-                            <option key={project.id} value={project.id}>
-                                {project.name}
-                            </option>
-                        ))
-                    }
-                </select>
-            </fieldset>
-
+            {
+                retrievedProjects === undefined ? null : 
+                <>
+                <fieldset className="view__projectSelect">
+                    <label className="projectSelect__label" htmlFor="projectSelect">Select project: </label>
+                    <select className="projectSelect__select"
+                    value={currentProject === undefined ? 0 : currentProject.id} 
+                    onChange={e => selectProject(e)}>
+                        <option value="0">Select project</option>
+                        {
+                            retrievedProjects.map(project => (
+                                <option key={project.id} value={project.id}>
+                                    {project.name}
+                                </option>
+                            ))
+                        }
+                    </select>
+                </fieldset>
+                </>
+            }
             <IconDivider color="icon__lightGray" />
 
             <fieldset className="view__sort">
@@ -95,13 +105,17 @@ export const TableView = () => {
             <IconDivider color="icon__lightGray" />
         </section>
 
-        <section className="view__container">
-            <div className="table__container">
-                {
-                    currentProject === undefined ? null : <Table props={currentProject}/>
-                }
-            </div>
-        </section>
+        {
+            // DON'T HAVE NULL, HAVE IT AS THE SELECTION CARD
+            currentProject === undefined ? null : 
+                <section className="view__container">
+                    <div className="table__container">
+                        {
+                            currentProject === undefined ? null : <Table props={currentProject}/>
+                        }
+                    </div>
+                </section>
+        }
         </>
     )
 }

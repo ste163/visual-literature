@@ -10,7 +10,7 @@
       "id": 1,
       "userId": 1,
       "defaultPage": "/table",
-      "defaultProject": 0,
+      "defaultProject": 5,
       "colorMode": "light"
     }
   ],
@@ -144,16 +144,6 @@
       "proofread": false
     },
     {
-      "projectId": 5,
-      "userId": 1,
-      "dateEntered": "2020-11-02",
-      "wordsWritten": 225,
-      "revised": false,
-      "edited": false,
-      "proofread": false,
-      "id": 10
-    },
-    {
       "projectId": 6,
       "userId": 1,
       "dateEntered": "2020-11-02",
@@ -162,6 +152,16 @@
       "edited": false,
       "proofread": false,
       "id": 11
+    },
+    {
+      "projectId": 5,
+      "userId": 1,
+      "dateEntered": "2020-11-02",
+      "wordsWritten": 224,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "id": 12
     }
   ]
 }
