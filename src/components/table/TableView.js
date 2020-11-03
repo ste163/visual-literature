@@ -45,16 +45,23 @@ export const TableView = () => {
     // THEN, BASED ON THAT YEAR, POPULATE THE DROP DOWNS WITH MONTHS FOR THAT YEAR
 
     const progressYearOptions = () => {
-        // GET ALL PROGRESS YEARS AND SET THEIR VALUES TO THE DROP DOWNS
         let yearsAvailableArray = []
-        const yearsAvailable = progress.find(singleProgress => {
-            const yearOptions = new Date(`${singleProgress.dateEntered} 00:00:00`).getFullYear()
-            console.log("YEARS AVAILABLE", yearOptions)
+        progress.forEach(singleProgress => {
+            const yearOption = new Date(`${singleProgress.dateEntered} 00:00:00`).getFullYear()
             // CHECK IF THE YEAR IS ALREADY IN THE ARRAY. IF IT IS, DO NOT PUSH IT
-            yearsAvailableArray.push(yearOptions)
+            if (yearsAvailableArray.length === 0) {
+                yearsAvailableArray.push(yearOption)
+            } else {
+                debugger
+                yearsAvailableArray.forEach(singleYear => {
+                    if (singleYear !== yearOption) {
+                        yearsAvailableArray.push(yearOption)
+                    }
+                })
+            }
         })
+        console.log("YEARS AVAILABLE", yearsAvailableArray)
         setProgressYears(yearsAvailableArray)
-        console.log(yearsAvailableArray)
     }
 
     const sortProgressByYear = e => {
