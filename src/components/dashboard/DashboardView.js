@@ -52,15 +52,12 @@ export const DashboardView = () => {
                 const byProjectId = allProjects.find(project => project.id === +projectId)
                 const byDefaultProject = allProjects.find(project => project.id === defaultProject)
                 if (byProjectId) {
-                    console.log("PROJ BY PARAM")
                     setRetrievedProjects(allProjects)
                     setCurrentProject(byProjectId)
                 } else if (!byProjectId && byDefaultProject) {
-                    console.log("PROJ BY DEFAULT")
                     setRetrievedProjects(allProjects)
                     setCurrentProject(byDefaultProject)
                 } else if (!byProjectId && !byDefaultProject) {
-                    console.log("MUST SELECT A PROJ")
                     setRetrievedProjects(allProjects)
                     // SHOW CARD FOR SELECTING A PROJECT
                 }
