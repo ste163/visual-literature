@@ -21,8 +21,8 @@
   }
 
   .btn:active {
-    background-color: black;
-    border-color: black;
+    background-color: var(--black);
+    border-color: var(--black);
   }
   
   .btn--red {

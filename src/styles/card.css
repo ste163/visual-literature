@@ -4,6 +4,8 @@
 }
 
 .card__noDefault {
+    display: flex;
+    flex-flow: column nowrap;
     width: 50%;
     max-width: max-content;
     padding: 1em;
@@ -16,6 +18,11 @@
 
 .noDefault__p {
     font-weight: var(--weightThin)
+}
+
+.btn__noDefault {
+    margin-top: 0.8em;
+    align-self: center;
 }
 
 .card__color--white {
