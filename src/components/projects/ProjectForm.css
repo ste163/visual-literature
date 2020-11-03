@@ -1,5 +1,9 @@
 .form__project {
-    width: 20em;
+    width: 20.8em;
+}
+
+.form__h4--goal {
+    margin-top: 2em !important;
 }
 
 .freq__radios {
@@ -19,7 +23,7 @@
 }
 
 .label__days {
-    color: lightgray;
+    color: var(--fontColorInactive);
     margin-bottom: 0.3em;
 }
 

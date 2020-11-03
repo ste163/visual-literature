@@ -197,7 +197,7 @@ export const ProjectForm = props => {
                 />
             </fieldset>
 
-            <h4 className="form__h4">Goal Setup</h4>
+            <h4 className="form__h4 form__h4--goal">Goal Setup</h4>
 
             <fieldset>
                 <label htmlFor="projectGoal">Word count goal: </label>

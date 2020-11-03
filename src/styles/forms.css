@@ -3,8 +3,10 @@
 }
 
 .form__h4 {
-  font-size: 0.8em;
-  margin: 1.3em 0 0.1em;
+  font-size: 0.9em;
+  font-weight: var(--weightThin);
+  letter-spacing: 0.04em;
+  margin: 0.5em 0 0.1em;
 }
 
 fieldset {
@@ -22,6 +24,7 @@ fieldset {
 
 label {
   font-size: 0.75em;
+  letter-spacing: 0.03em;
   font-weight: var(--weightThin);
 }
 
@@ -32,6 +35,7 @@ input, select{
   padding: 0.5em;
   font-size: 0.7em;
   width: min-content;
+  letter-spacing: 0.03em;
 }
 
 .input__radio {
