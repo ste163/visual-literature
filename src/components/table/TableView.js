@@ -31,11 +31,23 @@ export const TableView = () => {
     // STATE
     const [ currentProject, setCurrentProject ] = useState()
     const [ retrievedProjects, setRetrievedProjects ] = useState([])
-    const [ allProgressForProject, setAllProgressForProject ] = useState([])
+    const [ progressSorted, setProgressSorted ] = useState([])
 
     const selectProject = e => {
         const bySelectedProject = retrievedProjects.find(project => project.id === +e.target.value)
         setCurrentProject(bySelectedProject)
+    }
+
+    // GET ALL THE PROGRESS
+    // GET THE CURRENT YEAR, AND SET THAT AS THE DEFAULT
+    // THEN, BASED ON THAT YEAR, POPULATE THE DROP DOWNS WITH MONTHS FOR THAT YEAR
+    
+    const sortProgressByYear = e => {
+        console.log("ALL PROGRESS FOR YEAR", progress)
+    }
+
+    const sortProgressByMonth = e => {
+        console.log("ALL PROGRESS", progress)
     }
 
     // FETCH INFO FOR SELECTED PROJECT & CURRENT PROGRESS FOR SELECTED PROJECT
@@ -55,7 +67,6 @@ export const TableView = () => {
                     setCurrentProject(byDefaultProject)
                 } else if (!byProjectId && !byDefaultProject) {
                     setRetrievedProjects(allProjects)
-                    // SHOW CARD FOR SELECTING A PROJECT
                 }
             })
         })
@@ -76,7 +87,7 @@ export const TableView = () => {
                 <>
                 <fieldset className="view__projectSelect">
                     <label className="projectSelect__label" htmlFor="projectSelect">Select project: </label>
-                    <select className="projectSelect__select"
+                    <select className="projectSelect__select" name="projectSelect" id="projectSelect"
                     value={currentProject === undefined ? 0 : currentProject.id} 
                     onChange={e => selectProject(e)}>
                         <option value="0">Select project</option>
@@ -92,18 +103,24 @@ export const TableView = () => {
                 </>
             }
             <IconDivider color="icon__lightGray" />
-
-            <fieldset className="view__sort">
-            <label className="sort__label" htmlFor="month">View by month: </label>
-            <select className="sort__select" name="month" id="month">
-                <option value="0">Month</option>
-            </select>
-            <label className="sort__label" htmlFor="year">View by year: </label>
-            <select className="sort__select sort__select--year" name="year" id="year">
-                <option value="0">Year</option>
-            </select>
-            </fieldset>
-
+            {
+                progress === undefined ? null :
+                <>
+                <fieldset className="view__sort">
+                <label className="sort__label" htmlFor="month">View by month: </label>
+                <select className="sort__select" name="month" id="month"
+                onChange={e => sortProgressByMonth(e)}>
+                    <option value="0">Month</option>
+                    <option value="1">Test</option>
+                </select>
+                <label className="sort__label" htmlFor="year">View by year: </label>
+                <select className="sort__select sort__select--year" name="year" id="year"
+                onChange={e => sortProgressByYear(e)}>
+                    <option value="0">Year</option>
+                </select>
+                </fieldset>
+                </>
+            }
             <IconDivider color="icon__lightGray" />
         </section>
 
