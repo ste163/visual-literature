@@ -17,7 +17,7 @@
     font-weight:var(--weightHeavy);
     background-color: var(--lightBlack);
     border-color: var(--lightBlack);
-    color: white;
+    color: var(--fontColorBtn);
   }
 
   .btn:active {

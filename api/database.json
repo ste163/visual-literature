@@ -154,14 +154,24 @@
       "id": 11
     },
     {
+      "id": 12,
       "projectId": 5,
       "userId": 1,
       "dateEntered": "2020-11-02",
-      "wordsWritten": 224,
+      "wordsWritten": 233,
+      "revised": false,
+      "edited": false,
+      "proofread": false
+    },
+    {
+      "projectId": 5,
+      "userId": 1,
+      "dateEntered": "2020-11-03",
+      "wordsWritten": 225,
       "revised": false,
       "edited": false,
       "proofread": false,
-      "id": 12
+      "id": 13
     }
   ]
 }
