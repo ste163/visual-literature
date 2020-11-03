@@ -40,8 +40,9 @@ export const TableView = () => {
     // STATE
     const [ currentProject, setCurrentProject ] = useState()
     const [ retrievedProjects, setRetrievedProjects ] = useState([])
-    const [ progressYears, setProgressYears ] = useState()
+    const [ progressYearOptions, setProgressYearOptions ] = useState()
     const [ progressSortedYearly, setProgressSortedYearly ] = useState([])
+    const [ progressMonthOptions, setProgressMonthOptions ] = useState([])
 
     // REFS FOR DROP-DOWN MENUS
     const yearSelect = useRef()
@@ -52,7 +53,7 @@ export const TableView = () => {
         setCurrentProject(bySelectedProject)
     }
 
-    const progressYearOptions = () => {
+    const generateProgressYearOptions = () => {
         // Loop through all progress and grab the years we have progress for
         let yearsAvailableArray = []
         progress.forEach(singleProgress => {
@@ -71,7 +72,7 @@ export const TableView = () => {
         })
         // Removes duplicate years
         const uniqueYears = [... new Set(yearsAvailableArray.sort().reverse())]
-        setProgressYears(uniqueYears)
+        setProgressYearOptions(uniqueYears)
     }
 
     // BASED ON DROP DOWN SELECTION, GET PROGRESS FOR THAT YEAR
@@ -91,16 +92,18 @@ export const TableView = () => {
         }
     }
 
-    const progressMonthOptions = () => {
+    const generateProgressMonthOptions = () => {
         let monthsAvailableArray = []
-        console.log("GENERATE DROP-DOWNS FOR MONTH WITH", progressSortedYearly)
         progressSortedYearly.forEach(singleProgress => {
             const monthOption = new Date(`${singleProgress.dateEntered} 00:00:00`).getMonth()
-            console.log(convertMonthIntToString(monthOption))
+            monthsAvailableArray.push(convertMonthIntToString(monthOption))
         })
+        // Remove duplicate months
+        const uniqueMonths = [... new Set(monthsAvailableArray.sort().reverse())]
+        setProgressMonthOptions(uniqueMonths)
     }
 
-    const sortProgressByMonth = e => {
+    const sortProgressByMonth = () => {
         // BASED ON SELECT YEAR, FILL DROP DOWNS WITH THAT MONTH
         console.log("SORT BY MONTH")
     }
@@ -136,17 +139,17 @@ export const TableView = () => {
 
     // When progress state updates, re-sort drop-down menus
     useEffect(() => {
-        progressYearOptions()
+        generateProgressYearOptions()
     }, [progress])
 
     // When progressYears changes, sort progress for that year
     useEffect(() => {
         sortProgressByYear()
-    }, [progressYears])
+    }, [progressYearOptions])
 
     // After getting sorted yearly progress, populate drop-down for months
     useEffect(() => {
-        progressMonthOptions()
+        generateProgressMonthOptions()
     }, [progressSortedYearly])
 
     return (
@@ -177,28 +180,39 @@ export const TableView = () => {
                 progress === undefined ? null :
                 <>
                 <fieldset className="view__sort">
-                <label className="sort__label" htmlFor="month">View by month: </label>
-                <select className="sort__select" name="month" id="month"
-                onChange={e => sortProgressByMonth()}>
-                    <option value="0">Month</option>
-                    <option value="1">Test</option>
-                </select>
-
                 {
-                    progressYears === undefined ? null :
-                    progressYears.length === 0 ? null :
+                    progressYearOptions === undefined ? null :
+                    progressYearOptions.length === 0 ? null :
                     <>
                     <label className="sort__label" htmlFor="year">View by year: </label>
                     <select className="sort__select sort__select--year" name="year" id="year"
                     ref={yearSelect}
-                    defaultValue={progressYears[0]} 
-                    onChange={e => sortProgressByYear(e)}>
+                    defaultValue={progressYearOptions[0]} 
+                    onChange={e => sortProgressByYear()}>
                         
                         <option value="0">Year</option>
                         {
-                            progressYears.map(year => (
+                            progressYearOptions.map(year => (
                                 <option key={year} value={year}>
                                     {year}
+                                </option>
+                            ))
+                        }
+                    </select>
+                    </>
+                }
+                {
+                    progressMonthOptions.length === 0 ? null :
+                    <>
+                    <label className="sort__label" htmlFor="month">View by month: </label>
+                    <select className="sort__select" name="month" id="month"
+                    defaultValue={progressMonthOptions[0]}
+                    onChange={e => sortProgressByMonth()}>
+                        <option value="0">Month</option>
+                        {
+                            progressMonthOptions.map(month => (
+                                <option key={month} value={month}>
+                                    {month}
                                 </option>
                             ))
                         }
