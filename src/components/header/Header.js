@@ -3,8 +3,9 @@ import { useHistory, useLocation } from "react-router-dom"
 import { VisLitLogo } from "../branding/VisLitLogo"
 import { VisLitTitle } from "../branding/VisLitTitle"
 import { IconLogout } from "../icons/IconLogout"
-import { Modal } from "../modal/Modal"
+import { IconGear } from "../icons/IconGear"
 import { HeaderSettings } from "./HeaderSettings"
+import { Modal } from "../modal/Modal"
 import "./Header.css"
 
 export const Header = () => {
@@ -95,7 +96,19 @@ export const Header = () => {
                             <button className="nav__btn btn__settings"
                             onClick={() => { 
                                 settingsModal.current.className = "background__modal modal__active"
-                            }}>
+                            }}
+                            onMouseOver={e => {
+                                const svg = e.currentTarget.firstElementChild.children[1].classList
+                                svg.remove("icon__white")
+                                svg.add("icon__hovered")
+      
+                                }}
+                                onMouseLeave={e => {
+                                    const svg = e.currentTarget.firstElementChild.children[1].classList
+                                    svg.remove("icon__hovered")
+                                    svg.add("icon__white")
+                                }}>
+                                <IconGear color="icon__white" />
                                 Settings
                             </button>
                         </li>

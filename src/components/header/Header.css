@@ -93,11 +93,7 @@
     transition: var(--btnHover)
 }
 
-.btn__settings {
-    padding-bottom: 0.4em;
-}
-
-.btn__logout {
+.btn__logout, .btn__settings {
     display: flex;
     align-items: center;
     padding-bottom: 0.4em;

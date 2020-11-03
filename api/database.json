@@ -192,6 +192,16 @@
       "edited": true,
       "proofread": false,
       "id": 15
+    },
+    {
+      "projectId": 6,
+      "userId": 1,
+      "dateEntered": "2020-11-03",
+      "wordsWritten": 355,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "id": 16
     }
   ]
 }
