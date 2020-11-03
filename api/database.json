@@ -164,14 +164,14 @@
       "proofread": false
     },
     {
+      "id": 13,
       "projectId": 5,
       "userId": 1,
       "dateEntered": "2020-11-03",
-      "wordsWritten": 225,
+      "wordsWritten": 360,
       "revised": false,
-      "edited": false,
-      "proofread": false,
-      "id": 13
+      "edited": true,
+      "proofread": false
     },
     {
       "projectId": 5,

@@ -25,34 +25,17 @@ export const Table = props => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>2020/11/02</td>
-                        <td>500</td>
-                        <td></td>
-                        <td>X</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>2020/11/03</td>
-                        <td>564</td>
-                        <td></td>
-                        <td>X</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>2020/11/04</td>
-                        <td>223</td>
-                        <td>X</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>2020/11/05</td>
-                        <td>329</td>
-                        <td></td>
-                        <td></td>
-                        <td>X</td>
-                    </tr>
+                    {
+                        incomingProgress.map(singleProgress => (
+                            <tr key={singleProgress.id}>
+                                <td>{singleProgress.dateEntered}</td>
+                                <td>{singleProgress.wordsWritten}</td>
+                                <td>{singleProgress.revised}</td>
+                                <td>{singleProgress.edited}</td>
+                                <td>{singleProgress.proofread}</td>
+                            </tr>
+                        ))
+                    }
                 </tbody>
             </table>
         </section>
