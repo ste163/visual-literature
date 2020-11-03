@@ -131,7 +131,8 @@ export const TableView = () => {
                         return singleProgress
                     }
                 })
-                setProgressSortedMonthly(progressForSelectedMonth)
+                const sortInDescendingOrder = progressForSelectedMonth.sort((a,b) => Date.parse(b.dateEntered) - Date.parse(a.dateEntered)).reverse()
+                setProgressSortedMonthly(sortInDescendingOrder)
                 setCurrentSelectedMonth(monthSelect.current.value)
             } else {
                 setCurrentSelectedMonth(monthSelect.current.value)
