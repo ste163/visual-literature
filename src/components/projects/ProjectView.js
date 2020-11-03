@@ -8,7 +8,7 @@ import { Modal } from "../modal/Modal"
 import { IconPlus } from "../icons/IconPlus"
 import { IconDivider } from "../icons/IconDivider"
 
-export const ProjectList = () => {
+export const ProjectView = () => {
     const { projects, getProjects } = useContext(ProjectContext)
 
     // We getTypes for the forms on ProjectList load.

@@ -51,7 +51,7 @@ export const AuthView = props => {
                     getSettingsOnLogin(exists.id)
                     .then(settingsExists => {
                         if (settingsExists) {
-                            sessionStorage.setItem("defaultPage", settingsExists[0].defaultPage)
+                            sessionStorage.setItem("defaultView", settingsExists[0].defaultView)
                             sessionStorage.setItem("defaultProject", settingsExists[0].defaultProject)
                             sessionStorage.setItem("colorMode", settingsExists[0].colorMode)
                         }
@@ -84,11 +84,11 @@ export const AuthView = props => {
                                 sessionStorage.setItem("userId", createdUser.id)
                                 addDefaultSettings({
                                     userId: createdUser.id,
-                                    defaultPage: "/projects",
+                                    defaultView: "/projects",
                                     defaultProject: 0,
                                     colorMode: "light"
                                 }).then(() => {
-                                    sessionStorage.setItem("defaultPage", "/projects")
+                                    sessionStorage.setItem("defaultView", "/projects")
                                     sessionStorage.setItem("defaultProject", 0)
                                     sessionStorage.setItem("colorMode", "light")
                                     history.push("/")

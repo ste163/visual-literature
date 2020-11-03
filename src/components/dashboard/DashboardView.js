@@ -12,7 +12,7 @@ import { DashGoalCard } from "./DashGoalCard"
 import { DashProgression } from "./DashProgression"
 import "./Dashboard.css"
 
-export const Dashboard = () => {
+export const DashboardView = () => {
 
     const activeUser = +sessionStorage.getItem("userId")
     const progressModal = useRef()

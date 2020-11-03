@@ -6,13 +6,13 @@ export const HeaderSettings = () => {
 
     // Default settings from session storage
     const userId = parseInt(sessionStorage.getItem("userId"))
-    const defaultPage = sessionStorage.getItem("defaultPage")
+    const defaultView = sessionStorage.getItem("defaultView")
     const defaultProject = sessionStorage.getItem("defaultProject")
     const colorMode = sessionStorage.getItem("colorMode")
 
     const defaultSettings = {
         userId,
-        defaultPage,
+        defaultView,
         defaultProject,
         colorMode
     }
@@ -39,11 +39,11 @@ export const HeaderSettings = () => {
             updateSettings({
                 id: settings[0].id,
                 userId: userId,
-                defaultPage: currentSettings.defaultPage,
+                defaultView: currentSettings.defaultView,
                 defaultProject: +currentSettings.defaultProject,
                 colorMode: currentSettings.colorMode
             })
-            sessionStorage.setItem("defaultPage", currentSettings.defaultPage)
+            sessionStorage.setItem("defaultView", currentSettings.defaultView)
             sessionStorage.setItem("defaultProject", +currentSettings.defaultProject) 
             sessionStorage.setItem("colorMode", currentSettings.colorMode)
         }
@@ -57,11 +57,11 @@ export const HeaderSettings = () => {
                 <h2 className="modal__h2">Settings</h2>
                 <form className="form__settings">
                     <fieldset className="settings__fieldset">
-                        <label htmlFor="defaultPage">Set default landing page:</label>
+                        <label htmlFor="defaultView">Set default view:</label>
                         <select
-                        id="defaultPage"
-                        name="defaultPage"
-                        value={settings[0].defaultPage}
+                        id="defaultView"
+                        name="defaultView"
+                        value={settings[0].defaultView}
                         onChange={handleControlledInputChange}>
                             <option value="/projects">Projects</option>
                             <option value="/table">Table</option>
@@ -91,13 +91,13 @@ export const HeaderSettings = () => {
                             checked={settings[0].colorMode === "light" ? "light" : ""}
                             onChange={handleControlledInputChange}
                             />
-                            <label htmlFor="daily">Light mode</label>
+                            <label htmlFor="daily">Light</label>
                             
                             <input className="input__radio" type="radio" id="dark" name="colorMode" value="dark" required
                             checked={settings[0].colorMode === "dark" ? "dark" : ""}
                             onChange={handleControlledInputChange}
                             />
-                            <label htmlFor="weekly">Dark mode</label>
+                            <label htmlFor="weekly">Dark</label>
                         </div>
                     </fieldset>
                     <fieldset className="settings__fieldset">
