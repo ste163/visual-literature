@@ -15,7 +15,7 @@
 .dot__btns--active {
     display: auto;
     position: absolute;
-    background-color: white;
+    background-color: var(--offWhite);
     border-radius: var(--formFieldRadius);
     box-shadow: var(--cardDropShadow);
 }

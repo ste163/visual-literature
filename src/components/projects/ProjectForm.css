@@ -53,15 +53,15 @@
 }
 
 .day__placeholder--inactive::-webkit-input-placeholder {
-    color:lightgray;
+    color: var(--fontColorInactive);
 }
 
 .day__placeholder--inactive::-moz-placeholder {
-    color:lightgray;
+    color:var(--fontColorInactive);
 }
 
 .day__placeholder--inactive {
-    background-color: whitesmoke;
-    color:lightgray;
+    background-color: var(--inactiveFormField);
+    color:var(--fontColorInactive);
     width: 2.6em;
 }

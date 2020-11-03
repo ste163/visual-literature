@@ -5,7 +5,7 @@
     flex-shrink: 0;
     justify-content: space-between;
     height: 2em;
-    background-color: var(--lightBlack);
+    background-color: var(--headerBlack);
     box-shadow: var(--headingDropShadow);
 }
 

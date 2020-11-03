@@ -22,7 +22,7 @@
 
 .logo__color--mintBlue {
     stroke: var(--darkMintBlue);
-    fill: var(--lightBlack);
+    fill: var(--headerBlack);
 }
 
 .logo__color--lightBlack {

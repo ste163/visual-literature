@@ -9,7 +9,7 @@
     {
       "id": 1,
       "userId": 1,
-      "defaultView": "/dashboard",
+      "defaultView": "/table",
       "defaultProject": 5,
       "colorMode": "dark"
     }
@@ -33,8 +33,8 @@
       "typeId": 5,
       "dateStarted": "2020-10-26",
       "wordCountGoal": 350,
-      "goalFrequency": "daily",
-      "daysPerFrequency": 1,
+      "goalFrequency": "weekly",
+      "daysPerFrequency": 6,
       "completed": false
     }
   ],
