@@ -22,6 +22,9 @@ td {
     font-size: 0.7em;
 }
 
+.td--x {
+    text-align: center;
+}
 
 tr:nth-child(even) {
     background-color: var(--lightGray);

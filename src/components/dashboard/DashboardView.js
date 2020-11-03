@@ -10,7 +10,7 @@ import { Modal } from "../modal/Modal"
 import { DashTitleCard } from "./DashTitleCard"
 import { DashGoalCard } from "./DashGoalCard"
 import { DashProgression } from "./DashProgression"
-import { NoDefaultCard } from "../settings/NoDefaultCard"
+import { NoDefaultCard } from "../selectionCards/NoDefaultCard"
 import "./Dashboard.css"
 
 export const DashboardView = () => {

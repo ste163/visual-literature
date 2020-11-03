@@ -4,10 +4,7 @@ import "./Table.css"
 export const Table = props => {
 
     const incomingProject = props.props
-
-    // Table rows MUST be generated based on the current amount of days in current month
-    // Will need to import date-fns and setup a loop that generates all rows based on that
-    // And inserts the date, placeholder min-goal text, and check boxes
+    const incomingProgress = props.progress
 
     return (
         <section className="card card__color--white card--table">
@@ -23,34 +20,17 @@ export const Table = props => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>2020/11/02</td>
-                        <td>500</td>
-                        <td></td>
-                        <td>X</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>2020/11/03</td>
-                        <td>564</td>
-                        <td></td>
-                        <td>X</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>2020/11/04</td>
-                        <td>223</td>
-                        <td>X</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>2020/11/05</td>
-                        <td>329</td>
-                        <td></td>
-                        <td></td>
-                        <td>X</td>
-                    </tr>
+                    {
+                        incomingProgress.map(singleProgress => (
+                            <tr key={singleProgress.id}>
+                                <td>{singleProgress.dateEntered}</td>
+                                <td>{singleProgress.wordsWritten}</td>
+                                <td className="td--x">{`${singleProgress.revised === false ? "" : "X"}`}</td>
+                                <td className="td--x">{`${singleProgress.edited === false ? "" : "X"}`}</td>
+                                <td className="td--x">{`${singleProgress.proofread === false ? "" : "X"}`}</td>
+                            </tr>
+                        ))
+                    }
                 </tbody>
             </table>
         </section>

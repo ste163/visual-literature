@@ -55,12 +55,11 @@
 
 
 .sort__select, .projectSelect__select {
-    margin-right: 0.4em;
     padding: 0.2em;
     font-size: 0.8em;
     font-weight: var(--weightThin)
 }
 
 .sort__select--year {
-    margin-right: 0;
+    margin-right: 0.8em;
 }
