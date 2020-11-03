@@ -14,14 +14,18 @@ import "./Dashboard.css"
 
 export const DashboardView = () => {
 
-    const activeUser = +sessionStorage.getItem("userId")
+    // SESSION STORAGE
+    const userId = +sessionStorage.getItem("userId")
+    const defaultProject = +sessionStorage.getItem("defaultProject")
+
     const progressModal = useRef()
     const { projectId } = useParams()
 
     const { getTypes } = useContext(TypeContext)
-    const { projects, getProjects, getProjectByParam } = useContext(ProjectContext)
+    const { getProjectsWithoutStateUpdate, getProjectByParam } = useContext(ProjectContext)
     const { progress, getProgressByProjectId, getProgressByUserId } = useContext(ProgressContext)
     
+    const [ retrievedProjects, setRetrievedProjects ] = useState()
     const [ currentProject, setCurrentProject ] = useState()
     const [ currentProgress, setCurrentProgress ] = useState([])
 
@@ -32,28 +36,29 @@ export const DashboardView = () => {
         } else if (progress.length === 0) {
             setCurrentProgress(progress)
         }
-        // If we have multiple projects, show first, else show selected 
-        if (Array.isArray(projects)) {
-            setCurrentProject(projects[0])
-        } else {
-            setCurrentProject(projects)
-        }
     }
 
     useEffect(() => {
         getTypes()
         .then(() => {
-            if (projectId) {
-                getProjectByParam(projectId)
-                .then(() => {
-                    getProgressByProjectId(projectId)
-                })
-            } else {
-                getProjects(activeUser)
-                .then(() => {
-                    getProgressByUserId(activeUser)
-                })
-            }
+            getProjectsWithoutStateUpdate(userId)
+            .then(allProjects => {
+                const byProjectId = allProjects.find(project => project.id === +projectId)
+                const byDefaultProject = allProjects.find(project => project.id === defaultProject)
+                if (byProjectId) {
+                    console.log("PROJ BY PARAM")
+                    setRetrievedProjects(allProjects)
+                    setCurrentProject(byProjectId)
+                } else if (!byProjectId && byDefaultProject) {
+                    console.log("PROJ BY DEFAULT")
+                    setRetrievedProjects(allProjects)
+                    setCurrentProject(byDefaultProject)
+                } else if (!byProjectId && !byDefaultProject) {
+                    console.log("MUST SELECT A PROJ")
+                    setRetrievedProjects(allProjects)
+                    // SHOW CARD FOR SELECTING A PROJECT
+                }
+            })
         })
     }, [])
 
@@ -65,34 +70,34 @@ export const DashboardView = () => {
         <>
         <section className="view__header">
 
-        <button className="project__btn"
-            onClick={e => {
-                    if (progressModal.current !== undefined) {
-                        progressModal.current.className = "background__modal modal__active"
+            <button className="project__btn"
+                onClick={e => {
+                        if (progressModal.current !== undefined) {
+                            progressModal.current.className = "background__modal modal__active"
+                        }
                     }
                 }
-            }
-            onMouseOver={e => {
-                e.currentTarget.firstElementChild.children[1].childNodes.forEach(svg => {
-                    svg.classList.remove("icon__gray")
-                    svg.classList.add("icon__hovered")
+                onMouseOver={e => {
+                    e.currentTarget.firstElementChild.children[1].childNodes.forEach(svg => {
+                        svg.classList.remove("icon__gray")
+                        svg.classList.add("icon__hovered")
 
-                 })
-             }}
-             onMouseOut={e => {
-                 e.currentTarget.firstElementChild.children[1].childNodes.forEach(svg => {
-                    svg.classList.remove("icon__hovered")
-                    svg.classList.add("icon__gray")
-                 })
-             }}>
-                <IconPlus color="icon__gray" />
-                Add progress
-            </button>
+                    })
+                }}
+                onMouseOut={e => {
+                    e.currentTarget.firstElementChild.children[1].childNodes.forEach(svg => {
+                        svg.classList.remove("icon__hovered")
+                        svg.classList.add("icon__gray")
+                    })
+                }}>
+                    <IconPlus color="icon__gray" />
+                    Add progress
+                </button>
 
-        <IconDivider color="icon__lightGray" />
+            <IconDivider color="icon__lightGray" />
 
-        {/* SELECT INPUT THAT POPULATES DROP DOWNS BASED ON AVAILABLE DATA.
-        WILL NEED COMPLEX MAP FUNCTION TO CREATE SELECTS */}
+            {/* SELECT INPUT THAT POPULATES DROP DOWNS BASED ON AVAILABLE DATA.
+            WILL NEED COMPLEX MAP FUNCTION TO CREATE SELECTS */}
 
         </section>
 
