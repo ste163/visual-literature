@@ -4,6 +4,7 @@ import { TypeContext } from "../type/TypeProvider"
 import { ProjectContext } from "../projects/ProjectProvider"
 import { ProgressContext } from "../progress/ProgressProvider"
 import { IconDivider } from "../icons/IconDivider"
+import { NoDefaultCard } from "../settings/NoDefaultCard"
 import { Table } from "./Table"
 import "./TableView.css"
 
@@ -98,17 +99,14 @@ export const TableView = () => {
             <IconDivider color="icon__lightGray" />
         </section>
 
-        {
-            // DON'T HAVE NULL, HAVE IT AS THE SELECTION CARD
-            currentProject === undefined ? null : 
-                <section className="view__container">
-                    <div className="table__container">
-                        {
-                            currentProject === undefined ? null : <Table props={currentProject}/>
-                        }
-                    </div>
-                </section>
-        }
+
+        <section className="view__container">
+            <div className="table__container">
+                {
+                    currentProject === undefined ? <NoDefaultCard/> : <Table props={currentProject}/>
+                }
+            </div>
+        </section>
         </>
     )
 }

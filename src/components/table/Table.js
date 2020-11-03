@@ -10,7 +10,7 @@ export const Table = props => {
     // And inserts the date, placeholder min-goal text, and check boxes
 
     return (
-        <div className="card card__color--white card--table">
+        <section className="card card__color--white card--table">
             <h2 className="table__h2">{incomingProject.name}</h2>
             <table>
                 <thead>
@@ -53,6 +53,6 @@ export const Table = props => {
                     </tr>
                 </tbody>
             </table>
-        </div>
+        </section>
     )
 }

@@ -10,6 +10,7 @@ import { Modal } from "../modal/Modal"
 import { DashTitleCard } from "./DashTitleCard"
 import { DashGoalCard } from "./DashGoalCard"
 import { DashProgression } from "./DashProgression"
+import { NoDefaultCard } from "../settings/NoDefaultCard"
 import "./Dashboard.css"
 
 export const DashboardView = () => {
@@ -130,7 +131,7 @@ export const DashboardView = () => {
         <section className="view__container">
             <div className="dash__cards">
                 {
-                    currentProject === undefined ? null :
+                    currentProject === undefined ? <NoDefaultCard /> :
                         <>
                             <DashTitleCard props={currentProject} />
                 
