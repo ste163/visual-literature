@@ -16,7 +16,7 @@ export const TableView = () => {
     const { projectId } = useParams()
 
     const { getTypes } = useContext(TypeContext)
-    const { projects, getProjectsWithoutStateUpdate } = useContext(ProjectContext)
+    const { getProjectsWithoutStateUpdate } = useContext(ProjectContext)
     const { progress, getProgressByProjectId } = useContext(ProgressContext)
 
     // DATES
