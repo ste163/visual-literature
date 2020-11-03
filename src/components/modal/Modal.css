@@ -68,6 +68,7 @@
 
 .modal__warning {
     color: var(--red);
+    font-weight: var(--weightNormal);
 }
 
 .modal__h2 {
@@ -76,7 +77,8 @@
 }
 
 .warning__p {
-    margin: 0.7em 0;
+    margin-bottom: 0.8em;
+    font-weight: var(--weightThin)
 }
 
 .container__settings {

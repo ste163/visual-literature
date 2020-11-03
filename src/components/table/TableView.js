@@ -88,11 +88,11 @@ export const TableView = () => {
             <fieldset className="view__sort">
             <label className="sort__label" htmlFor="month">View by month: </label>
             <select className="sort__select" name="month" id="month">
-                <option value="CurrentMonth">November</option>
+                <option value="0">Month</option>
             </select>
             <label className="sort__label" htmlFor="year">View by year: </label>
             <select className="sort__select sort__select--year" name="year" id="year">
-                <option value="currentYear">2020</option>
+                <option value="0">Year</option>
             </select>
             </fieldset>
 
