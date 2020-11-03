@@ -40,12 +40,14 @@ export const TableView = () => {
     // STATE
     const [ currentProject, setCurrentProject ] = useState()
     const [ retrievedProjects, setRetrievedProjects ] = useState([])
-    const [ progressYearOptions, setProgressYearOptions ] = useState()
+    const [ progressYearOptions, setProgressYearOptions ] = useState([])
     const [ progressSortedYearly, setProgressSortedYearly ] = useState([])
     const [ progressMonthOptions, setProgressMonthOptions ] = useState([])
+    const [ progressSortedMonthly, setProgressSortedMonthly ] = useState([])
 
     // REFS FOR DROP-DOWN MENUS
     const yearSelect = useRef()
+    const monthSelect = useRef()
 
     // GENERATE OPTIONS FOR DROP-DOWN MENU
     const selectProject = e => {
@@ -104,8 +106,13 @@ export const TableView = () => {
     }
 
     const sortProgressByMonth = () => {
-        // BASED ON SELECT YEAR, FILL DROP DOWNS WITH THAT MONTH
-        console.log("SORT BY MONTH")
+        console.log("DATA FOR YEAR", progressSortedYearly)
+        // FILTER PROGRESS FOR SELECTED MONTH IN THAT YEAR
+        if (monthSelect.current !== undefined) {
+            const selectedMonth = monthSelect.current.value
+            console.log("SELECTED MONTH", selectedMonth)
+            // RE-CONVERT THE MONTH STRING BACK INTO NUMBER
+        }
     }
 
     // FETCH INFO FOR SELECTED PROJECT & CURRENT PROGRESS FOR SELECTED PROJECT
@@ -152,6 +159,11 @@ export const TableView = () => {
         generateProgressMonthOptions()
     }, [progressSortedYearly])
 
+    // When a month is selected, get data for that month
+    useEffect(() => {
+        sortProgressByMonth()
+    }, [progressMonthOptions])
+
     return (
         <>
         <section className="view__header">
@@ -181,7 +193,6 @@ export const TableView = () => {
                 <>
                 <fieldset className="view__sort">
                 {
-                    progressYearOptions === undefined ? null :
                     progressYearOptions.length === 0 ? null :
                     <>
                     <label className="sort__label" htmlFor="year">View by year: </label>
@@ -189,7 +200,6 @@ export const TableView = () => {
                     ref={yearSelect}
                     defaultValue={progressYearOptions[0]} 
                     onChange={e => sortProgressByYear()}>
-                        
                         <option value="0">Year</option>
                         {
                             progressYearOptions.map(year => (
@@ -206,6 +216,7 @@ export const TableView = () => {
                     <>
                     <label className="sort__label" htmlFor="month">View by month: </label>
                     <select className="sort__select" name="month" id="month"
+                    ref={monthSelect}
                     defaultValue={progressMonthOptions[0]}
                     onChange={e => sortProgressByMonth()}>
                         <option value="0">Month</option>
