@@ -41,13 +41,13 @@
     margin-right: 0.4em;
 }
 
+.icon__gear {
+    height: 1.6em;
+}
+
 .icon__logout {
     height: 1.5em;
 }
-
-/* .icon__close {
-    
-} */
 
 .icon__divider {
     margin: 0 1em;
