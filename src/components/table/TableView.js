@@ -31,6 +31,7 @@ export const TableView = () => {
     // STATE
     const [ currentProject, setCurrentProject ] = useState()
     const [ retrievedProjects, setRetrievedProjects ] = useState([])
+    const [ allProgressForProject, setAllProgressForProject ] = useState([])
 
     const selectProject = e => {
         const bySelectedProject = retrievedProjects.find(project => project.id === +e.target.value)
@@ -59,6 +60,13 @@ export const TableView = () => {
             })
         })
     }, [])
+
+    // When user selects from drop down, get progress for selection
+    useEffect(() => {
+        if (currentProject !== undefined) {
+            getProgressByProjectId(currentProject.id)
+        }
+    }, [currentProject])
 
     return (
         <>
