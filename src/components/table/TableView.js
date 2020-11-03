@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react"
+import React, { useContext, useEffect, useState, useRef } from "react"
 import { useParams } from "react-router-dom"
 import { TypeContext } from "../type/TypeProvider"
 import { ProjectContext } from "../projects/ProjectProvider"
@@ -35,14 +35,14 @@ export const TableView = () => {
     const [ progressYears, setProgressYears ] = useState()
     const [ progressSortedYearly, setProgressSortedYearly ] = useState([])
 
+    // REFS FOR DROP-DOWN MENUS
+    const yearSelect = useRef()
+
+    // GENERATE OPTIONS FOR DROP-DOWN MENU
     const selectProject = e => {
         const bySelectedProject = retrievedProjects.find(project => project.id === +e.target.value)
         setCurrentProject(bySelectedProject)
     }
-
-    // GET ALL THE PROGRESS
-    // GET THE CURRENT YEAR, AND SET THAT AS THE DEFAULT
-    // THEN, BASED ON THAT YEAR, POPULATE THE DROP DOWNS WITH MONTHS FOR THAT YEAR
 
     const progressYearOptions = () => {
         // Loop through all progress and grab the years we have progress for
@@ -65,18 +65,28 @@ export const TableView = () => {
         setProgressYears(uniqueYears)
     }
 
-    const sortProgressByYear = e => {
-        // BASED ON DROP DOWN SELECTION, SORT PROGRESS
-        console.log("ALL PROGRESS FOR YEAR", progress)
-        const selectedYear = progress.find(singleProgress => {
-            const progressYear = new Date(`${singleProgress.dateEntered} 00:00:00`).getFullYear()
-            console.log(progressYear)
-        })
+    // BASED ON DROP DOWN SELECTION, GET PROGRESS FOR THAT YEAR
+    const sortProgressByYear = () => {
+        if (yearSelect.current !== undefined) {
+            const selectedYear = +yearSelect.current.value
+            console.log(selectedYear)
+            if (selectedYear !== 0) {
+                console.log("FIND PROGRESS FOR YEAR", selectedYear)
+                const progressForSelectedYear = progress.filter(singleProgress => {
+                    const progressYear = new Date(`${singleProgress.dateEntered} 00:00:00`).getFullYear()
+                    console.log("DATE FOR PROGRESS", progressYear)
+                    if (progressYear === selectedYear) {
+                        return singleProgress
+                    }
+                })
+                console.log("PROGRESS FOR YEAR", progressForSelectedYear)
+            }
+            // IF NO YEAR SELECTED, THEN SAY, CHOOSE YEAR
+        }
     }
 
     const sortProgressByMonth = e => {
         // BASED ON SELECT YEAR, FILL DROP DOWNS WITH THAT MONTH
-        console.log("ALL PROGRESS", progress)
     }
 
     // FETCH INFO FOR SELECTED PROJECT & CURRENT PROGRESS FOR SELECTED PROJECT
@@ -111,6 +121,7 @@ export const TableView = () => {
     // When progress state updates, re-sort drop-down menus
     useEffect(() => {
         progressYearOptions()
+        sortProgressByYear()
     }, [progress])
 
     return (
@@ -143,7 +154,7 @@ export const TableView = () => {
                 <fieldset className="view__sort">
                 <label className="sort__label" htmlFor="month">View by month: </label>
                 <select className="sort__select" name="month" id="month"
-                onChange={e => sortProgressByMonth(e)}>
+                onChange={e => sortProgressByMonth()}>
                     <option value="0">Month</option>
                     <option value="1">Test</option>
                 </select>
@@ -153,7 +164,10 @@ export const TableView = () => {
                     <>
                     <label className="sort__label" htmlFor="year">View by year: </label>
                     <select className="sort__select sort__select--year" name="year" id="year"
+                    ref={yearSelect}
+                    defaultValue={0} 
                     onChange={e => sortProgressByYear(e)}>
+                        
                         <option value="0">Year</option>
                         {
                             progressYears.map(year => (
