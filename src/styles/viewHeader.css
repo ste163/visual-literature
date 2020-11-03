@@ -19,10 +19,12 @@
     margin: 0;
     padding: 0;
     cursor: pointer;
+    transition: var(--btnHover);
 }
 
 .project__btn:hover {
     color: var(--lightBlack);
+    transition: var(--btnHover);
 }
 
 .project__btn:active {

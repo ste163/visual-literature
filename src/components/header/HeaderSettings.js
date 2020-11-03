@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react"
 import { SettingsContext } from "../settings/SettingsProvider"
 import { ProjectContext } from "../projects/ProjectProvider"
+import { HeaderColorMode } from "./HeaderColorMode"
 
 export const HeaderSettings = () => {
 
@@ -30,7 +31,10 @@ export const HeaderSettings = () => {
 
     useEffect(() => {
         getProjects(userId)
-        .then(getSettings(userId))
+        .then(() => {
+            getSettings(userId)
+            HeaderColorMode()
+        })
     }, [])
 
     // Wait for state to change, then update
@@ -46,6 +50,7 @@ export const HeaderSettings = () => {
             sessionStorage.setItem("defaultView", currentSettings.defaultView)
             sessionStorage.setItem("defaultProject", +currentSettings.defaultProject) 
             sessionStorage.setItem("colorMode", currentSettings.colorMode)
+            HeaderColorMode()
         }
     }, [currentSettings])
 

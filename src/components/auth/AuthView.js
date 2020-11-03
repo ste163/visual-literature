@@ -6,10 +6,13 @@ import { VisLitSubtitle } from "../branding/VisLitSubtitle"
 import { AuthBackground } from "./AuthBackground"
 import { Modal } from "../modal/Modal";
 import { SettingsContext } from "../settings/SettingsProvider"
+import { HeaderColorMode } from "../header/HeaderColorMode"
 import "./AuthView.css"
 
 export const AuthView = props => {
-
+    // If logging out with dark mode active, this resets colors to white 
+    HeaderColorMode()
+    
     const usernameLogin = useRef()
     const usernameRegister = useRef()
     const existDialog = useRef()

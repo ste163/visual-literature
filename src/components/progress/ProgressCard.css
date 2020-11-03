@@ -15,7 +15,9 @@
 
 .progress__h3 {
     font-size: 0.8em;
-    margin: 0.5em 0 0 0;
+    font-weight: var(--weightNormal);
+    letter-spacing: 0.03em;
+    margin: 0.25em 0 0.2em 0.45em;
 }
 
 .progress__text {
@@ -24,6 +26,7 @@
 
 .progress__p {
     font-size: 0.6em;
+    margin-left: 0.2em;
 }
 
 .progress__submit {

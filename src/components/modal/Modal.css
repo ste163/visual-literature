@@ -7,11 +7,11 @@
     left: 0;
     height: 100vh;
     width: 100vw;
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.8);
     pointer-events: none;
     opacity: 0;
     z-index: 5;
-    transition: 0.2s;
+    transition: 0.3s;
 }
 
 .modal__active {
@@ -29,7 +29,7 @@
 }
 
 .modal__width--widest {
-    width: 21.5em;
+    width: 22em;
 }
 
 .modal__width--wide {
@@ -68,6 +68,7 @@
 
 .modal__warning {
     color: var(--red);
+    font-weight: var(--weightNormal);
 }
 
 .modal__h2 {
@@ -76,7 +77,8 @@
 }
 
 .warning__p {
-    margin: 0.7em 0;
+    margin-bottom: 0.8em;
+    font-weight: var(--weightThin)
 }
 
 .container__settings {

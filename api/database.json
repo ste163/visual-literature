@@ -9,9 +9,9 @@
     {
       "id": 1,
       "userId": 1,
-      "defaultView": "/dashboard",
-      "defaultProject": 0,
-      "colorMode": "light"
+      "defaultView": "/table",
+      "defaultProject": 5,
+      "colorMode": "dark"
     }
   ],
   "projects": [
@@ -33,8 +33,8 @@
       "typeId": 5,
       "dateStarted": "2020-10-26",
       "wordCountGoal": 350,
-      "goalFrequency": "daily",
-      "daysPerFrequency": 1,
+      "goalFrequency": "weekly",
+      "daysPerFrequency": 6,
       "completed": false
     }
   ],
@@ -154,14 +154,24 @@
       "id": 11
     },
     {
+      "id": 12,
       "projectId": 5,
       "userId": 1,
       "dateEntered": "2020-11-02",
-      "wordsWritten": 224,
+      "wordsWritten": 233,
+      "revised": false,
+      "edited": false,
+      "proofread": false
+    },
+    {
+      "projectId": 5,
+      "userId": 1,
+      "dateEntered": "2020-11-03",
+      "wordsWritten": 225,
       "revised": false,
       "edited": false,
       "proofread": false,
-      "id": 12
+      "id": 13
     }
   ]
 }

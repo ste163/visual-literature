@@ -1,5 +1,9 @@
 .form__project {
-    width: 20em;
+    width: 15.5em;
+}
+
+.form__h4--goal {
+    margin-top: 2em !important;
 }
 
 .freq__radios {
@@ -19,7 +23,7 @@
 }
 
 .label__days {
-    color: lightgray;
+    color: var(--fontColorInactive);
     margin-bottom: 0.3em;
 }
 
@@ -53,15 +57,15 @@
 }
 
 .day__placeholder--inactive::-webkit-input-placeholder {
-    color:lightgray;
+    color: var(--fontColorInactive);
 }
 
 .day__placeholder--inactive::-moz-placeholder {
-    color:lightgray;
+    color:var(--fontColorInactive);
 }
 
 .day__placeholder--inactive {
-    background-color: whitesmoke;
-    color:lightgray;
+    background-color: var(--inactiveFormField);
+    color:var(--fontColorInactive);
     width: 2.6em;
 }
