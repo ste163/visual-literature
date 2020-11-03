@@ -72,11 +72,15 @@ h1 {
 h2 {
   margin: 0;
   padding: 0;
+  font-weight: var(--weightThin);
+  letter-spacing: 0.03em;
 }
 
 h3 {
   margin: 0;
   padding: 0;
+  font-weight: var(--weightNormal);
+  letter-spacing: 0.03em;
 }
 
 p {

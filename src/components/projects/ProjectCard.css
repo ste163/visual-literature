@@ -24,13 +24,25 @@
     grid-column: 1 / 3;
     grid-row: 2;
     margin-left: 15px;
+    font-weight: var(--weightNormal);
 }
 
+.project__h3--card {
+    font-size: 0.8em;
+    font-weight: var(--weightNormal);
+    letter-spacing: 0.03em;
+}
+
+.project__p {
+    font-size: 0.6em;
+    letter-spacing: 0.03em;
+}
 
 .project__subtitle {
     font-size: 0.6em;
-    font-weight: var(--weightHeavy);
+    font-weight: var(--weightNormal);
     margin-left: 15px;
+    letter-spacing: 0.03em;
 }
 
 .project__subtitle--container {
@@ -55,12 +67,4 @@
     grid-row: 5;
     margin-left: 15px;
     margin-top: 0.1em;
-}
-
-.project__h3--card {
-    font-size: 0.8em;
-}
-
-.project__p {
-    font-size: 0.6em;
 }

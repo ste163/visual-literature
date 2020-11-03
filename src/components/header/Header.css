@@ -56,6 +56,7 @@
     font-weight: var(--weightThin);
     font-size: 0.7em;
     padding: 0;
+    letter-spacing: 0.05em;
     transition: var(--btnHover);
 }
 
@@ -75,20 +76,20 @@
 }
 
 .nav__line--projects {
-    margin-right: 6.8em;
+    margin-right: 7.34em;
     margin-left: 0.2em;
     transition: var(--btnHover)
 }
 
 .nav__line--table {
-    margin-left: 3.6em;
-    margin-right: 4.35em;
+    margin-left: 3.9em;
+    margin-right: 4.75em;
     transition: var(--btnHover)
 }
 
 .nav__line--dashboard {
-    margin-left: 6em;
-    margin-right: 0.1em;
+    margin-left: 6.5em;
+    margin-right: 0.25em;
     transition: var(--btnHover)
 }
 
