@@ -30,9 +30,9 @@ export const Table = props => {
                             <tr key={singleProgress.id}>
                                 <td>{singleProgress.dateEntered}</td>
                                 <td>{singleProgress.wordsWritten}</td>
-                                <td>{singleProgress.revised}</td>
-                                <td>{singleProgress.edited}</td>
-                                <td>{singleProgress.proofread}</td>
+                                <td className="td--x">{`${singleProgress.revised === false ? "" : "X"}`}</td>
+                                <td className="td--x">{`${singleProgress.edited === false ? "" : "X"}`}</td>
+                                <td className="td--x">{`${singleProgress.proofread === false ? "" : "X"}`}</td>
                             </tr>
                         ))
                     }
