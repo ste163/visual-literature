@@ -3,10 +3,6 @@
     {
       "id": 1,
       "username": "sam"
-    },
-    {
-      "username": "test",
-      "id": 2
     }
   ],
   "settings": [
@@ -15,13 +11,6 @@
       "userId": 1,
       "defaultView": "/table",
       "defaultProject": 5,
-      "colorMode": "dark"
-    },
-    {
-      "id": 2,
-      "userId": 2,
-      "defaultView": "/projects",
-      "defaultProject": 0,
       "colorMode": "dark"
     }
   ],
