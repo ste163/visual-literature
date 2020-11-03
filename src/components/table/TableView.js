@@ -37,6 +37,11 @@ export const TableView = () => {
         return monthString
     }
 
+    // CONVERT MONTH STRING BACK INTO A NUMBER
+    const convertMonthStringToInt = monthString => {
+        return new Date(Date.parse(monthString +"1, 2020")).getMonth()
+    }
+
     // STATE
     const [ currentProject, setCurrentProject ] = useState()
     const [ retrievedProjects, setRetrievedProjects ] = useState([])
@@ -89,8 +94,9 @@ export const TableView = () => {
                     }
                 })
                 setProgressSortedYearly(progressForSelectedYear)
+            } else {
+                console.log("SELECT A YEAR")
             }
-            // IF NO YEAR SELECTED, THEN SAY, CHOOSE YEAR
         }
     }
 
@@ -106,12 +112,22 @@ export const TableView = () => {
     }
 
     const sortProgressByMonth = () => {
-        console.log("DATA FOR YEAR", progressSortedYearly)
         // FILTER PROGRESS FOR SELECTED MONTH IN THAT YEAR
         if (monthSelect.current !== undefined) {
-            const selectedMonth = monthSelect.current.value
-            console.log("SELECTED MONTH", selectedMonth)
-            // RE-CONVERT THE MONTH STRING BACK INTO NUMBER
+            if (monthSelect.current.value !== "0") {
+                const selectedMonth = monthSelect.current.value
+                // RE-CONVERT THE MONTH STRING BACK INTO NUMBER
+                const convertedSelectedMonth = convertMonthStringToInt(selectedMonth)
+                const progressForSelectedMonth = progressSortedYearly.filter(singleProgress => {
+                    const progressMonth = new Date(`${singleProgress.dateEntered} 00:00:00`).getMonth()
+                    if (progressMonth === convertedSelectedMonth) {
+                        return singleProgress
+                    }
+                })
+                console.log("PROGRESS ARRAY FOR MONTH", progressForSelectedMonth)
+            } else {
+                console.log("SELECT A MONTH")
+            }
         }
     }
 
