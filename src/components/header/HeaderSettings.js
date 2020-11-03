@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react"
 import { SettingsContext } from "../settings/SettingsProvider"
 import { ProjectContext } from "../projects/ProjectProvider"
+import { HeaderColorMode } from "./HeaderColorMode"
 
 export const HeaderSettings = () => {
 
@@ -46,6 +47,7 @@ export const HeaderSettings = () => {
             sessionStorage.setItem("defaultView", currentSettings.defaultView)
             sessionStorage.setItem("defaultProject", +currentSettings.defaultProject) 
             sessionStorage.setItem("colorMode", currentSettings.colorMode)
+            HeaderColorMode()
         }
     }, [currentSettings])
 
