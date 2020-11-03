@@ -75,8 +75,6 @@ export const ProgressCard = (project) => {
                         if (progress.wordsWritten < wordCountGoal && progress.proofread || progress.revised || progress.edited) {
                             ++weeklyProgressCounter
                             setGoalProgression(weeklyProgressCounter)
-                        } else {
-                            setGoalProgression(0)
                         }
                     })
                     if (weeklyProgressCounter >= daysPerFrequency) {
