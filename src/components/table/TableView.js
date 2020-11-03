@@ -29,6 +29,14 @@ export const TableView = () => {
     const lastDayOfMonthFull = new Date(currentTime.getFullYear(), currentTime.getMonth() + 1, 0)
     const lastDayOfMonthInt = lastDayOfMonthFull.getDate()
 
+    // CONVERT MONTH NUMBER TO STRING
+    const convertMonthIntToString = monthInt => {
+        const date = new Date()
+        date.setMonth(monthInt)
+        const monthString = date.toLocaleDateString("default", {month: "long"})
+        return monthString
+    }
+
     // STATE
     const [ currentProject, setCurrentProject ] = useState()
     const [ retrievedProjects, setRetrievedProjects ] = useState([])
@@ -48,8 +56,9 @@ export const TableView = () => {
         // Loop through all progress and grab the years we have progress for
         let yearsAvailableArray = []
         progress.forEach(singleProgress => {
+            // Get the years we have progress for
             const yearOption = new Date(`${singleProgress.dateEntered} 00:00:00`).getFullYear()
-            // CHECK IF THE YEAR IS ALREADY IN THE ARRAY. IF IT IS, DO NOT PUSH IT
+            // Check if year is in array
             if (yearsAvailableArray.length === 0) {
                 yearsAvailableArray.push(yearOption)
             } else {
@@ -60,7 +69,7 @@ export const TableView = () => {
                 })
             }
         })
-        // Remove duplicate years
+        // Removes duplicate years
         const uniqueYears = [... new Set(yearsAvailableArray.sort().reverse())]
         setProgressYears(uniqueYears)
     }
@@ -69,7 +78,6 @@ export const TableView = () => {
     const sortProgressByYear = () => {
         if (yearSelect.current !== undefined) {
             const selectedYear = +yearSelect.current.value
-            console.log(selectedYear)
             if (selectedYear !== 0) {
                 const progressForSelectedYear = progress.filter(singleProgress => {
                     const progressYear = new Date(`${singleProgress.dateEntered} 00:00:00`).getFullYear()
@@ -77,14 +85,24 @@ export const TableView = () => {
                         return singleProgress
                     }
                 })
-                console.log("PROGRESS FOR YEAR", progressForSelectedYear)
+                setProgressSortedYearly(progressForSelectedYear)
             }
             // IF NO YEAR SELECTED, THEN SAY, CHOOSE YEAR
         }
     }
 
+    const progressMonthOptions = () => {
+        let monthsAvailableArray = []
+        console.log("GENERATE DROP-DOWNS FOR MONTH WITH", progressSortedYearly)
+        progressSortedYearly.forEach(singleProgress => {
+            const monthOption = new Date(`${singleProgress.dateEntered} 00:00:00`).getMonth()
+            console.log(convertMonthIntToString(monthOption))
+        })
+    }
+
     const sortProgressByMonth = e => {
         // BASED ON SELECT YEAR, FILL DROP DOWNS WITH THAT MONTH
+        console.log("SORT BY MONTH")
     }
 
     // FETCH INFO FOR SELECTED PROJECT & CURRENT PROGRESS FOR SELECTED PROJECT
@@ -119,13 +137,17 @@ export const TableView = () => {
     // When progress state updates, re-sort drop-down menus
     useEffect(() => {
         progressYearOptions()
-        sortProgressByYear()
     }, [progress])
 
     // When progressYears changes, sort progress for that year
     useEffect(() => {
         sortProgressByYear()
     }, [progressYears])
+
+    // After getting sorted yearly progress, populate drop-down for months
+    useEffect(() => {
+        progressMonthOptions()
+    }, [progressSortedYearly])
 
     return (
         <>
