@@ -5,14 +5,14 @@ import { ProgressProvider } from "./progress/ProgressProvider"
 import { SettingsProvider } from "./settings/SettingsProvider"
 import { TypeProvider } from "./type/TypeProvider"
 import { Header } from "./header/Header"
-import { ProjectList } from "./projects/ProjectList"
-import { Dashboard } from "./dashboard/Dashboard"
+import { ProjectView } from "./projects/ProjectView"
+import { DashboardView } from "./dashboard/DashboardView"
 import { TableView } from "./table/TableView"
 import { Footer } from "./footer/Footer"
 
 export const ApplicationViews = () => {
 
-    const defaultPage = sessionStorage.getItem("defaultPage")
+    const defaultView = sessionStorage.getItem("defaultView")
 
     return (
     <> 
@@ -25,11 +25,11 @@ export const ApplicationViews = () => {
                 <ProgressProvider>
 
                     <Route exact path="/">
-                        <Redirect to={defaultPage} />
+                        <Redirect to={defaultView} />
                     </Route>
 
                     <Route exact path="/projects">                    
-                        <ProjectList />  
+                        <ProjectView />  
                     </Route>
 
                     <ProjectProvider>
@@ -44,11 +44,11 @@ export const ApplicationViews = () => {
 
                     <ProjectProvider>
                         <Route exact path="/dashboard">
-                            <Dashboard />
+                            <DashboardView />
                         </Route>
             
                         <Route exact path="/dashboard/:projectId">
-                            <Dashboard />
+                            <DashboardView />
                         </Route>
                     </ProjectProvider>
                 
