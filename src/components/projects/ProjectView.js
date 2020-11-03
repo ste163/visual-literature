@@ -7,6 +7,7 @@ import { ProjectCard } from "./ProjectCard"
 import { Modal } from "../modal/Modal"
 import { IconPlus } from "../icons/IconPlus"
 import { IconDivider } from "../icons/IconDivider"
+import { NoProjectCard } from "../selectionCards/NoProjectCard"
 
 export const ProjectView = () => {
     const { projects, getProjects } = useContext(ProjectContext)
@@ -55,10 +56,15 @@ export const ProjectView = () => {
             <Modal ref={modal} contentFunction={<ProjectForm />} width={"modal__width--widest"}/>
 
             <div className="project__cards">
-                {                   
-                    projects.map(project => {
-                        return <ProgressProvider key={project.id}><ProjectCard key={project.id} project={project} /></ProgressProvider>
-                    })               
+                {
+                    projects.length === 0 ? <NoProjectCard /> :
+                    <>
+                    {                   
+                        projects.map(project => {
+                            return <ProgressProvider key={project.id}><ProjectCard key={project.id} project={project} /></ProgressProvider>
+                        })               
+                    }
+                    </>
                 }
             </div>
         </section>

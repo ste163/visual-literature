@@ -106,7 +106,9 @@ export const HeaderSettings = () => {
                         </div>
                     </fieldset>
                     <fieldset className="settings__fieldset">
+                        <label htmlFor="deleteAccount">Delete account and all data:</label>
                         <button 
+                        name="deleteAccount"
                         type="button"
                         className="btn btn--red">
                             Delete Account
