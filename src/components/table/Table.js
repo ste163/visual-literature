@@ -4,6 +4,8 @@ import "./Table.css"
 export const Table = props => {
 
     const incomingProject = props.props
+    const incomingProgress = props.progress
+    console.log("INCOMING TABLE PROG", incomingProgress)
 
     // Table rows MUST be generated based on the current amount of days in current month
     // Will need to import date-fns and setup a loop that generates all rows based on that

@@ -107,7 +107,7 @@ export const TableView = () => {
             monthsAvailableArray.push(convertMonthIntToString(monthOption))
         })
         // Remove duplicate months
-        const uniqueMonths = [... new Set(monthsAvailableArray.sort().reverse())]
+        const uniqueMonths = [... new Set(monthsAvailableArray.sort())]
         setProgressMonthOptions(uniqueMonths)
     }
 
@@ -124,7 +124,7 @@ export const TableView = () => {
                         return singleProgress
                     }
                 })
-                console.log("PROGRESS ARRAY FOR MONTH", progressForSelectedMonth)
+                setProgressSortedMonthly(progressForSelectedMonth)
             } else {
                 console.log("SELECT A MONTH")
             }
@@ -256,7 +256,7 @@ export const TableView = () => {
         <section className="view__container">
             <div className="table__container">
                 {
-                    currentProject === undefined ? <NoDefaultCard/> : <Table props={currentProject}/>
+                    currentProject === undefined ? <NoDefaultCard/> : <Table props={currentProject} progress={progressSortedMonthly}/>
                 }
             </div>
         </section>
