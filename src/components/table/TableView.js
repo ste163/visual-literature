@@ -45,6 +45,7 @@ export const TableView = () => {
     // THEN, BASED ON THAT YEAR, POPULATE THE DROP DOWNS WITH MONTHS FOR THAT YEAR
 
     const progressYearOptions = () => {
+        // Loop through all progress and grab the years we have progress for
         let yearsAvailableArray = []
         progress.forEach(singleProgress => {
             const yearOption = new Date(`${singleProgress.dateEntered} 00:00:00`).getFullYear()
@@ -52,7 +53,6 @@ export const TableView = () => {
             if (yearsAvailableArray.length === 0) {
                 yearsAvailableArray.push(yearOption)
             } else {
-                debugger
                 yearsAvailableArray.forEach(singleYear => {
                     if (singleYear !== yearOption) {
                         yearsAvailableArray.push(yearOption)
@@ -60,8 +60,9 @@ export const TableView = () => {
                 })
             }
         })
-        console.log("YEARS AVAILABLE", yearsAvailableArray)
-        setProgressYears(yearsAvailableArray)
+        // Remove duplicate years
+        const uniqueYears = [... new Set(yearsAvailableArray.sort().reverse())]
+        setProgressYears(uniqueYears)
     }
 
     const sortProgressByYear = e => {
@@ -70,7 +71,6 @@ export const TableView = () => {
         const selectedYear = progress.find(singleProgress => {
             const progressYear = new Date(`${singleProgress.dateEntered} 00:00:00`).getFullYear()
             console.log(progressYear)
-            console.log("Current Year",)
         })
     }
 
@@ -155,13 +155,13 @@ export const TableView = () => {
                     <select className="sort__select sort__select--year" name="year" id="year"
                     onChange={e => sortProgressByYear(e)}>
                         <option value="0">Year</option>
-                        {/* {
+                        {
                             progressYears.map(year => (
-                                <option>
-
+                                <option key={year} value={year}>
+                                    {year}
                                 </option>
                             ))
-                        } */}
+                        }
                     </select>
                     </>
                 }
