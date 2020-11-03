@@ -3,6 +3,21 @@
     box-shadow: var(--cardDropShadow);
 }
 
+.card__noDefault {
+    width: 50%;
+    max-width: max-content;
+    padding: 1em;
+    margin: 1.5em;
+}
+
+.noDefault__h2 {
+    font-weight: var(--weightThin);
+}
+
+.noDefault__p {
+    font-weight: var(--weightThin)
+}
+
 .card__color--white {
     background-color: var(--offWhite);
 }

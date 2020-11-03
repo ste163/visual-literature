@@ -10,7 +10,7 @@
       "id": 1,
       "userId": 1,
       "defaultView": "/dashboard",
-      "defaultProject": 5,
+      "defaultProject": 0,
       "colorMode": "light"
     }
   ],
