@@ -38,6 +38,11 @@ export const DashboardView = () => {
         }
     }
 
+    const selectProject = e => {
+        const bySelectedProject = retrievedProjects.find(project => project.id === +e.target.value)
+        setCurrentProject(bySelectedProject)
+    }
+
     useEffect(() => {
         getTypes()
         .then(() => {
@@ -95,6 +100,27 @@ export const DashboardView = () => {
                 </button>
 
             <IconDivider color="icon__lightGray" />
+
+            {
+                retrievedProjects === undefined ? null : 
+                <>
+                <fieldset className="view__projectSelect">
+                    <label className="projectSelect__label" htmlFor="projectSelect">Select project: </label>
+                    <select className="projectSelect__select"
+                    value={currentProject === undefined ? 0 : currentProject.id} 
+                    onChange={e => selectProject(e)}>
+                        <option value="0">Select project</option>
+                        {
+                            retrievedProjects.map(project => (
+                                <option key={project.id} value={project.id}>
+                                    {project.name}
+                                </option>
+                            ))
+                        }
+                    </select>
+                </fieldset>
+                </>
+            }
 
             {/* SELECT INPUT THAT POPULATES DROP DOWNS BASED ON AVAILABLE DATA.
             WILL NEED COMPLEX MAP FUNCTION TO CREATE SELECTS */}
