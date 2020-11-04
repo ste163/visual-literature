@@ -65,9 +65,6 @@ export const ProjectCard = ({project}) => {
                         })
                     }}>
                     <IconGraph location="icon__graph--project" color="icon__gray" />
-                    <span className="btn__text">
-                        Dashboard
-                    </span>
                 </button>
             </Link>
 
