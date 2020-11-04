@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState, useRef } from "react"
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import { TypeContext } from "../type/TypeProvider"
 import { ProjectContext } from "../projects/ProjectProvider"
 import { ProgressContext } from "../progress/ProgressProvider"
@@ -61,6 +61,9 @@ export const TableView = () => {
     // REFS FOR DROP-DOWN MENUS
     const yearSelect = useRef()
     const monthSelect = useRef()
+
+    // NOT USED, BUT NEEDED FOR MODAL
+    const progressModal = useRef()
 
     // GENERATE OPTIONS FOR DROP-DOWN MENU
     const selectProject = e => {
@@ -273,7 +276,13 @@ export const TableView = () => {
                                 currentSelectedMonth === "0" ? <NoMonthCard/> :
                                     <>
                                     <Table props={currentProject} progress={progressSortedMonthly}/>
-                                    <Modal contentFunction={<ProgressForm project={currentProject}/>} />
+                                    <Modal ref={progressModal} width={"modal__width--med"} contentFunction={<ProgressForm project={currentProject} />} />
+                                    <section className="card card__color--white card__link">
+                                    <Link className="table__link" to={`/dashboard/${currentProject.id}`}>
+                                        <h3 className="table__h3">View project on dashboard</h3>
+                                    </Link>
+
+                                    </section>
                                     </>
                 }
             </div>

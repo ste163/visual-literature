@@ -1,4 +1,4 @@
 .table__container {
     display: flex;
-    flex-flow: column nowrap;
+    flex-flow: row wrap;
 }
