@@ -4,6 +4,15 @@ export const DashTitleCard = (props) => {
     return (
         <section className="card card__color--white card__dash card__dash--title">
             <h2 className="dash__h2">{props.props.name}</h2>
+            <p className="dash__subtitle">{props.props.type.name}</p>
+            <p className="dash__subtitle">{props.props.dateStarted}</p>
+            <h3 className="dash__h3">Goal</h3>
+            <p className="dash__p">
+                Write {props.props.wordCountGoal} words {
+                    props.props.goalFrequency === "daily" ? "daily" :
+                        props.props.goalFrequency === "weekly" ? `${props.props.daysPerFrequency} days per week` : `${props.props.daysPerFrequency} days per month`
+                }.
+            </p>
         </section>
     )
 }
