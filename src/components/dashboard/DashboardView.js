@@ -10,6 +10,8 @@ import { Modal } from "../modal/Modal"
 import { DashTitleCard } from "./DashTitleCard"
 import { DashProgression } from "./DashProgression"
 import { NoDefaultCard } from "../selectionCards/NoDefaultCard"
+import { NoYearCard } from "../selectionCards/NoYearCard"
+import { NoMonthCard } from "../selectionCards/NoMonthCard"
 import "./Dashboard.css"
 
 export const DashboardView = () => {
@@ -297,15 +299,17 @@ export const DashboardView = () => {
             <div className="dash__cards">
                 {
                     currentProject === undefined ? <NoDefaultCard /> :
-                        <>
-                            <DashTitleCard props={currentProject} />
-                
-                            {
-                                currentProgress.length === 0 ? null :
-                                    <DashProgression props={currentProject} progress={progressSortedMonthly}/>    
-                            }
-                            <Modal ref={progressModal} contentFunction={<ProgressForm project={currentProject} />} width={"modal__width--med"}/>
-                        </>
+                        currentSelectedYear === undefined ? null :
+                            currentSelectedYear === 0 ? <NoYearCard/> :
+                                currentSelectedMonth === "0" ? <NoMonthCard/> :
+                                    <>
+                                    <DashTitleCard props={currentProject} />                   
+                                    {
+                                        currentProgress.length === 0 ? null :
+                                            <DashProgression props={currentProject} progress={progressSortedMonthly}/>    
+                                    }
+                                    <Modal ref={progressModal} contentFunction={<ProgressForm project={currentProject} />} width={"modal__width--med"}/>
+                                    </>
                 }
             </div>
         </section>
