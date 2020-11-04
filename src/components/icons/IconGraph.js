@@ -3,7 +3,7 @@ import "./Icons.css"
 
 export const IconGraph = props => {
     return (
-        <svg className="icon__graph" width="20" height="20" version="1.1" viewBox="0 0 5.2918 5.2918" xmlns="http://www.w3.org/2000/svg">
+        <svg className={props.location} width="20" height="20" version="1.1" viewBox="0 0 5.2918 5.2918" xmlns="http://www.w3.org/2000/svg">
             <title>Graph Icon</title>
             <rect className={props.color} id="axis_y" x=".03793" y=".037848" width="1.0311" height="5.2158" ry=".51554" style={{strokeWidth:".41059"}}/>
             <rect className={props.color} id="axis_x" transform="rotate(90)" x="4.2228" y="-5.2538" width="1.0311" height="5.2158" ry=".51554" style={{strokeWidth:".41059"}}/>

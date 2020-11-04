@@ -11,7 +11,7 @@
       "userId": 1,
       "defaultView": "/table",
       "defaultProject": 5,
-      "colorMode": "dark"
+      "colorMode": "light"
     }
   ],
   "projects": [
@@ -290,7 +290,7 @@
       "dateEntered": "2020-11-01",
       "wordsWritten": 259,
       "revised": false,
-      "edited": false,
+      "edited": true,
       "proofread": false
     },
     {

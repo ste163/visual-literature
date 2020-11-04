@@ -2,3 +2,15 @@
     display: flex;
     flex-flow: row wrap;
 }
+
+.table__link {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+.table__h3--link {
+    font-weight: var(--weightThin);
+    font-size: 1em;
+    text-align: center;
+}

@@ -279,8 +279,8 @@ export const TableView = () => {
                                     
                                     <section className="card card__color--white card__link">
                                         <Link className="table__link" to={`/dashboard/${currentProject.id}`}>
-                                            <IconGraph color="icon__lightGray" />
-                                            <h3 className="table__h3">View project on dashboard</h3>
+                                            <IconGraph location="icon__graph--link" color="icon__gray" />
+                                            <h3 className="table__h3--link">View on dashboard</h3>
                                         </Link>
                                     </section>
                                     </>
