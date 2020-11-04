@@ -72,14 +72,14 @@ GIF
 ## Wireframe & Mockup
 ### Initial wireframe
 ![Wireframe](/readme-assets/readme_wireframe.png) <br>
-### Mockup
+### Initial mockup
 ![Mockup](/readme-assets/readme_mockup.png)
 
 ### Credits & Acknowledgements
-Logo design and project name - Shannon Swenton <br>
-Logo and icons designed with - [Inkscape](https://inkscape.org/) <br>
-Received help on the stacked bar charts from [Jamie Calder's codepen](https://codepen.io/jamiecalder/pen/NrROeB?editors=0010) <br>
-Readme design - [Art of README](https://github.com/noffle/art-of-readme#readme) and [Standard Readme](https://github.com/RichardLitt/standard-readme)
+- Logo design and project name - Shannon Swenton <br>
+- Wireframe, mockups, logos, and icons designed with - [Inkscape](https://inkscape.org/) <br>
+- Received help on the stacked bar charts from [Jamie Calder's codepen](https://codepen.io/jamiecalder/pen/NrROeB?editors=0010) <br>
+- Readme design - [Art of README](https://github.com/noffle/art-of-readme#readme) and [Standard Readme](https://github.com/RichardLitt/standard-readme)
 
 ## License
 
@@ -99,13 +99,8 @@ X-Usage
 X-Roadmap
 
 ERD
-    - image
 
-Wire-frame & Mockup
-    - image of wire-frame
-    - then progressions of mockups
-    (maybe three/4 small, hi-res images total)
-
+X-Wire-frame & Mockup
 X-Tech used
 X-Credits
 License
