@@ -188,9 +188,12 @@ export const ProgressForm = project => {
             </fieldset>
 
             <fieldset>
-                <label htmlFor="progressGoal">Words written: </label>
+                <label htmlFor="progressGoal"
+                className={!datePicked ? "label__progress--inactive" : "label__progress--active"}>
+                    Words written:
+                </label>
                 <input type="number"
-                className={!datePicked ? "input__words--inactive" : "input__words--active"}
+                className={!datePicked ? "label__words--inactive" : "input__words--active"}
                 onChange={handleControlledInputChange}
                 id="progressGoal"
                 name="wordsWritten"
@@ -203,25 +206,31 @@ export const ProgressForm = project => {
             </fieldset>
 
             <fieldset>
-                <label>Writing Processes Completed</label>
+                <label
+                className={!datePicked ? "label__progress--inactive" : "label__progress--active"}>
+                    Writing Processes Completed
+                </label>
                 <div className="form__checkContainer">                
-                    <input className="progress__checkbox--first" type="checkbox" id="revised" name="revised" value="revised"
+                    <input className="progress__checkbox--first"
+                    type="checkbox" id="revised" name="revised" value="revised"
                     checked={currentProgress.revised}
                     onChange={handleControlledInputChange}
                     disabled={!datePicked}/>
-                    <label htmlFor="revised">Revised</label>
+                    <label className={!datePicked ? "label__progress--inactive" : "label__progress--active"} htmlFor="revised">Revised</label>
 
-                    <input className="progress__checkbox" type="checkbox" id="edited" name="edited" value="edited"
+                    <input className="progress__checkbox"
+                    type="checkbox" id="edited" name="edited" value="edited"
                     checked={currentProgress.edited}
                     onChange={handleControlledInputChange}
                     disabled={!datePicked}/>
-                    <label htmlFor="edited">Edited</label>
+                    <label className={!datePicked ? "label__progress--inactive" : "label__progress--active"} htmlFor="edited">Edited</label>
 
-                    <input className="progress__checkbox" type="checkbox" id="proofread" name="proofread" value="proofread"
+                    <input className="progress__checkbox"
+                    type="checkbox" id="proofread" name="proofread" value="proofread"
                     checked={currentProgress.proofread}
                     onChange={handleControlledInputChange}
                     disabled={!datePicked}/>
-                    <label htmlFor="proofread">Proofread</label>
+                    <label className={!datePicked ? "label__progress--inactive" : "label__progress--active"} htmlFor="proofread">Proofread</label>
                 </div>
             </fieldset>
 

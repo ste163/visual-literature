@@ -29,3 +29,11 @@
     color:var(--fontColorInactive);
     background-color: var(--inactiveFormField);
 }
+
+.label__progress--active {
+    color:var(--fontColor);
+}
+
+.label__progress--inactive {
+    color:var(--fontColorInactive);
+}
