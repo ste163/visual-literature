@@ -38,6 +38,7 @@ export const ProgressForm = project => {
     const { progress, addProgress, updateProgress, deleteProgress } = useContext(ProgressContext)
     const [ currentProgress, setCurrentProgress ] = useState(defaultProgress)
     const [ progressFound, setProgressFound ] = useState(false)
+    const [ datePicked, setDatePicked ] = useState(false)
 
     // Set date picker's max to today
     if (datePicker.current !== undefined) {
@@ -78,6 +79,7 @@ export const ProgressForm = project => {
                 })
             }
             setCurrentProgress(defaultProgress)
+            setProgressFound(false);
             e.currentTarget.parentNode.parentNode.parentNode.className = "background__modal"
         }
 
@@ -122,6 +124,7 @@ export const ProgressForm = project => {
 }
 
     const createProgress = (e) => {
+        setDatePicked(false)
         e.preventDefault()
         constructNewProgress(e)
     }
@@ -173,6 +176,7 @@ export const ProgressForm = project => {
                 ref={datePicker}
                 type="date"
                 onChange={e => {
+                    setDatePicked(true)
                     filterCurrentDate(e.target.value)
                     handleControlledInputChange(e)
                     }
@@ -187,6 +191,7 @@ export const ProgressForm = project => {
             <fieldset>
                 <label htmlFor="progressGoal">Words written: </label>
                 <input type="number"
+                className={!datePicked ? "input__words--inactive" : "input__words--active"}
                  onChange={handleControlledInputChange}
                  id="progressGoal"
                  name="wordsWritten"
@@ -194,6 +199,7 @@ export const ProgressForm = project => {
                  min="0"
                  placeholder={passedInProject.wordCountGoal}
                  required
+                 disabled={!datePicked}
                  autoFocus
                  />
             </fieldset>
@@ -204,17 +210,19 @@ export const ProgressForm = project => {
                     <input className="progress__checkbox--first" type="checkbox" id="revised" name="revised" value="revised"
                     checked={currentProgress.revised}
                     onChange={handleControlledInputChange}
-                    />
+                    disabled={!datePicked}/>
                     <label htmlFor="revised">Revised</label>
 
                     <input className="progress__checkbox" type="checkbox" id="edited" name="edited" value="edited"
                     checked={currentProgress.edited}
-                    onChange={handleControlledInputChange}/>
+                    onChange={handleControlledInputChange}
+                    disabled={!datePicked}/>
                     <label htmlFor="edited">Edited</label>
 
                     <input className="progress__checkbox" type="checkbox" id="proofread" name="proofread" value="proofread"
                     checked={currentProgress.proofread}
-                    onChange={handleControlledInputChange}/>
+                    onChange={handleControlledInputChange}
+                    disabled={!datePicked}/>
                     <label htmlFor="proofread">Proofread</label>
                 </div>
             </fieldset>
