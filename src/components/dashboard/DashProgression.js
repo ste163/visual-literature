@@ -13,7 +13,6 @@ export const DashProgression = (props, progress) => {
     const currentTime = new Date()
     const todaysDate = new Date(currentTime.getTime() - (currentTime.getTimezoneOffset() * 60000)).toISOString().split("T")[0]
     const currentMonthInt = currentTime.getMonth()
-    const firstDayOfMonthFull =  new Date(currentTime.getFullYear(), currentTime.getMonth(), 1)
     const lastDayOfMonthFull = new Date(currentTime.getFullYear(), currentTime.getMonth() + 1, 0)
     const lastDayOfMonthInt = lastDayOfMonthFull.getDate()
     const weeksInCurrentMonth = getWeeksInMonth(currentTime)

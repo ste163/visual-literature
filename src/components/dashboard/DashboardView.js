@@ -302,7 +302,7 @@ export const DashboardView = () => {
                 
                             {
                                 currentProgress.length === 0 ? null :
-                                    <DashProgression props={currentProject} progress={currentProgress}/>    
+                                    <DashProgression props={currentProject} progress={progressSortedMonthly}/>    
                             }
                             <Modal ref={progressModal} contentFunction={<ProgressForm project={currentProject} />} width={"modal__width--med"}/>
                         </>
