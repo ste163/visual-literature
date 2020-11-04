@@ -47,6 +47,13 @@
     width: 4em;
 }
 
+.icon__graph--project {
+    transform: scale(1.2);
+    height: 2.5em;
+    width: 2.5em;
+    margin-bottom: 0.5em;
+}
+
 .icon__gear {
     height: 1.6em;
 }

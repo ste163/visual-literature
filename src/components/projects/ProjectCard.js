@@ -49,7 +49,7 @@ export const ProjectCard = ({project}) => {
             </Link>
             <Link className="project__dash" to={`/dashboard/${project.id}`}>
                 <button 
-                className="card__btn"
+                className="card__btn project__dash--btn"
                 onMouseOver={e => {
                     const svgs = [...e.currentTarget.firstElementChild.children]
                     svgs.forEach(svg => {
@@ -64,7 +64,7 @@ export const ProjectCard = ({project}) => {
                             svg.classList.add("icon__gray")
                         })
                     }}>
-                    <IconGraph color="icon__gray" />
+                    <IconGraph location="icon__graph--project" color="icon__gray" />
                     <span className="btn__text">
                         Dashboard
                     </span>
