@@ -70,12 +70,12 @@ GIF
 ## Entity Relationship Diagram
 
 ## Wireframe & Mockup
-Initial wireframe <br>
-![Wireframe](/readme-assets/wireframe.png) <br>
+### Initial wireframe <br>
+![Wireframe](/readme-assets/readme_wireframe.png) <br>
 Mockup <br>
-![Mockup](/readme-assets/mockup.png)
+![Mockup](/readme-assets/readme_mockup.png)
 
-## Credits & Acknowledgements
+### Credits & Acknowledgements
 Logo design and project name - Shannon Swenton <br>
 Logo and icons designed with - [Inkscape](https://inkscape.org/) <br>
 Received help on the stacked bar charts from [Jamie Calder's codepen](https://codepen.io/jamiecalder/pen/NrROeB?editors=0010)
