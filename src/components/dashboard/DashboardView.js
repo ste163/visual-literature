@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState, useContext } from "react"
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import { ProgressContext } from "../progress/ProgressProvider"
 import { ProjectContext } from "../projects/ProjectProvider"
 import { TypeContext } from "../type/TypeProvider"
@@ -309,6 +309,13 @@ export const DashboardView = () => {
                                             <DashProgression props={currentProject} progress={progressSortedMonthly}/>    
                                     }
                                     <Modal ref={progressModal} contentFunction={<ProgressForm project={currentProject} />} width={"modal__width--med"}/>
+                                    
+                                    <section className="card card__color--white card__link card__link--dash">
+                                        <Link className="table__link" to={`/table/${currentProject.id}`}>
+                                            {/* <IconGraph color="icon__lightGray" /> */}
+                                            <h3 className="table__h3">View project on table</h3>
+                                        </Link>
+                                    </section>
                                     </>
                 }
             </div>

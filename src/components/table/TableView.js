@@ -274,13 +274,14 @@ export const TableView = () => {
                                 currentSelectedMonth === "0" ? <NoMonthCard/> :
                                     <>
                                     <Table props={currentProject} progress={progressSortedMonthly}/>
+                                    
                                     <Modal ref={progressModal} width={"modal__width--med"} contentFunction={<ProgressForm project={currentProject} />} />
+                                    
                                     <section className="card card__color--white card__link">
-                                    <Link className="table__link" to={`/dashboard/${currentProject.id}`}>
-                                        <IconGraph color="icon__lightGray" />
-                                        <h3 className="table__h3">View project on dashboard</h3>
-                                    </Link>
-
+                                        <Link className="table__link" to={`/dashboard/${currentProject.id}`}>
+                                            <IconGraph color="icon__lightGray" />
+                                            <h3 className="table__h3">View project on dashboard</h3>
+                                        </Link>
                                     </section>
                                     </>
                 }

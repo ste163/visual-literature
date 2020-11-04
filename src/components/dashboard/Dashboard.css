@@ -39,22 +39,31 @@
 }
 
 .card__dash--title {
+    order: 1;
     width: max-content;
 }
 
-.card__dash--goal {
-    width: max-content;
+.card__link--dash {
+    order: 4;
 }
 
 .card__dash--progressionBar {
+    order: 3;
     width: 13em;
 }
 
 .card__dash--average {
+    order: 2;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
     width: 10.5em;
+}
+
+
+.card__dash--words {
+    order: 5;
+    width: 28em;
 }
 
 .graph__textContainer {
@@ -68,8 +77,4 @@
 .average__text {
     font-size: 1.7em;
     font-weight: var(--weightThin)
-}
-
-.card__dash--words {
-    width: 28em;
 }
