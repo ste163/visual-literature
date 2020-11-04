@@ -1,44 +1,87 @@
-## Visual Literature (VISLIT)
+![VISLIT Logo](/readme-assets/readme_logo-title.svg)
+# Visual Literature (VISLIT)
+>Track, visualize, and analyze progress on writing projects. 
+### Readme is WIP
+- incomplete installation instructions
+- no GIF demos
 
-Received help on the stacked bar charts from (https://codepen.io/jamiecalder/pen/NrROeB?editors=0010)
+GIF demo showcasing project view, adding progress to the table, and the dashboard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of Contents
+- [About](#About)
+- [Installation](#Installation)
+- [Usage](#Usage)
+- [Technology Used](#Technology-Used)
+- [Roadmap](#Roadmap)
+- [Entity Relationship Diagram](#Entity-Relationship-Diagram)
+- [Wireframe & Mockups](#Wireframe-&-Mockups)
+- [Credits & Acknowledgements](#Credits-&-Acknowledgements)
+- [License](#License)
 
-## Available Scripts
+## About
+VISLIT came from my inability to easily manipulate the years worth of writing data I had accumulated. Excel worked great for keeping track of words written but was too cumbersome when it came to having multiple writing projects with different goals. Attempting to analyze that data to learn about my writing habits became overly difficult. VISLIT aims to make handling writing data easy.
 
-In the project directory, you can run:
+## Installation
 
-### `npm start`
+### Prerequisites
+[json-server](https://github.com/typicode/json-server) to interact with included database.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Installing
+1. clone repo and cd into it
+```
+cd visual-literature
+```
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+2. Get the NPM stuff
+```
+RUN THE NPM CMD
+```
 
-### `npm test`
+3. cd into the api/ directory and start json-server on port 8088, watching database.json
+```
+cd /api
+json-server -p 8088 -w database.json
+```
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+4. in a new terminal window, in the visual-literature directory, run
+```
+npm start
+```
+```npm start``` begins the app. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-### `npm run build`
+## Usage
+1. Create writing projects and set daily, weekly, or monthly word count goals
+GIF
+2. Enter progress towards goals and specify whether you proofread, edited, or revised
+GIF
+3. View and sort progress with tables
+GIF
+4. Visualize progress with dashboards
+GIF
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Technology Used
+[React](https://reactjs.org/) v16.14.0 <br>
+[chart.js](https://www.chartjs.org/) v2.9.4 <br>
+[date-fns](https://date-fns.org/) v2.16.1 <br>
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Roadmap
+- Convert into an offline desktop application, using local storage (possibly by using [Electronjs](https://www.electronjs.org/))
+- Improve UI/UX
+- More data visualizations
+- More indicators on goal progression
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Entity Relationship Diagram
+![Entity Relationship Diagram](/readme-assets/readme_ERD.png)
 
-### Analyzing the Bundle Size
+## Wireframe & Mockup
+### Initial wireframe
+![Wireframe](/readme-assets/readme_wireframe.png) <br>
+### Initial mockup
+![Mockup](/readme-assets/readme_mockup.png)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Credits & Acknowledgements
+- Logo design and project name - Shannon Swenton <br>
+- Wireframe, mockups, logo, and icons designed with - [Inkscape](https://inkscape.org/) <br>
+- Entity Relationship Diagram created with [dbdiagram](https://dbdiagram.io/) <br>
+- Readme design - [Art of README](https://github.com/noffle/art-of-readme#readme) and [Standard Readme](https://github.com/RichardLitt/standard-readme)
+- Received help on the stacked bar charts from [Jamie Calder's codepen](https://codepen.io/jamiecalder/pen/NrROeB?editors=0010) <br>
