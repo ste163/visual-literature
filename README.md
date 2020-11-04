@@ -68,6 +68,7 @@ GIF
 - More indicators on goal progression
 
 ## Entity Relationship Diagram
+![Entity Relationship Diagram](/readme-assets/readme_ERD.png)
 
 ## Wireframe & Mockup
 ### Initial wireframe
@@ -78,29 +79,6 @@ GIF
 ### Credits & Acknowledgements
 - Logo design and project name - Shannon Swenton <br>
 - Wireframe, mockups, logos, and icons designed with - [Inkscape](https://inkscape.org/) <br>
+- Entity Relationship Diagram created with [dbdiagram](https://dbdiagram.io/) <br>
 - Received help on the stacked bar charts from [Jamie Calder's codepen](https://codepen.io/jamiecalder/pen/NrROeB?editors=0010) <br>
 - Readme design - [Art of README](https://github.com/noffle/art-of-readme#readme) and [Standard Readme](https://github.com/RichardLitt/standard-readme)
-
-## License
-
-## OUTLINE
-X-Name
-    Project Logo
-X-One-line description
-X-TOC
-
-Installation
-    - getting it and all the pre-reqs
-    - installing it
-    - configuring it (cmd line stuff)
-    - running it!
-
-X-Usage
-X-Roadmap
-
-ERD
-
-X-Wire-frame & Mockup
-X-Tech used
-X-Credits
-License
