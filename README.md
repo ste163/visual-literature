@@ -22,16 +22,12 @@ VISLIT came from my inability to easily manipulate the years worth of writing da
 
 ## Usage
 1. Create writing projects and set daily, weekly, or monthly word count goals
-<br>
 GIF
 2. Enter progress towards goals and specify whether you proofread, edited, or revised
-<br>
 GIF
 3. View and sort progress with tables
-<br>
 GIF
 4. Visualize progress with dashboards
-<br>
 GIF
 
 ## Roadmap
