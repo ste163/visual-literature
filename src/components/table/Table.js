@@ -33,6 +33,10 @@ export const Table = props => {
                     }
                 </tbody>
             </table>
+            <button className="btn btn--table"
+            onClick={e => e.currentTarget.parentNode.parentNode.childNodes[1].className = "background__modal modal__active"}>
+                    Add/Edit Progress
+            </button>
         </section>
     )
 }

@@ -1,4 +1,6 @@
 .card--table {
+    display: flex;
+    flex-flow: column nowrap;
     margin: 1em;
     padding: 0.8em 1em;
     width: max-content
@@ -61,4 +63,9 @@ th {
     padding: 0.5em 0.8em  0.3em;
     font-weight: var(--weightNormal);
     background-color: var(--mediumGray);
+}
+
+.btn--table {
+    margin-top: 1em;
+    align-self: center;
 }
