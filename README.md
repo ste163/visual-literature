@@ -1,4 +1,4 @@
-![VISLIT Logo](https://github.com/ste163/visual-literature/blob/se-readme-content/readme-assets/readme_logo-title.svg)
+![VISLIT Logo](/readme-assets/readme_logo-title.svg)
 # Visual Literature (VISLIT) - README IS WIP
 >Track, visualize, and analyze progress on writing projects. 
 
@@ -70,7 +70,8 @@ GIF
 ## Entity Relationship Diagram
 
 ## Wireframe & Mockup
-![Wireframe](https://github.com/ste163/visual-literature/blob/se-readme-content/readme-assets/mockup.png)
+![Wireframe](/readme-assets/mockup.png)
+
 ## Credits & Acknowledgements
 Logo design and project name - Shannon Swenton <br>
 Logo and icons designed with - [Inkscape](https://inkscape.org/) <br>
