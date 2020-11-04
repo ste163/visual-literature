@@ -7,6 +7,8 @@ import { IconDivider } from "../icons/IconDivider"
 import { NoDefaultCard } from "../selectionCards/NoDefaultCard"
 import { NoYearCard } from "../selectionCards/NoYearCard"
 import { NoMonthCard } from "../selectionCards/NoMonthCard"
+import { Modal } from "../modal/Modal"
+import { ProgressForm } from "../progress/ProgressForm"
 import { Table } from "./Table"
 import "./TableView.css"
 
@@ -269,7 +271,10 @@ export const TableView = () => {
                         currentSelectedYear === undefined ? null :
                             currentSelectedYear === 0 ? <NoYearCard/> :
                                 currentSelectedMonth === "0" ? <NoMonthCard/> :
+                                    <>
                                     <Table props={currentProject} progress={progressSortedMonthly}/>
+                                    <Modal contentFunction={<ProgressForm project={currentProject}/>} />
+                                    </>
                 }
             </div>
         </section>
