@@ -9,9 +9,9 @@ GIF demo showcasing project view, adding progress to the table, and the dashboar
 - [Installation](#Installation)
 - [Usage](#Usage)
 - [Roadmap](#Roadmap)
-- [Entity Relationship Diagram](#Entity Relationship Diagram)
-- [Wireframe & Mockups](#Wireframe & Mockups)
-- [Technology Used](#Technology Used)
+- [Entity Relationship Diagram](#Entity-Relationship-Diagram)
+- [Wireframe & Mockups](#Wireframe-&-Mockups)
+- [Technology Used](#Technology-Used)
 - [Credits](#Credits)
 - [License](#License)
 
