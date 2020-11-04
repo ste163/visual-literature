@@ -13,7 +13,6 @@ export const DashProgression = (props, progress) => {
     const currentTime = new Date()
     const todaysDate = new Date(currentTime.getTime() - (currentTime.getTimezoneOffset() * 60000)).toISOString().split("T")[0]
     const currentMonthInt = currentTime.getMonth()
-    const firstDayOfMonthFull =  new Date(currentTime.getFullYear(), currentTime.getMonth(), 1)
     const lastDayOfMonthFull = new Date(currentTime.getFullYear(), currentTime.getMonth() + 1, 0)
     const lastDayOfMonthInt = lastDayOfMonthFull.getDate()
     const weeksInCurrentMonth = getWeeksInMonth(currentTime)
@@ -52,13 +51,6 @@ export const DashProgression = (props, progress) => {
         // Get only the selected project's progress
         const currentProjectsProgress = incomingProgress.filter(each => each.projectId === props.props.id)
 
-        // Get only this month's progress
-        const currentMonthsProgress = singleProgress => {
-            // Remove timezone differences by setting time to 00:00:00 on the current day
-            const dateEntered = new Date(`${singleProgress.dateEntered} 00:00:00`).getMonth()
-            return dateEntered === currentMonthInt
-        }
-
         const findAverageWordsWritten = singleProgress => {
             if (singleProgress.wordsWritten) {
                 progressArray.push(singleProgress)
@@ -76,24 +68,25 @@ export const DashProgression = (props, progress) => {
         }
 
         const prepareDataForLineGraph = () => {
-            let progressDateLabels = []
-            let progressWordsWritten = []
-
-            const arrayCopy = JSON.parse(JSON.stringify(progressArray))
-            // Remove YEAR-MONTH-
-            const yearMonthToRemove = todaysDate.slice(0, 8)
-            const progressWithShortenedDates = arrayCopy.map(each => {
-                each.dateEntered = +each.dateEntered.replace(yearMonthToRemove, "")
-                return each
-            })
-            // Sort progress by day
-            const sortedProgress = progressWithShortenedDates.sort((a, b) => a.dateEntered - b.dateEntered)
-            sortedProgress.forEach(singleProgress => {
-                progressDateLabels.push(singleProgress.dateEntered)
-                progressWordsWritten.push(singleProgress.wordsWritten)
-            })
-            setLineWordsLabelArray(progressDateLabels)
-            setLineWordsWrittenArray(progressWordsWritten)
+            if (progressArray.length !== 0) {
+                let progressDateLabels = []
+                let progressWordsWritten = []
+                const arrayCopy = JSON.parse(JSON.stringify(progressArray))
+                // Remove YEAR-MONTH-
+                const yearMonthToRemove = arrayCopy[0].dateEntered.slice(0, 8)
+                const progressWithShortenedDates = arrayCopy.map(each => {
+                    each.dateEntered = +each.dateEntered.replace(yearMonthToRemove, "")
+                    return each
+                })
+                // Sort progress by day
+                const sortedProgress = progressWithShortenedDates.sort((a, b) => a.dateEntered - b.dateEntered)
+                sortedProgress.forEach(singleProgress => {
+                    progressDateLabels.push(singleProgress.dateEntered)
+                    progressWordsWritten.push(singleProgress.wordsWritten)
+                })
+                setLineWordsLabelArray(progressDateLabels)
+                setLineWordsWrittenArray(progressWordsWritten)
+            }
         }
         
         // Check goal progression per project type
@@ -106,11 +99,9 @@ export const DashProgression = (props, progress) => {
                 setProgressBarXAxis(lastDayOfMonthInt)
                 
                 // Get only progress for daily projects
-                // then only for this month
                 const dailyProjects = currentProjectsProgress.filter(each => each.project.goalFrequency === "daily")
-                const monthsDailyProgress = dailyProjects.filter(each => currentMonthsProgress(each))
-                if (monthsDailyProgress.length !== 0) {
-                    monthsDailyProgress.forEach(singleProgress => {
+                if (dailyProjects.length !== 0) {
+                    dailyProjects.forEach(singleProgress => {
                         findAverageWordsWritten(singleProgress)
                         // If more words written than the goal, set complete, if some progress made, set halfway
                         if (singleProgress.wordsWritten >= wordCountGoal) {
@@ -122,7 +113,7 @@ export const DashProgression = (props, progress) => {
                     })
                     setProgressBarProgression(dailyProgressCounter)
                     prepareDataForLineGraph()
-                } else if (monthsDailyProgress.length === 0) {
+                } else if (dailyProjects.length === 0) {
                     findAverageWordsWritten("")
                     setProgressBarProgression(0)
                     prepareDataForLineGraph()
@@ -137,10 +128,9 @@ export const DashProgression = (props, progress) => {
                 setProgressBarXAxis(howMuchToWriteThisMonth)
 
                 const weeklyProjects = currentProjectsProgress.filter(each => each.project.goalFrequency === "weekly")
-                const monthsWeeklyProgress = weeklyProjects.filter(each => currentMonthsProgress(each))
 
-                if (monthsWeeklyProgress.length !== 0) {
-                    monthsWeeklyProgress.forEach(singleProgress => {
+                if (weeklyProjects.length !== 0) {
+                    weeklyProjects.forEach(singleProgress => {
                         findAverageWordsWritten(singleProgress)
                         if (singleProgress.wordsWritten >= wordCountGoal) {
                             ++weeklyProgressCounter
@@ -151,7 +141,7 @@ export const DashProgression = (props, progress) => {
                     })
                     setProgressBarProgression(weeklyProgressCounter)
                     prepareDataForLineGraph()
-                } else if (monthsWeeklyProgress.length === 0) {
+                } else if (weeklyProjects.length === 0) {
                     findAverageWordsWritten("")
                     setProgressBarProgression(0)
                     prepareDataForLineGraph()
@@ -164,10 +154,9 @@ export const DashProgression = (props, progress) => {
                 setProgressBarXAxis(daysPerFrequency)
 
                 const monthlyProjects = currentProjectsProgress.filter(each => each.project.goalFrequency === "monthly")
-                const thisMonthsProgress = monthlyProjects.filter(each => currentMonthsProgress(each))
 
-                if (thisMonthsProgress.length !== 0) {
-                    thisMonthsProgress.forEach(singleProgress => {
+                if (monthlyProjects.length !== 0) {
+                    monthlyProjects.forEach(singleProgress => {
                         findAverageWordsWritten(singleProgress)
                         if (singleProgress.wordsWritten >= wordCountGoal) {
                             ++monthlyProgressCounter
@@ -178,7 +167,7 @@ export const DashProgression = (props, progress) => {
                     })
                     setProgressBarProgression(monthlyProgressCounter)
                     prepareDataForLineGraph()
-                } else if (thisMonthsProgress.length === 0) {
+                } else if (monthlyProjects.length === 0) {
                     findAverageWordsWritten("")
                     setProgressBarProgression(0)
                     prepareDataForLineGraph()

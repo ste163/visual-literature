@@ -221,7 +221,6 @@ export const TableView = () => {
             <IconDivider color="icon__lightGray" />
             {
                 progress === undefined ? null :
-                <>
                 <fieldset className="view__sort">
                 {
                     progressYearOptions.length === 0 ? null :
@@ -262,9 +261,7 @@ export const TableView = () => {
                     </>
                 }
                 </fieldset>
-                </>
             }
-            <IconDivider color="icon__lightGray" />
         </section>
 
 
