@@ -12,7 +12,7 @@ GIF demo showcasing project view, adding progress to the table, and the dashboar
 - [Entity Relationship Diagram](#Entity-Relationship-Diagram)
 - [Wireframe & Mockups](#Wireframe-&-Mockups)
 - [Technology Used](#Technology-Used)
-- [Credits](#Credits)
+- [Credits & Acknowledgements](#Credits-&-Acknowledgements)
 - [License](#License)
 
 ## About
@@ -41,30 +41,21 @@ GIF
 ## Wireframe & Mockup
 
 ## Technology Used
+[React](https://reactjs.org/) v16.14.0 <br>
+[chart.js](https://www.chartjs.org/) v2.9.4 <br>
+[date-fns](https://date-fns.org/) v2.16.1 <br>
 
-## Credits
+## Credits & Acknowledgements
+Logo design and project name - Shannon Swenton <br>
+Logo and icons designed with - [Inkscape](https://inkscape.org/) <br>
+Readme design - [Art of README](https://github.com/noffle/art-of-readme#readme) and [Standard Readme](https://github.com/RichardLitt/standard-readme)
 
 ## License
-
-# NOTES
->Good readmes keep people out of the source code.
-
-### WHAT THE README SHOULD DO
-Tell me what this program is
-Show you what is looks like in action
-Show YOU how to USE it
-All the other relevant information
-
-### BONUS
-EMBED AS MUCH INFO AS POSSIBLE. LINKS DIE
-MAKE IT AS SHORT AS POSSIBLE
-LINK out to other people to give them credit
 
 ## OUTLINE
 X-Name
     Project Logo
 X-One-line description
-
 X-TOC
 
 Installation
@@ -84,21 +75,12 @@ Wire-frame & Mockup
     - then progressions of mockups
     (maybe three/4 small, hi-res images total)
 
-Tech used
-    - React version?
-    - date-fns version?
-    - chart.js version?
-
-Credits
-    - logo design
-    - inkscape
-
+X-Tech used
+X-Credits
 License
 
 ### ORIGINAL README INFO
 Received help on the stacked bar charts from (https://codepen.io/jamiecalder/pen/NrROeB?editors=0010)
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Installation
 Once the project is installed and NPM installed, run the following command from the project director to start the dev server
