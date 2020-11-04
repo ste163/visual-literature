@@ -1,6 +1,9 @@
 ![VISLIT Logo](/readme-assets/readme_logo-title.svg)
-# Visual Literature (VISLIT) - README IS WIP
+# Visual Literature (VISLIT)
 >Track, visualize, and analyze progress on writing projects. 
+### Readme is WIP
+- incomplete installation instructions
+- no GIF demos
 
 GIF demo showcasing project view, adding progress to the table, and the dashboard
 
@@ -76,7 +79,7 @@ GIF
 ### Initial mockup
 ![Mockup](/readme-assets/readme_mockup.png)
 
-### Credits & Acknowledgements
+## Credits & Acknowledgements
 - Logo design and project name - Shannon Swenton <br>
 - Wireframe, mockups, logos, and icons designed with - [Inkscape](https://inkscape.org/) <br>
 - Entity Relationship Diagram created with [dbdiagram](https://dbdiagram.io/) <br>
