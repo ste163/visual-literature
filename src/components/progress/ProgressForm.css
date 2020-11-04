@@ -19,3 +19,13 @@
 .progress__checkbox {
     margin: 0 0.3em 0 0.9em;
 }
+
+.input__words--active {
+    color:var(--fontColor);
+    background-color: var(--mediumGray);
+}
+
+.input__words--inactive {
+    color:var(--fontColorInactive);
+    background-color: var(--inactiveFormField);
+}

@@ -38,6 +38,7 @@ export const ProgressForm = project => {
     const { progress, addProgress, updateProgress, deleteProgress } = useContext(ProgressContext)
     const [ currentProgress, setCurrentProgress ] = useState(defaultProgress)
     const [ progressFound, setProgressFound ] = useState(false)
+    const [ datePicked, setDatePicked ] = useState(false)
 
     // Set date picker's max to today
     if (datePicker.current !== undefined) {
@@ -78,6 +79,7 @@ export const ProgressForm = project => {
                 })
             }
             setCurrentProgress(defaultProgress)
+            setProgressFound(false);
             e.currentTarget.parentNode.parentNode.parentNode.className = "background__modal"
         }
 
@@ -122,36 +124,37 @@ export const ProgressForm = project => {
 }
 
     const createProgress = (e) => {
+        setDatePicked(false)
         e.preventDefault()
         constructNewProgress(e)
     }
 
     const DeleteWarning = () => (
         <>
-            <h2 className="modal__warning">Warning</h2>
-            <p className="warning__p">Deleting progress is permanent.</p>
-            <button className="btn btn--red"
-            onClick={e => {
-                deleteProgress(currentProgress.projectId, currentProgress.id)
-                deleteModal.current.className = "background__modal"
-                deleteModal.current.parentNode.parentNode.parentNode.className = "background__modal"
-                setCurrentProgress(defaultProgress)
-                setProgressFound(false);
-                }
-            }>
-                Confirm
-            </button>
+        <h2 className="modal__warning">Warning</h2>
+        <p className="warning__p">Deleting progress is permanent.</p>
+        <button className="btn btn--red"
+        onClick={e => {
+            deleteProgress(currentProgress.projectId, currentProgress.id)
+            deleteModal.current.className = "background__modal"
+            deleteModal.current.parentNode.parentNode.parentNode.className = "background__modal"
+            setCurrentProgress(defaultProgress)
+            setProgressFound(false);
+            }
+        }>
+            Confirm
+        </button>
         </>
     )
 
     const ZeroWordsWritten = () => (
         <>
-            <h2 className="modal__warning">Warning</h2>
-            <p className="warning__p">Zero words entered.</p>
-            <button className="btn btn--red"
-            onClick={e => wordsModal.current.className = "background__modal"}>
-                Close
-            </button>
+        <h2 className="modal__warning">Warning</h2>
+        <p className="warning__p">Zero words entered.</p>
+        <button className="btn btn--red"
+        onClick={e => wordsModal.current.className = "background__modal"}>
+            Close
+        </button>
         </>
     )
 
@@ -173,6 +176,7 @@ export const ProgressForm = project => {
                 ref={datePicker}
                 type="date"
                 onChange={e => {
+                    setDatePicked(true)
                     filterCurrentDate(e.target.value)
                     handleControlledInputChange(e)
                     }
@@ -180,22 +184,22 @@ export const ProgressForm = project => {
                 id="progressDate"
                 name="dateEntered"
                 value={currentProgress.dateEntered}
-                required
-                />
+                required/>
             </fieldset>
 
             <fieldset>
                 <label htmlFor="progressGoal">Words written: </label>
                 <input type="number"
-                 onChange={handleControlledInputChange}
-                 id="progressGoal"
-                 name="wordsWritten"
-                 value={currentProgress.wordsWritten}
-                 min="0"
-                 placeholder={passedInProject.wordCountGoal}
-                 required
-                 autoFocus
-                 />
+                className={!datePicked ? "input__words--inactive" : "input__words--active"}
+                onChange={handleControlledInputChange}
+                id="progressGoal"
+                name="wordsWritten"
+                value={currentProgress.wordsWritten}
+                min="0"
+                placeholder={passedInProject.wordCountGoal}
+                required
+                disabled={!datePicked}
+                autoFocus/>
             </fieldset>
 
             <fieldset>
@@ -204,17 +208,19 @@ export const ProgressForm = project => {
                     <input className="progress__checkbox--first" type="checkbox" id="revised" name="revised" value="revised"
                     checked={currentProgress.revised}
                     onChange={handleControlledInputChange}
-                    />
+                    disabled={!datePicked}/>
                     <label htmlFor="revised">Revised</label>
 
                     <input className="progress__checkbox" type="checkbox" id="edited" name="edited" value="edited"
                     checked={currentProgress.edited}
-                    onChange={handleControlledInputChange}/>
+                    onChange={handleControlledInputChange}
+                    disabled={!datePicked}/>
                     <label htmlFor="edited">Edited</label>
 
                     <input className="progress__checkbox" type="checkbox" id="proofread" name="proofread" value="proofread"
                     checked={currentProgress.proofread}
-                    onChange={handleControlledInputChange}/>
+                    onChange={handleControlledInputChange}
+                    disabled={!datePicked}/>
                     <label htmlFor="proofread">Proofread</label>
                 </div>
             </fieldset>
@@ -222,8 +228,7 @@ export const ProgressForm = project => {
             <div className="progress__submit">
                 <button 
                 className="btn"
-                type="submit"
-                >
+                type="submit">
                     {progressFound ? "Update" : "Add"}
                 </button>
                 {progressFound ? 
