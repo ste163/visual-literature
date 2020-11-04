@@ -1,4 +1,4 @@
-![VISLIT Logo](https://github.com/ste163/visual-literature/blob/se-readme-content/readme-assets/logo_vislit.svg)
+![VISLIT Logo](https://github.com/ste163/visual-literature/blob/se-readme-content/readme-assets/readme_logo-title.svg)
 # Visual Literature (VISLIT)
 >Track, visualize, and analyze progress on writing projects. 
 
