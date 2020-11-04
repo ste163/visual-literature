@@ -70,9 +70,9 @@ GIF
 ## Entity Relationship Diagram
 
 ## Wireframe & Mockup
-Initial wireframe
-![Wireframe](/readme-assets/wireframe.png)
-Mockup
+Initial wireframe <br>
+![Wireframe](/readme-assets/wireframe.png) <br>
+Mockup <br>
 ![Mockup](/readme-assets/mockup.png)
 
 ## Credits & Acknowledgements
