@@ -1,7 +1,7 @@
 import React, {useContext, useEffect, useRef} from "react"
+import { Link } from "react-router-dom"
 import { ProgressCard } from "../progress/ProgressCard"
 import { ProgressContext } from "../progress/ProgressProvider"
-import { Link } from "react-router-dom"
 import { IconGraph } from "../icons/IconGraph"
 import { DotMenu } from "./ProjectDotMenu"
 import "./ProjectCard.css"
