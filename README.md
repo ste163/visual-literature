@@ -4,11 +4,46 @@
 GIF demo showcasing project view, adding progress to the table, and the dashboard
 
 ## Table of Contents
+- [Installation](#Installation)
+- [Usage](#Usage)
+- [Roadmap](#Roadmap)
+- [Entity Relationship Diagram](#Entity Relationship Diagram)
+- [Wireframe & Mockups](#Wireframe & Mockups)
+- [Technology Used](#Technology Used)
+- [Credits](#Credits)
+- [License](#License)
 
 
+## Installation
 
-## NOTES
->The goal of a good readme is to keep people out of our source code
+## Usage
+1. Create writing projects and set daily, weekly, or monthly word count goals
+GIF
+2. Enter progress towards goals and specify whether you proofread, edited, or revised
+GIF
+3. View and sort progress with tables
+GIF
+4. Visualize progress with dashboards
+GIF
+
+## Roadmap
+- Convert into a desktop application, possibly using Electron (LINK)
+- Improve UI/UX
+- More data visualizations
+- More indicators on goal progression
+
+## Entity Relationship Diagram
+
+## Wireframe & Mockup
+
+## Technology Used
+
+## Credits
+
+## License
+
+# NOTES
+>Good readmes keep people out of the source code.
 
 ### WHAT THE README SHOULD DO
 Tell me what this program is
@@ -22,20 +57,11 @@ MAKE IT AS SHORT AS POSSIBLE
 LINK out to other people to give them credit
 
 ## OUTLINE
-X-NAME
-badges if applicable
+X-Name
     Project Logo
 X-One-line description
 
--> small gif of the dashboard (only gif the big things)
-
-TOC
-
-Features
-    -should be like after reading "dude, this is so helpful!"
-    - Creating writing projects and set writing goals
-    - enter progress on those goals
-    - visualize your progress
+X-TOC
 
 Installation
     - getting it and all the pre-reqs
@@ -43,17 +69,8 @@ Installation
     - configuring it (cmd line stuff)
     - running it!
 
-Usage
-    - create a writing project & set word count goal - GIF
-    - view progress in the table view - GIF
-    - view progress on the dashboard - GIF
-    - customize with settings - GIF
-
-Roadmap
-    - More sorting?
-    - more dataviz?
-    - convert to a desktop application using local storage
-    - continue to improve design
+X-Usage
+X-Roadmap
 
 ERD
     - image
@@ -71,10 +88,6 @@ Tech used
 Credits
     - logo design
     - inkscape
-
-
-Contact
-    - message on gitHub
 
 License
 
