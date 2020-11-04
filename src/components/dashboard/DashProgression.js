@@ -68,24 +68,25 @@ export const DashProgression = (props, progress) => {
         }
 
         const prepareDataForLineGraph = () => {
-            let progressDateLabels = []
-            let progressWordsWritten = []
-
-            const arrayCopy = JSON.parse(JSON.stringify(progressArray))
-            // Remove YEAR-MONTH-
-            const yearMonthToRemove = todaysDate.slice(0, 8)
-            const progressWithShortenedDates = arrayCopy.map(each => {
-                each.dateEntered = +each.dateEntered.replace(yearMonthToRemove, "")
-                return each
-            })
-            // Sort progress by day
-            const sortedProgress = progressWithShortenedDates.sort((a, b) => a.dateEntered - b.dateEntered)
-            sortedProgress.forEach(singleProgress => {
-                progressDateLabels.push(singleProgress.dateEntered)
-                progressWordsWritten.push(singleProgress.wordsWritten)
-            })
-            setLineWordsLabelArray(progressDateLabels)
-            setLineWordsWrittenArray(progressWordsWritten)
+            if (progressArray.length !== 0) {
+                let progressDateLabels = []
+                let progressWordsWritten = []
+                const arrayCopy = JSON.parse(JSON.stringify(progressArray))
+                // Remove YEAR-MONTH-
+                const yearMonthToRemove = arrayCopy[0].dateEntered.slice(0, 8)
+                const progressWithShortenedDates = arrayCopy.map(each => {
+                    each.dateEntered = +each.dateEntered.replace(yearMonthToRemove, "")
+                    return each
+                })
+                // Sort progress by day
+                const sortedProgress = progressWithShortenedDates.sort((a, b) => a.dateEntered - b.dateEntered)
+                sortedProgress.forEach(singleProgress => {
+                    progressDateLabels.push(singleProgress.dateEntered)
+                    progressWordsWritten.push(singleProgress.wordsWritten)
+                })
+                setLineWordsLabelArray(progressDateLabels)
+                setLineWordsWrittenArray(progressWordsWritten)
+            }
         }
         
         // Check goal progression per project type
@@ -98,7 +99,6 @@ export const DashProgression = (props, progress) => {
                 setProgressBarXAxis(lastDayOfMonthInt)
                 
                 // Get only progress for daily projects
-                // then only for this month
                 const dailyProjects = currentProjectsProgress.filter(each => each.project.goalFrequency === "daily")
                 if (dailyProjects.length !== 0) {
                     dailyProjects.forEach(singleProgress => {
