@@ -33,6 +33,10 @@ export const Table = props => {
                     }
                 </tbody>
             </table>
+            <button className="btn btn--table"
+            onClick={e => console.log("OPEN MODAL")}>
+                    Add/Edit Progress
+            </button>
         </section>
     )
 }
