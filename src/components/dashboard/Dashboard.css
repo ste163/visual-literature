@@ -15,7 +15,7 @@
 }
 
 .dash__h3 {
-    font-size: 1em;
+    font-size: 0.95em;
 }
 
 .dash__h3--graph {
@@ -24,6 +24,18 @@
 
 .dash__h3--average {
     text-align: center;
+}
+
+.dash__subtitle {
+    font-size: 0.7em;
+    letter-spacing: 0.03em;
+    font-weight: var(--weightThin)
+}
+
+.dash__p {
+    font-size: .8em;
+    letter-spacing: 0.03em;
+    font-weight: var(--weightThin)
 }
 
 .card__dash--title {

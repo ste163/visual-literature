@@ -8,7 +8,6 @@ import { IconDivider } from "../icons/IconDivider"
 import { ProgressForm } from "../progress/ProgressForm"
 import { Modal } from "../modal/Modal"
 import { DashTitleCard } from "./DashTitleCard"
-import { DashGoalCard } from "./DashGoalCard"
 import { DashProgression } from "./DashProgression"
 import { NoDefaultCard } from "../selectionCards/NoDefaultCard"
 import "./Dashboard.css"
@@ -59,7 +58,6 @@ export const DashboardView = () => {
                     setCurrentProject(byDefaultProject)
                 } else if (!byProjectId && !byDefaultProject) {
                     setRetrievedProjects(allProjects)
-                    // SHOW CARD FOR SELECTING A PROJECT
                 }
             })
         })
@@ -132,7 +130,6 @@ export const DashboardView = () => {
                         <>
                             <DashTitleCard props={currentProject} />
                 
-                            <DashGoalCard props={currentProject} />
                             {
                                 currentProgress.length === 0 ? null :
                                     <DashProgression props={currentProject} progress={currentProgress}/>    
