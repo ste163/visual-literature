@@ -70,7 +70,10 @@ GIF
 ## Entity Relationship Diagram
 
 ## Wireframe & Mockup
-![Wireframe](/readme-assets/mockup.png)
+Initial wireframe
+![Wireframe](/readme-assets/wireframe.png)
+Mockup
+![Mockup](/readme-assets/mockup.png)
 
 ## Credits & Acknowledgements
 Logo design and project name - Shannon Swenton <br>
