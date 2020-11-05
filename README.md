@@ -10,7 +10,7 @@ GIF demo showcasing project view, adding progress to the table, and the dashboar
 - [About](#About)
 - [Installation](#Installation)
 - [Usage](#Usage)
-- [Technology Used](#Technology-Used)
+- [Technologies Used](#Technologies-Used)
 - [Roadmap](#Roadmap)
 - [Entity Relationship Diagram](#Entity-Relationship-Diagram)
 - [Wireframe & Mockups](#Wireframe-&-Mockups)
@@ -65,7 +65,7 @@ GIF
 4. Visualize progress with dashboards
 GIF
 
-## Technology Used
+## Technologies Used
 [React](https://reactjs.org/) v16.14.0 <br>
 [chart.js](https://www.chartjs.org/) v2.9.4 <br>
 [date-fns](https://date-fns.org/) v2.16.1 <br>

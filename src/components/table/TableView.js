@@ -5,6 +5,7 @@ import { ProjectContext } from "../projects/ProjectProvider"
 import { ProgressContext } from "../progress/ProgressProvider"
 import { SettingsContext } from "../settings/SettingsProvider"
 import { IconDivider } from "../icons/IconDivider"
+import { IconPlus } from "../icons/IconPlus"
 import { NoDefaultCard } from "../selectionCards/NoDefaultCard"
 import { NoProgressCard } from "../selectionCards/NoProgressCard"
 import { NoYearCard } from "../selectionCards/NoYearCard"
@@ -206,6 +207,32 @@ export const TableView = () => {
             {
                 retrievedProjects === undefined ? null : 
                 <>
+                <button className="project__btn"
+                onClick={e => {
+                        if (progressModal.current !== undefined) {
+                            progressModal.current.className = "background__modal modal__active"
+                        }
+                    }
+                }
+                onMouseOver={e => {
+                    e.currentTarget.firstElementChild.children[1].childNodes.forEach(svg => {
+                        svg.classList.remove("icon__gray")
+                        svg.classList.add("icon__hovered")
+
+                    })
+                }}
+                onMouseOut={e => {
+                    e.currentTarget.firstElementChild.children[1].childNodes.forEach(svg => {
+                        svg.classList.remove("icon__hovered")
+                        svg.classList.add("icon__gray")
+                    })
+                }}>
+                    <IconPlus color="icon__gray" />
+                    Add progress
+                </button>
+
+                <IconDivider color="icon__lightGray" />
+
                 <fieldset className="view__projectSelect">
                     <label className="projectSelect__label" htmlFor="projectSelect">Selected project: </label>
                     <select className="projectSelect__select" name="projectSelect" id="projectSelect"
