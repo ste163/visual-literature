@@ -15,7 +15,6 @@ GIF demo showcasing project view, adding progress to the table, and the dashboar
 - [Entity Relationship Diagram](#Entity-Relationship-Diagram)
 - [Wireframe & Mockups](#Wireframe-&-Mockups)
 - [Credits & Acknowledgements](#Credits-&-Acknowledgements)
-- [License](#License)
 
 ## About
 VISLIT came from my inability to easily manipulate the years worth of writing data I had accumulated. Excel worked great for keeping track of words written but was too cumbersome when I had multiple writing projects with different goals. VISLIT aims to make tracking, visualizing, and analyzing writing data easy.
