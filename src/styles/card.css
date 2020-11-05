@@ -16,9 +16,8 @@
 .card__noDefault {
     display: flex;
     flex-flow: column nowrap;
-    width: 50%;
-    max-width: max-content;
-    padding: 1em;
+    min-width: min-content;
+    padding: 1.5em;
     margin: 0.8em;
 }
 

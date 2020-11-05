@@ -6,6 +6,7 @@ import { ProgressContext } from "../progress/ProgressProvider"
 import { SettingsContext } from "../settings/SettingsProvider"
 import { IconDivider } from "../icons/IconDivider"
 import { NoDefaultCard } from "../selectionCards/NoDefaultCard"
+import { NoProgressCard } from "../selectionCards/NoProgressCard"
 import { NoYearCard } from "../selectionCards/NoYearCard"
 import { NoMonthCard } from "../selectionCards/NoMonthCard"
 import { Modal } from "../modal/Modal"
@@ -97,7 +98,7 @@ export const TableView = () => {
 
     // BASED ON DROP DOWN SELECTION, GET PROGRESS FOR THAT YEAR
     const sortProgressByYear = () => {
-        if (yearSelect.current !== undefined) {
+        if (yearSelect.current !== undefined && yearSelect.current !== null) {
             const selectedYear = +yearSelect.current.value
             if (selectedYear !== 0) {
                 const progressForSelectedYear = progress.filter(singleProgress => {
@@ -111,6 +112,8 @@ export const TableView = () => {
             } else {
                 setCurrentSelectedYear(+yearSelect.current.value)
             }
+        } else {
+            setProgressSortedYearly([])
         }
     }
 
@@ -127,7 +130,7 @@ export const TableView = () => {
 
     const sortProgressByMonth = () => {
         // FILTER PROGRESS FOR SELECTED MONTH IN THAT YEAR
-        if (monthSelect.current !== undefined) {
+        if (monthSelect.current !== undefined && monthSelect.current !== null) {
             if (monthSelect.current.value !== "0") {
                 const selectedMonth = monthSelect.current.value
                 // RE-CONVERT THE MONTH STRING BACK INTO NUMBER
@@ -271,13 +274,18 @@ export const TableView = () => {
             <div className="table__container">
                 {
                     currentProject === undefined ? <NoDefaultCard/> : 
-                        currentSelectedYear === undefined ? null :
-                            currentSelectedYear === 0 ? <NoYearCard/> :
-                                currentSelectedMonth === "0" ? <NoMonthCard/> :
-                                    <>
-                                    <Table props={currentProject} progress={progressSortedMonthly}/>
-                                    <Modal ref={progressModal} width={"modal__width--med"} contentFunction={<ProgressForm project={currentProject} />} />
-                                    </>
+                        progress.length === 0 ? 
+                        <>
+                        <NoProgressCard props={currentProject}/>
+                        <Modal ref={progressModal} width={"modal__width--med"} contentFunction={<ProgressForm project={currentProject} />} />
+                        </> :
+                            currentSelectedYear === undefined ? null :
+                                currentSelectedYear === 0 ? <NoYearCard/> :
+                                    currentSelectedMonth === "0" ? <NoMonthCard/> :
+                                        <>
+                                        <Table props={currentProject} progress={progressSortedMonthly}/>
+                                        <Modal ref={progressModal} width={"modal__width--med"} contentFunction={<ProgressForm project={currentProject} />} />
+                                        </>
                 }
             </div>
         </section>
