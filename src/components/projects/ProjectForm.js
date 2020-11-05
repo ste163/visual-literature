@@ -200,7 +200,7 @@ export const ProjectForm = props => {
             <h4 className="form__h4 form__h4--goal">Goal Setup</h4>
 
             <fieldset>
-                <label htmlFor="projectGoal">Word count goal: </label>
+                <label htmlFor="projectGoal">Word count goal per day: </label>
                 <input type="number"
                  onChange={handleControlledInputChange}
                  id="projectGoal"
@@ -215,7 +215,7 @@ export const ProjectForm = props => {
             </fieldset>
             
             <fieldset className="freq__radios">
-                <label>Goal Frequency: </label>
+                <label>Goal frequency: </label>
                 <div className="radios">
                     
                     <input className="input__radio" type="radio" id="daily" name="goalFrequency" value="daily" required

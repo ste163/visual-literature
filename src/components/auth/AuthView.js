@@ -149,7 +149,7 @@ export const AuthView = props => {
                 <VisLitTitle location="title__login" color="title__lightBlack" />
                 <VisLitSubtitle />
 
-                <h2 className="subtitle">Visualize, track, and analyze writing projects</h2>
+                <h2 className="subtitle">Track, visualize, and analyze writing projects</h2>
 
                 <section className="card card__color--white card__auth">
                     <ul  className="auth__btns">

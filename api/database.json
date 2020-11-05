@@ -11,7 +11,7 @@
       "userId": 1,
       "defaultView": "/projects",
       "defaultProject": 1,
-      "colorMode": "dark"
+      "colorMode": "light"
     }
   ],
   "projects": [
@@ -47,6 +47,17 @@
       "daysPerFrequency": 7,
       "completed": false,
       "id": 3
+    },
+    {
+      "name": "Crossing that Wild River",
+      "userId": 1,
+      "typeId": 5,
+      "dateStarted": "2018-07-20",
+      "wordCountGoal": 300,
+      "goalFrequency": "monthly",
+      "daysPerFrequency": 7,
+      "completed": false,
+      "id": 4
     }
   ],
   "types": [

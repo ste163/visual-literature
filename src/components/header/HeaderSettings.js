@@ -90,7 +90,7 @@ export const HeaderSettings = () => {
                         </select>
                     </fieldset>
                     <fieldset className="settings__fieldset">
-                        <label htmlFor="darkMode">View mode:</label>
+                        <label htmlFor="darkMode">Color mode:</label>
                         <div className="radios">
                             <input className="input__radio" type="radio" id="light" name="colorMode" value="light" required
                             checked={settings[0].colorMode === "light" ? "light" : ""}
