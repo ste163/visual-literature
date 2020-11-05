@@ -29,7 +29,7 @@ export const wordCountLine = (progressDateLabels, progressWordsWritten) => {
                 xAxes: [{
                     scaleLabel: {
                         display: true,
-                        labelString: 'Day in month'
+                        labelString: 'Days in month'
                     },
                     display: true,
                     gridLines: {
@@ -39,7 +39,7 @@ export const wordCountLine = (progressDateLabels, progressWordsWritten) => {
                 yAxes: [{
                     scaleLabel: {
                         display: true,
-                        labelString: 'Words Written'
+                        labelString: 'Words written'
                     },
                     gridLines: {
                         display: true,
