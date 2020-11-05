@@ -19,7 +19,10 @@ GIF demo showcasing project view, adding progress to the table, and the dashboar
 - [License](#License)
 
 ## About
-VISLIT came from my inability to easily manipulate the years worth of writing data I had accumulated. Excel worked great for keeping track of words written but was too cumbersome when it came to having multiple writing projects with different goals. Attempting to analyze that data to learn about my writing habits became overly difficult. VISLIT aims to make handling writing data easy.
+VISLIT came from my inability to easily manipulate the years worth of writing data I had accumulated. Excel worked great for keeping track of words written but was too cumbersome when I had multiple writing projects with different goals. VISLIT aims to make tracking, visualizing, and analyzing writing data easy.
+
+### Built with
+[React](https://reactjs.org/)
 
 ## Installation
 
@@ -32,9 +35,9 @@ VISLIT came from my inability to easily manipulate the years worth of writing da
 cd visual-literature
 ```
 
-2. Get the NPM stuff
+2. run npm install to install all the required dependencies
 ```
-RUN THE NPM CMD
+npm install
 ```
 
 3. cd into the api/ directory and start json-server on port 8088, watching database.json
@@ -80,7 +83,7 @@ GIF
 ![Mockup](/readme-assets/readme_mockup.png)
 
 ## Credits & Acknowledgements
-- Logo design and project name - Shannon Swenton <br>
+- Logo design and project name - [Shannon Swenton](https://www.etsy.com/uk/shop/theshanconnection) <br>
 - Wireframe, mockups, logo, and icons designed with - [Inkscape](https://inkscape.org/) <br>
 - Entity Relationship Diagram created with [dbdiagram](https://dbdiagram.io/) <br>
 - Readme design - [Art of README](https://github.com/noffle/art-of-readme#readme) and [Standard Readme](https://github.com/RichardLitt/standard-readme)

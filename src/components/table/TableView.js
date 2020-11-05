@@ -1,16 +1,16 @@
 import React, { useContext, useEffect, useState, useRef } from "react"
-import { Link, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { TypeContext } from "../type/TypeProvider"
 import { ProjectContext } from "../projects/ProjectProvider"
 import { ProgressContext } from "../progress/ProgressProvider"
 import { IconDivider } from "../icons/IconDivider"
-import { IconGraph } from "../icons/IconGraph"
 import { NoDefaultCard } from "../selectionCards/NoDefaultCard"
 import { NoYearCard } from "../selectionCards/NoYearCard"
 import { NoMonthCard } from "../selectionCards/NoMonthCard"
 import { Modal } from "../modal/Modal"
 import { ProgressForm } from "../progress/ProgressForm"
 import { Table } from "./Table"
+import { LinkDashboard } from "./LinkDashboard"
 import "./TableView.css"
 
 export const TableView = () => {
@@ -274,15 +274,8 @@ export const TableView = () => {
                                 currentSelectedMonth === "0" ? <NoMonthCard/> :
                                     <>
                                     <Table props={currentProject} progress={progressSortedMonthly}/>
-                                    
                                     <Modal ref={progressModal} width={"modal__width--med"} contentFunction={<ProgressForm project={currentProject} />} />
-                                    
-                                    <section className="card card__color--white card__link">
-                                        <Link className="table__link" to={`/dashboard/${currentProject.id}`}>
-                                            <IconGraph color="icon__lightGray" />
-                                            <h3 className="table__h3">View project on dashboard</h3>
-                                        </Link>
-                                    </section>
+                                    <LinkDashboard props={currentProject.id} />
                                     </>
                 }
             </div>
