@@ -8,7 +8,7 @@ export const DashTitleCard = (props) => {
             <p className="dash__subtitle">{props.props.type.name}</p>
             <p className="dash__subtitle">{props.props.dateStarted}</p>
             <h3 className="dash__h3">Goal</h3>
-            <p className="dash__p">
+            <p className="dash__p dash__p--goal">
                 Write {props.props.wordCountGoal} words {
                     props.props.goalFrequency === "daily" ? "daily" :
                         props.props.goalFrequency === "weekly" ? `${props.props.daysPerFrequency} days per week` : `${props.props.daysPerFrequency} days per month`
