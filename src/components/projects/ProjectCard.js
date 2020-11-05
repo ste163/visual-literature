@@ -45,7 +45,6 @@ export const ProjectCard = ({project}) => {
             </div>
             <Link className="project__table" to={`/table/${project.id}`}>
                 <button className="card__btn"
-                className="card__btn"
                 onMouseOver={e => {
                     const svgs = [...e.currentTarget.firstElementChild.children]
                     svgs.forEach(svg => {
