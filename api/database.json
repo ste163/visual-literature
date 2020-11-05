@@ -1,7 +1,54 @@
 {
-  "users": [],
-  "settings": [],
-  "projects": [],
+  "users": [
+    {
+      "username": "Author123",
+      "id": 1
+    }
+  ],
+  "settings": [
+    {
+      "id": 1,
+      "userId": 1,
+      "defaultView": "/projects",
+      "defaultProject": 0,
+      "colorMode": "light"
+    }
+  ],
+  "projects": [
+    {
+      "name": "Being J. Goldblum",
+      "userId": 1,
+      "typeId": 1,
+      "dateStarted": "2019-09-01",
+      "wordCountGoal": 350,
+      "goalFrequency": "weekly",
+      "daysPerFrequency": 5,
+      "completed": false,
+      "id": 1
+    },
+    {
+      "id": 2,
+      "name": "The Unannounced",
+      "userId": 1,
+      "typeId": 6,
+      "dateStarted": "2019-10-20",
+      "wordCountGoal": 500,
+      "goalFrequency": "daily",
+      "daysPerFrequency": 1,
+      "completed": false
+    },
+    {
+      "name": "Midnight December",
+      "userId": 1,
+      "typeId": 8,
+      "dateStarted": "2020-08-01",
+      "wordCountGoal": 300,
+      "goalFrequency": "monthly",
+      "daysPerFrequency": 7,
+      "completed": false,
+      "id": 3
+    }
+  ],
   "types": [
     {
       "id": 1,

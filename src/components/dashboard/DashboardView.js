@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState, useContext } from "react"
 import { useParams } from "react-router-dom"
 import { ProgressContext } from "../progress/ProgressProvider"
 import { ProjectContext } from "../projects/ProjectProvider"
+import { SettingsContext } from "../settings/SettingsProvider"
 import { TypeContext } from "../type/TypeProvider"
 import { IconPlus } from "../icons/IconPlus"
 import { IconDivider } from "../icons/IconDivider"
@@ -26,6 +27,7 @@ export const DashboardView = () => {
     const { getTypes } = useContext(TypeContext)
     const { getProjectsWithoutStateUpdate, getProjectByParam } = useContext(ProjectContext)
     const { progress, getProgressByProjectId, getProgressByUserId } = useContext(ProgressContext)
+    const { settings } = useContext(SettingsContext)
     
     const [ retrievedProjects, setRetrievedProjects ] = useState()
     const [ currentProject, setCurrentProject ] = useState()
@@ -163,11 +165,12 @@ export const DashboardView = () => {
                     setRetrievedProjects(allProjects)
                     setCurrentProject(byDefaultProject)
                 } else if (!byProjectId && !byDefaultProject) {
+                    setCurrentProject(byDefaultProject)
                     setRetrievedProjects(allProjects)
                 }
             })
         })
-    }, [])
+    }, [settings])
 
     useEffect(() => {
         displayProject()
@@ -233,7 +236,7 @@ export const DashboardView = () => {
             {
                 retrievedProjects === undefined ? null : 
                 <fieldset className="view__projectSelect">
-                    <label className="projectSelect__label" htmlFor="projectSelect">Select project: </label>
+                    <label className="projectSelect__label" htmlFor="projectSelect">Selected project: </label>
                     <select className="projectSelect__select"
                     value={currentProject === undefined ? 0 : currentProject.id} 
                     onChange={e => selectProject(e)}>

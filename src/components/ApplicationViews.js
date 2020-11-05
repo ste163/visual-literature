@@ -19,37 +19,37 @@ export const ApplicationViews = () => {
         <ProjectProvider>
             <SettingsProvider>
                 <Header />
+
+                <TypeProvider>
+                    <ProgressProvider>
+
+                        <Route exact path="/">
+                            <Redirect to={defaultView} />
+                        </Route>
+
+                        <Route exact path="/projects">                    
+                            <ProjectView />  
+                        </Route>
+
+                        <Route exact path="/table">
+                            <TableView />
+                        </Route>
+
+                        <Route exact path="/table/:projectId">
+                            <TableView />
+                        </Route>
+            
+                        <Route exact path="/dashboard">
+                            <DashboardView />
+                        </Route>
+            
+                        <Route exact path="/dashboard/:projectId">
+                            <DashboardView />
+                        </Route>
+                
+                    </ProgressProvider>
+                </TypeProvider>
             </SettingsProvider>
-
-            <TypeProvider>
-                <ProgressProvider>
-
-                    <Route exact path="/">
-                        <Redirect to={defaultView} />
-                    </Route>
-
-                    <Route exact path="/projects">                    
-                        <ProjectView />  
-                    </Route>
-
-                    <Route exact path="/table">
-                        <TableView />
-                    </Route>
-
-                    <Route exact path="/table/:projectId">
-                        <TableView />
-                    </Route>
-        
-                    <Route exact path="/dashboard">
-                        <DashboardView />
-                    </Route>
-        
-                    <Route exact path="/dashboard/:projectId">
-                        <DashboardView />
-                    </Route>
-              
-                </ProgressProvider>
-            </TypeProvider>
         </ProjectProvider>
         
         <Footer />

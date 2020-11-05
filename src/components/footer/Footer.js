@@ -29,13 +29,13 @@ export const Footer = () => {
                     <h2 className="footer__heading">About</h2>
                     <div className="about__p">
                         <p className="about__p">
-                        Sam Edwards is a creative writer and web development student at <a href="http://nashvillesoftwareschool.com/">Nashville Software School</a>.
+                        VISLIT was created by Sam Edwards, a creative writer and web development student at <a href="http://nashvillesoftwareschool.com/">Nashville Software School</a>.
                         </p>
                         <div>
-                            <a href="https://www.linkedin.com/in/st-edwards">LinkedIn</a>
+                            <a className="about__p" href="https://www.linkedin.com/in/st-edwards">LinkedIn</a>
                         </div>
                         <div>
-                            <a href="https://github.com/ste163">Github</a>
+                            <a className="about__p" href="https://github.com/ste163">Github</a>
                         </div>
                     </div>
                 </section>
