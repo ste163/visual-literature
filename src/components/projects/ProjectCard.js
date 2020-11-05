@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import { ProgressCard } from "../progress/ProgressCard"
 import { ProgressContext } from "../progress/ProgressProvider"
 import { IconGraph } from "../icons/IconGraph"
+import { IconTable } from "../icons/IconTable"
 import { DotMenu } from "./ProjectDotMenu"
 import "./ProjectCard.css"
 
@@ -43,13 +44,28 @@ export const ProjectCard = ({project}) => {
                 </p>
             </div>
             <Link className="project__table" to={`/table/${project.id}`}>
-                <button className="card__btn">
-                    Table
+                <button className="card__btn"
+                className="card__btn"
+                onMouseOver={e => {
+                    const svgs = [...e.currentTarget.firstElementChild.children]
+                    svgs.forEach(svg => {
+                            svg.classList.remove("icon__gray")
+                            svg.classList.add("icon__hovered")
+                        })
+                    }}
+                    onMouseOut={e => {
+                        const svgs = [...e.currentTarget.firstElementChild.children]
+                        svgs.forEach(svg => {
+                            svg.classList.remove("icon__hovered")
+                            svg.classList.add("icon__gray")
+                        })
+                    }}>
+                    <IconTable location="icon__table--project" color="icon__gray" />
                 </button>
             </Link>
             <Link className="project__dash" to={`/dashboard/${project.id}`}>
                 <button 
-                className="card__btn project__dash--btn"
+                className="card__btn"
                 onMouseOver={e => {
                     const svgs = [...e.currentTarget.firstElementChild.children]
                     svgs.forEach(svg => {

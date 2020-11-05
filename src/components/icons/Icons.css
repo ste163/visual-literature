@@ -41,17 +41,16 @@
     margin-right: 0.4em;
 }
 
-.icon__graph--link {
-    transform: scale(0.6);
-    height: 4em;
-    width: 4em;
-}
-
-.icon__graph--project {
+.icon__table--project , .icon__graph--project {
     transform: scale(1.2);
     height: 2.5em;
     width: 2.5em;
-    margin-bottom: 0.5em;
+}
+
+.icon__table--link, .icon__graph--link {
+    transform: scale(0.6);
+    height: 4em;
+    width: 4em;
 }
 
 .icon__gear {

@@ -1,8 +1,7 @@
 import React from "react"
 import "./Icons.css"
 
-export const IconGraph = props => {
-    return (
+export const IconGraph = props => (
         <svg className={props.location} width="20" height="20" version="1.1" viewBox="0 0 5.2918 5.2918" xmlns="http://www.w3.org/2000/svg">
             <title>Graph Icon</title>
             <rect className={props.color} id="axis_y" x=".03793" y=".037848" width="1.0311" height="5.2158" ry=".51554" style={{strokeWidth:".41059"}}/>
@@ -12,4 +11,3 @@ export const IconGraph = props => {
             <rect className={props.color} x="4.0126" y=".24815" width="1.0312" height="3.7436" ry=".51554" style={{strokeWidth:".41059"}}/>
         </svg>
     )
-}
