@@ -44,42 +44,42 @@ export const ProjectCard = ({project}) => {
                 </p>
             </div>
             <Link className="project__table" to={`/table/${project.id}`}>
-                <button className="card__btn"
+                <button className="btn"
                 onMouseOver={e => {
                     const svgs = [...e.currentTarget.firstElementChild.children]
                     svgs.forEach(svg => {
-                            svg.classList.remove("icon__gray")
-                            svg.classList.add("icon__hovered")
+                            svg.classList.remove("icon__black")
+                            svg.classList.add("icon__white")
                         })
                     }}
                     onMouseOut={e => {
                         const svgs = [...e.currentTarget.firstElementChild.children]
                         svgs.forEach(svg => {
-                            svg.classList.remove("icon__hovered")
-                            svg.classList.add("icon__gray")
+                            svg.classList.remove("icon__white")
+                            svg.classList.add("icon__black")
                         })
                     }}>
-                    <IconTable location="icon__table--project" color="icon__gray" />
+                    <IconTable location="icon__table--link" color="icon__black" />
                 </button>
             </Link>
             <Link className="project__dash" to={`/dashboard/${project.id}`}>
                 <button 
-                className="card__btn"
+                className="btn"
                 onMouseOver={e => {
                     const svgs = [...e.currentTarget.firstElementChild.children]
                     svgs.forEach(svg => {
-                            svg.classList.remove("icon__gray")
-                            svg.classList.add("icon__hovered")
+                            svg.classList.remove("icon__black")
+                            svg.classList.add("icon__white")
                         })
                     }}
                     onMouseOut={e => {
                         const svgs = [...e.currentTarget.firstElementChild.children]
                         svgs.forEach(svg => {
-                            svg.classList.remove("icon__hovered")
-                            svg.classList.add("icon__gray")
+                            svg.classList.remove("icon__white")
+                            svg.classList.add("icon__black")
                         })
                     }}>
-                    <IconGraph location="icon__graph--project" color="icon__gray" />
+                    <IconGraph location="icon__graph--link" color="icon__black" />
                 </button>
             </Link>
 
