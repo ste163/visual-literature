@@ -6,6 +6,13 @@
     width: max-content
 }
 
+.table__header {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
 .table__h2 {
     font-size: 1.2em;
     font-weight: var(--weightThin);

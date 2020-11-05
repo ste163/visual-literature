@@ -10,4 +10,3 @@ export const NoDefaultCard = () => {
         </section>
     )
 }
-

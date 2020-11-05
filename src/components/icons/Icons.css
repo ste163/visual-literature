@@ -14,11 +14,17 @@
 }
 
 .icon__lightGray {
-    fill: var(--mediumGray)
+    fill: var(--mediumGray);
+    transition: var(--btnHover);
+}
+
+.icon__black {
+    fill: var(--lightBlack);
+    transition: var(--btnHover);
 }
 
 .icon__white {
-    fill: white;
+    fill: var(--offWhite);
     transition: var(--btnHover);
 }
 
@@ -48,9 +54,11 @@
 }
 
 .icon__table--link, .icon__graph--link {
-    transform: scale(0.8);
-    height: 4em;
-    width: 4em;
+    transform: scale(2);
+    height: 0.8em;
+    width: 0.8em;
+    margin-top: 0.4em;
+    padding: 0.08em 0;
 }
 
 .icon__gear {

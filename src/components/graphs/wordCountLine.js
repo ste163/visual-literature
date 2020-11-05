@@ -43,7 +43,7 @@ export const wordCountLine = (progressDateLabels, progressWordsWritten) => {
                     },
                     gridLines: {
                         display: true,
-                        color: "#666666"
+                        color: "#ACACAC"
                     },
                     ticks: {
                         beginAtZero: true,

@@ -2,9 +2,3 @@
     display: flex;
     flex-flow: row wrap;
 }
-
-.table__link {
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-}

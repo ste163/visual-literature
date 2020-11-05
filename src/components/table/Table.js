@@ -1,4 +1,5 @@
 import React from "react"
+import { LinkDashboard } from "./LinkDashboard"
 import "./Table.css"
 
 export const Table = props => {
@@ -8,7 +9,10 @@ export const Table = props => {
 
     return (
         <section className="card card__color--white card--table">
-            <h2 className="table__h2">{incomingProject.name}</h2>
+            <div className="table__header">
+                <h2 className="table__h2">{incomingProject.name}</h2>
+                <LinkDashboard props={incomingProject.id} />
+            </div>
             <table>
                 <thead>
                     <tr>
