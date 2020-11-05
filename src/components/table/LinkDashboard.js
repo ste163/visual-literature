@@ -20,7 +20,7 @@ export const LinkDashboard = props => (
             })
         }}>
             <IconGraph location="icon__graph--link" color="icon__gray" />
-            <h3 className="table__h3--link">View on dashboard</h3>
+            <h3 className="table__h3--link">View dashboard</h3>
         </Link>
     </section>
 )

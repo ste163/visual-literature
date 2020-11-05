@@ -1,13 +1,13 @@
 import React, { useRef, useEffect, useState, useContext } from "react"
-import { Link, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { ProgressContext } from "../progress/ProgressProvider"
 import { ProjectContext } from "../projects/ProjectProvider"
 import { TypeContext } from "../type/TypeProvider"
 import { IconPlus } from "../icons/IconPlus"
 import { IconDivider } from "../icons/IconDivider"
-import { IconTable } from "../icons/IconTable"
 import { ProgressForm } from "../progress/ProgressForm"
 import { Modal } from "../modal/Modal"
+import { LinkTable } from "./LinkTable"
 import { DashTitleCard } from "./DashTitleCard"
 import { DashProgression } from "./DashProgression"
 import { NoDefaultCard } from "../selectionCards/NoDefaultCard"
@@ -149,16 +149,6 @@ export const DashboardView = () => {
         const bySelectedProject = retrievedProjects.find(project => project.id === +e.target.value)
         setCurrentProject(bySelectedProject)
     }
-
-    // TABLE LINK COMPONENT -- SEPARATE INTO OWN FILE HERE AND ON TABLEVIEW
-    const LinkTable = () => (
-        <section className="card card__color--white card__link card__link--dash">
-            <Link className="table__link" to={`/table/${currentProject.id}`}>
-                <IconTable location="icon__table--link" color="icon__gray" />
-                <h3 className="table__h3">View on table</h3>
-            </Link>
-        </section>
-    )
 
     useEffect(() => {
         getTypes()
@@ -320,7 +310,7 @@ export const DashboardView = () => {
                                             <DashProgression props={currentProject} progress={progressSortedMonthly}/>    
                                     }
                                     <Modal ref={progressModal} contentFunction={<ProgressForm project={currentProject} />} width={"modal__width--med"}/>
-                                    <LinkTable />
+                                    <LinkTable props={currentProject.id} />
                                     </>
                 }
             </div>
