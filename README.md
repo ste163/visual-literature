@@ -2,7 +2,6 @@
 # Visual Literature (VISLIT)
 >Track, visualize, and analyze progress on writing projects. 
 ### Readme is WIP
-- incomplete installation instructions
 - no GIF demos
 
 GIF demo showcasing project view, adding progress to the table, and the dashboard
@@ -27,22 +26,24 @@ VISLIT came from my inability to easily manipulate the years worth of writing da
 ## Installation
 
 ### Prerequisites
-[json-server](https://github.com/typicode/json-server) to interact with included database.
+[json-server](https://github.com/typicode/json-server) to use database
 
 ### Installing
-1. clone repo and cd into it
+1. ```git clone``` repo and ```cd``` into it
 ```
+git clone git@github.com:ste163/visual-literature.git
 cd visual-literature
 ```
 
-2. run npm install to install all the required dependencies
+2. run ```npm install``` to install all required dependencies
 ```
 npm install
 ```
 
-3. cd into the api/ directory and start json-server on port 8088, watching database.json
+3. ```cd``` into the api directory and start ```json-server``` on port 8088, watching database.json. <br>
+```json-server``` must be running to use VISLIT.
 ```
-cd /api
+cd api/
 json-server -p 8088 -w database.json
 ```
 
@@ -51,6 +52,8 @@ json-server -p 8088 -w database.json
 npm start
 ```
 ```npm start``` begins the app. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+5. Once VISLIT has started, you may login as ```Author123``` to view demo data or create a new account.
 
 ## Usage
 1. Create writing projects and set daily, weekly, or monthly word count goals
