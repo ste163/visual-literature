@@ -27,30 +27,31 @@ VISLIT came from my inability to easily manipulate the years worth of writing da
 ### Prerequisites
 [json-server](https://github.com/typicode/json-server) to use database
 
-### Installing
-1. ```git clone``` repo and ```cd``` into it
+### Install
+1. ```git clone``` repo and ```cd``` into it.
 ```
 git clone git@github.com:ste163/visual-literature.git
 cd visual-literature
 ```
 
-2. run ```npm install``` to install all required dependencies
+2. Run ```npm install``` to install all required dependencies.
 ```
 npm install
 ```
 
-3. ```cd``` into the api directory and start ```json-server``` on port 8088, watching database.json. <br>
+3. ```cd``` into the api directory and start ```json-server``` on port 8088, watching database.json<br>
 ```json-server``` must be running to use VISLIT.
 ```
 cd api/
 json-server -p 8088 -w database.json
 ```
 
-4. in a new terminal window, in the visual-literature directory, run
+4. In a new terminal window, in the visual-literature directory, run ```npm start```.<br>
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 ```
 npm start
 ```
-```npm start``` begins the app. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
 
 5. Once VISLIT has started, you may login as ```Author123``` to view demo data or create a new account.
 
@@ -70,10 +71,12 @@ GIF
 [date-fns](https://date-fns.org/) v2.16.1 <br>
 
 ## Roadmap
-- Convert into an offline desktop application, using local storage (possibly by using [Electronjs](https://www.electronjs.org/))
 - Improve UI/UX
+- Sort data by multiple months, one full year, and all time
+- On dashboard, able to visualize an entire project's progress
 - More data visualizations
 - More indicators on goal progression
+- Convert into an offline desktop application, using local storage (possibly by using [Electronjs](https://www.electronjs.org/))
 
 ## Entity Relationship Diagram
 ![Entity Relationship Diagram](/readme-assets/readme_ERD.png)
