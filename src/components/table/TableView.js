@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom"
 import { TypeContext } from "../type/TypeProvider"
 import { ProjectContext } from "../projects/ProjectProvider"
 import { ProgressContext } from "../progress/ProgressProvider"
+import { SettingsContext } from "../settings/SettingsProvider"
 import { IconDivider } from "../icons/IconDivider"
 import { NoDefaultCard } from "../selectionCards/NoDefaultCard"
 import { NoYearCard } from "../selectionCards/NoYearCard"
@@ -23,6 +24,7 @@ export const TableView = () => {
     const { getTypes } = useContext(TypeContext)
     const { getProjectsWithoutStateUpdate } = useContext(ProjectContext)
     const { progress, getProgressByProjectId } = useContext(ProgressContext)
+    const { settings } = useContext(SettingsContext)
 
     // DATES
     const currentTime = new Date()
@@ -161,11 +163,12 @@ export const TableView = () => {
                     setRetrievedProjects(allProjects)
                     setCurrentProject(byDefaultProject)
                 } else if (!byProjectId && !byDefaultProject) {
+                    setCurrentProject(byDefaultProject)
                     setRetrievedProjects(allProjects)
                 }
             })
         })
-    }, [])
+    }, [settings])
 
     // When user selects from drop down, get progress for selection
     useEffect(() => {
