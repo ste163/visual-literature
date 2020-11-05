@@ -11,20 +11,20 @@
       "userId": 1,
       "defaultView": "/projects",
       "defaultProject": 1,
-      "colorMode": "light"
+      "colorMode": "dark"
     }
   ],
   "projects": [
     {
+      "id": 1,
       "name": "Being J. Goldblum",
       "userId": 1,
       "typeId": 1,
-      "dateStarted": "2019-09-01",
+      "dateStarted": "2019-12-30",
       "wordCountGoal": 350,
       "goalFrequency": "weekly",
       "daysPerFrequency": 5,
-      "completed": false,
-      "id": 1
+      "completed": false
     },
     {
       "id": 2,
@@ -434,6 +434,206 @@
       "edited": false,
       "proofread": false,
       "id": 34
+    },
+    {
+      "projectId": 2,
+      "userId": 1,
+      "dateEntered": "2020-11-04",
+      "wordsWritten": 784,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "id": 35
+    },
+    {
+      "projectId": 2,
+      "userId": 1,
+      "dateEntered": "2020-11-03",
+      "wordsWritten": 309,
+      "revised": false,
+      "edited": false,
+      "proofread": true,
+      "id": 36
+    },
+    {
+      "projectId": 2,
+      "userId": 1,
+      "dateEntered": "2020-11-02",
+      "wordsWritten": 439,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "id": 37
+    },
+    {
+      "projectId": 2,
+      "userId": 1,
+      "dateEntered": "2020-11-01",
+      "wordsWritten": 643,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "id": 38
+    },
+    {
+      "projectId": 1,
+      "userId": 1,
+      "dateEntered": "2020-09-01",
+      "wordsWritten": 331,
+      "revised": false,
+      "edited": false,
+      "proofread": true,
+      "id": 39
+    },
+    {
+      "projectId": 1,
+      "userId": 1,
+      "dateEntered": "2020-09-02",
+      "wordsWritten": 324,
+      "revised": false,
+      "edited": false,
+      "proofread": true,
+      "id": 40
+    },
+    {
+      "projectId": 1,
+      "userId": 1,
+      "dateEntered": "2020-09-03",
+      "wordsWritten": 532,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "id": 41
+    },
+    {
+      "projectId": 1,
+      "userId": 1,
+      "dateEntered": "2020-09-04",
+      "wordsWritten": 111,
+      "revised": true,
+      "edited": false,
+      "proofread": false,
+      "id": 42
+    },
+    {
+      "projectId": 1,
+      "userId": 1,
+      "dateEntered": "2020-09-05",
+      "wordsWritten": 170,
+      "revised": true,
+      "edited": false,
+      "proofread": false,
+      "id": 43
+    },
+    {
+      "projectId": 1,
+      "userId": 1,
+      "dateEntered": "2020-09-06",
+      "wordsWritten": 402,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "id": 44
+    },
+    {
+      "projectId": 1,
+      "userId": 1,
+      "dateEntered": "2020-09-07",
+      "wordsWritten": 438,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "id": 45
+    },
+    {
+      "projectId": 1,
+      "userId": 1,
+      "dateEntered": "2020-09-08",
+      "wordsWritten": 211,
+      "revised": true,
+      "edited": false,
+      "proofread": true,
+      "id": 46
+    },
+    {
+      "projectId": 1,
+      "userId": 1,
+      "dateEntered": "2020-09-09",
+      "wordsWritten": 331,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "id": 47
+    },
+    {
+      "projectId": 1,
+      "userId": 1,
+      "dateEntered": "2020-09-10",
+      "wordsWritten": 476,
+      "revised": false,
+      "edited": false,
+      "proofread": true,
+      "id": 48
+    },
+    {
+      "projectId": 1,
+      "userId": 1,
+      "dateEntered": "2020-09-11",
+      "wordsWritten": 20,
+      "revised": true,
+      "edited": false,
+      "proofread": true,
+      "id": 49
+    },
+    {
+      "projectId": 1,
+      "userId": 1,
+      "dateEntered": "2020-09-12",
+      "wordsWritten": 352,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "id": 50
+    },
+    {
+      "projectId": 1,
+      "userId": 1,
+      "dateEntered": "2020-09-14",
+      "wordsWritten": 341,
+      "revised": true,
+      "edited": false,
+      "proofread": false,
+      "id": 51
+    },
+    {
+      "projectId": 1,
+      "userId": 1,
+      "dateEntered": "2020-09-15",
+      "wordsWritten": 200,
+      "revised": true,
+      "edited": false,
+      "proofread": false,
+      "id": 52
+    },
+    {
+      "projectId": 1,
+      "userId": 1,
+      "dateEntered": "2020-09-16",
+      "wordsWritten": 462,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "id": 53
+    },
+    {
+      "projectId": 1,
+      "userId": 1,
+      "dateEntered": "2020-09-17",
+      "wordsWritten": 305,
+      "revised": false,
+      "edited": false,
+      "proofread": true,
+      "id": 54
     }
   ]
 }
