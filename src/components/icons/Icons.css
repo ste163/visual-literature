@@ -28,6 +28,11 @@
     transition: var(--btnHover);
 }
 
+.icon__whiteNoChange {
+    fill: white;
+    transition: var(--btnHover);
+}
+
 .icon__plus {
     height: 1em;
     width: 1em;
@@ -58,7 +63,7 @@
     height: 0.8em;
     width: 0.8em;
     margin-top: 0.4em;
-    padding: 0.08em 0;
+    padding: 0.08em .25em;
 }
 
 .icon__gear {

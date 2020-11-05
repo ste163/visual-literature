@@ -99,16 +99,15 @@ export const Header = () => {
                             }}
                             onMouseOver={e => {
                                 const svg = e.currentTarget.firstElementChild.children[1].classList
-                                svg.remove("icon__white")
+                                svg.remove("icon__whiteNoChange")
                                 svg.add("icon__hovered")
-      
                                 }}
                                 onMouseLeave={e => {
                                     const svg = e.currentTarget.firstElementChild.children[1].classList
                                     svg.remove("icon__hovered")
-                                    svg.add("icon__white")
+                                    svg.add("icon__whiteNoChange")
                                 }}>
-                                <IconGear color="icon__white" />
+                                <IconGear color="icon__whiteNoChange" />
                                 Settings
                             </button>
                         </li>
@@ -121,17 +120,17 @@ export const Header = () => {
                             }}
                             onMouseOver={e => {
                             e.currentTarget.firstElementChild.children[1].childNodes.forEach(svg => {
-                                    svg.classList.remove("icon__white")
+                                    svg.classList.remove("icon__whiteNoChange")
                                     svg.classList.add("icon__hovered")
                                 })
                             }}
                             onMouseLeave={e => {
                                 e.currentTarget.firstElementChild.children[1].childNodes.forEach(svg => {
                                     svg.classList.remove("icon__hovered")
-                                    svg.classList.add("icon__white")
+                                    svg.classList.add("icon__whiteNoChange")
                                 })
                             }}>
-                                <IconLogout color="icon__white" />
+                                <IconLogout color="icon__whiteNoChange" />
                                 Logout
                             </button>
                         </li>

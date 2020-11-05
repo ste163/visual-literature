@@ -9,10 +9,7 @@ export const Table = props => {
 
     return (
         <section className="card card__color--white card--table">
-            <div className="table__header">
-                <h2 className="table__h2">{incomingProject.name}</h2>
-                <LinkDashboard props={incomingProject.id} />
-            </div>
+            <h2 className="table__h2">{incomingProject.name}</h2>
             <table>
                 <thead>
                     <tr>
@@ -37,10 +34,13 @@ export const Table = props => {
                     }
                 </tbody>
             </table>
-            <button className="btn btn--table"
-            onClick={e => e.currentTarget.parentNode.parentNode.childNodes[1].className = "background__modal modal__active"}>
-                    Add/Edit Progress
-            </button>
+            <div className="table__btns">
+                <LinkDashboard props={incomingProject.id} />
+                <button className="btn btn--table"
+                onClick={e => e.currentTarget.parentNode.parentNode.parentNode.childNodes[1].className = "background__modal modal__active"}>
+                        Add/Edit Progress
+                </button>
+            </div>
         </section>
     )
 }
