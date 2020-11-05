@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import { IconGraph } from "../icons/IconGraph"
 
 export const LinkDashboard = props => (
-        <Link to={`/dashboard/${props.props}`}>
+    <Link to={`/dashboard/${props.props}`}>
         <button className="btn"
         onMouseOver={e => {
             const svgs = [...e.currentTarget.firstElementChild.children]
@@ -19,7 +19,7 @@ export const LinkDashboard = props => (
                     svg.classList.add("icon__black")
                 })
             }}>
-                <IconGraph location="icon__graph--link" color="icon__black" />
-            </button>
-        </Link>
+            <IconGraph location="icon__graph--link" color="icon__black" />
+        </button>
+    </Link>
 )

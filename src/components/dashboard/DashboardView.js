@@ -7,7 +7,6 @@ import { IconPlus } from "../icons/IconPlus"
 import { IconDivider } from "../icons/IconDivider"
 import { ProgressForm } from "../progress/ProgressForm"
 import { Modal } from "../modal/Modal"
-import { LinkTable } from "./LinkTable"
 import { DashTitleCard } from "./DashTitleCard"
 import { DashProgression } from "./DashProgression"
 import { NoDefaultCard } from "../selectionCards/NoDefaultCard"
@@ -310,7 +309,6 @@ export const DashboardView = () => {
                                             <DashProgression props={currentProject} progress={progressSortedMonthly}/>    
                                     }
                                     <Modal ref={progressModal} contentFunction={<ProgressForm project={currentProject} />} width={"modal__width--med"}/>
-                                    <LinkTable props={currentProject.id} />
                                     </>
                 }
             </div>

@@ -1,4 +1,5 @@
 import React from "react"
+import { LinkTable } from "./LinkTable"
 
 export const DashTitleCard = (props) => {
     return (
@@ -13,6 +14,7 @@ export const DashTitleCard = (props) => {
                         props.props.goalFrequency === "weekly" ? `${props.props.daysPerFrequency} days per week` : `${props.props.daysPerFrequency} days per month`
                 }.
             </p>
+            <LinkTable props={props.props.id} />
         </section>
     )
 }
