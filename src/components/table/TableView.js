@@ -204,7 +204,7 @@ export const TableView = () => {
                 retrievedProjects === undefined ? null : 
                 <>
                 <fieldset className="view__projectSelect">
-                    <label className="projectSelect__label" htmlFor="projectSelect">Select project: </label>
+                    <label className="projectSelect__label" htmlFor="projectSelect">Selected project: </label>
                     <select className="projectSelect__select" name="projectSelect" id="projectSelect"
                     value={currentProject === undefined ? 0 : currentProject.id} 
                     onChange={e => selectProject(e)}>
