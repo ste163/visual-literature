@@ -10,7 +10,7 @@
       "id": 1,
       "userId": 1,
       "defaultView": "/projects",
-      "defaultProject": 0,
+      "defaultProject": 1,
       "colorMode": "light"
     }
   ],
@@ -83,5 +83,26 @@
       "name": "TBD"
     }
   ],
-  "progress": []
+  "progress": [
+    {
+      "projectId": 1,
+      "userId": 1,
+      "dateEntered": "2020-11-01",
+      "wordsWritten": 364,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "id": 1
+    },
+    {
+      "projectId": 1,
+      "userId": 1,
+      "dateEntered": "2020-11-02",
+      "wordsWritten": 341,
+      "revised": true,
+      "edited": false,
+      "proofread": false,
+      "id": 2
+    }
+  ]
 }
