@@ -112,6 +112,8 @@ export const TableView = () => {
             } else {
                 setCurrentSelectedYear(+yearSelect.current.value)
             }
+        } else {
+            setProgressSortedYearly([])
         }
     }
 
@@ -128,7 +130,7 @@ export const TableView = () => {
 
     const sortProgressByMonth = () => {
         // FILTER PROGRESS FOR SELECTED MONTH IN THAT YEAR
-        if (monthSelect.current !== undefined) {
+        if (monthSelect.current !== undefined && monthSelect.current !== null) {
             if (monthSelect.current.value !== "0") {
                 const selectedMonth = monthSelect.current.value
                 // RE-CONVERT THE MONTH STRING BACK INTO NUMBER
