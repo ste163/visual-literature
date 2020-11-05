@@ -98,7 +98,7 @@ export const TableView = () => {
 
     // BASED ON DROP DOWN SELECTION, GET PROGRESS FOR THAT YEAR
     const sortProgressByYear = () => {
-        if (yearSelect.current !== undefined) {
+        if (yearSelect.current !== undefined && yearSelect.current !== null) {
             const selectedYear = +yearSelect.current.value
             if (selectedYear !== 0) {
                 const progressForSelectedYear = progress.filter(singleProgress => {
