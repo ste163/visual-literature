@@ -3,25 +3,23 @@ import { Link } from "react-router-dom"
 import { IconGraph } from "../icons/IconGraph"
 
 export const LinkDashboard = props => (
-    <section className="card card__color--white card__link">
-        <Link className="table__link" to={`/dashboard/${props.props}`}>
-        <button className="card__btn"
+    <Link to={`/dashboard/${props.props}`}>
+        <button className="btn"
         onMouseOver={e => {
             const svgs = [...e.currentTarget.firstElementChild.children]
             svgs.forEach(svg => {
-                    svg.classList.remove("icon__gray")
-                    svg.classList.add("icon__hovered")
+                    svg.classList.remove("icon__black")
+                    svg.classList.add("icon__white")
                 })
             }}
             onMouseOut={e => {
                 const svgs = [...e.currentTarget.firstElementChild.children]
                 svgs.forEach(svg => {
-                    svg.classList.remove("icon__hovered")
-                    svg.classList.add("icon__gray")
+                    svg.classList.remove("icon__white")
+                    svg.classList.add("icon__black")
                 })
             }}>
-                <IconGraph location="icon__graph--link" color="icon__gray" />
-            </button>
-        </Link>
-    </section>
+            <IconGraph location="icon__graph--link" color="icon__black" />
+        </button>
+    </Link>
 )

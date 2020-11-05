@@ -25,17 +25,6 @@
       "goalFrequency": "daily",
       "daysPerFrequency": 1,
       "completed": false
-    },
-    {
-      "id": 6,
-      "name": "Scary Kari",
-      "userId": 1,
-      "typeId": 5,
-      "dateStarted": "2020-10-26",
-      "wordCountGoal": 350,
-      "goalFrequency": "weekly",
-      "daysPerFrequency": 6,
-      "completed": false
     }
   ],
   "types": [
@@ -124,26 +113,6 @@
       "id": 6
     },
     {
-      "projectId": 6,
-      "userId": 1,
-      "dateEntered": "2020-11-01",
-      "wordsWritten": 388,
-      "revised": false,
-      "edited": false,
-      "proofread": false,
-      "id": 8
-    },
-    {
-      "id": 11,
-      "projectId": 6,
-      "userId": 1,
-      "dateEntered": "2020-11-02",
-      "wordsWritten": 349,
-      "revised": false,
-      "edited": true,
-      "proofread": false
-    },
-    {
       "id": 12,
       "projectId": 5,
       "userId": 1,
@@ -182,16 +151,6 @@
       "edited": true,
       "proofread": false,
       "id": 15
-    },
-    {
-      "projectId": 6,
-      "userId": 1,
-      "dateEntered": "2020-11-03",
-      "wordsWritten": 355,
-      "revised": false,
-      "edited": false,
-      "proofread": false,
-      "id": 16
     },
     {
       "id": 17,
@@ -274,16 +233,6 @@
       "id": 24
     },
     {
-      "projectId": 6,
-      "userId": 1,
-      "dateEntered": "2020-10-31",
-      "wordsWritten": 8,
-      "revised": false,
-      "edited": false,
-      "proofread": false,
-      "id": 25
-    },
-    {
       "id": 26,
       "projectId": 5,
       "userId": 1,
@@ -302,16 +251,6 @@
       "edited": false,
       "proofread": false,
       "id": 27
-    },
-    {
-      "projectId": 6,
-      "userId": 1,
-      "dateEntered": "2020-11-04",
-      "wordsWritten": 356,
-      "revised": true,
-      "edited": false,
-      "proofread": false,
-      "id": 28
     }
   ]
 }

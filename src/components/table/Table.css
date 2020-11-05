@@ -65,6 +65,13 @@ th {
     background-color: var(--mediumGray);
 }
 
+.table__btns {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
 .btn--table {
     margin-top: 1em;
     align-self: center;

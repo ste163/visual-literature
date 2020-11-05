@@ -10,7 +10,6 @@ import { NoMonthCard } from "../selectionCards/NoMonthCard"
 import { Modal } from "../modal/Modal"
 import { ProgressForm } from "../progress/ProgressForm"
 import { Table } from "./Table"
-import { LinkDashboard } from "./LinkDashboard"
 import "./TableView.css"
 
 export const TableView = () => {
@@ -275,7 +274,6 @@ export const TableView = () => {
                                     <>
                                     <Table props={currentProject} progress={progressSortedMonthly}/>
                                     <Modal ref={progressModal} width={"modal__width--med"} contentFunction={<ProgressForm project={currentProject} />} />
-                                    <LinkDashboard props={currentProject.id} />
                                     </>
                 }
             </div>

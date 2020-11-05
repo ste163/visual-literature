@@ -53,14 +53,14 @@
 .project__table {
     grid-column: 1;
     grid-row: 6;
-    margin: 0.5em 0 0 0;
+    margin: 0.3em 0 0 0;
     justify-self: center;
 }
 
 .project__dash {
     grid-column: 2;
     grid-row: 6;
-    margin: 0.5em 0 0.5em 0;
+    margin: 0.3em 0 0 0;
     justify-self: center;
 }
 
