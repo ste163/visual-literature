@@ -10,8 +10,8 @@
       "id": 1,
       "userId": 1,
       "defaultView": "/projects",
-      "defaultProject": 0,
-      "colorMode": "light"
+      "defaultProject": 1,
+      "colorMode": "dark"
     }
   ],
   "projects": [
@@ -103,16 +103,6 @@
       "edited": false,
       "proofread": false,
       "id": 2
-    },
-    {
-      "projectId": 3,
-      "userId": 1,
-      "dateEntered": "2020-08-01",
-      "wordsWritten": 312,
-      "revised": false,
-      "edited": false,
-      "proofread": false,
-      "id": 3
     }
   ]
 }
