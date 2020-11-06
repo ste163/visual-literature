@@ -1,4 +1,8 @@
 export const horizontalBar = (goalProgression, daysPerFrequency) => {
+    const style = getComputedStyle(document.body)
+    const progBarColor = style.getPropertyValue('--progressBar')
+    const progBarBackgroundColor = style.getPropertyValue('--progressBarBackground')
+
     return {
         type: "horizontalBar",
         data: {
@@ -6,13 +10,13 @@ export const horizontalBar = (goalProgression, daysPerFrequency) => {
           datasets: [{
               label: "Progress",
               data: [goalProgression],
-              backgroundColor:"#171717ff",
+              backgroundColor: progBarColor,
               borderWidth: 0,
           },
           {
               label: "Goal",
               data: [daysPerFrequency],
-              backgroundColor: "#FCFCFC",
+              backgroundColor: progBarBackgroundColor,
               borderWidth: 0,
           },
           ],

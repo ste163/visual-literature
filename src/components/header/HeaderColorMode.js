@@ -13,6 +13,8 @@ export const HeaderColorMode = () => {
         root.setProperty('--inactiveFormField', 'rgb(246, 246, 246)')
         root.setProperty('--fontColorInactive', '#cacaca')
         root.setProperty('--fontColorBtn', '#FCFCFC')
+        root.setProperty('--progressBar', '#171717ff')
+        root.setProperty('--progressBarBackground', '#FCFCFC')
     } else if (colorMode === 'dark') {
         root.setProperty('--fontColor', 'white')
         root.setProperty('--offWhite', '#1e1e1e')
@@ -24,5 +26,7 @@ export const HeaderColorMode = () => {
         root.setProperty('--inactiveFormField', 'rgb(35, 35, 35)')
         root.setProperty('--fontColorInactive', '#4a4a4a')
         root.setProperty('--fontColorBtn', '#333333')
+        root.setProperty('--progressBar', '#76cdc7ff')
+        root.setProperty('--progressBarBackground', '#484848')
     }
 }

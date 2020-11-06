@@ -1,4 +1,5 @@
-import React, { useRef, useEffect, useState } from "react"
+import React, { useRef, useEffect, useState, useContext } from "react"
+import { SettingsContext } from "../settings/SettingsProvider"
 import { ProgressForm } from "./ProgressForm"
 import { Modal } from "../modal/Modal"
 import { isSameWeek } from 'date-fns'
@@ -9,6 +10,8 @@ import "./ProgressCard.css"
 export const ProgressCard = (project) => {
 
     const progress = project.progress
+
+    const { settings } = useContext(SettingsContext)
 
     const [ goalProgression, setGoalProgression ] = useState()
     // goalFreqComplete can be: 0, 1, or 2 (0 is no progress, 1 is some progress, 2 is complete for freq)
@@ -128,7 +131,7 @@ export const ProgressCard = (project) => {
       useEffect(() => {
           new Chart(progressBar.current, horizontalBar(goalProgression, daysPerFrequency));
           checkGoalProgress()
-      }, [progress, checkGoalProgress]);
+      }, [progress, checkGoalProgress, settings]);
 
     return (
     <section className="card card__color--mintBlue card__progress">

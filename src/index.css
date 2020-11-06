@@ -24,12 +24,16 @@
   --red: #d85656;
   --redActive: #803232;
 
-/* SPECIFIC COLOR LOCATIONS */
-/* FOR EASIER DARK MODE TARGETING */
---headerBlack: #171717ff;
---fontColorInactive: #cacaca;
---fontColorBtn: #FCFCFC;
---inactiveFormField: rgb(246, 246, 246);
+  /* Progress Bar */
+  --progressBar: #171717ff;
+  --progressBarBackground: #FCFCFC;
+
+  /* SPECIFIC COLOR LOCATIONS */
+  /* FOR EASIER DARK MODE TARGETING */
+  --headerBlack: #171717ff;
+  --fontColorInactive: #cacaca;
+  --fontColorBtn: #FCFCFC;
+  --inactiveFormField: rgb(246, 246, 246);
 
   /* Fonts */
   --fontFamily: 'Heebo', sans-serif;

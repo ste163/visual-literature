@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useRef } from "react"
+import React, { useState, useEffect, useRef, useContext } from "react"
+import { SettingsContext } from "../settings/SettingsProvider"
 import { getWeeksInMonth } from 'date-fns'
 import { horizontalBar } from "../graphs/horizontalBar"
 import { wordCountLine } from "../graphs/wordCountLine"
@@ -8,6 +9,9 @@ import Chart from 'chart.js'
 // And display all data
 
 export const DashProgression = (props, progress) => {
+
+    // SETTINGS CONTEXT TO UPDATE PROG BAR COLOR ON DARK MODE
+    const { settings } = useContext(SettingsContext)
 
     // DATES
     const currentTime = new Date()
@@ -180,7 +184,7 @@ export const DashProgression = (props, progress) => {
         checkGoalProgress()
         new Chart(progressBar.current, horizontalBar(progressBarProgression, progressBarXAxis));
         new Chart(wordsWrittenLine.current, wordCountLine(lineWordsLabelArray, lineWordsWrittenArray))
-    }, [incomingProgress, progressBarProgression])
+    }, [incomingProgress, progressBarProgression, settings])
 
     return (
         <>

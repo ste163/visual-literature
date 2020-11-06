@@ -16,7 +16,7 @@
     font-weight: var(--weightThin);
     background-color: transparent;
     border-style: none;
-    margin: 0;
+    margin: 0 0 0 0.5em;
     padding: 0;
     cursor: pointer;
     transition: var(--btnHover);
