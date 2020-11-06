@@ -10,8 +10,8 @@
       "id": 1,
       "userId": 1,
       "defaultView": "/projects",
-      "defaultProject": 1,
-      "colorMode": "dark"
+      "defaultProject": 0,
+      "colorMode": "light"
     }
   ],
   "projects": [
@@ -36,17 +36,6 @@
       "goalFrequency": "daily",
       "daysPerFrequency": 1,
       "completed": false
-    },
-    {
-      "name": "Midnight December",
-      "userId": 1,
-      "typeId": 8,
-      "dateStarted": "2020-08-01",
-      "wordCountGoal": 300,
-      "goalFrequency": "monthly",
-      "daysPerFrequency": 7,
-      "completed": false,
-      "id": 3
     },
     {
       "id": 4,
