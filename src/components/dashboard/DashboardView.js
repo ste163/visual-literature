@@ -305,7 +305,11 @@ export const DashboardView = () => {
             <div className="dash__cards">
                 {
                     currentProject === undefined ? <NoDefaultCard /> :
-                        progress.length === 0 ? <NoProgressCard props={currentProject} /> :
+                        progress.length === 0 ?
+                        <>
+                        <NoProgressCard props={currentProject} /> 
+                        <Modal ref={progressModal} contentFunction={<ProgressForm project={currentProject} />} width={"modal__width--med"}/>
+                        </> :
                         currentSelectedYear === undefined ? null :
                             currentSelectedYear === 0 ? <NoYearCard/> :
                                 currentSelectedMonth === "0" ? <NoMonthCard/> :
