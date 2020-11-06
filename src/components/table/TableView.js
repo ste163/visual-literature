@@ -209,7 +209,7 @@ export const TableView = () => {
                 <>
                 <button className="project__btn"
                 onClick={e => {
-                        if (progressModal.current !== undefined) {
+                        if (progressModal.current !== undefined && progressModal.current !== null) {
                             progressModal.current.className = "background__modal modal__active"
                         }
                     }

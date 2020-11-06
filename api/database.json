@@ -10,7 +10,7 @@
       "id": 1,
       "userId": 1,
       "defaultView": "/projects",
-      "defaultProject": 1,
+      "defaultProject": 0,
       "colorMode": "dark"
     }
   ],
@@ -49,15 +49,15 @@
       "id": 3
     },
     {
+      "id": 4,
       "name": "Crossing that Wild River",
       "userId": 1,
       "typeId": 5,
       "dateStarted": "2018-07-20",
-      "wordCountGoal": 300,
+      "wordCountGoal": 100,
       "goalFrequency": "monthly",
-      "daysPerFrequency": 7,
-      "completed": false,
-      "id": 4
+      "daysPerFrequency": 3,
+      "completed": false
     }
   ],
   "types": [
@@ -634,6 +634,126 @@
       "edited": false,
       "proofread": true,
       "id": 54
+    },
+    {
+      "projectId": 4,
+      "userId": 1,
+      "dateEntered": "2018-07-20",
+      "wordsWritten": 311,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "id": 55
+    },
+    {
+      "projectId": 4,
+      "userId": 1,
+      "dateEntered": "2018-07-22",
+      "wordsWritten": 133,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "id": 56
+    },
+    {
+      "projectId": 4,
+      "userId": 1,
+      "dateEntered": "2018-07-31",
+      "wordsWritten": 144,
+      "revised": true,
+      "edited": false,
+      "proofread": false,
+      "id": 57
+    },
+    {
+      "projectId": 4,
+      "userId": 1,
+      "dateEntered": "2018-08-05",
+      "wordsWritten": 104,
+      "revised": false,
+      "edited": false,
+      "proofread": true,
+      "id": 58
+    },
+    {
+      "projectId": 4,
+      "userId": 1,
+      "dateEntered": "2018-08-23",
+      "wordsWritten": 134,
+      "revised": true,
+      "edited": false,
+      "proofread": false,
+      "id": 59
+    },
+    {
+      "projectId": 4,
+      "userId": 1,
+      "dateEntered": "2018-08-30",
+      "wordsWritten": 54,
+      "revised": true,
+      "edited": false,
+      "proofread": false,
+      "id": 60
+    },
+    {
+      "projectId": 4,
+      "userId": 1,
+      "dateEntered": "2018-09-12",
+      "wordsWritten": 132,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "id": 61
+    },
+    {
+      "projectId": 4,
+      "userId": 1,
+      "dateEntered": "2018-09-07",
+      "wordsWritten": 84,
+      "revised": false,
+      "edited": true,
+      "proofread": false,
+      "id": 62
+    },
+    {
+      "projectId": 4,
+      "userId": 1,
+      "dateEntered": "2019-10-25",
+      "wordsWritten": 87,
+      "revised": true,
+      "edited": false,
+      "proofread": false,
+      "id": 63
+    },
+    {
+      "projectId": 4,
+      "userId": 1,
+      "dateEntered": "2019-10-24",
+      "wordsWritten": 104,
+      "revised": true,
+      "edited": false,
+      "proofread": false,
+      "id": 64
+    },
+    {
+      "projectId": 4,
+      "userId": 1,
+      "dateEntered": "2019-11-06",
+      "wordsWritten": 186,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "id": 65
+    },
+    {
+      "projectId": 4,
+      "userId": 1,
+      "dateEntered": "2019-11-22",
+      "wordsWritten": 185,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "id": 66
     }
   ]
 }
