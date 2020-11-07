@@ -1,10 +1,8 @@
 ![VISLIT Logo](/readme-assets/readme_logo-title.svg)
 # Visual Literature (VISLIT)
 >Track, visualize, and analyze progress on writing projects. 
-### Readme is WIP
-- no GIF demos
-![GIFTest](/readme-assets/readme_overview.gif)
-GIF demo showcasing project view, adding progress to the table, and the dashboard
+
+![VISLIT Overview GIF](/readme-assets/readme_overview.gif)
 
 ## Table of Contents
 - [About](#About)
@@ -57,12 +55,14 @@ npm start
 
 ## Usage
 1. Create writing projects and set daily, weekly, or monthly word count goals
-GIF
+![Project Creation GIF](/readme-assets/readme_create.gif)
 2. Enter progress towards goals and specify whether you proofread, edited, or revised
 GIF
 3. View and sort progress with tables
 GIF
 4. Visualize progress with dashboards
+GIF
+5. Customize with settings
 GIF
 
 ## Technologies Used

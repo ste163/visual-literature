@@ -3,6 +3,10 @@
     {
       "username": "Author123",
       "id": 1
+    },
+    {
+      "username": "gifTest",
+      "id": 2
     }
   ],
   "settings": [
@@ -12,6 +16,13 @@
       "defaultView": "/projects",
       "defaultProject": 1,
       "colorMode": "light"
+    },
+    {
+      "userId": 2,
+      "defaultView": "/projects",
+      "defaultProject": 0,
+      "colorMode": "light",
+      "id": 2
     }
   ],
   "projects": [
@@ -47,6 +58,17 @@
       "goalFrequency": "monthly",
       "daysPerFrequency": 3,
       "completed": false
+    },
+    {
+      "name": "American Novel",
+      "userId": 2,
+      "typeId": 1,
+      "dateStarted": "2020-11-01",
+      "wordCountGoal": 500,
+      "goalFrequency": "weekly",
+      "daysPerFrequency": 4,
+      "completed": false,
+      "id": 5
     }
   ],
   "types": [
