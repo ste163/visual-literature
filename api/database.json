@@ -10,14 +10,14 @@
       "id": 1,
       "userId": 1,
       "defaultView": "/projects",
-      "defaultProject": 0,
+      "defaultProject": 1,
       "colorMode": "light"
     }
   ],
   "projects": [
     {
       "id": 1,
-      "name": "Being J. Goldblum",
+      "name": "The Night is Coming",
       "userId": 1,
       "typeId": 1,
       "dateStarted": "2019-12-30",
@@ -39,7 +39,7 @@
     },
     {
       "id": 4,
-      "name": "Crossing that Wild River",
+      "name": "From the Moon",
       "userId": 1,
       "typeId": 5,
       "dateStarted": "2018-07-20",
@@ -113,16 +113,6 @@
       "edited": false,
       "proofread": true,
       "id": 3
-    },
-    {
-      "projectId": 1,
-      "userId": 1,
-      "dateEntered": "2020-11-05",
-      "wordsWritten": 643,
-      "revised": false,
-      "edited": false,
-      "proofread": false,
-      "id": 4
     },
     {
       "projectId": 1,

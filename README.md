@@ -3,7 +3,7 @@
 >Track, visualize, and analyze progress on writing projects. 
 ### Readme is WIP
 - no GIF demos
-![GIFTest](/readme-assets/gifTest.gif)
+![GIFTest](/readme-assets/readme_overview.gif)
 GIF demo showcasing project view, adding progress to the table, and the dashboard
 
 ## Table of Contents
@@ -91,5 +91,6 @@ GIF
 - Logo design and project name - [Shannon Swenton](https://www.etsy.com/uk/shop/theshanconnection) <br>
 - Wireframe, mockups, logo, and icons designed with - [Inkscape](https://inkscape.org/) <br>
 - Entity Relationship Diagram created with [dbdiagram](https://dbdiagram.io/) <br>
-- Readme design - [Art of README](https://github.com/noffle/art-of-readme#readme) and [Standard Readme](https://github.com/RichardLitt/standard-readme)
+- GIF screen recording - [screentogif](https://www.screentogif.com/) <br>
+- Readme design - [Art of README](https://github.com/noffle/art-of-readme#readme) and [Standard Readme](https://github.com/RichardLitt/standard-readme) <br>
 - Received help on the stacked bar charts from [Jamie Calder's codepen](https://codepen.io/jamiecalder/pen/NrROeB?editors=0010) <br>
