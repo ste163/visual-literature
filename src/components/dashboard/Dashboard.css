@@ -19,6 +19,13 @@
     font-size: 0.95em;
 }
 
+.dash__h3--goal {
+    font-size: 0.7em;
+    font-weight: var(--weightThin);
+    letter-spacing: 0.03em;
+}
+
+
 .dash__h3--graph {
     margin-left: 0.4em;
 }
