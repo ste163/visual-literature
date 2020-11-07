@@ -3,7 +3,7 @@
 >Track, visualize, and analyze progress on writing projects. 
 ### Readme is WIP
 - no GIF demos
-
+![GIFTest](/readme-assets/gifTest.gif)
 GIF demo showcasing project view, adding progress to the table, and the dashboard
 
 ## Table of Contents
