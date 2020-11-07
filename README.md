@@ -57,7 +57,7 @@ npm start
 1. Create writing projects and set daily, weekly, or monthly word count goals
 ![Project Creation GIF](/readme-assets/readme_create.gif)
 2. Enter progress towards goals and specify whether you proofread, edited, or revised
-GIF
+![Adding Progress GIF](/readme-assets/readme_progress.gif)
 3. View and sort progress with tables
 GIF
 4. Visualize progress with dashboards
