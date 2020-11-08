@@ -74,7 +74,7 @@ npm start
 
 4. Visualize progress with dashboards. <br>
 
-GIF
+![Dashboard view GIF](/readme-assets/readme_dashboard.gif)
 <br>
 <br>
 
