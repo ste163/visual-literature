@@ -54,13 +54,19 @@ npm start
 5. Once VISLIT has started, you may login as ```Author123``` to view demo data or create a new account.
 
 ## Usage
-1. Create writing projects and set daily, weekly, or monthly word count goals <br>
+1. Create writing projects and set word count goals <br>
+<br>
 
-![Project Creation GIF](/readme-assets/readme_create.gif) <br>
+![Project Creation GIF](/readme-assets/readme_create.gif)
+<br>
+<br>
 
-2. Enter progress towards goals and specify whether you proofread, edited, or revised.<br>
+2. Enter progress towards goals and specify whether you proofread, edited, or revised. <br>
+<br>
 
-![Adding Progress GIF](/readme-assets/readme_progress.gif) <br>
+![Adding Progress GIF](/readme-assets/readme_progress.gif)
+<br>
+<br>
 
 3. View and sort progress with tables.
 GIF
