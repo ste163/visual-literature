@@ -80,7 +80,7 @@ npm start
 
 5. Customize with settings. <br>
 
-GIF
+![Settings menu GIF](/readme-assets/readme_settings.gif)
 <br>
 <br>
 

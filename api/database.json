@@ -18,11 +18,11 @@
       "colorMode": "light"
     },
     {
+      "id": 2,
       "userId": 2,
-      "defaultView": "/projects",
-      "defaultProject": 0,
-      "colorMode": "light",
-      "id": 2
+      "defaultView": "/dashboard",
+      "defaultProject": 5,
+      "colorMode": "dark"
     }
   ],
   "projects": [
