@@ -3,6 +3,10 @@
     {
       "username": "Author123",
       "id": 1
+    },
+    {
+      "username": "gifTest",
+      "id": 2
     }
   ],
   "settings": [
@@ -10,14 +14,21 @@
       "id": 1,
       "userId": 1,
       "defaultView": "/projects",
-      "defaultProject": 0,
+      "defaultProject": 1,
       "colorMode": "light"
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "defaultView": "/dashboard",
+      "defaultProject": 5,
+      "colorMode": "dark"
     }
   ],
   "projects": [
     {
       "id": 1,
-      "name": "Being J. Goldblum",
+      "name": "The Night is Coming",
       "userId": 1,
       "typeId": 1,
       "dateStarted": "2019-12-30",
@@ -39,13 +50,24 @@
     },
     {
       "id": 4,
-      "name": "Crossing that Wild River",
+      "name": "From the Moon",
       "userId": 1,
       "typeId": 5,
       "dateStarted": "2018-07-20",
       "wordCountGoal": 100,
       "goalFrequency": "monthly",
       "daysPerFrequency": 3,
+      "completed": false
+    },
+    {
+      "id": 5,
+      "name": "American Novel",
+      "userId": 2,
+      "typeId": 1,
+      "dateStarted": "2020-10-26",
+      "wordCountGoal": 500,
+      "goalFrequency": "weekly",
+      "daysPerFrequency": 4,
       "completed": false
     }
   ],
@@ -113,16 +135,6 @@
       "edited": false,
       "proofread": true,
       "id": 3
-    },
-    {
-      "projectId": 1,
-      "userId": 1,
-      "dateEntered": "2020-11-05",
-      "wordsWritten": 643,
-      "revised": false,
-      "edited": false,
-      "proofread": false,
-      "id": 4
     },
     {
       "projectId": 1,
@@ -953,6 +965,96 @@
       "edited": false,
       "proofread": true,
       "id": 87
+    },
+    {
+      "projectId": 5,
+      "userId": 2,
+      "dateEntered": "2020-11-07",
+      "wordsWritten": 643,
+      "revised": false,
+      "edited": false,
+      "proofread": true,
+      "id": 88
+    },
+    {
+      "projectId": 5,
+      "userId": 2,
+      "dateEntered": "2020-10-26",
+      "wordsWritten": 504,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "id": 89
+    },
+    {
+      "projectId": 5,
+      "userId": 2,
+      "dateEntered": "2020-10-27",
+      "wordsWritten": 442,
+      "revised": false,
+      "edited": false,
+      "proofread": true,
+      "id": 90
+    },
+    {
+      "projectId": 5,
+      "userId": 2,
+      "dateEntered": "2020-10-28",
+      "wordsWritten": 624,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "id": 91
+    },
+    {
+      "projectId": 5,
+      "userId": 2,
+      "dateEntered": "2020-10-29",
+      "wordsWritten": 541,
+      "revised": false,
+      "edited": false,
+      "proofread": true,
+      "id": 92
+    },
+    {
+      "projectId": 5,
+      "userId": 2,
+      "dateEntered": "2020-11-06",
+      "wordsWritten": 404,
+      "revised": true,
+      "edited": false,
+      "proofread": false,
+      "id": 93
+    },
+    {
+      "projectId": 5,
+      "userId": 2,
+      "dateEntered": "2020-11-05",
+      "wordsWritten": 376,
+      "revised": true,
+      "edited": false,
+      "proofread": false,
+      "id": 94
+    },
+    {
+      "projectId": 5,
+      "userId": 2,
+      "dateEntered": "2020-11-04",
+      "wordsWritten": 323,
+      "revised": true,
+      "edited": false,
+      "proofread": false,
+      "id": 95
+    },
+    {
+      "projectId": 5,
+      "userId": 2,
+      "dateEntered": "2020-11-03",
+      "wordsWritten": 789,
+      "revised": false,
+      "edited": false,
+      "proofread": true,
+      "id": 96
     }
   ]
 }

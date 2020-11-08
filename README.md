@@ -1,10 +1,8 @@
 ![VISLIT Logo](/readme-assets/readme_logo-title.svg)
 # Visual Literature (VISLIT)
 >Track, visualize, and analyze progress on writing projects. 
-### Readme is WIP
-- no GIF demos
 
-GIF demo showcasing project view, adding progress to the table, and the dashboard
+![VISLIT Overview GIF](/readme-assets/readme_overview.gif)
 
 ## Table of Contents
 - [About](#About)
@@ -56,14 +54,35 @@ npm start
 5. Once VISLIT has started, you may login as ```Author123``` to view demo data or create a new account.
 
 ## Usage
-1. Create writing projects and set daily, weekly, or monthly word count goals
-GIF
-2. Enter progress towards goals and specify whether you proofread, edited, or revised
-GIF
-3. View and sort progress with tables
-GIF
-4. Visualize progress with dashboards
-GIF
+1. Create writing projects and set word count goals <br>
+
+![Project Creation GIF](/readme-assets/readme_create.gif)
+<br>
+<br>
+
+2. Enter progress towards goals and specify whether you proofread, edited, or revised. <br>
+
+![Adding Progress GIF](/readme-assets/readme_progress.gif)
+<br>
+<br>
+
+3. View and sort progress with tables. <br>
+
+![Table view GIF](/readme-assets/readme_table.gif)
+<br>
+<br>
+
+4. Visualize progress with dashboards. <br>
+
+![Dashboard view GIF](/readme-assets/readme_dashboard.gif)
+<br>
+<br>
+
+5. Customize with settings. <br>
+
+![Settings menu GIF](/readme-assets/readme_settings.gif)
+<br>
+<br>
 
 ## Technologies Used
 [React](https://reactjs.org/) v16.14.0 <br>
@@ -91,5 +110,6 @@ GIF
 - Logo design and project name - [Shannon Swenton](https://www.etsy.com/uk/shop/theshanconnection) <br>
 - Wireframe, mockups, logo, and icons designed with - [Inkscape](https://inkscape.org/) <br>
 - Entity Relationship Diagram created with [dbdiagram](https://dbdiagram.io/) <br>
-- Readme design - [Art of README](https://github.com/noffle/art-of-readme#readme) and [Standard Readme](https://github.com/RichardLitt/standard-readme)
+- GIF screen recording - [screentogif](https://www.screentogif.com/) <br>
+- Readme design - [Art of README](https://github.com/noffle/art-of-readme#readme) and [Standard Readme](https://github.com/RichardLitt/standard-readme) <br>
 - Received help on the stacked bar charts from [Jamie Calder's codepen](https://codepen.io/jamiecalder/pen/NrROeB?editors=0010) <br>
