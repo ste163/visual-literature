@@ -55,25 +55,34 @@ npm start
 
 ## Usage
 1. Create writing projects and set word count goals <br>
-<br>
 
 ![Project Creation GIF](/readme-assets/readme_create.gif)
 <br>
 <br>
 
 2. Enter progress towards goals and specify whether you proofread, edited, or revised. <br>
-<br>
 
 ![Adding Progress GIF](/readme-assets/readme_progress.gif)
 <br>
 <br>
 
-3. View and sort progress with tables.
+3. View and sort progress with tables. <br>
+
+![Table view GIF](/readme-assets/readme_table.gif)
+<br>
+<br>
+
+4. Visualize progress with dashboards. <br>
+
 GIF
-4. Visualize progress with dashboards.
+<br>
+<br>
+
+5. Customize with settings. <br>
+
 GIF
-5. Customize with settings.
-GIF
+<br>
+<br>
 
 ## Technologies Used
 [React](https://reactjs.org/) v16.14.0 <br>
