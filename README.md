@@ -10,7 +10,7 @@
 - [Usage](#Usage)
 - [Technologies Used](#Technologies-Used)
 - [Roadmap](#Roadmap)
-- [Entity Relationship Diagram, Wireframe, and Mockups](#Entity-Relationship-Diagram-ERD-Wireframe-and-Mockups)
+- [Entity Relationship Diagram, Wireframe, and Mockup](#Entity-Relationship-Diagram-ERD-Wireframe-and-Mockup)
 - [Credits and Acknowledgements](#Credits-and-Acknowledgements)
 
 ## About
