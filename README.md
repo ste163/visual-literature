@@ -11,8 +11,8 @@
 - [Technologies Used](#Technologies-Used)
 - [Roadmap](#Roadmap)
 - [Entity Relationship Diagram](#Entity-Relationship-Diagram)
-- [Wireframe & Mockups](#Wireframe-&-Mockups)
-- [Credits & Acknowledgements](#Credits-&-Acknowledgements)
+- [Wireframe & Mockups](#Wireframe-&amp;-Mockups)
+- [Credits & Acknowledgements](#Credits-&amp;-Acknowledgements)
 
 ## About
 VISLIT came from my inability to easily manipulate the years worth of writing data I had accumulated. Excel worked great for keeping track of words written but was too cumbersome when I had multiple writing projects with different goals. VISLIT aims to make tracking, visualizing, and analyzing writing data easy.
@@ -56,33 +56,37 @@ npm start
 ## Usage
 1. Create writing projects and set word count goals <br>
 
-![Project Creation GIF](/readme-assets/readme_create.gif)
-<br>
-<br>
+    ![Project Creation GIF](/readme-assets/readme_create.gif)
+    <br>
+    <br>
 
 2. Enter progress towards goals and specify whether you proofread, edited, or revised. <br>
 
-![Adding Progress GIF](/readme-assets/readme_progress.gif)
-<br>
-<br>
+    ![Adding Progress GIF](/readme-assets/readme_progress.gif)
+    <br>
+    <br>
 
 3. View and sort progress with tables. <br>
+    - Sort by years and months you have progress for. <br>
 
-![Table view GIF](/readme-assets/readme_table.gif)
-<br>
-<br>
+    ![Table view GIF](/readme-assets/readme_table.gif)
+    <br>
+    <br>
 
 4. Visualize progress with dashboards. <br>
 
-![Dashboard view GIF](/readme-assets/readme_dashboard.gif)
-<br>
-<br>
+    ![Dashboard view GIF](/readme-assets/readme_dashboard.gif)
+    <br>
+    <br>
 
 5. Customize with settings. <br>
-
-![Settings menu GIF](/readme-assets/readme_settings.gif)
-<br>
-<br>
+    - Default view to show after login
+    - Default project to show
+    - Dark or light mode <br>
+    
+    ![Settings menu GIF](/readme-assets/readme_settings.gif)
+    <br>
+    <br>
 
 ## Technologies Used
 [React](https://reactjs.org/) v16.14.0 <br>
@@ -100,7 +104,7 @@ npm start
 ## Entity Relationship Diagram
 ![Entity Relationship Diagram](/readme-assets/readme_ERD.png)
 
-## Wireframe & Mockup
+## Wireframe & Mockups
 ### Initial wireframe
 ![Wireframe](/readme-assets/readme_wireframe.png) <br>
 ### Initial mockup
