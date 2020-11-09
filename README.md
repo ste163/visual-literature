@@ -10,7 +10,7 @@
 - [Usage](#Usage)
 - [Technologies Used](#Technologies-Used)
 - [Roadmap](#Roadmap)
-- [Entity Relationship Diagram, Wireframe, and Mockups](#Entity-Relationship-Diagram-(ERD)-Wireframe-and-Mockups)
+- [Entity Relationship Diagram, Wireframe, and Mockups](#Entity-Relationship-Diagram-ERD-Wireframe-and-Mockups)
 - [Credits and Acknowledgements](#Credits-and-Acknowledgements)
 
 ## About
@@ -101,8 +101,8 @@ npm start
 - Convert into an offline desktop application, using local storage (possibly by using [Electronjs](https://www.electronjs.org/))
 
 ## Entity Relationship Diagram (ERD), Wireframe, and Mockups
-| ERD | Wireframe | Mockup |
-| --- | --------- | ------ |
+|ERD |Wireframe |Mockup |
+| ------ | ------ | ------ |
 | ![Entity Relationship Diagram](/readme-assets/readme_ERD.png) | ![Wireframe](/readme-assets/readme_wireframe.png) | ![Mockup](/readme-assets/readme_mockup.png)
 
 ## Credits and Acknowledgements
