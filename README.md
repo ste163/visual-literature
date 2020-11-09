@@ -11,8 +11,8 @@
 - [Technologies Used](#Technologies-Used)
 - [Roadmap](#Roadmap)
 - [Entity Relationship Diagram](#Entity-Relationship-Diagram)
-- [Wireframe & Mockups](#Wireframe-&amp;-Mockups)
-- [Credits & Acknowledgements](#Credits-&amp;-Acknowledgements)
+- [Wireframe and Mockups](#Wireframe-and-Mockups)
+- [Credits and Acknowledgements](#Credits-and-Acknowledgements)
 
 ## About
 VISLIT came from my inability to easily manipulate the years worth of writing data I had accumulated. Excel worked great for keeping track of words written but was too cumbersome when I had multiple writing projects with different goals. VISLIT aims to make tracking, visualizing, and analyzing writing data easy.
@@ -80,9 +80,9 @@ npm start
     <br>
 
 5. Customize with settings. <br>
-    - Default view to show after login
-    - Default project to show
-    - Dark or light mode <br>
+    - Set default view to show after login
+    - Set default project to show
+    - Choose dark or light mode <br>
     
     ![Settings menu GIF](/readme-assets/readme_settings.gif)
     <br>
@@ -104,13 +104,13 @@ npm start
 ## Entity Relationship Diagram
 ![Entity Relationship Diagram](/readme-assets/readme_ERD.png)
 
-## Wireframe & Mockups
+## Wireframe and Mockups
 ### Initial wireframe
 ![Wireframe](/readme-assets/readme_wireframe.png) <br>
 ### Initial mockup
 ![Mockup](/readme-assets/readme_mockup.png)
 
-## Credits & Acknowledgements
+## Credits and Acknowledgements
 - Logo design and project name - [Shannon Swenton](https://www.etsy.com/uk/shop/theshanconnection) <br>
 - Wireframe, mockups, logo, and icons designed with - [Inkscape](https://inkscape.org/) <br>
 - Entity Relationship Diagram created with [dbdiagram](https://dbdiagram.io/) <br>
