@@ -10,7 +10,7 @@
       "id": 1,
       "userId": 1,
       "defaultView": "/projects",
-      "defaultProject": 1,
+      "defaultProject": 0,
       "colorMode": "light"
     }
   ],
@@ -943,6 +943,16 @@
       "edited": false,
       "proofread": true,
       "id": 87
+    },
+    {
+      "projectId": 1,
+      "userId": 1,
+      "dateEntered": "2020-11-09",
+      "wordsWritten": 387,
+      "revised": false,
+      "edited": false,
+      "proofread": false,
+      "id": 88
     }
   ]
 }

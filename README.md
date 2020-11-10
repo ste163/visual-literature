@@ -88,9 +88,9 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
     <br>
 
 ## Technologies Used
-[React](https://reactjs.org/) v16.14.0 <br>
-[chart.js](https://www.chartjs.org/) v2.9.4 <br>
-[date-fns](https://date-fns.org/) v2.16.1 <br>
+- [React](https://reactjs.org/) v16.14.0 <br>
+- [chart.js](https://www.chartjs.org/) v2.9.4 <br>
+- [date-fns](https://date-fns.org/) v2.16.1 <br>
 
 ## Roadmap
 - Improve UI/UX
