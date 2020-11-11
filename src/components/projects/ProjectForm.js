@@ -211,7 +211,6 @@ export const ProjectForm = props => {
                  required
                  autoFocus
                  />
-                 {/* Have a tooltip saying 500 words is about 1 single-spaced page */}
             </fieldset>
             
             <fieldset className="freq__radios">
