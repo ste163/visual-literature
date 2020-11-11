@@ -5,9 +5,6 @@ import { horizontalBar } from "../graphs/horizontalBar"
 import { wordCountLine } from "../graphs/wordCountLine"
 import Chart from 'chart.js'
 
-// Will include ALL progress checks
-// And display all data
-
 export const DashProgression = props => {
 
     // SETTINGS CONTEXT TO UPDATE PROG BAR COLOR ON DARK MODE
@@ -38,6 +35,7 @@ export const DashProgression = props => {
 
     // PROGRESS INFO, MUST USE A DEEP COPY OF PROGRESS
     // OR ELSE DATE SORTING OVERWRITES ALL PROGRESS
+    // DEEP COPY HAPPENS LATER IN CODE, in prepareDataForLineGraph()
     const incomingProgress = props.progress
 
     // REFS
@@ -178,6 +176,8 @@ export const DashProgression = props => {
         }
     }
 
+    // Run goal progress function and create charts. Update charts whenever progress or settings change
+    // Must have progressBarProgression in dependency array or bars won't generate or update
     useEffect(() => {
         checkGoalProgress()
         new Chart(progressBar.current, horizontalBar(progressBarProgression, progressBarXAxis));

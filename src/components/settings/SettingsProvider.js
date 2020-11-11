@@ -6,7 +6,6 @@ export const SettingsProvider = props => {
 
     const [ settings, setSettings ] = useState([])
 
-
     const addDefaultSettings = settingsObj => {
         return fetch("http://localhost:8088/settings/", {
             method: "POST",

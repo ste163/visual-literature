@@ -1,3 +1,4 @@
+// SVGs used in authentication view background
 import React from "react"
 
 export const AuthBackground = () => (

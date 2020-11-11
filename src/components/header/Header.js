@@ -10,6 +10,7 @@ import "./Header.css"
 
 export const Header = () => {
 
+    // To use history and location, need to store the invoked functions
     const history = useHistory()
     const location = useLocation()
 
@@ -24,10 +25,12 @@ export const Header = () => {
 
     const [currentLocation, setCurrentLocation] = useState(location.pathname)
 
+    // Re-render the header whenever the pathname in the URL changes
     useEffect(() => {
         setCurrentLocation(location.pathname)
     }, [location.pathname])
 
+    // Resets the nav underline when the mouse stops hovering 
     const navLineMouseLeave = () => {
         navLine.current.className = `${currentLocation.includes("/projects") ? "nav__line nav__line--projects" :
         currentLocation.includes("/dashboard") ? "nav__line nav__line--dashboard" : "nav__line nav__line--table"}`

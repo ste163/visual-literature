@@ -1,3 +1,4 @@
+// Creates the object argument for the Chart function with the passed in data arrays
 export const horizontalBar = (goalProgression, daysPerFrequency) => {
     const style = getComputedStyle(document.body)
     const progBarColor = style.getPropertyValue('--progressBar')

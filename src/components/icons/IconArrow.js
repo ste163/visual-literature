@@ -1,6 +1,10 @@
 import React from "react"
 import "./Icons.css"
 
+// To use any icon, need to pass in
+// a Color= with the value based on Icons.css
+// Other icons have different requirements, with values based on Icons.css
+
 export const IconArrow = props => (
     <svg className="icon__arrow" width="35" height="20" version="1.1" viewBox="0 0 9.2606 5.2918" xmlns="http://www.w3.org/2000/svg">
         <title>Arrow Icon</title>

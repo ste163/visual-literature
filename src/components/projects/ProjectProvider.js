@@ -12,6 +12,9 @@ export const ProjectProvider = props => {
         .then(setProject)
     }
 
+    // Get projects WITHOUT updating state.
+    // This way we are able to use the response data immediately.
+    // The use case for this in-app will never need state.
     const getProjectsWithoutStateUpdate = userId => {
         return fetch(`http://localhost:8088/projects/?userId=${userId}&_expand=type`)
         .then(response => response.json())

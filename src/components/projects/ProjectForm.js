@@ -7,6 +7,7 @@ import "./ProjectForm.css"
 
 export const ProjectForm = props => {
 
+    // Store the project we can edit, if we have one
     const editableProject = props.props
     const userId = +sessionStorage.getItem("userId")
 
@@ -43,6 +44,7 @@ export const ProjectForm = props => {
     const [ isFreqActive, setIsFreqActive ] = useState(false)
     const [ isLoading, setIsLoading ] = useState(true)
 
+    // Check on load and when projects change, if we have an editable project or not
     useEffect(() => {
             if (editableProject) {
                 setProject(editableProject)

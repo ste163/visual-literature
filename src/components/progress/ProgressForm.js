@@ -8,6 +8,8 @@ export const ProgressForm = project => {
     // Get the current project being passed in.
     let passedInProject
 
+    // Store the value of whatever project we're passing in
+    // based on where it's being based in from
     if (project.project.project === undefined) {
         passedInProject = project.project
     } else {
@@ -25,6 +27,7 @@ export const ProgressForm = project => {
     const wordsModal = useRef()
   
     const userId = +sessionStorage.getItem("userId")
+
     // Set default progress so form can reset when needed.
     const defaultProgress = {
         projectId,
@@ -85,7 +88,7 @@ export const ProgressForm = project => {
 
     }
 
-    const filterCurrentDate = (dateValue) => {
+    const filterCurrentDate = dateValue => {
         // Check if the entered date is in the passed in progress
         const foundProgress = progress.filter(progress => progress.dateEntered === dateValue)
 
@@ -129,6 +132,7 @@ export const ProgressForm = project => {
         constructNewProgress(e)
     }
 
+    // Modal warning content 
     const DeleteWarning = () => (
         <>
         <h2 className="modal__warning">Warning</h2>
@@ -147,6 +151,7 @@ export const ProgressForm = project => {
         </>
     )
 
+    // Modal warning content 
     const ZeroWordsWritten = () => (
         <>
         <h2 className="modal__warning">Warning</h2>

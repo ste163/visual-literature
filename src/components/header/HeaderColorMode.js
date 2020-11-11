@@ -1,3 +1,4 @@
+// Change CSS property values on the :root for light & dark mode
 export const HeaderColorMode = () => {
     const root = document.documentElement.style
     const colorMode = sessionStorage.getItem('colorMode')

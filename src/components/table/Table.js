@@ -2,6 +2,7 @@ import React from "react"
 import { LinkDashboard } from "./LinkDashboard"
 import "./Table.css"
 
+// Generates the table based on passed in progress
 export const Table = props => {
 
     const incomingProject = props.props
