@@ -17,13 +17,13 @@ export const SettingsProvider = props => {
         })
     }
 
-    const getSettings = (userId) => {
+    const getSettings = userId => {
         return fetch(`http://localhost:8088/settings?userId=${userId}`)
         .then(response => response.json())
         .then(setSettings)
     }
 
-    const getSettingsOnLogin = (userId) => {
+    const getSettingsOnLogin = userId => {
         return fetch(`http://localhost:8088/settings?userId=${userId}`)
         .then(response => response.json())
     }
