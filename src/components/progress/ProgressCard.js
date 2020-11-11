@@ -7,9 +7,15 @@ import { horizontalBar } from "../graphs/horizontalBar"
 import Chart from 'chart.js'
 import "./ProgressCard.css"
 
-export const ProgressCard = (project) => {
+export const ProgressCard = project => {
 
+    // Store the currently passed in progress
     const progress = project.progress
+
+    // Store passed in project info
+    const wordCountGoal = project.project.wordCountGoal
+    const goalFrequency = project.project.goalFrequency
+    const daysPerFrequency = project.project.daysPerFrequency
 
     const { settings } = useContext(SettingsContext)
 
@@ -20,15 +26,13 @@ export const ProgressCard = (project) => {
     const progressModal = useRef()
     const progressBar = useRef()
 
+    // Dates
     const currentDate = new Date()
     const convertedToISO = currentDate.toISOString().slice(0,10)
     const removeTimeFromDate = new Date(`${convertedToISO} 00:00:00`)
     const todaysDate = removeTimeFromDate.toISOString().slice(0,10)
 
-    const wordCountGoal = project.project.wordCountGoal
-    const goalFrequency = project.project.goalFrequency
-    const daysPerFrequency = project.project.daysPerFrequency
-
+    // Check all progress and generate graph data & progress text
     const checkGoalProgress = () => {
         switch(goalFrequency) {
             case "daily":
@@ -127,7 +131,8 @@ export const ProgressCard = (project) => {
                 break;
         }
     }
-
+    
+    // Re-render charts based on changes to progress, settings, or checkGoalProgress changes
       useEffect(() => {
           new Chart(progressBar.current, horizontalBar(goalProgression, daysPerFrequency));
           checkGoalProgress()

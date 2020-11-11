@@ -3,6 +3,8 @@ import { SettingsContext } from "../settings/SettingsProvider"
 import { ProjectContext } from "../projects/ProjectProvider"
 import { HeaderColorMode } from "./HeaderColorMode"
 
+// Create the heading form to be passed into the modal
+
 export const HeaderSettings = () => {
 
     // Default settings from session storage
@@ -29,6 +31,7 @@ export const HeaderSettings = () => {
         setCurrentSettings(newSetting)
     }
 
+    // Needed to populate the drop-downs and set colors
     useEffect(() => {
         getProjects(userId)
         .then(() => {
@@ -37,7 +40,8 @@ export const HeaderSettings = () => {
         })
     }, [])
 
-    // Wait for state to change, then update
+    // Wait for any settings to change, then re-run this code
+    // saving the new settings, storing the values in storage, and re-running the color mode script
     useEffect(() => {
         if (settings[0] !== undefined) {
             updateSettings({

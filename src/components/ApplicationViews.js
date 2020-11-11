@@ -18,7 +18,7 @@ export const ApplicationViews = () => {
     <> 
         <ProjectProvider>
             <SettingsProvider>
-                
+                {/* Header only needs setting and project provider, doesn't use progress or type */}
                 <Header />
 
                 <TypeProvider>
@@ -52,7 +52,7 @@ export const ApplicationViews = () => {
                 </TypeProvider>
             </SettingsProvider>
         </ProjectProvider>
-        
+        {/* Footer uses no providers */}
         <Footer />
     </>
     )

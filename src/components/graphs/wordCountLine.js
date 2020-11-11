@@ -1,3 +1,4 @@
+// Creates the object argument for the Chart function with the passed in data arrays
 export const wordCountLine = (progressDateLabels, progressWordsWritten) => {
     return {
        type: 'line',

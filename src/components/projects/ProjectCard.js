@@ -7,10 +7,6 @@ import { IconTable } from "../icons/IconTable"
 import { DotMenu } from "./ProjectDotMenu"
 import "./ProjectCard.css"
 
-// To get the colors to change on icon hover,
-// will need an on mouseEnter and on mouseLeave event
-// That changes the color class.
-
 export const ProjectCard = ({project}) => {
     
     const dotMenu = useRef()

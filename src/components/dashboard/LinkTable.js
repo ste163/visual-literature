@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "react-router-dom"
 import { IconTable } from "../icons/IconTable"
 
+// Create link to table button for dashboard
 export const LinkTable = props => (
     <Link to={`/table/${props.props}`}>
         <button className="btn"

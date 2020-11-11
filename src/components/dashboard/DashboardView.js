@@ -26,15 +26,17 @@ export const DashboardView = () => {
     const { projectId } = useParams()
 
     const { getTypes } = useContext(TypeContext)
-    const { getProjectsWithoutStateUpdate, getProjectByParam } = useContext(ProjectContext)
-    const { progress, getProgressByProjectId, getProgressByUserId } = useContext(ProgressContext)
+    const { getProjectsWithoutStateUpdate } = useContext(ProjectContext)
+    const { progress, getProgressByProjectId } = useContext(ProgressContext)
     const { settings } = useContext(SettingsContext)
     
+    // Use states for projects and progress we fetch
     const [ retrievedProjects, setRetrievedProjects ] = useState()
     const [ currentProject, setCurrentProject ] = useState()
     const [ currentProgress, setCurrentProgress ] = useState([])
 
-    // DROP-DOWN CODE FROM TABLEVIEW 
+
+    //// DROP-DOWN CODE FROM TABLE VIEW 
     // STATES FOR SORTING
     const [ progressYearOptions, setProgressYearOptions ] = useState([])
     const [ progressSortedYearly, setProgressSortedYearly ] = useState([])
@@ -138,7 +140,7 @@ export const DashboardView = () => {
             }
         }
     }
-    // END DROP-DOWN CODE FROM TABLEVIEW
+    //// END DROP-DOWN CODE FROM TABLE VIEW
 
     const displayProject = () => {
         // If we have progress, set state
@@ -149,11 +151,13 @@ export const DashboardView = () => {
         }
     }
 
+    // Run code when a project drop-down item is selected
     const selectProject = e => {
         const bySelectedProject = retrievedProjects.find(project => project.id === +e.target.value)
         setCurrentProject(bySelectedProject)
     }
 
+    // Fetch projects & progress on load AND when settings change
     useEffect(() => {
         getTypes()
         .then(() => {
@@ -175,11 +179,12 @@ export const DashboardView = () => {
         })
     }, [settings])
 
+    // Whenever progress changes, re-update our selected project
     useEffect(() => {
         displayProject()
     }, [progress])
 
-    // USEEFFECTS FROM TABLEVIEW
+    //// USE EFFECTS FROM TABLE VIEW
         // When user selects from drop down, get progress for selection
         useEffect(() => {
             if (currentProject !== undefined) {

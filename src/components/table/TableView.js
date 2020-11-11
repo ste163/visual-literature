@@ -300,6 +300,7 @@ export const TableView = () => {
         <section className="view__container">
             <div className="table__container">
                 {
+                    // Check to see if we have projects, progress, and what we have selected from the drop-downs
                     currentProject === undefined ? <NoDefaultCard/> : 
                         progress.length === 0 ? 
                         <>

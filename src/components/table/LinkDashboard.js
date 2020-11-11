@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "react-router-dom"
 import { IconGraph } from "../icons/IconGraph"
 
+// Button that links to the dashboard
 export const LinkDashboard = props => (
     <Link to={`/dashboard/${props.props}`}>
         <button className="btn"

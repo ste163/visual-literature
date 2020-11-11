@@ -1,6 +1,7 @@
 import React from "react"
 import { LinkTable } from "./LinkTable"
 
+// Create summary card for dashboard
 export const DashTitleCard = props => (
     <section className="card card__color--white card__dash card__dash--title">
         <h2 className="dash__h2">{props.props.name}</h2>

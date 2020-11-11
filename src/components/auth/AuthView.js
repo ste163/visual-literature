@@ -13,6 +13,7 @@ export const AuthView = props => {
     // If logging out with dark mode active, this resets colors to white 
     HeaderColorMode()
     
+    // Get references for all of the elements that will change
     const usernameLogin = useRef()
     const usernameRegister = useRef()
     const existDialog = useRef()
@@ -22,12 +23,11 @@ export const AuthView = props => {
     const loginBtn = useRef()
     const registerBtn = useRef()
 
-    // To allow for the nav underline to move,
-    // target it by useRef
+    // To allow for the nav underline to move, target it by useRef
     const underline = useRef()
     const [activeBtn, setBtn] = useState(true)
 
-    // Create default settings for user, or load user's settings
+    // Create default settings for user or load user's settings
     const { settings, getSettingsOnLogin, addDefaultSettings } = useContext(SettingsContext)
 
     // Fetch for only login field
@@ -105,6 +105,7 @@ export const AuthView = props => {
             })
     }
 
+    // Content for warning modal
     const ExistDialog = () => (
         <>
             <h2 className="modal__warning">Warning</h2>
@@ -116,6 +117,7 @@ export const AuthView = props => {
         </>
     )
 
+    // Content for warning modal
     const ConflictDialog = () => (
         <>
             <h2 className="modal__warning">Warning</h2>
@@ -212,7 +214,6 @@ export const AuthView = props => {
                         </form>
                     </section>
                 </section>
-                
             </div>
 
         </main>
