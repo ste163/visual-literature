@@ -93,6 +93,9 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 - [date-fns](https://date-fns.org/) v2.16.1 <br>
 
 ## Roadmap
+- Notes/Tasks section for taking project-specific notes
+    - Dashboard and Table section to show latest/all notes
+- More organization on projects view (completed, currently writing, older/etc.)
 - Improve UI/UX
 - Sort data by multiple months, one full year, and all time
 - On dashboard, able to visualize an entire project's progress
