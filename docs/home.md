@@ -6,15 +6,6 @@
 ## About
 VISLIT came from my inability to easily manipulate the years worth of writing data I had accumulated. Excel worked great for keeping track of words written but was too cumbersome when I had multiple writing projects with different goals. VISLIT aims to make tracking, visualizing, and analyzing writing data easy.
 
-### Built with
-[React](https://reactjs.org/)
-
-## Usage
-
-4. Visualize progress with dashboards. <br>
-
-    ![Dashboard view GIF](/readme-assets/readme_dashboard.gif)
-
 ## Technologies Used
 - [React](https://reactjs.org/) v16.14.0 <br>
 - [chart.js](https://www.chartjs.org/) v2.9.4 <br>

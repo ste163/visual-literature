@@ -14,7 +14,7 @@ Users are able to set:
     
 ![Project Creation GIF](/project-view_create.gif)
 
-## Adding/Editing progress
+## Adding and editing progress
 Users add progress to projects by clicking on the created project.
 Users can:
 - select day the writing occurred
