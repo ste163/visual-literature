@@ -12,11 +12,6 @@ VISLIT came from my inability to easily manipulate the years worth of writing da
 - [date-fns](https://date-fns.org/) v2.16.1 <br>
 - [docsify.js](https://docsify.js.org) v4.11.6 <br>
 
-## Entity Relationship Diagram (ERD), Wireframe, and Mockup
-|ERD |Wireframe |Mockup |
-| ------ | ------ | ------ |
-| ![Entity Relationship Diagram](/readme-assets/readme_ERD.png) | ![Wireframe](/readme-assets/readme_wireframe.png) | ![Mockup](/readme-assets/readme_mockup.png)
-
 ## Credits and Acknowledgements
 - Logo design and project name - [Shannon Swenton](https://www.etsy.com/uk/shop/theshanconnection) <br>
 - Wireframe, mockups, logo, and icons designed with - [Inkscape](https://inkscape.org/) <br>
