@@ -7,13 +7,13 @@
 ## Table of Contents
 - [About](#About)
 - [Installation](#Installation)
-- [Usage](#Usage)
 - [Technologies Used](#Technologies-Used)
-- [Roadmap](#Roadmap)
 - [Entity Relationship Diagram, Wireframe, and Mockup](#Entity-Relationship-Diagram-ERD-Wireframe-and-Mockup)
 - [Credits and Acknowledgements](#Credits-and-Acknowledgements)
 
 ## About
+>For in-depth application use, visit [Visual Literature's website](https://ste163.github.io/visual-literature/).
+
 VISLIT came from my inability to easily manipulate the years worth of writing data I had accumulated. Excel worked great for keeping track of words written but was too cumbersome when I had multiple writing projects with different goals. VISLIT aims to make tracking, visualizing, and analyzing writing data easy.
 
 ### Built with
@@ -52,56 +52,13 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 5. Once VISLIT has started, you may login as ```Author123``` to view demo data or create a new account.
 
-## Usage
-1. Create writing projects and set word count goals <br>
-
-    ![Project Creation GIF](/readme-assets/readme_create.gif)
-    <br>
-    <br>
-
-2. Enter progress towards goals and specify whether you proofread, edited, or revised. <br>
-
-    ![Adding Progress GIF](/readme-assets/readme_progress.gif)
-    <br>
-    <br>
-
-3. View and sort progress with tables. <br>
-    - Sort by years and months you have progress for. <br>
-
-    ![Table view GIF](/readme-assets/readme_table.gif)
-    <br>
-    <br>
-
-4. Visualize progress with dashboards. <br>
-
-    ![Dashboard view GIF](/readme-assets/readme_dashboard.gif)
-    <br>
-    <br>
-
-5. Customize with settings. <br>
-    - Set default view to show after login.
-    - Set default project to load.
-    - Choose light or dark mode. <br>
-    
-    ![Settings menu GIF](/readme-assets/readme_settings.gif)
-    <br>
-    <br>
 
 ## Technologies Used
 - [React](https://reactjs.org/) v16.14.0 <br>
 - [chart.js](https://www.chartjs.org/) v2.9.4 <br>
 - [date-fns](https://date-fns.org/) v2.16.1 <br>
+- [docsify.js](https://docsify.js.org/) v4.11.6 <br>
 
-## Roadmap
-- Notes/Tasks section for taking project-specific notes
-    - Dashboard and Table section to show latest/all notes
-- More organization on projects view (completed, currently writing, older/etc.)
-- Improve UI/UX
-- Sort data by multiple months, one full year, and all time
-- On dashboard, able to visualize an entire project's progress
-- More data visualizations
-- More indicators on goal progression
-- Convert into an offline desktop application, using local storage (possibly by using [Electronjs](https://www.electronjs.org/))
 
 ## Entity Relationship Diagram (ERD), Wireframe, and Mockup
 |ERD |Wireframe |Mockup |
