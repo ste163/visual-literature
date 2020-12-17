@@ -1,1 +1,11 @@
 # Roadmap
+- Convert into an offline desktop application using [Electronjs](https://www.electronjs.org/)
+- Lowdb for storage [lowdb](https://github.com/typicode/lowdb)
+- Notes/Tasks section for taking project-specific notes
+    - Dashboard and Table section to show latest/all notes
+- More organization on projects view (completed, currently writing, older/etc.)
+- Improve UI/UX
+- Sort data by multiple months, one full year, and all time
+- On dashboard, able to visualize an entire project's progress
+- More data visualizations
+- More indicators on goal progression
