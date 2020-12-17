@@ -1,6 +1,6 @@
 # Project View
 
-## Create a project
+## Creating a project
 Users are able to set:
 - Project name
 - Project type

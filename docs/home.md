@@ -11,27 +11,9 @@ VISLIT came from my inability to easily manipulate the years worth of writing da
 
 ## Usage
 
-3. View and sort progress with tables. <br>
-    - Sort by years and months you have progress for. <br>
-
-    ![Table view GIF](/readme-assets/readme_table.gif)
-    <br>
-    <br>
-
 4. Visualize progress with dashboards. <br>
 
     ![Dashboard view GIF](/readme-assets/readme_dashboard.gif)
-    <br>
-    <br>
-
-5. Customize with settings. <br>
-    - Set default view to show after login.
-    - Set default project to load.
-    - Choose light or dark mode. <br>
-    
-    ![Settings menu GIF](/readme-assets/readme_settings.gif)
-    <br>
-    <br>
 
 ## Technologies Used
 - [React](https://reactjs.org/) v16.14.0 <br>

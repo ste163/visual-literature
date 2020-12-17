@@ -5,5 +5,6 @@
     * [Table View](user-guide/table-view.md)
     * [Dashboard View](user-guide/dashboard-view.md)
     * [Notes View](user-guide/notes-view.md)
+    * [Settings Menu](user-guide/settings-menu.md)
     * [Managing Data](user-guide/data.md)
 * [Roadmap](roadmap/roadmap.md)
