@@ -17,7 +17,7 @@
 VISLIT came from my inability to easily manipulate the years worth of writing data I had accumulated. Excel worked great for keeping track of words written but was too cumbersome when I had multiple writing projects with different goals. VISLIT aims to make tracking, visualizing, and analyzing writing data easy.
 
 ### Built with
-<a href="https://reactjs.org/" target=target="_blank">React</a>
+<a href="https://reactjs.org/" target="_blank">React</a>
 
 ## Installation
 
