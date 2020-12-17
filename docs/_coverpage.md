@@ -9,5 +9,5 @@
 
 - [FLOSS](https://en.wikipedia.org/wiki/Free_and_open-source_software#FLOSS), offline desktop application for Windows, Mac, Linux
 
-[GitHub](https://github.com/ste163/visual-literature)
-[Get Started](#visual-literature-VISLIT)
+[Source Code on GitHub](https://github.com/ste163/visual-literature)
+[Learn more](#visual-literature)
