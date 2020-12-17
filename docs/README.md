@@ -4,52 +4,11 @@
 
 ![VISLIT Overview GIF](/assets/overview_vl.gif)
 
-## Table of Contents
-- [About](#About)
-- [Installation](#Installation)
-- [Usage](#Usage)
-- [Technologies Used](#Technologies-Used)
-- [Entity Relationship Diagram, Wireframe, and Mockup](#Entity-Relationship-Diagram-ERD-Wireframe-and-Mockup)
-- [Credits and Acknowledgements](#Credits-and-Acknowledgements)
-
 ## About
 VISLIT came from my inability to easily manipulate the years worth of writing data I had accumulated. Excel worked great for keeping track of words written but was too cumbersome when I had multiple writing projects with different goals. VISLIT aims to make tracking, visualizing, and analyzing writing data easy.
 
 ### Built with
 [React](https://reactjs.org/)
-
-## Installation
-
-### Prerequisites
-- [json-server](https://github.com/typicode/json-server) to use database.
-
-### Install
-1. ```git clone``` repo and ```cd``` into it.
-    ```
-    git clone git@github.com:ste163/visual-literature.git
-    cd visual-literature
-    ```
-
-2. Run ```npm install``` to install all required dependencies.
-    ```
-    npm install
-    ```
-
-3. ```cd``` into the api directory and start ```json-server``` on port 8088, watching database.json<br>
-```json-server``` must be running to use VISLIT.
-    ```
-    cd api/
-    json-server -p 8088 -w database.json
-    ```
-
-4. In a new terminal window, in the visual-literature directory, run ```npm start```.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-    ```
-    npm start
-    ```
-
-
-5. Once VISLIT has started, you may login as ```Author123``` to view demo data or create a new account.
 
 ## Usage
 1. Create writing projects and set word count goals <br>
