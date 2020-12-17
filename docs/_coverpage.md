@@ -11,5 +11,7 @@
 - Windows, Mac, Linux
 - Stores data in JSON for easy backup and restore
 
-[GitHub](https://github.com/docsifyjs/docsify/)
-[Get Started](#docsify)
+![color](#fafafa)
+
+[GitHub](https://github.com/ste163/visual-literature)
+[Get Started](#visual-literature-VISLIT)
