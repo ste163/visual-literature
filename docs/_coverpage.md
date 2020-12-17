@@ -10,4 +10,4 @@
 - [FLOSS](https://en.wikipedia.org/wiki/Free_and_open-source_software#FLOSS), offline desktop application for Windows, Mac, Linux
 
 [Source Code on GitHub](https://github.com/ste163/visual-literature)
-[Learn more](/README)
+[Learn more](/home)

@@ -1,4 +1,3 @@
-![VISLIT Logo](/assets/title_vl.svg)
 # Visual Literature
 >Track, visualize, and analyze progress on writing projects. 
 
