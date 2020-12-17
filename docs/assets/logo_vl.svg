@@ -1,0 +1,6 @@
+<svg width="194" height="183" version="1.1" viewBox="0 0 51.329 48.419" xmlns="http://www.w3.org/2000/svg">
+ <path id="line__l" d="m44.941 41.869-13.781 0.094461-9.6036-35.841" style="fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:4.6826;stroke:#171717"/>
+ <path id="line__v" d="m2.4641 23.852 8.2435 18.112 9.6036-35.841" style="fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:4.6826;stroke:#76cdc7"/>
+ <circle id="dot_v" cx="21.014" cy="6.8446" r="4.3967" style="fill:#f6f6f6;stroke-linecap:round;stroke-linejoin:round;stroke-width:4.6826;stroke:#76cdc7"/>
+ <circle id="dot_l" cx="44.468" cy="41.574" r="4.3967" style="fill:#f6f6f6;stroke-linecap:round;stroke-linejoin:round;stroke-width:4.6826;stroke:#171717"/>
+</svg>

@@ -1,8 +1,8 @@
-![VISLIT Logo](/readme-assets/readme_logo-title.svg)
+![VISLIT Logo](/assets/title_vl.svg)
 # Visual Literature (VISLIT)
 >Track, visualize, and analyze progress on writing projects. 
 
-![VISLIT Overview GIF](/readme-assets/readme_overview.gif)
+![VISLIT Overview GIF](/assets/overview_vl.gif)
 
 ## Table of Contents
 - [About](#About)

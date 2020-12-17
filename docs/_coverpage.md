@@ -1,17 +1,13 @@
 <!-- _coverpage.md -->
 
 <!-- ANIMATED VL Logo -->
-![Visual Literature Logo](_media/icon.svg)
+![Visual Literature Logo](assets/logo_vl.svg)
 <!-- SMALLER VISLIT Logo -->
-# Visual Literature <small>in development</small>
+# Visual Literature (VISLIT)<small>in development</small>
 
->Track, visualize, and analyze progress on writing projects. 
+>Track, visualize, and analyze progress on writing projects
 
-- Offline desktop application for
-- Windows, Mac, Linux
-- Stores data in JSON for easy backup and restore
-
-![color](#fafafa)
+- [FLOSS](https://en.wikipedia.org/wiki/Free_and_open-source_software#FLOSS), offline desktop application for Windows, Mac, Linux
 
 [GitHub](https://github.com/ste163/visual-literature)
 [Get Started](#visual-literature-VISLIT)
