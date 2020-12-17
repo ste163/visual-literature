@@ -10,6 +10,7 @@ VISLIT came from my inability to easily manipulate the years worth of writing da
 - [React](https://reactjs.org/) v16.14.0 <br>
 - [chart.js](https://www.chartjs.org/) v2.9.4 <br>
 - [date-fns](https://date-fns.org/) v2.16.1 <br>
+- [docsify.js](https://docsify.js.org) v4.11.6 <br>
 
 ## Entity Relationship Diagram (ERD), Wireframe, and Mockup
 |ERD |Wireframe |Mockup |
