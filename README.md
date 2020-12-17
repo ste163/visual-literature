@@ -12,17 +12,17 @@
 - [Credits and Acknowledgements](#Credits-and-Acknowledgements)
 
 ## About
->For in-depth application use, visit [Visual Literature's website](https://ste163.github.io/visual-literature/){:target="_blank"}.
+>For in-depth application use, visit [Visual Literature's website](https://ste163.github.io/visual-literature/).
 
 VISLIT came from my inability to easily manipulate the years worth of writing data I had accumulated. Excel worked great for keeping track of words written but was too cumbersome when I had multiple writing projects with different goals. VISLIT aims to make tracking, visualizing, and analyzing writing data easy.
 
 ### Built with
-<a href="https://www.reactjs.org/" target="_blank">React</a>
+[React](https://reactjs.org/)
 
 ## Installation
 
 ### Prerequisites
-- [json-server](https://github.com/typicode/json-server){:target="_blank"} to use database.
+- [json-server](https://github.com/typicode/json-server) to use database.
 
 ### Install
 1. ```git clone``` repo and ```cd``` into it.
@@ -54,10 +54,10 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 
 ## Technologies Used
-- [React](https://reactjs.org/){:target="_blank"} v16.14.0 <br>
-- [chart.js](https://www.chartjs.org/){:target="_blank"} v2.9.4 <br>
-- [date-fns](https://date-fns.org/){:target="_blank"} v2.16.1 <br>
-- [docsify.js](https://docsify.js.org/){:target="_blank"} v4.11.6 <br>
+- [React](https://reactjs.org/) v16.14.0 <br>
+- [chart.js](https://www.chartjs.org/) v2.9.4 <br>
+- [date-fns](https://date-fns.org/) v2.16.1 <br>
+- [docsify.js](https://docsify.js.org/) v4.11.6 <br>
 
 
 ## Entity Relationship Diagram (ERD), Wireframe, and Mockup
@@ -66,9 +66,9 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 | ![Entity Relationship Diagram](/readme-assets/readme_ERD.png) | ![Wireframe](/readme-assets/readme_wireframe.png) | ![Mockup](/readme-assets/readme_mockup.png)
 
 ## Credits and Acknowledgements
-- Logo design and project name - [Shannon Swenton](https://www.etsy.com/uk/shop/theshanconnection){:target="_blank"} <br>
-- Wireframe, mockups, logo, and icons designed with - [Inkscape](https://inkscape.org/){:target="_blank"} <br>
-- Entity Relationship Diagram created with [dbdiagram](https://dbdiagram.io/){:target="_blank"} <br>
-- GIF screen recording - [screentogif](https://www.screentogif.com/){:target="_blank"} <br>
-- Readme design - [Art of README](https://github.com/noffle/art-of-readme#readme){:target="_blank"} and [Standard Readme](https://github.com/RichardLitt/standard-readme){:target="_blank"} <br>
-- Received help on the stacked bar charts from [Jamie Calder's codepen](https://codepen.io/jamiecalder/pen/NrROeB?editors=0010){:target="_blank"} <br>
+- Logo design and project name - [Shannon Swenton](https://www.etsy.com/uk/shop/theshanconnection) <br>
+- Wireframe, mockups, logo, and icons designed with - [Inkscape](https://inkscape.org/) <br>
+- Entity Relationship Diagram created with [dbdiagram](https://dbdiagram.io/) <br>
+- GIF screen recording - [screentogif](https://www.screentogif.com/) <br>
+- Readme design - [Art of README](https://github.com/noffle/art-of-readme#readme) and [Standard Readme](https://github.com/RichardLitt/standard-readme) <br>
+- Received help on the stacked bar charts from [Jamie Calder's codepen](https://codepen.io/jamiecalder/pen/NrROeB?editors=0010) <br>
