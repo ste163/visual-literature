@@ -10,17 +10,6 @@ VISLIT came from my inability to easily manipulate the years worth of writing da
 [React](https://reactjs.org/)
 
 ## Usage
-1. Create writing projects and set word count goals <br>
-
-    ![Project Creation GIF](/readme-assets/readme_create.gif)
-    <br>
-    <br>
-
-2. Enter progress towards goals and specify whether you proofread, edited, or revised. <br>
-
-    ![Adding Progress GIF](/readme-assets/readme_progress.gif)
-    <br>
-    <br>
 
 3. View and sort progress with tables. <br>
     - Sort by years and months you have progress for. <br>
